@@ -10,17 +10,56 @@ class Button extends Elemento implements IEditable, IRenderizable
 
     public $funcion;
     public $text;
-    private $programa;
+    public $programa;
 
-    public function __construct($id, $modo, $text = "", $funcion = null, $padre, $programa, $estilo)
+    public function __construct($id, $modo, $text, $funcion, $padre, $programa, $estilo)
     {
         $html = "<button type='button'>$text</button>";
+        $this->text = $text;
+        $this->funcion = $funcion;
+
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct($id, $modo, $padre, $programa, $html, $estilo);
 
-        $this->text = $text;
-        $this->funcion = $funcion;
+    }
+
+    /*
+        patron de diseño para crear un boton con modo creado, el cual con el propio boton
+        y evitar dependencia circular
+    */
+    public static function crear($id, $text, $funcion, $padre, $programa, $estilo)
+    {
+        // Crea el botón
+        $boton = new self(
+            $id,
+            null,
+            $text,
+            $funcion,
+            $padre,
+            $programa,
+            $estilo
+        );
+
+
+        $modoPadre = null;
+        if ($padre != null) {
+            $modoPadre = $padre->modo;
+        }
+        // Crea el modo, inyectando el botón en el constructor
+        $modo = new Modo($modoPadre, $boton);
+
+        // Asigna el modo al botón
+        $boton->setModo($modo);
+        return $boton;
+    }
+
+    /*
+        funcion auxiliar para la factory
+    */
+    public function setModo($modo)
+    {
+        $this->modo = $modo;
     }
 
     /*

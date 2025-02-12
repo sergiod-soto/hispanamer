@@ -17,7 +17,9 @@ class Modo
     {
         $this->elemento = $elemento;
         $this->modos = [];
-        $modoPadre->addModo($this);        // anhado este modo al modo padre
+        if ($modoPadre != null) {
+            $modoPadre->addModo($this);        // anhado este modo al modo padre
+        }
         $this->enEdicion = false;
     }
 

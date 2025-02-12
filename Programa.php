@@ -46,7 +46,9 @@ class Programa extends Modo implements IRenderizable
     public function getNewIdElemento()
     {
         $newId = count($this->elementos);
-
+        if ($newId == 0) {
+            return 0;
+        }
         for ($i = 0; $i < $this->elementos; $i++) {
             if ($this->elementos[$i] == null) {
                 return $i;
@@ -121,17 +123,22 @@ class Programa extends Modo implements IRenderizable
 
 $programa = new Programa();
 
-//$id, $visible = true, $modo, $text = "", $funcion = null, $padre, $programa, $estilo
 
-$botonAceptar = new Button(
+
+//............................................
+// agregamos un boton
+$botonAceptar = Button::crear(
     $programa->getNewIdElemento(),
-    new Modo(null, $botonAceptar),
     "Aceptar",
     null,
     null,
     $programa,
     null,
 );
+//............................................
+
+
+
 
 $titulo = "Titulo";
 

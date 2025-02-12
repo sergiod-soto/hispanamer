@@ -1,5 +1,10 @@
 <?php
 
+// class autoloader
+spl_autoload_register(function ($class_name) {
+    include $class_name . '.php';
+});
+
 /*
  *   un elemento es un objeto abstracto. puede ser desde una caja de escritura o
  *   un icono, hasta un cuadrado divisor.
@@ -16,7 +21,7 @@ abstract class Elemento
 
     public $programa;
 
-    function __construct($id, $modo = null, $elementoPadre, $programa, $html, $estilo)
+    function __construct($id, $modo, $elementoPadre, $programa, $html, $estilo)
     {
         $this->id = $id;
         $this->visible = true;      // por defecto es visible
@@ -28,10 +33,7 @@ abstract class Elemento
         // falta para propagar la edicion a los elementos hijos
     }
 
-    abstract function hide();
-    abstract function show();
+    abstract public function hide();
+    abstract public function show();
 }
-
-
-
 ?>
