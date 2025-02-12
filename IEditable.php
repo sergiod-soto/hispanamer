@@ -8,5 +8,4 @@ interface IEditable
     public function setEditableOff();
     public function setEditableOn();
 }
-
 ?>

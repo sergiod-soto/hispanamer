@@ -4,14 +4,13 @@
 
 require_once "Modo.php";
 
-//
-//namespace framework;
+
 
 /*
  *  el elemento mas basico. solo hay uno y contiene
  *  dentro todos los elementos que lo conforman
  */
-class Programa extends Modo
+class Programa extends Modo implements IRenderizable
 {
 
     public $conexion;           // conexion a la base de datos
@@ -19,9 +18,11 @@ class Programa extends Modo
     public $elementos;          // gestion de los elementos 
     public $estilo;             // estilo del programa     
     public $html;               // html de la pagina del programa
+    public $titulo;             // titulo que aparece en la pestanha del navegador
 
     public function __construct()
     {
+        $this->titulo = "mi primer programa";
         $this->cookies = [];
         $this->elementos = [];
         $this->html =
@@ -30,7 +31,7 @@ class Programa extends Modo
                 <html lang="es">
                 <head>
                     <meta charset="UTF-8">
-                    <title>Mi Página2</title>
+                    <title>' . $this->titulo . '</title>
                 </head>
                 <body>
                     <h1>Hola, mundo</h1>
@@ -42,22 +43,14 @@ class Programa extends Modo
     //..........................................................................
     //..........................................................................
 
+
+
+    //..........................................................................
+    //..........................................................................
+
     /*
-       Metodo especial. Es el encargado de materializar
-       el programa en una pagina.
-
-       La funcionalidad de este metodo deberia dejarse lo 
-       mas simple posible, dejando que el resto del programa
-       modifique el html y este metodo simplemente lo renderice
+        suministra un id valido al elemento que lo solicite
     */
-    public function Main()
-    {
-        echo ($this->html);
-    }
-
-    //..........................................................................
-    //..........................................................................
-
     public function getNewIdElemento()
     {
         $newId = count($this->elementos);
@@ -69,10 +62,18 @@ class Programa extends Modo
         }
         return $newId;
     }
+
+    /*
+        anhade un nuevo elemento a la lista
+    */
     public function addElemento($id, $elemento)
     {
         $this->elementos[$id] = $elemento;
     }
+
+    /*
+        se elimina un elemento de la lista
+    */
     public function removeElemento($elementoId)
     {
         if ($this->elementos == null || !array_key_exists($elementoId, $this->elementos)) {
@@ -83,14 +84,15 @@ class Programa extends Modo
         unset($elementos[$elementoId]);
     }
 
-    public function addElementoModo($id, $elemento)
+    /*
+        
+    */
+    function Renderizar()
     {
-        // TODO
+        return $this->html;
     }
-    public function removeElementoModo($elementoId)
-    {
-        // TODO
-    }
+
+
 
 
 }
@@ -101,4 +103,5 @@ class Programa extends Modo
 
 $programa = new Programa();
 
-echo ($programa->Main());
+echo ($programa->Renderizar());
+?>

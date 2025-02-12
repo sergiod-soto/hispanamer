@@ -14,11 +14,14 @@ abstract class Elemento
     public $estilo;
     public $elementoPadre;
 
-    function __construct($id, $visible = true, $modo = null, $elementoPadre, $html, $estilo)
+    public $programa;
+
+    function __construct($id, $visible = true, $modo = null, $elementoPadre, $programa, $html, $estilo)
     {
         $this->id = $id;
         $this->visible = $visible;      // por defecto es visible
         $this->elementoPadre = $elementoPadre;
+        $this->programa = $programa;    // objeto de la clase Programa
         $this->html = $html;
         $this->estilo = $estilo;
         $this->modo = $modo;            // modo no es opcional. aunque no sea editable, hace
