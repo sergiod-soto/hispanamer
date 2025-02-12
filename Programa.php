@@ -83,6 +83,12 @@ class Programa extends Modo implements IRenderizable
     */
     function Renderizar()
     {
+
+        // renderizo el cuerpo
+        foreach ($this->elementos as $e) {
+            $this->cuerpo .= $e->html . "\n";
+        }
+
         return $this->html =
             "
             <!DOCTYPE html>
@@ -127,10 +133,12 @@ $programa = new Programa();
 
 //............................................
 // agregamos un boton
+
 $botonAceptar = Button::crear(
     $programa->getNewIdElemento(),
-    "Aceptar",
-    null,
+    "texto",
+    function () {
+        echo ("aaa"); },
     null,
     $programa,
     null,
@@ -154,7 +162,6 @@ $cuerpo =
     <br>
     <p>Test de elementos: ñ ó ö ♫ 😍</p>
     <br>
-    $botonAceptar->html
     ";
 
 

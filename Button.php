@@ -5,7 +5,7 @@ require_once "Programa.php";
 /*
     boton con texto. al presionarse ejecuta la funcion "funcion"
 */
-class Button extends Elemento implements IEditable, IRenderizable
+class Button extends Elemento implements IRenderizable
 {
 
     public $funcion;
@@ -51,6 +51,10 @@ class Button extends Elemento implements IEditable, IRenderizable
 
         // Asigna el modo al botón
         $boton->setModo($modo);
+
+        // agrego el boton a la lista de elementos del programa
+        $programa->elementos[] = $boton;
+
         return $boton;
     }
 
@@ -60,22 +64,6 @@ class Button extends Elemento implements IEditable, IRenderizable
     public function setModo($modo)
     {
         $this->modo = $modo;
-    }
-
-    /*
-        cambia el estilo a editable
-    */
-    public function setEditableOn()
-    {
-        // TODO
-    }
-
-    /*
-        cambia el estilo a NO editable
-    */
-    public function setEditableOff()
-    {
-        // TODO
     }
 
     /*
@@ -110,6 +98,5 @@ class Button extends Elemento implements IEditable, IRenderizable
     {
         return $this->html;
     }
-
 }
 ?>
