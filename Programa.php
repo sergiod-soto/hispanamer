@@ -24,7 +24,19 @@ class Programa extends Modo
     {
         $this->cookies = [];
         $this->elementos = [];
-        $this->html = "";
+        $this->html =
+            '
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Mi Página2</title>
+                </head>
+                <body>
+                    <h1>Hola, mundo</h1>
+                </body>
+                </html>
+            ';
     }
 
     //..........................................................................
@@ -33,25 +45,14 @@ class Programa extends Modo
     /*
        Metodo especial. Es el encargado de materializar
        el programa en una pagina.
+
+       La funcionalidad de este metodo deberia dejarse lo 
+       mas simple posible, dejando que el resto del programa
+       modifique el html y este metodo simplemente lo renderice
     */
     public function Main()
     {
-        // TODO
-        $this->html = '
-            <!DOCTYPE html>
-            <html lang="es-ES">
-            <head>
-                <meta charset="utf-8">
-                <title>Ejemplo con 2 cabeceras</title>
-            </head>
-            <body>
-                <h1>Esto es una cabecera h1</h1>
-                <p>Esto es un párrafo.</p>
-                <h2>Esto es una cabecera h2</h2>
-                <p>Esto es otro párrafo.</p>
-            </body>
-            </html>
-        ';
+        echo ($this->html);
     }
 
     //..........................................................................
@@ -93,21 +94,11 @@ class Programa extends Modo
 
 
 }
-?>
 
-<!DOCTYPE html>
-<html lang="es-ES">
+/*
+    ejecucion del programa
+*/
 
-<head>
-    <meta charset="utf-8">
-    <title>Ejemplo con 2 cabeceras</title>
-</head>
+$programa = new Programa();
 
-<body>
-    <h1>Esto es una cabecera h1</h1>
-    <p>Esto es un párrafo.</p>
-    <h2>Esto es una cabecera h2</h2>
-    <p>Esto es otro párrafo.</p>
-</body>
-
-</html>
+echo ($programa->Main());
