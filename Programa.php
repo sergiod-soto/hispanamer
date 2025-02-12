@@ -1,8 +1,9 @@
 <?php
 
-//
-
-require_once "Modo.php";
+// class autoloader
+spl_autoload_register(function ($class_name) {
+    include $class_name . '.php';
+});
 
 
 
@@ -116,6 +117,14 @@ class Programa extends Modo implements IRenderizable
 
 
 $programa = new Programa();
+
+
+
+
+
+
+
+
 
 echo ($programa->Renderizar());
 ?>
