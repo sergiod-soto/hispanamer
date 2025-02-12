@@ -12,17 +12,15 @@ class Button extends Elemento implements IEditable, IRenderizable
     public $text;
     private $programa;
 
-    public function __construction($id, $visible = true, $modo, $text = "", $funcion = null, $padre, $programa, $estilo)
+    public function __construct($id, $modo, $text = "", $funcion = null, $padre, $programa, $estilo)
     {
         $html = "<button type='button'>$text</button>";
 
         // Llamamos al constructor de la clase Elemento
-        parent::__construct($id, $visible, $modo, $padre, $programa, $html, $estilo);
+        parent::__construct($id, $modo, $padre, $programa, $html, $estilo);
 
         $this->text = $text;
         $this->funcion = $funcion;
-
-
     }
 
     /*

@@ -16,10 +16,10 @@ abstract class Elemento
 
     public $programa;
 
-    function __construct($id, $visible = true, $modo = null, $elementoPadre, $programa, $html, $estilo)
+    function __construct($id, $modo = null, $elementoPadre, $programa, $html, $estilo)
     {
         $this->id = $id;
-        $this->visible = $visible;      // por defecto es visible
+        $this->visible = true;      // por defecto es visible
         $this->elementoPadre = $elementoPadre;
         $this->programa = $programa;    // objeto de la clase Programa
         $this->html = $html;

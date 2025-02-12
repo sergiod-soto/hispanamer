@@ -19,26 +19,17 @@ class Programa extends Modo implements IRenderizable
     public $elementos;          // gestion de los elementos 
     public $estilo;             // estilo del programa     
     public $html;               // html de la pagina del programa
+    public $cabecera;
     public $titulo;             // titulo que aparece en la pestanha del navegador
+    public $cuerpo;
 
     public function __construct()
     {
-        $this->titulo = "mi primer programa";
+        $this->titulo = "";
         $this->cookies = [];
         $this->elementos = [];
-        $this->html =
-            '
-                <!DOCTYPE html>
-                <html lang="es">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>' . $this->titulo . '</title>
-                </head>
-                <body>
-                    <h1>Hola, mundo</h1>
-                </body>
-                </html>
-            ';
+        $this->cabecera = "";
+        $this->cuerpo = "";
     }
 
     //..........................................................................
@@ -90,7 +81,19 @@ class Programa extends Modo implements IRenderizable
     */
     function Renderizar()
     {
-        return $this->html;
+        return $this->html =
+            "
+            <!DOCTYPE html>
+            <html lang='es'>
+                <head>
+                    $this->cabecera 
+                </head>
+
+                <body>
+                    $this->cuerpo    
+                </body>
+            </html>
+            ";
     }
 }
 
@@ -118,11 +121,39 @@ class Programa extends Modo implements IRenderizable
 
 $programa = new Programa();
 
+//$id, $visible = true, $modo, $text = "", $funcion = null, $padre, $programa, $estilo
+
+$botonAceptar = new Button(
+    $programa->getNewIdElemento(),
+    new Modo(null, $botonAceptar),
+    "Aceptar",
+    null,
+    null,
+    $programa,
+    null,
+);
+
+$titulo = "Titulo";
+
+$cabecera =
+    "
+    <meta charset='UTF-8'>
+    <title>$titulo</title>
+    ";
+
+$cuerpo =
+    "
+    <h1> - Programa - </h1>
+    <br>
+    <p>Test de elementos: ñ ó ö ♫ 😍</p>
+    <br>
+    $botonAceptar->html
+    ";
 
 
-
-
-
+$programa->titulo = $titulo;
+$programa->cabecera = $cabecera;
+$programa->cuerpo = $cuerpo;
 
 
 
