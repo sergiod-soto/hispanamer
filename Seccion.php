@@ -81,7 +81,7 @@ class Seccion extends Elemento implements IRenderizable
 
     }
 
-    function Renderizar()
+    function renderizar()
     {
         return $this->html;
     }

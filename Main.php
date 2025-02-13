@@ -1,0 +1,93 @@
+<?php
+
+// class autoloader
+spl_autoload_register(function ($class_name) {
+    include_once $class_name . '.php';
+});
+
+
+
+
+/*
+    Creamos el objeto Programa
+*/
+$programa = new Programa();
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//          Definimos los elementos que componen el programa
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//............................................
+// un boton
+$botonAceptar = Button::crear(
+    $programa->getNewIdElemento(),
+    "Aceptar",
+    null,
+    null,
+    $programa,
+    null,
+);
+
+
+
+//............................................
+// otro boton
+$botonCancelar = Button::crear(
+    $programa->getNewIdElemento(),
+    "Cancelar",
+    null,
+    null,
+    $programa,
+    null,
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//          Colocamos los elementos 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+$titulo = "Titulo";
+
+$cabecera =
+    "
+    <meta charset='UTF-8'>
+    <title>$titulo</title>
+    ";
+
+$cuerpo =
+    "" .
+    $botonAceptar->renderizar() .
+    $programa->nuevaLinea() .
+    $botonCancelar->renderizar() .
+    "";
+
+$programa->titulo = $titulo;
+$programa->cabecera = $cabecera;
+$programa->cuerpo = $cuerpo;
+
+echo ($programa->Renderizar());
+
+?>

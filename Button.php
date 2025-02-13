@@ -94,7 +94,7 @@ class Button extends Elemento implements IRenderizable
     /*
         retorna el html asociado
     */
-    function Renderizar()
+    function renderizar()
     {
         return $this->html;
     }

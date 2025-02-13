@@ -5,6 +5,6 @@
 */
 interface IRenderizable
 {
-    public function Renderizar();
+    public function renderizar();
 }
 ?>

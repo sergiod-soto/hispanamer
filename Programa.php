@@ -79,9 +79,17 @@ class Programa extends Modo implements IRenderizable
     }
 
     /*
+
+    */
+    function nuevaLinea()
+    {
+        return "<br>";
+    }
+
+    /*
         
     */
-    function Renderizar()
+    function renderizar()
     {
         return $this->html =
             "
@@ -98,79 +106,4 @@ class Programa extends Modo implements IRenderizable
             ";
     }
 }
-
-
-
-
-
-//.............................................................................................
-//.............................................................................................
-//
-//               - - - - - NO MODIFICAR EL CODIGO ANTERIOR - - - - - 
-//
-//.............................................................................................
-//.............................................................................................
-//
-//               LA LOGICA PERSONALIZADA DEL PROGRAMA ES 
-//               A PARTIR DE ESTE PUNTO
-//.............................................................................................
-//.............................................................................................
-//.............................................................................................
-
-
-
-
-
-$programa = new Programa();
-
-
-
-//............................................
-// agregamos un boton
-
-$botonAceptar = Button::crear(
-    $programa->getNewIdElemento(),
-    "Aceptar",
-    null,
-    null,
-    $programa,
-    null,
-);
-//............................................
-
-//............................................
-// agregamos otro boton
-
-$botonCancelar = Button::crear(
-    $programa->getNewIdElemento(),
-    "Cancelar",
-    null,
-    null,
-    $programa,
-    null,
-);
-//............................................
-
-
-
-
-$titulo = "Titulo";
-
-$cabecera =
-    "
-    <meta charset='UTF-8'>
-    <title>$titulo</title>
-    ";
-
-$cuerpo =
-    "
-    $botonAceptar->Renderizar()
-    $botonCancelar->Renderizar()a
-    ";
-
-$programa->titulo = $titulo;
-$programa->cabecera = $cabecera;
-$programa->cuerpo = $cuerpo;
-
-echo ($programa->Renderizar());
 ?>
