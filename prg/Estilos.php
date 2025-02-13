@@ -3,8 +3,7 @@
 abstract class Estilos
 {
 
-    private $estilos = array();
-
+public 
     public function __construction()
     {
         $estilos[""] = "";
