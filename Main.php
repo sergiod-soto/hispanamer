@@ -24,6 +24,7 @@ $programa = Programa::crear();
 // un boton
 $botonAceptar = Button::crear(
     $programa->getNewIdElemento(),
+    null,
     "Aceptar",
     null,
     null,
@@ -37,7 +38,20 @@ $botonAceptar = Button::crear(
 // otro boton
 $botonCancelar = Button::crear(
     $programa->getNewIdElemento(),
+    null,
     "Cancelar",
+    null,
+    null,
+    $programa,
+    null,
+);
+
+//............................................
+// otro boton
+$botonAux = Button::crear(
+    $programa->getNewIdElemento(),
+    null,
+    "aux",
     null,
     null,
     $programa,
@@ -51,12 +65,23 @@ $botonCancelar = Button::crear(
 $seccion = Seccion::crear(
     $programa->getNewIdElemento(),
     null,
+    null,
     $programa,
     null,
 );
 
-$seccion->add($botonAceptar, 0, 0);
-$seccion->printMatriz();
+$seccion->add($botonAceptar, 0, columna: 0);
+$seccion->add($botonAceptar, 0, 1);
+
+$seccion->add($botonAux, 1, 0);
+$seccion->add($botonAux, 1, 1);
+$seccion->add($botonCancelar, 1, 2);
+
+$seccion->add($botonCancelar, 2, 2);
+$seccion->add($botonAceptar, 10, columna: 3);
+
+
+
 
 
 
@@ -85,15 +110,14 @@ $cabecera =
 
 $cuerpo =
     "" .
-    $botonAceptar->renderizar() .
-    $programa->nuevaLinea() .
-    $botonCancelar->renderizar() .
-    "";
+    $seccion->renderizar();
+"";
 
 $programa->titulo = $titulo;
 $programa->cabecera = $cabecera;
 $programa->cuerpo = $cuerpo;
 
 echo ($programa->Renderizar());
+
 
 ?>

@@ -22,6 +22,7 @@ class Programa extends Modo implements IRenderizable
     public $cabecera;
     public $titulo;             // titulo que aparece en la pestanha del navegador
     public $cuerpo;
+    public $modo;
 
     public function __construct()
     {

@@ -18,12 +18,18 @@ abstract class Elemento
     public $modo;
     public $estilo;
     public $elementoPadre;
+    public $clase;
 
     public $programa;
 
-    function __construct($id, $modo, $elementoPadre, $programa, $html, $estilo)
+    function __construct($id, $clase, $modo, $elementoPadre, $programa, $html, $estilo)
     {
         $this->id = $id;
+        if ($clase == null) {
+            $this->clase = "";
+        } else {
+            $this->clase = $clase;
+        }
         $this->visible = true;      // por defecto es visible
         $this->elementoPadre = $elementoPadre;
         $this->programa = $programa;    // objeto de la clase Programa

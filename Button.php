@@ -12,7 +12,7 @@ class Button extends Elemento implements IRenderizable
     public $text;
     public $programa;
 
-    public function __construct($id, $modo, $text, $funcion, $padre, $programa, $estilo)
+    public function __construct($id, $clase, $modo, $text, $funcion, $padre, $programa, $estilo)
     {
         $html = "<button type='button'>$text</button>";
         $this->text = $text;
@@ -20,7 +20,7 @@ class Button extends Elemento implements IRenderizable
 
 
         // Llamamos al constructor de la clase Elemento
-        parent::__construct($id, $modo, $padre, $programa, $html, $estilo);
+        parent::__construct($id, $clase, $modo, $padre, $programa, $html, $estilo);
 
     }
 
@@ -28,11 +28,12 @@ class Button extends Elemento implements IRenderizable
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, $text, $funcion, $padre, $programa, $estilo)
+    public static function crear($id, $clase, $text, $funcion, $padre, $programa, $estilo)
     {
         // Crea el botón
         $boton = new self(
             $id,
+            $clase,
             null,
             $text,
             $funcion,

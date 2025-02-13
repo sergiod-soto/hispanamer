@@ -11,10 +11,10 @@ class Seccion extends Elemento implements IRenderizable
 {
     public $elementos;
 
-    public function __construct($id, $modo, $padre, $programa, $estilo)
+    public function __construct($id, $clase, $modo, $padre, $programa, $estilo)
     {
         $html = " ";
-        parent::__construct($id, $modo, $padre, $programa, $html, $estilo);
+        parent::__construct($id, $clase, $modo, $padre, $programa, $html, $estilo);
         $this->elementos = [];
     }
 
@@ -22,11 +22,12 @@ class Seccion extends Elemento implements IRenderizable
         patron de diseño para crear una seccion con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, $padre, $programa, $estilo)
+    public static function crear($id, $clase, $padre, $programa, $estilo)
     {
         // Crea la seccion
         $seccion = new self(
             $id,
+            $clase,
             null,
             $padre,
             $programa,
@@ -76,30 +77,40 @@ class Seccion extends Elemento implements IRenderizable
     */
     function add($elemento, $fila, $columna)
     {
-        $elementos = $this->elementos; // meto '$this->elementos' en una variable por comodidad
-
-        $numFilas = count($elementos);
-
-        if ($numFilas < $fila) {                                   // hay menos filas de las necesarias
-            for ($i = $numFilas; $i < $fila; $i++) {               // se crean las filas necesarias
-                $elementos = [];
-            }
-        } else {
-            $numColumnas = count($elementos[$columna]);     // cuento el numero de columnas que hay en la fila solicitada
-
-            if ($numColumnas < $columna) {                         // hay menos columnas de las necesarias
-                for ($j = $numColumnas; $j < $columna; $j++) {
-                    $elementos[$fila] = [];
-                }
-            }
-        }
-
-        // ya tengo la matriz preparada para la insercion
-        $elementos[$fila][$columna] = $elemento;
+        $this->elementos[$fila][$columna] = $elemento;
     }
 
     function renderizar()
     {
+
+        $cuerpoSeccion = "";
+
+        $elementos = $this->elementos;
+
+
+
+        foreach ($elementos as $fila) {             // recorro cada fila
+
+            $cuerpoSeccion .= "<div>";
+            foreach ($fila as $celda) {             // recorro cada celda de la fila
+                $cuerpoSeccion .= $celda->html;
+            }
+
+            //......................................// nueva fila
+            $cuerpoSeccion .= "</div>";
+        }
+
+        //.........................................// fin ultima fila
+        $cuerpoSeccion .= "</div>";
+
+
+
+
+
+        $this->html =
+            "<div class=$this->clase>" .
+            $cuerpoSeccion .
+            "</div>";
         return $this->html;
     }
 
@@ -109,15 +120,51 @@ class Seccion extends Elemento implements IRenderizable
     */
     function printMatriz()
     {
-        echo("MATRIZ-------");
-        $i = 0;
-        foreach ($this->elementos as $fila) {
-            $j = 0;
-            foreach ($fila as $columna) {
-                echo ("[$i, $j] ");
+        $elementos = $this->elementos;
+
+        echo ("--------------MATRIZ--------------<br><br>");
+
+        $maxIKey = 0;
+        foreach (array_keys($elementos) as $iKey) {
+            if ($iKey > $maxIKey) {
+                $maxIKey = $iKey;
             }
         }
-        echo("------------");
+
+        $maxJKey = 0;
+        foreach ($elementos as $fila) {
+            foreach (array_keys($fila) as $jKey) {
+                if ($jKey > $maxJKey) {
+                    $maxJKey = $jKey;
+                }
+            }
+        }
+
+        $maxIKey++;
+        $maxJKey++;
+
+        for ($i = 0; $i < $maxIKey; $i++) {
+            if (array_key_exists($i, $elementos)) {
+                for ($j = 0; $j < $maxJKey; $j++) {
+                    if (array_key_exists($j, $elementos[$i])) {
+                        $t = "null";
+                        if ($elementos[$i][$j] != null) {
+                            $t = $elementos[$i][$j]->text;
+                        }
+                        echo ("[$i, $j]->" . $t . "     ");
+                    } else {
+                        echo ("[ ]");
+                    }
+                }
+                echo ("<br>");
+            } else {
+                for ($j = 0; $j < $maxJKey; $j++) {
+                    echo ("[ ]");
+                }
+                echo ("<br>");
+            }
+        }
+        echo ("<br>------------------------------------");
     }
 }
 ?>
