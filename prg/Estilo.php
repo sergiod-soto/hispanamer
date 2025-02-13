@@ -5,6 +5,10 @@
 */
 class Estilo
 {
+    public $elemento;
+    public $css;
+
+
     /*
         algunas de las propiedades css basicas para un control
         facil, rapido y comodo.
@@ -25,13 +29,20 @@ class Estilo
     public $alineamiento;
     public $display;
 
-    public function __construct(array $propiedades = [])
+    public function __construct($elemento, array $propiedades = [])
     {
+        $this->elemento = $elemento;
+        
         foreach ($propiedades as $propiedad => $valor) {
             if (property_exists($this, $propiedad)) {
                 $this->$propiedad = $valor;
             }
         }
+    }
+
+    public function getCSS()
+    {
+        return $css;
     }
 }
 ?>
