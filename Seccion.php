@@ -11,7 +11,7 @@ class Seccion extends Elemento implements IRenderizable
 {
     public $elementos;
 
-    public function __construct($id, $clase, $modo, $padre, $programa, $estilo)
+    public function __construct($id, $clase, $modo, $padre, $estilo)
     {
         $html = " ";
         parent::__construct(
@@ -19,7 +19,6 @@ class Seccion extends Elemento implements IRenderizable
             $clase,
             $modo,
             $padre,
-            $programa,
             $html,
             $estilo
         );
@@ -38,7 +37,6 @@ class Seccion extends Elemento implements IRenderizable
             $clase,
             null,
             $padre,
-            $padre->programa,
             $estilo,
         );
 
@@ -53,9 +51,6 @@ class Seccion extends Elemento implements IRenderizable
         // Asigna el modo al botón
         $seccion->setModo($modo);
 
-        // agrego la seccion a la lista de elementos del programa
-        $seccion->programa->elementos[] = $seccion;
-
         return $seccion;
     }
 
@@ -68,16 +63,20 @@ class Seccion extends Elemento implements IRenderizable
     }
 
 
-    // TODO
+    /*
+
+    */
     function hide()
     {
-
+        // TODO
     }
 
-    // TODO
+    /*
+
+    */
     function show()
     {
-
+        // TODO
     }
 
     /*

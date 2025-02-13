@@ -7,9 +7,9 @@ class Texto extends Elemento implements IRenderizable
 {
     public $text;
 
-    public function __construct($id, $clase, $modo, $text, $padre, $programa, $estilo)
+    public function __construct($id, $clase, $modo, $text, $padre, $estilo)
     {
-        $html = "";             // Elemento especial que no se construye con el html
+        $html = "";             // Elemento especial que no se construye con html
         $this->text = $text;
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -17,13 +17,12 @@ class Texto extends Elemento implements IRenderizable
             $clase,
             $modo,
             $padre,
-            $programa,
             $html,
             $estilo
         );
     }
 
-    public static function crear($id, $clase, $text, $padre, $programa, $estilo)
+    public static function crear($id, $clase, $text, $padre, $estilo)
     {
         // Crea el texto
         $texto = new self(
@@ -32,7 +31,6 @@ class Texto extends Elemento implements IRenderizable
             null,
             $text,
             $padre,
-            $programa,
             $estilo
         );
 
@@ -47,9 +45,6 @@ class Texto extends Elemento implements IRenderizable
         // Asigna el modo al botón
         $texto->setModo($modo);
 
-        // agrego el texto a la lista de elementos del programa
-        $programa->elementos[] = $texto;
-
         return $texto;
     }
 
@@ -63,11 +58,11 @@ class Texto extends Elemento implements IRenderizable
 
     public function hide()
     {
-
+        // TODO
     }
     public function show()
     {
-
+        // TODO
     }
 
     function renderizar()

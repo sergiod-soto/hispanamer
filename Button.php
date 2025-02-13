@@ -11,7 +11,7 @@ class Button extends Elemento implements IRenderizable
     public $funcion;
     public $text;
 
-    public function __construct($id, $clase, $modo, $text, $funcion, $padre, $programa, $estilo)
+    public function __construct($id, $clase, $modo, $text, $funcion, $padre, $estilo)
     {
         $html = "<button type='button'>$text</button>";
         $this->text = $text;
@@ -24,7 +24,6 @@ class Button extends Elemento implements IRenderizable
             $clase,
             $modo,
             $padre,
-            $programa,
             $html,
             $estilo
         );
@@ -45,7 +44,6 @@ class Button extends Elemento implements IRenderizable
             $text,
             $funcion,
             $padre,
-            $padre->programa,
             $estilo
         );
 
@@ -59,9 +57,6 @@ class Button extends Elemento implements IRenderizable
 
         // Asigna el modo al botón
         $boton->setModo($modo);
-
-        // agrego el boton a la lista de elementos del programa
-        $boton->programa->elementos[] = $boton;
 
         return $boton;
     }

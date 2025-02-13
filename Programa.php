@@ -16,7 +16,6 @@ class Programa extends Modo implements IRenderizable
 
     public $conexion;           // conexion a la base de datos
     public $cookies;            // gestion de informacion
-    public $elementos;          // gestion de los elementos 
     public $estilo;             // estilo del programa     
     public $html;               // html de la pagina del programa
     public $cabecera;
