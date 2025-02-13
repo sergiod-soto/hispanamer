@@ -86,7 +86,7 @@ class Programa extends Modo implements IRenderizable
 
         // renderizo el cuerpo
         foreach ($this->elementos as $e) {
-            $this->cuerpo .= $e->html . "\n";
+            $this->cuerpo .= "$e->html\n";
         }
 
         return $this->html =
@@ -138,7 +138,8 @@ $botonAceptar = Button::crear(
     $programa->getNewIdElemento(),
     "texto",
     function () {
-        echo ("aaa"); },
+        echo ("aaa");
+    },
     null,
     $programa,
     null,
@@ -158,10 +159,6 @@ $cabecera =
 
 $cuerpo =
     "
-    <h1> - Programa - </h1>
-    <br>
-    <p>Test de elementos: ñ ó ö ♫ 😍</p>
-    <br>
     ";
 
 
