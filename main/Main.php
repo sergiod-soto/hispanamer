@@ -2,7 +2,7 @@
 
 // class autoloader
 spl_autoload_register(function ($class_name) {
-    $file = "../" . $class_name . '.php';
+    $file = "../prg/" . $class_name . '.php';
     include_once $file;
 });
 
