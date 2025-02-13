@@ -39,13 +39,13 @@ class Seccion extends Elemento implements IRenderizable
         if ($padre != null) {
             $modoPadre = $padre->modo;
         }
-        // Crea el modo, inyectando el botón en el constructor
+        // Crea el modo, inyectando la seccion en el constructor
         $modo = new Modo($modoPadre, $seccion);
 
         // Asigna el modo al botón
         $seccion->setModo($modo);
 
-        // agrego el boton a la lista de elementos del programa
+        // agrego la seccion a la lista de elementos del programa
         $programa->elementos[] = $seccion;
 
         return $seccion;

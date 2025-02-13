@@ -10,7 +10,6 @@ class Button extends Elemento implements IRenderizable
 
     public $funcion;
     public $text;
-    public $programa;
 
     public function __construct($id, $clase, $modo, $text, $funcion, $padre, $programa, $estilo)
     {
@@ -20,7 +19,15 @@ class Button extends Elemento implements IRenderizable
 
 
         // Llamamos al constructor de la clase Elemento
-        parent::__construct($id, $clase, $modo, $padre, $programa, $html, $estilo);
+        parent::__construct(
+            $id,
+            $clase,
+            $modo,
+            $padre,
+            $programa,
+            $html,
+            $estilo
+        );
 
     }
 
