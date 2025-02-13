@@ -108,7 +108,7 @@ class Seccion extends Elemento implements IRenderizable
 
 
         $this->html =
-            "<div class=$this->clase>" .
+            "<div id= '$this->id' class='$this->clase'>" .
             $cuerpoSeccion .
             "</div>";
         return $this->html;

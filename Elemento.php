@@ -26,7 +26,7 @@ abstract class Elemento
     {
         $this->id = $id;
         if ($clase == null) {
-            $this->clase = "";
+            $this->clase = '';
         } else {
             $this->clase = $clase;
         }

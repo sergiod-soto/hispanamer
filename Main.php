@@ -8,9 +8,7 @@ spl_autoload_register(function ($class_name) {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
 //          Definimos los elementos que componen el programa
-//////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 //............................................
@@ -70,7 +68,7 @@ $seccion = Seccion::crear(
     null,
 );
 
-$seccion->add($botonAceptar, 0, columna: 0);
+$seccion->add($botonAceptar, 0, 0);
 $seccion->add($botonAceptar, 0, 1);
 
 $seccion->add($botonAux, 1, 0);
@@ -78,7 +76,8 @@ $seccion->add($botonAux, 1, 1);
 $seccion->add($botonCancelar, 1, 2);
 
 $seccion->add($botonCancelar, 2, 2);
-$seccion->add($botonAceptar, 10, columna: 3);
+
+$seccion->add($botonAceptar, 10, 3);
 
 
 
