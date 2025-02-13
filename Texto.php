@@ -9,7 +9,6 @@ class Texto extends Elemento implements IRenderizable
 
     public function __construct($id, $clase, $modo, $text, $padre, $estilo)
     {
-        $html = "";             // Elemento especial que no se construye con html
         $this->text = $text;
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -17,7 +16,7 @@ class Texto extends Elemento implements IRenderizable
             $clase,
             $modo,
             $padre,
-            $html,
+            $text,
             $estilo
         );
     }
@@ -67,7 +66,7 @@ class Texto extends Elemento implements IRenderizable
 
     function renderizar()
     {
-        return $this->text;
+        return $this->html;
     }
 }
 ?>

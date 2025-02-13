@@ -68,9 +68,8 @@ $seccion = Seccion::crear(
 $label1 = Texto::crear(
     $programa->getNewIdElemento(),
     null,
-    "asdasdasd",
-    $programa,
-    "",
+    "lorem ipsum ",
+    $seccion,
     "",
 );
 
@@ -88,10 +87,9 @@ $label1 = Texto::crear(
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
 $seccion->add($label1, 0, 0);
-
-
+$seccion->add($botonAceptar, 1, 0);
+$seccion->add($botonAceptar, 0, 1);
 
 
 
@@ -143,7 +141,7 @@ $cuerpo =
     "";
 //.......................
 
-
+//echo $seccion->renderizar();
 
 
 
