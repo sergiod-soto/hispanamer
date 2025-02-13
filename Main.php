@@ -7,18 +7,16 @@ spl_autoload_register(function ($class_name) {
 
 
 
-
-/*
-    Creamos el objeto Programa
-*/
-$programa = new Programa();
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 //          Definimos los elementos que componen el programa
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
+
+//............................................
+// el prorgama base
+$programa = Programa::crear();
+
 
 
 
@@ -47,10 +45,18 @@ $botonCancelar = Button::crear(
 );
 
 
+//............................................
+// una seccion
 
+$seccion = Seccion::crear(
+    $programa->getNewIdElemento(),
+    null,
+    $programa,
+    null,
+);
 
-
-
+$seccion->add($botonAceptar, 0, 0);
+$seccion->printMatriz();
 
 
 

@@ -16,16 +16,13 @@ class Seccion extends Elemento implements IRenderizable
         $html = " ";
         parent::__construct($id, $modo, $padre, $programa, $html, $estilo);
         $this->elementos = [];
-
-        // html del elemento
-
     }
 
-    /*
+    /*  
         patron de diseño para crear una seccion con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, $padre, $programa, $modo, $estilo)
+    public static function crear($id, $padre, $programa, $estilo)
     {
         // Crea la seccion
         $seccion = new self(
@@ -77,13 +74,50 @@ class Seccion extends Elemento implements IRenderizable
     /*
 
     */
-    function add($elemento){
+    function add($elemento, $fila, $columna)
+    {
+        $elementos = $this->elementos; // meto '$this->elementos' en una variable por comodidad
 
+        $numFilas = count($elementos);
+
+        if ($numFilas < $fila) {                                   // hay menos filas de las necesarias
+            for ($i = $numFilas; $i < $fila; $i++) {               // se crean las filas necesarias
+                $elementos = [];
+            }
+        } else {
+            $numColumnas = count($elementos[$columna]);     // cuento el numero de columnas que hay en la fila solicitada
+
+            if ($numColumnas < $columna) {                         // hay menos columnas de las necesarias
+                for ($j = $numColumnas; $j < $columna; $j++) {
+                    $elementos[$fila] = [];
+                }
+            }
+        }
+
+        // ya tengo la matriz preparada para la insercion
+        $elementos[$fila][$columna] = $elemento;
     }
 
     function renderizar()
     {
         return $this->html;
+    }
+
+
+    /*
+        metodo auxiliar para debug
+    */
+    function printMatriz()
+    {
+        echo("MATRIZ-------");
+        $i = 0;
+        foreach ($this->elementos as $fila) {
+            $j = 0;
+            foreach ($fila as $columna) {
+                echo ("[$i, $j] ");
+            }
+        }
+        echo("------------");
     }
 }
 ?>

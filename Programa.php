@@ -32,6 +32,32 @@ class Programa extends Modo implements IRenderizable
         $this->cuerpo = "";
     }
 
+    /*
+        patron de diseño para crear un boton con modo creado, el cual con el propio boton
+        y evitar dependencia circular
+    */
+    public static function crear()
+    {
+        // Crea el botón
+        $programa = new self();
+
+        // Crea el modo, inyectando el botón en el constructor
+        $modo = new Modo(null, $programa);
+
+        // Asigna el modo al botón
+        $programa->setModo($modo);
+
+        return $programa;
+    }
+
+    /*
+        funcion auxiliar para la factory
+    */
+    public function setModo($modo)
+    {
+        $this->modo = $modo;
+    }
+
     //..........................................................................
     //..........................................................................
 
