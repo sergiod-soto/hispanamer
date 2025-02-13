@@ -3,13 +3,13 @@
 /*
 
 */
-class Texto extends Elemento
+class Texto extends Elemento implements IRenderizable
 {
     public $text;
 
     public function __construct($id, $clase, $modo, $text, $padre, $programa, $estilo)
     {
-        $html = "";
+        $html = "";             // Elemento especial que no se construye con el html
         $this->text = $text;
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -29,6 +29,7 @@ class Texto extends Elemento
         $texto = new self(
             $id,
             $clase,
+            null,
             $text,
             $padre,
             $programa,
@@ -68,7 +69,10 @@ class Texto extends Elemento
     {
 
     }
+
+    function renderizar()
+    {
+        return $this->text;
+    }
 }
-
-
 ?>

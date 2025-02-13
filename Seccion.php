@@ -14,7 +14,15 @@ class Seccion extends Elemento implements IRenderizable
     public function __construct($id, $clase, $modo, $padre, $programa, $estilo)
     {
         $html = " ";
-        parent::__construct($id, $clase, $modo, $padre, $programa, $html, $estilo);
+        parent::__construct(
+            $id,
+            $clase,
+            $modo,
+            $padre,
+            $programa,
+            $html,
+            $estilo
+        );
         $this->elementos = [];
     }
 
@@ -22,7 +30,7 @@ class Seccion extends Elemento implements IRenderizable
         patron de diseño para crear una seccion con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, $clase, $padre, $programa, $estilo)
+    public static function crear($id, $clase, $padre, $estilo)
     {
         // Crea la seccion
         $seccion = new self(
@@ -30,7 +38,7 @@ class Seccion extends Elemento implements IRenderizable
             $clase,
             null,
             $padre,
-            $programa,
+            $padre->programa,
             $estilo,
         );
 
@@ -46,7 +54,7 @@ class Seccion extends Elemento implements IRenderizable
         $seccion->setModo($modo);
 
         // agrego la seccion a la lista de elementos del programa
-        $programa->elementos[] = $seccion;
+        $seccion->programa->elementos[] = $seccion;
 
         return $seccion;
     }

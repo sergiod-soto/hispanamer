@@ -25,7 +25,6 @@ $botonAceptar = Button::crear(
     null,
     "Aceptar",
     null,
-    null,
     $programa,
     null,
 );
@@ -39,7 +38,6 @@ $botonCancelar = Button::crear(
     null,
     "Cancelar",
     null,
-    null,
     $programa,
     null,
 );
@@ -51,7 +49,6 @@ $botonAux = Button::crear(
     null,
     "aux",
     null,
-    null,
     $programa,
     null,
 );
@@ -59,25 +56,23 @@ $botonAux = Button::crear(
 
 //............................................
 // una seccion
-
 $seccion = Seccion::crear(
     $programa->getNewIdElemento(),
     null,
-    null,
     $programa,
-    null,
+    $programa,
 );
 
-$seccion->add($botonAceptar, 0, 0);
-$seccion->add($botonAceptar, 0, 1);
-
-$seccion->add($botonAux, 1, 0);
-$seccion->add($botonAux, 1, 1);
-$seccion->add($botonCancelar, 1, 2);
-
-$seccion->add($botonCancelar, 2, 2);
-
-$seccion->add($botonAceptar, 10, 3);
+//............................................
+// un texto
+$label1 = Texto::crear(
+    $programa->getNewIdElemento(),
+    null,
+    "asdasdasd",
+    $programa,
+    "",
+    "",
+);
 
 
 
@@ -97,26 +92,64 @@ $seccion->add($botonAceptar, 10, 3);
 
 
 
-
-
+//.......................
 $titulo = "Titulo";
+//.......................
+
+
+
+
+
+
+
+
+
+
+
+//.......................
 
 $cabecera =
     "
     <meta charset='UTF-8'>
     <title>$titulo</title>
     ";
+//.......................
+
+
+
+
+
+
+
+
+
+
+
+//.......................
 
 $cuerpo =
     "" .
-    $seccion->renderizar();
-"";
+    $seccion->renderizar() .
+    "";
+//.......................
+
+
+
+
+
+
+
+
+
+
+
+//.......................
 
 $programa->titulo = $titulo;
 $programa->cabecera = $cabecera;
 $programa->cuerpo = $cuerpo;
 
-echo ($programa->Renderizar());
-
-
+$htmlPrograma = $programa->Renderizar();
+echo ($htmlPrograma);
+//.......................
 ?>
