@@ -49,7 +49,7 @@ class Programa extends Modo implements IRenderizable
         if ($newId == 0) {
             return 0;
         }
-        for ($i = 0; $i < $this->elementos; $i++) {
+        for ($i = 0; $i < count($this->elementos); $i++) {
             if ($this->elementos[$i] == null) {
                 return $i;
             }
@@ -83,12 +83,6 @@ class Programa extends Modo implements IRenderizable
     */
     function Renderizar()
     {
-
-        // renderizo el cuerpo
-        foreach ($this->elementos as $e) {
-            $this->cuerpo .= "$e->html\n";
-        }
-
         return $this->html =
             "
             <!DOCTYPE html>
@@ -136,10 +130,21 @@ $programa = new Programa();
 
 $botonAceptar = Button::crear(
     $programa->getNewIdElemento(),
-    "texto",
-    function () {
-        echo ("aaa");
-    },
+    "Aceptar",
+    null,
+    null,
+    $programa,
+    null,
+);
+//............................................
+
+//............................................
+// agregamos otro boton
+
+$botonCancelar = Button::crear(
+    $programa->getNewIdElemento(),
+    "Cancelar",
+    null,
     null,
     $programa,
     null,
@@ -159,14 +164,13 @@ $cabecera =
 
 $cuerpo =
     "
+    $botonAceptar->Renderizar()
+    $botonCancelar->Renderizar()a
     ";
-
 
 $programa->titulo = $titulo;
 $programa->cabecera = $cabecera;
 $programa->cuerpo = $cuerpo;
-
-
 
 echo ($programa->Renderizar());
 ?>
