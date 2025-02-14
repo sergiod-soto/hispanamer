@@ -154,6 +154,20 @@ $programa->cabecera = $cabecera;
 $programa->cuerpo = $cuerpo;
 
 $htmlPrograma = $programa->Renderizar();
-echo $htmlPrograma;
+//echo $htmlPrograma;
 //.......................
+
+
+
+
+
+
+
+
+
+
+$aux = Font::fontStyle()::Italic->value;
+
+echo $aux;
+
 ?>
