@@ -162,8 +162,5 @@ $htmlPrograma = $programa->Renderizar();
 
 
 
-$color = $programa->rgb(22, 8, 221);
-echo ("color: " . $color);
-echo '<p style="color: ' . $color . '">ASD</p>';
 
 ?>

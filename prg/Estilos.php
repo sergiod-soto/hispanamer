@@ -1,11 +1,12 @@
 <?php
 
+/*
+
+*/
 abstract class Estilos
 {
-
-    public
-        public function __construction(
-    ) {
+    public function __construction()
+    {
         $estilos[""] = "";
 
     }
@@ -14,7 +15,7 @@ abstract class Estilos
     {
         $estilo = new Estilo();
         $estilo->font = new Font();
-        
+
 
 
 

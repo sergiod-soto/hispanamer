@@ -15,11 +15,11 @@ class Estilo
     */
     public $fontObject = new Font; // font como objeto
     public $font = $this->fontObject->toString();       // font como string
-    public $colorLetra = rgb(0, 0, 0);
-    public $colorFondo = rgba(255, 255, 255, 0);
+    public $colorLetra = Color::rgb(0, 0, 0);
+    public $colorFondo = Color::rgba(255, 255, 255, 0);
     public $grosorBorde = "2px";
     public $lineaBorde = "none";
-    public $colorBorde = rgb(0, 0, 0);
+    public $colorBorde = Color::rgb(0, 0, 0);
     public $margenIzq = "20px";
     public $margenDer = "20px";
     public $margenSuperior = "15px";
@@ -70,22 +70,21 @@ class Estilo
         //                                      // ej: p{ ... }     //     .p, .h1{ ... }
 
         $css .= $this->fontObject->toString();       // font como string
-        $css .= $colorLetra = rgba(0, 0, 0, 1);
-        $css .= $colorFondo = rgba(255, 255, 255, 0);
+        $css .= $colorLetra = "";
+        $css .= $colorFondo = "";
         $css .= $grosorBorde = "2px";
         $css .= $lineaBorde = "none";
-        $css .= $colorBorde = rgb(0, 0, 0);
+        $css .= $colorBorde = "";
         $css .= $margenIzq = "20px";
         $css .= $margenDer = "20px";
         $css .= $margenSuperior = "15px";
         $css .= $margenInferior = "15px";
-        $css .= $anchura;
-        $css .= $altura;
-        $css .= $anchuraMaxima;
-        $css .= $alturaMaxima;
+        $css .= $anchura = "";
+        $css .= $altura = "";
+        $css .= $anchuraMaxima = "";
+        $css .= $alturaMaxima = "";
         $css .= $alineamiento = "center";
-        $css .= $display;
-
+        $css .= $display = "";
 
         $css .= "}";
         $css .= "</style>";
