@@ -18,7 +18,7 @@ class Estilo
     public $colorLetra = rgb(0, 0, 0);
     public $colorFondo = rgba(255, 255, 255, 0);
     public $grosorBorde = "2px";
-    public $lineaBorde = "solid";
+    public $lineaBorde = "none";
     public $colorBorde = rgb(0, 0, 0);
     public $margenIzq = "20px";
     public $margenDer = "20px";
@@ -42,6 +42,24 @@ class Estilo
         }
     }
 
+    /*
+        Se le pasa un elemento como parametro para que este estilo lo afecte
+
+        NO es un elemento de la clase "Elemento", si no un elemento CSS,
+        por ejemplo: una clase, un id o una etiqueta html, como "div" o "p"
+    */
+    public function addElemento($elemento)
+    {
+
+    }
+    public function removeElemento($elemento)
+    {
+
+    }
+
+    /*
+        TODO
+    */
     public function getCSS()
     {
         $css = $this->css;
@@ -51,48 +69,23 @@ class Estilo
         //                                      //
         //                                      // ej: p{ ... }     //     .p, .h1{ ... }
 
-        if ($this->font != null) {
-            $css .= "";
-        }
-        if ($this->colorLetra != null) {
-            $css .= "";
-        }
-        if ($this->colorFondo != null) {
-            $css .= "";
-        }
-        if ($this->colorBorde != null) {
-            $css .= "";
-        }
-        if ($this->margenIzq != null) {
-            $css .= "";
-        }
-        if ($this->margenDer != null) {
-            $css .= "";
-        }
-        if ($this->margenSuperior != null) {
-            $css .= "";
-        }
-        if ($this->margenInferior != null) {
-            $css .= "";
-        }
-        if ($this->anchura != null) {
-            $css .= "";
-        }
-        if ($this->altura != null) {
-            $css .= "";
-        }
-        if ($this->anchuraMaxima != null) {
-            $css .= "";
-        }
-        if ($this->alturaMaxima != null) {
-            $css .= "";
-        }
-        if ($this->alineamiento != null) {
-            $css .= "";
-        }
-        if ($this->display != null) {
-            $css .= "";
-        }
+        $css .= $this->fontObject->toString();       // font como string
+        $css .= $colorLetra = rgba(0, 0, 0, 1);
+        $css .= $colorFondo = rgba(255, 255, 255, 0);
+        $css .= $grosorBorde = "2px";
+        $css .= $lineaBorde = "none";
+        $css .= $colorBorde = rgb(0, 0, 0);
+        $css .= $margenIzq = "20px";
+        $css .= $margenDer = "20px";
+        $css .= $margenSuperior = "15px";
+        $css .= $margenInferior = "15px";
+        $css .= $anchura;
+        $css .= $altura;
+        $css .= $anchuraMaxima;
+        $css .= $alturaMaxima;
+        $css .= $alineamiento = "center";
+        $css .= $display;
+
 
         $css .= "}";
         $css .= "</style>";
