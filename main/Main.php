@@ -154,10 +154,6 @@ $programa->cabecera = $cabecera;
 $programa->cuerpo = $cuerpo;
 
 $htmlPrograma = $programa->Renderizar();
-//echo $htmlPrograma;
-//.......................
-
-
 
 
 

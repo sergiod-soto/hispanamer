@@ -3,16 +3,23 @@
 abstract class Estilos
 {
 
-public 
-    public function __construction()
-    {
+    public
+        public function __construction(
+    ) {
         $estilos[""] = "";
 
     }
 
     public function estilo1()
     {
-        return $this->estilos[""];
+        $estilo = new Estilo();
+        $estilo->font = new Font();
+        
+
+
+
+
+        // return $this->estilos[""];
     }
 }
 ?>

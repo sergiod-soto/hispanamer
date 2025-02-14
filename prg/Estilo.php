@@ -5,34 +5,35 @@
 */
 class Estilo
 {
-    public $elemento;
     public $css;
-
+    public $elemento;
 
     /*
         algunas de las propiedades css basicas para un control
         facil, rapido y comodo.
         para otras propiedades, introducir las etiquetas manualmente.
     */
-    public $font;
-    public $colorLetra;
-    public $colorFondo;
-    public $colorBorde;
-    public $margenIzq;
-    public $margenDer;
-    public $margenSuperior;
-    public $margenInferior;
+    public $fontObject = new Font; // font como objeto
+    public $font = $this->fontObject->toString();       // font como string
+    public $colorLetra = rgb(0, 0, 0);
+    public $colorFondo = rgba(255, 255, 255, 0);
+    public $grosorBorde = "2px";
+    public $lineaBorde = "solid";
+    public $colorBorde = rgb(0, 0, 0);
+    public $margenIzq = "20px";
+    public $margenDer = "20px";
+    public $margenSuperior = "15px";
+    public $margenInferior = "15px";
     public $anchura;
     public $altura;
     public $anchuraMaxima;
     public $alturaMaxima;
-    public $alineamiento;
+    public $alineamiento = "center";
     public $display;
 
-    public function __construct($elemento, array $propiedades = [])
+    public function __construct(array $propiedades = [])
     {
         $css = "";
-        $this->elemento = $elemento;
 
         foreach ($propiedades as $propiedad => $valor) {
             if (property_exists($this, $propiedad)) {

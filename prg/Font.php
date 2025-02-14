@@ -3,10 +3,9 @@
 /*
     Uso:
 
-    echo Font::fontStyle()::Normal->value . PHP_EOL;  // "normal"
-    echo Font::fontWeight()::Bold->value . PHP_EOL;   // "700"
-    echo Font::fontVariant()::SmallCaps->value . PHP_EOL; // "small-caps"
-
+    echo Font::fontStyle()::Normal->value;      // "normal"
+    echo Font::fontWeight()::Bold->value;       // "700"
+    echo Font::fontVariant()::SmallCaps->value; // "small-caps"
 */
 
 
@@ -33,9 +32,23 @@ enum FontVariant: string
     case SmallCaps = 'small-caps' . PHP_EOL;
 }
 
-// Clase abstracta Font
-abstract class Font
+// Clase Font
+class Font
 {
+
+    public $style = FontStyle::Normal->value;
+    public $weigth = FontWeight::Normal->value;
+    public $variant = FontVariant::Normal->value;
+
+    /*
+        otras propiedades
+    */
+    public $size = 12;
+    public $lineHeigth = 1.5;
+    public $fontFamily = "Arial";
+    public $letterSpacing = "2px";
+    public $wordSpacing = "5px";
+
     // Métodos estáticos que devuelven el nombre del Enum
     public static function fontStyle(): string
     {
@@ -50,6 +63,24 @@ abstract class Font
     public static function fontVariant(): string
     {
         return FontVariant::class;
+    }
+
+    /*
+        convierte el objeto a texto CSS
+    */
+    public function toString()
+    {
+        return
+            "
+            font-style: $this->style;
+            font-variant: $this->variant;
+            font-weigth: $this->weigth;
+            font-size: $this->size;
+            line-height: $this->lineHeigth; 
+            font-family: $this->fontFamily; 
+            letter-spacing: $this->letterSpacing;
+            word-spacing: $this->wordSpacing;
+            ";
     }
 }
 ?>

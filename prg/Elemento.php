@@ -16,11 +16,10 @@ abstract class Elemento
     public $id;
     public $visible;
     public $modo;
-    public $estilo;
     public $elementoPadre;
     public $clase;
 
-    function __construct($id, $clase, $modo, $elementoPadre, $html, $estilo)
+    function __construct($id, $clase, $modo, $elementoPadre, $html)
     {
         $this->id = $id;
         if ($clase == null) {
@@ -31,7 +30,6 @@ abstract class Elemento
         $this->visible = true;      // por defecto es visible
         $this->elementoPadre = $elementoPadre;
         $this->html = $html;
-        $this->estilo = $estilo;
         $this->modo = $modo;            // modo no es opcional. aunque no sea editable, hace
         // falta para propagar la edicion a los elementos hijos
     }
