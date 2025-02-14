@@ -156,14 +156,6 @@ class Programa extends Modo implements IRenderizable
     }
 
     /*
-
-    */
-    function nuevaLinea()
-    {
-        return "<br>";
-    }
-
-    /*
         
     */
     function renderizar()
@@ -173,9 +165,9 @@ class Programa extends Modo implements IRenderizable
             <!DOCTYPE html>
             <html lang='es'>
                 <head>
-                    $this->cabecera 
                     <meta charset='UTF-8'>
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    $this->cabecera 
                 </head>
 
                 <body>
