@@ -5,6 +5,7 @@
 */
 class Estilo
 {
+    public $activo;
     public $css;
     public $elemento;
 
@@ -58,10 +59,13 @@ class Estilo
     }
 
     /*
-        TODO
+        
     */
     public function getCSS()
     {
+        if (!$this->activo) {
+            return "";
+        }
         $css = $this->css;
 
         $css .= "<style>";
@@ -69,22 +73,23 @@ class Estilo
         //                                      //
         //                                      // ej: p{ ... }     //     .p, .h1{ ... }
 
-        $css .= $this->fontObject->toString();       // font como string
-        $css .= $colorLetra = "";
-        $css .= $colorFondo = "";
-        $css .= $grosorBorde = "2px";
-        $css .= $lineaBorde = "none";
-        $css .= $colorBorde = "";
-        $css .= $margenIzq = "20px";
-        $css .= $margenDer = "20px";
-        $css .= $margenSuperior = "15px";
-        $css .= $margenInferior = "15px";
-        $css .= $anchura = "";
-        $css .= $altura = "";
-        $css .= $anchuraMaxima = "";
-        $css .= $alturaMaxima = "";
-        $css .= $alineamiento = "center";
-        $css .= $display = "";
+        $css .= $this->fontObject->toString();  // font como string
+
+        $css .= $this->colorLetra == null ? Color::rgb(0, 0, 0) . " " : $this->colorLetra . " ";
+        $css .= $this->colorFondo == null ? Color::rgb(255, 255, 255) . " " : $this->colorFondo . " ";
+        $css .= $this->grosorBorde == null ? "" : "";
+        $css .= $this->lineaBorde == null ? "" : "border-style: groove; ";
+        $css .= $this->colorBorde == null ? "" : "";
+        $css .= $this->margenIzq == null ? "" : "";
+        $css .= $this->margenDer == null ? "" : "";
+        $css .= $this->margenSuperior == null ? "" : "";
+        $css .= $this->margenInferior == null ? "" : "";
+        $css .= $this->anchura == null ? "" : "";
+        $css .= $this->altura == null ? "" : "";
+        $css .= $this->anchuraMaxima == null ? "" : "";
+        $css .= $this->alturaMaxima == null ? "" : "";
+        $css .= $this->alineamiento == null ? "" : "";
+        $css .= $this->display == null ? "" : "";
 
         $css .= "}";
         $css .= "</style>";
