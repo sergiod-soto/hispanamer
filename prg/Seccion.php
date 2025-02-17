@@ -12,10 +12,6 @@ class Seccion extends Elemento implements IRenderizable
     public $elementos;
 
 
-    // TODO eliminar!!  ↓↓↓↓↓
-    private $text;  // para debug 
-
-
     public function __construct($id, $clase, $modo, $padre)
     {
         $html = "";
@@ -27,10 +23,6 @@ class Seccion extends Elemento implements IRenderizable
             $html,
         );
         $this->elementos = [];
-
-
-
-        $this->text = $clase;
     }
 
     /*  
