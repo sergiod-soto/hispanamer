@@ -1,21 +1,10 @@
 <?php
 
 /*
- *  --- version 8.1.0 de PHP ---
- *
- * clase usada para facilitar la creacion de elementos de entrada de datos
+ * interfaz de input
  */
-class Input
+interface Input
 {
-
-    const Button = "";
-
-    public function Input($nombreElemento)
-    {
-        echo self::$$nombreElemento;
-    }
-
+    public function summit();
 }
-
-
 ?>

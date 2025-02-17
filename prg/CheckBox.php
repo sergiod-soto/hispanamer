@@ -3,17 +3,57 @@
 /*
     checkbox, funciona como un interruptor
 */
-class ChechBox extends Elemento
+class ChechBox extends Elemento implements Input
 {
 
-    public $text;
+    private $text;
+    private $value;
 
-    public function CheckBox($id, $visible = true, $text, $modo)
+    public function __construct($id, $clase, $text, $value, $modo, $padre)
     {
-        parent::__construct($id, $visible, $modo);
-
+        $html = "<input type='checkbox' id='$id' name='$value' value='$text'>";
         $this->text = $text;
+        $this->value = $value;
+
+        parent::__construct($id, $clase, $modo, $padre, $html);
+
     }
+    public function crear($id, $clase, $text, $value, $modo, $padre)
+    {
+        // Crea el botón
+        $checkBox = new self(
+            $id,
+            $clase,
+            $text,
+            $value,
+            $modo,
+            $padre,
+        );
+
+
+        $modoPadre = null;
+        if ($padre != null) {
+            $modoPadre = $padre->modo;
+        }
+        // Crea el modo, inyectando el botón en el constructor
+        $modo = new Modo($modoPadre, $checkBox);
+
+        // Asigna el modo al botón
+        $checkBox->setModo($modo);
+
+        return $checkBox;
+    }
+
+    public function getText()
+    {
+        return $this->text;
+    }
+    public function setText($text)
+    {
+        $this->text = $text;
+        $this->html = "<input type='checkbox' id='$this->id' name='$this->value' value='$text'>";
+    }
+
 
     function hide()
     {
@@ -31,9 +71,9 @@ class ChechBox extends Elemento
     {
 
     }
+    function summit()
+    {
+
+    }
 }
-
-
-
-
 ?>

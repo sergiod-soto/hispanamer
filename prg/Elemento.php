@@ -33,6 +33,10 @@ abstract class Elemento
         $this->modo = $modo;            // modo no es opcional. aunque no sea editable, hace
         // falta para propagar la edicion a los elementos hijos
     }
+    public function setModo($modo)
+    {
+        $this->modo = $modo;
+    }
 
     abstract public function hide();
     abstract public function show();

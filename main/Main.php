@@ -75,7 +75,15 @@ $label1 = Texto::crear(
 );
 
 
-
+//............................................
+// un checkbox
+$label1 = Texto::crear(
+    $programa->getNewIdElemento(),
+    null,
+    "lorem ipsum ",
+    $seccion,
+    "",
+);
 
 
 
@@ -91,6 +99,7 @@ $label1 = Texto::crear(
 $seccion->add($label1, 0, 0);
 $seccion->add($botonAceptar, 1, 0);
 $seccion->add($botonAceptar, 0, 1);
+
 
 
 
