@@ -146,7 +146,9 @@ class Seccion extends Elemento implements IRenderizable
 
         if (count($elementos) <= 1) {                // NO se ponen <div>s
             foreach ($fila as $item) {
+                $htmlReturn .= "<span>";
                 $htmlReturn .= $item->renderizar();
+                $htmlReturn .= "</span>";
             }
             return $htmlReturn;
         }
@@ -157,7 +159,9 @@ class Seccion extends Elemento implements IRenderizable
             $htmlReturn .= "<div>";  //encapsulo la fila
 
             foreach ($fila as $item) {
+                $htmlReturn .= "<span>";
                 $htmlReturn .= $item->renderizar();
+                $htmlReturn .= "</span>";
             }
 
             $htmlReturn .= "</div>"; // fin fila
