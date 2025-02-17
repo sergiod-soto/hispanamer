@@ -26,7 +26,6 @@ class Button extends Elemento implements IRenderizable
             $padre,
             $html,
         );
-
     }
 
     /*

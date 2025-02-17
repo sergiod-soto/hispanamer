@@ -23,24 +23,28 @@ class Programa extends Modo implements IRenderizable
     public $cuerpo;
     public $modo;
     public $elementos;
-
-    public function __construct()
+    public $autor;
+    public $fecha;
+    public function __construct($autor, $fecha)
     {
-        $this->titulo = "";
         $this->cookies = [];
         $this->elementos = [];
+        $this->titulo = "";
         $this->cabecera = "";
         $this->cuerpo = "";
+        //
+        $this->autor = $autor;
+        $this->fecha = $fecha;
     }
 
     /*
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear()
+    public static function crear($autor, $fecha)
     {
         // Crea el botón
-        $programa = new self();
+        $programa = new self($autor, $fecha);
 
         // Crea el modo, inyectando el botón en el constructor
         $modo = new Modo(null, $programa);

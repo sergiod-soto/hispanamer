@@ -8,13 +8,15 @@ spl_autoload_register(function ($class_name) {
 
 
 
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 //          Declaramos los elementos que componen el programa
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 //............................................
 // el programa base
-$programa = Programa::crear();
+$programa = Programa::crear(autor: "sergiod", fecha: "17/02/2025");
 
 
 
