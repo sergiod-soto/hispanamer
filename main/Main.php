@@ -19,15 +19,71 @@ $programa = Programa::crear();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+//............................................
+// una seccion
+$seccion = Seccion::crear(
+    Elemento::getNewId(),
+    "seccion ",
+    $programa,
+);
+
+//............................................
+// una seccion2
+$seccion2 = Seccion::crear(
+    Elemento::getNewId(),
+    "seccion2 ",
+    $seccion,
+);
+//............................................
+// una seccion3
+$seccion3 = Seccion::crear(
+    Elemento::getNewId(),
+    "seccion3 ",
+    $seccion,
+);
+
+// una seccion4
+$seccion4 = Seccion::crear(
+    Elemento::getNewId(),
+    "seccion4 ",
+    $seccion,
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //............................................
 // un boton
 $botonAceptar = Button::crear(
-    $programa->getNewIdElemento(),
-    null,
+    Elemento::getNewId(),
+    "",
     "Aceptar",
     null,
     $programa,
-    null,
 );
 
 
@@ -35,56 +91,92 @@ $botonAceptar = Button::crear(
 //............................................
 // otro boton
 $botonCancelar = Button::crear(
-    $programa->getNewIdElemento(),
-    null,
+    Elemento::getNewId(),
+    "",
     "Cancelar",
     null,
     $programa,
-    null,
 );
 
 //............................................
 // otro boton
 $botonAux = Button::crear(
-    $programa->getNewIdElemento(),
-    null,
+    Elemento::getNewId(),
+    "",
     "aux",
     null,
     $programa,
-    null,
 );
 
 
-//............................................
-// una seccion
-$seccion = Seccion::crear(
-    $programa->getNewIdElemento(),
-    null,
-    $programa,
-    $programa,
-);
+
 
 //............................................
 // un texto
 $label1 = Texto::crear(
-    $programa->getNewIdElemento(),
-    null,
-    "lorem ipsum ",
-    $seccion,
+    Elemento::getNewId(),
+    "",
+    "label1 ",
+    $seccion2,
     "",
 );
 
+//............................................
+// un texto
+$label2 = Texto::crear(
+    Elemento::getNewId(),
+    "",
+    "label2 ",
+    $seccion2,
+    "",
+);
+
+//............................................
+// un texto
+$label3 = Texto::crear(
+    Elemento::getNewId(),
+    "",
+    "label3 ",
+    $seccion3,
+    "",
+);
+
+//............................................
+// un texto
+$label4 = Texto::crear(
+    Elemento::getNewId(),
+    "",
+    "label4 ",
+    $seccion3,
+    "",
+);
+// un texto
+$label5 = Texto::crear(
+    Elemento::getNewId(),
+    "",
+    "label5 ",
+    $seccion4,
+    "",
+);
+// un texto
+$label6 = Texto::crear(
+    Elemento::getNewId(),
+    "",
+    "label6 ",
+    $seccion4,
+    "",
+);
 
 //............................................
 // un checkbox
-$label1 = Texto::crear(
-    $programa->getNewIdElemento(),
-    null,
-    "lorem ipsum ",
-    $seccion,
+$checkbox = CheckBox::crear(
+    Elemento::getNewId(),
     "",
+    "checkbox text",
+    "nombre",
+    "value",
+    $seccion,
 );
-
 
 
 
@@ -96,14 +188,19 @@ $label1 = Texto::crear(
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$seccion->add($label1, 0, 0);
-$seccion->add($botonAceptar, 1, 0);
-$seccion->add($botonAceptar, 0, 1);
+$seccion->add($seccion2, fila: 0, columna: 1);
+$seccion->add($seccion3, fila: 1, columna: 0);
+$seccion->add($seccion4, fila: 1, columna: 1);
 
 
+$seccion2->add($label1, 0, 0);
+$seccion2->add($label2, 0, 1);
 
+$seccion3->add($label3, 0, 0);
+$seccion3->add($label4, 0, 1);
 
-
+$seccion4->add($label5, 0, 0);
+$seccion4->add($label6, 0, 1);
 
 
 
@@ -151,7 +248,6 @@ $cuerpo =
     "";
 //.......................
 
-//echo $seccion->renderizar();
 
 
 
@@ -166,10 +262,11 @@ $htmlPrograma = $programa->Renderizar();
 
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//          echo del programa
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
+echo $htmlPrograma;
 
 
 ?>

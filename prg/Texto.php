@@ -7,7 +7,7 @@ class Texto extends Elemento implements IRenderizable
 {
     public $text;
 
-    public function __construct($id, $clase, $modo, $text, $padre, $estilo)
+    public function __construct($id, string $clase, $modo, $text, $padre, $estilo)
     {
         $this->text = $text;
         // Llamamos al constructor de la clase Elemento
@@ -17,11 +17,10 @@ class Texto extends Elemento implements IRenderizable
             $modo,
             $padre,
             $text,
-            $estilo
         );
     }
 
-    public static function crear($id, $clase, $text, $padre, $estilo)
+    public static function crear($id, string $clase, $text, $padre, $estilo)
     {
         // Crea el texto
         $texto = new self(

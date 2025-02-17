@@ -11,25 +11,33 @@ class Seccion extends Elemento implements IRenderizable
 {
     public $elementos;
 
-    public function __construct($id, $clase, $modo, $padre, $estilo)
+
+    // TODO eliminar!!  ↓↓↓↓↓
+    private $text;  // para debug 
+
+
+    public function __construct($id, $clase, $modo, $padre)
     {
-        $html = " ";
+        $html = "";
         parent::__construct(
             $id,
             $clase,
             $modo,
             $padre,
             $html,
-            $estilo
         );
         $this->elementos = [];
+
+
+
+        $this->text = $clase;
     }
 
     /*  
         patron de diseño para crear una seccion con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, $clase, $padre, $estilo)
+    public static function crear($id, string $clase, $padre)
     {
         // Crea la seccion
         $seccion = new self(
@@ -37,7 +45,6 @@ class Seccion extends Elemento implements IRenderizable
             $clase,
             null,
             $padre,
-            $estilo,
         );
 
 
@@ -80,54 +87,102 @@ class Seccion extends Elemento implements IRenderizable
     }
 
     /*
+        Anhade un Elemento a la Seccion
 
+        @param Elemento elemento
+        @param int fila
+        @param int columna
     */
-    function add($elemento, $fila, $columna)
+    function add(Elemento $elemento, int $fila, int $columna)
     {
         $this->elementos[$fila][$columna] = $elemento;
     }
 
+
+    /*
+        Esta muy cerdo, primero recorre toda la matriz para compactarla
+        y luego la vuelve a recorrer para renderizarla
+    */
     function renderizar()
     {
-
-        $cuerpoSeccion = "";
-
         $elementos = $this->elementos;
+        $elementosReturn = [];
 
-
-
-        foreach ($elementos as $fila) {             // recorro cada fila
-
-            $cuerpoSeccion .= "<div>";
-            foreach ($fila as $celda) {             // recorro cada celda de la fila
-                $cuerpoSeccion .= $celda->html;
+        $maxIKey = 0;
+        foreach (array_keys($elementos) as $iKey) {
+            if ($iKey > $maxIKey) {
+                $maxIKey = $iKey;
             }
-
-            //......................................// nueva fila
-            $cuerpoSeccion .= "</div>";
         }
 
-        //.........................................// fin ultima fila
-        $cuerpoSeccion .= "</div>";
+        $maxJKey = 0;
+        foreach ($elementos as $fila) {
+            foreach (array_keys($fila) as $jKey) {
+                if ($jKey > $maxJKey) {
+                    $maxJKey = $jKey;
+                }
+            }
+        }
 
+        $maxIKey++;
+        $maxJKey++;
 
+        $iIte = 0;
+        $jIte = 0;
 
+        for ($i = 0; $i < $maxIKey; $i++) {
+            $jIte = 0;
+            if (array_key_exists($i, $elementos)) {                     // existe fila
+                for ($j = 0; $j < $maxJKey; $j++) {
+                    if (array_key_exists($j, $elementos[$i])) {         // existe columna/celda
+                        if ($elementos[$i][$j] != null) {
+                            $elementosReturn[$iIte][$jIte] = $elementos[$i][$j];    // inserto el elemento
+                            $jIte++;
+                        }
 
+                    }
+                }
+                $iIte++;
+            }
+        }
 
-        $this->html =
-            "<div id= '$this->id' class='$this->clase'>" .
-            $cuerpoSeccion .
-            "</div>";
-        return $this->html;
+        /*
+            tras compactar la matriz, la renderizo
+        */
+        $elementos = $elementosReturn;
+        $htmlReturn = "";
+
+        if (count($elementos) <= 1) {                // NO se ponen <div>s
+            foreach ($fila as $item) {
+                $htmlReturn .= $item->renderizar();
+            }
+            return $htmlReturn;
+        }
+        foreach ($elementos as $fila) {
+
+            // Pongo <div>s a cada fila
+
+            $htmlReturn .= "<div>";  //encapsulo la fila
+
+            foreach ($fila as $item) {
+                $htmlReturn .= $item->renderizar();
+            }
+
+            $htmlReturn .= "</div>"; // fin fila
+
+        }
+        return $htmlReturn;
     }
-
 
     /*
         metodo auxiliar para debug
     */
-    function printMatriz()
+    function printMatriz($matriz = null)
     {
         $elementos = $this->elementos;
+        if ($matriz != null) {
+            $elementos = $matriz;
+        }
 
         echo ("--------------MATRIZ--------------<br><br>");
 
@@ -173,5 +228,7 @@ class Seccion extends Elemento implements IRenderizable
         }
         echo ("<br>------------------------------------");
     }
+
+
 }
 ?>

@@ -72,16 +72,9 @@ class Programa extends Modo implements IRenderizable
     */
     public function getNewIdElemento()
     {
-        $newId = count($this->elementos);
-        if ($newId == 0) {
-            return 0;
-        }
-        for ($i = 0; $i < count($this->elementos); $i++) {
-            if ($this->elementos[$i] == null) {
-                return $i;
-            }
-        }
-        return $newId;
+        $idElemento = Elemento::$idElemento;
+        $idElemento++;
+        return $idElemento;
     }
 
     /*

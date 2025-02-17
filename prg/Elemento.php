@@ -18,15 +18,12 @@ abstract class Elemento
     public $modo;
     public $elementoPadre;
     public $clase;
+    public static $idElemento = 0;
 
-    function __construct($id, $clase, $modo, $elementoPadre, $html)
+    function __construct($id, string $clase, $modo, $elementoPadre, $html)
     {
         $this->id = $id;
-        if ($clase == null) {
-            $this->clase = '';
-        } else {
-            $this->clase = $clase;
-        }
+        $this->clase = $clase;
         $this->visible = true;      // por defecto es visible
         $this->elementoPadre = $elementoPadre;
         $this->html = $html;
@@ -37,8 +34,14 @@ abstract class Elemento
     {
         $this->modo = $modo;
     }
+    public static function getNewId()
+    {
+        Elemento::$idElemento++;
+        return Elemento::$idElemento;
+    }
 
     abstract public function hide();
     abstract public function show();
+    abstract public function renderizar();
 }
 ?>

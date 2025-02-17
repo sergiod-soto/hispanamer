@@ -5,6 +5,6 @@
  */
 interface Input
 {
-    public function summit();
+    
 }
 ?>
