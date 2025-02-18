@@ -175,6 +175,22 @@ class Seccion extends Elemento
     }
 
     /*
+        metodo auxiliar de renderizar() al cual se le pasa
+        un elemento renderizado y, si esta encapsulado por
+        <div>, lo sustituye por <span>
+    */
+    public function replaceOuterDivs($html)
+    {
+        // Expresión regular mejorada para detectar el <div> externo aunque tenga espacios o saltos de línea
+        $pattern = '/^\s*<div([^>]*)>([\s\S]*?)<\/div>\s*$/';
+
+        // Reemplaza solo si el primer y último tag son <div> y </div>
+        $replacement = '<span$1>$2</span>';
+
+        return preg_replace($pattern, $replacement, $html);
+    }
+
+    /*
         metodo auxiliar para debug
     */
     function printMatriz($matriz = null)
