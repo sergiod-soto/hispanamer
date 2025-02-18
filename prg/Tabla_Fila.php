@@ -71,7 +71,21 @@ class Tabla_Fila extends Elemento
     }
     function renderizar()
     {
+        // preparo la fila
+        $htmlFila = "";
 
+        foreach ($this->columnas as $celda) {
+            $htmlFila .= $celda->renderizar();
+        }
+        //
+
+        $html = "<tr";
+        if ($this->clase != null && $this->clase != "") {
+            $html .= " class=\"$this->clase\" ";
+        }
+        $html .= ">" . $htmlFila . "</tr>";
+
+        return $html;
     }
     public function setSiguienteFoco($elemento)
     {

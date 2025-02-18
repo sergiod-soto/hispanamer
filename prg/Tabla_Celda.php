@@ -91,6 +91,7 @@ class Tabla_Celda extends Elemento
             $html .= " class=\"$this->clase\" ";
         }
         $html .= ">" . $this->contenido->renderizar() . "</td>";
+        
         return $html;
     }
     public function setSiguienteFoco($elemento)

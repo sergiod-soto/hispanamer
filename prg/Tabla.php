@@ -74,21 +74,35 @@ class Tabla extends Elemento
     {
 
     }
+    function renderizar()
+    {
+        // preparo las columnas
+        $htmlFilas = "";
+        foreach ($this->filas as $fila) {
+            $htmlFilas .= $fila->renderizar();
+        }
+        //
+
+        $html = "<table";
+        if ($this->clase != null && $this->clase != "") {
+            $html .= " class=\"$this->clase\" ";
+        }
+
+        $html .= ">" . $htmlFilas . "</table>";
+        
+        return $html;
+    }
     function setEditableOff()
     {
-
+        return;
     }
     function setEditableOn()
     {
-
-    }
-    function renderizar()
-    {
-
+        return;
     }
     public function setSiguienteFoco($elemento)
     {
-        $this->siguienteFoco = $elemento;
+        return;
     }
 }
 
