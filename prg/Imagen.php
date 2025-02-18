@@ -3,7 +3,7 @@
 /*
     imagen estatica. 
 */
-class Imagen extends Elemento
+class Imagen extends Elemento implements IEditable
 {
     public function __constructor()
     {
@@ -17,6 +17,21 @@ class Imagen extends Elemento
     {
 
     }
-}
+    public function renderizar()
+    {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
+    }
+    function setEditableOff()
+    {
+
+    }
+    function setEditableOn()
+    {
+
+    }
+}
 ?>

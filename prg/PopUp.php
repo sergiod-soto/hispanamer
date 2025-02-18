@@ -29,5 +29,13 @@ class PopUp extends Elemento
     {
 
     }
+    function renderizar()
+    {
+
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        return;
+    }
 }
 ?>

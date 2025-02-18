@@ -3,7 +3,7 @@
 /*
     checkbox, funciona como un interruptor
 */
-class CheckBox extends Elemento implements Input
+class CheckBox extends Elemento implements Input, IEditable
 {
 
     public $text;
@@ -47,6 +47,10 @@ class CheckBox extends Elemento implements Input
         $checkBox->setModo($modo);
 
         return $checkBox;
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
     }
 
     public function getText()

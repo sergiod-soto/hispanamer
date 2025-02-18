@@ -67,5 +67,9 @@ class Texto extends Elemento implements IRenderizable
     {
         return $this->html;
     }
+    public function setSiguienteFoco($elemento)
+    {
+        return;
+    }
 }
 ?>

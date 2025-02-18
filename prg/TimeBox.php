@@ -3,7 +3,7 @@
 /*
     introduccion de hora
 */
-class TimeBox extends Elemento
+class TimeBox extends Elemento implements IEditable
 {
 
 
@@ -24,7 +24,14 @@ class TimeBox extends Elemento
     {
 
     }
+    function renderizar()
+    {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
+    }
 
 }
 

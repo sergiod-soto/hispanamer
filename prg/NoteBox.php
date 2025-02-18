@@ -21,7 +21,14 @@ class NoteBox extends Elemento implements IEditable
     {
 
     }
+    public function renderizar()
+    {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
+    }
 
 
 }

@@ -3,7 +3,7 @@
 /*
     PopUp para seleccionar fecha
 */
-class DateSelector extends Elemento
+class DateSelector extends Elemento implements IEditable, Input
 {
 
 
@@ -27,6 +27,14 @@ class DateSelector extends Elemento
     function setEditableOn()
     {
 
+    }
+    public function renderizar()
+    {
+
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
     }
 }
 

@@ -80,35 +80,64 @@ $seccion4 = Seccion::crear(
 
 //............................................
 // un boton
-$botonAceptar = Button::crear(
+$boton1 = Button::crear(
     Elemento::getNewId(),
     "",
-    "Aceptar",
+    "1 ",
     null,
-    $programa,
+    $seccion2,
 );
 
 
 
 //............................................
 // otro boton
-$botonCancelar = Button::crear(
+$boton2 = Button::crear(
     Elemento::getNewId(),
     "",
-    "Cancelar",
+    "2 ",
     null,
-    $programa,
+    $seccion2,
 );
 
 //............................................
 // otro boton
-$botonAux = Button::crear(
+$boton3 = Button::crear(
     Elemento::getNewId(),
     "",
-    "aux",
+    "3 ",
     null,
-    $programa,
+    $seccion3,
 );
+//............................................
+// otro boton
+$boton4 = Button::crear(
+    Elemento::getNewId(),
+    "",
+    "4 ",
+    null,
+    $seccion3,
+);
+//............................................
+// otro boton
+$boton5 = Button::crear(
+    Elemento::getNewId(),
+    "",
+    "5 ",
+    null,
+    $seccion4,
+);
+//............................................
+// otro boton
+$boton6 = Button::crear(
+    Elemento::getNewId(),
+    "",
+    "6 ",
+    null,
+    $seccion4,
+);
+
+
 
 
 
@@ -195,14 +224,14 @@ $seccion->add($seccion3, fila: 1, columna: 0);
 $seccion->add($seccion4, fila: 1, columna: 1);
 
 
-$seccion2->add($label1, 0, 0);
-$seccion2->add($label2, 0, 1);
+$seccion2->add($boton1, 0, 0);
+$seccion2->add($boton2, 0, 1);
 
-$seccion3->add($label3, 0, 0);
-$seccion3->add($label4, 0, 1);
+$seccion3->add($boton3, 0, 0);
+$seccion3->add($boton4, 0, 1);
 
-$seccion4->add($label5, 0, 0);
-$seccion4->add($label6, 0, 1);
+$seccion4->add($boton5, 0, 0);
+$seccion4->add($boton6, 0, 1);
 
 
 

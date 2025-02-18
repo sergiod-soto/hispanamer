@@ -34,11 +34,13 @@ class RadioButton extends Elemento
     {
 
     }
+    function renderizar()
+    {
 
-
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
+    }
 }
-
-
-
-
 ?>

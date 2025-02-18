@@ -1,6 +1,6 @@
 <?php
 
-class DesplegableBox extends Elemento
+class DesplegableBox extends Elemento implements Input, IEditable
 {
 
 
@@ -21,7 +21,14 @@ class DesplegableBox extends Elemento
     {
 
     }
+    public function renderizar()
+    {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
+    }
 
 }
 

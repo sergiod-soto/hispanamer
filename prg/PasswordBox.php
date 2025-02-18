@@ -1,6 +1,6 @@
 <?php
 
-class PasswordBox extends Elemento implements IRenderizable
+class PasswordBox extends Elemento
 {
 
     public $input;
@@ -33,6 +33,10 @@ class PasswordBox extends Elemento implements IRenderizable
     public function show()
     {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
     }
 }
 ?>

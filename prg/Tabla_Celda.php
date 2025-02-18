@@ -26,6 +26,13 @@ class Tabla_Celda extends Elemento implements IEditable
     {
 
     }
-}
+    function renderizar()
+    {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        return;
+    }
+}
 ?>

@@ -18,6 +18,14 @@ class Link extends Elemento
     {
 
     }
+    public function renderizar()
+    {
+
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        return;
+    }
 }
 
 ?>

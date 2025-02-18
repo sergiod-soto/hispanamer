@@ -7,7 +7,7 @@
  * 
  *  puede contener cualquier otro tipo de "Elemento", incluyendo otras secciones.
  */
-class Seccion extends Elemento implements IRenderizable
+class Seccion extends Elemento
 {
     public $elementos;
 
@@ -59,6 +59,10 @@ class Seccion extends Elemento implements IRenderizable
     public function setModo($modo)
     {
         $this->modo = $modo;
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        return;
     }
 
 
@@ -145,24 +149,28 @@ class Seccion extends Elemento implements IRenderizable
         $htmlReturn = "";
 
         if (count($elementos) <= 1) {                // NO se ponen <div>s
+            $htmlReturn .= "<span id='$this->id'>";  //encapsulo la fila
             foreach ($fila as $item) {
                 $htmlReturn .= $item->renderizar();
             }
+            $htmlReturn .= "</span>";  //encapsulo la fila
             return $htmlReturn;
         }
+        $htmlReturn .= "<div id='$this->id'>";  //encapsulo la fila
         foreach ($elementos as $fila) {
 
             // Pongo <div>s a cada fila
 
-            $htmlReturn .= "<div>";  //encapsulo la fila
+            //$htmlReturn .= "<div>";  //encapsulo la fila
 
             foreach ($fila as $item) {
                 $htmlReturn .= $item->renderizar();
             }
 
-            $htmlReturn .= "</div>"; // fin fila
+            //$htmlReturn .= "</div>"; // fin fila
 
         }
+        $htmlReturn .= "</div>";  //encapsulo la fila
         return $htmlReturn;
     }
 

@@ -18,6 +18,13 @@ class Tabla_Fila extends Elemento
     {
 
     }
-}
+    function renderizar()
+    {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        return;
+    }
+}
 ?>

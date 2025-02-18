@@ -3,7 +3,7 @@
 /*
 
 */
-class Tabla extends Elemento
+class Tabla extends Elemento implements IEditable
 {
 
 
@@ -20,6 +20,22 @@ class Tabla extends Elemento
     function show()
     {
 
+    }
+    function setEditableOff()
+    {
+
+    }
+    function setEditableOn()
+    {
+
+    }
+    function renderizar()
+    {
+
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
     }
 }
 

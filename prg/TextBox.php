@@ -4,7 +4,7 @@
  * cuadro de texto, rectangulo donde se puede escribir
  * es un Elemento
  */
-class TextBox extends Elemento
+class TextBox extends Elemento implements IEditable
 {
 
     public $texto;
@@ -29,6 +29,13 @@ class TextBox extends Elemento
     {
 
     }
-}
+    function renderizar()
+    {
 
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
+    }
+}
 ?>

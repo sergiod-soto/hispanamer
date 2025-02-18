@@ -5,7 +5,7 @@ require_once "Programa.php";
 /*
     boton con texto. al presionarse ejecuta la funcion "funcion"
 */
-class Button extends Elemento implements IRenderizable
+class Button extends Elemento implements Input
 {
 
     public $funcion;
@@ -64,6 +64,10 @@ class Button extends Elemento implements IRenderizable
     public function setModo($modo)
     {
         $this->modo = $modo;
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
     }
 
     /*

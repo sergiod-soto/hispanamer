@@ -3,7 +3,7 @@
 /*
     introduccion de fecha
 */
-class DateBox extends Elemento
+class DateBox extends Elemento implements Input, IEditable
 {
 
     public function DateBox($id, $visible = true, $modo)
@@ -26,6 +26,14 @@ class DateBox extends Elemento
     function show()
     {
 
+    }
+    public function renderizar()
+    {
+
+    }
+    public function setSiguienteFoco($elemento)
+    {
+        $this->siguienteFoco = $elemento;
     }
 }
 
