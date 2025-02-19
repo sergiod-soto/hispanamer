@@ -34,6 +34,36 @@ class Tabla extends Elemento
     */
     public static function crear($id, string $clase, $cabecera, $datos, $funcionCeldas, $padre)
     {
+        //////////////////////////////////////////////////////////////////////
+        //
+        //  inicio programacion defensiva
+        //
+
+        /*
+            comprobamos que la tabla contenga datos
+        */
+        if (count($datos) < 1 || count($datos[0]) < 1) {
+            throw new Exception("Matriz de datos vacia");
+        }
+
+        /*
+           comprobamos que la cabecera contenga datos
+        */
+        if (count($cabecera) < 1) {
+            throw new Exception("Cabecera vacia");
+        }
+
+        /*
+            comprobamos que la matriz de datos sea rectangular
+        */
+        for ($i = 0; $i < count($datos); $i++) {
+            if (count($datos[0]) != count($datos[$i])) {
+                throw new Exception(
+                    "Matriz de datos no rectangular, error en fila [0] ó [$i] creando la tabla"
+                );
+            }
+        }
+
         /* 
             comprobamos que la longitud de la cabecera
             y del numero de columnas de los datos concuerde
@@ -44,6 +74,13 @@ class Tabla extends Elemento
                 " y el número de columnas (" . count($datos[0]) . ")"
             );
         }
+
+        //
+        //  fin programacion defensiva
+        //
+        //////////////////////////////////////////////////////////////////////
+
+
 
         // genero las filas
         $filas = [];
