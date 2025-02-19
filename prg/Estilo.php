@@ -7,7 +7,7 @@ class Estilo
 {
     public $activo;
     public $css;
-    public $elemento;
+    public $elementos;
 
     /*
         algunas de las propiedades css basicas para un control
@@ -53,13 +53,9 @@ class Estilo
         NO es un elemento de la clase "Elemento", si no un elemento CSS,
         por ejemplo: una clase, un id o una etiqueta html, como "div" o "p"
     */
-    public function addElemento($elemento)
+    public function setElementos($elementos)
     {
-
-    }
-    public function removeElemento($elemento)
-    {
-
+        $this->elementos = $elementos;
     }
 
     /*
@@ -73,7 +69,7 @@ class Estilo
         $css = $this->css;
 
         $css .= "<style>";
-        $css .= $this->elemento . "{";          // a que elementos afecta, segun tipo, id o clase
+        $css .= $this->elementos . "{";          // a que elementos afecta, segun tipo, id o clase
         //                                      //
         //                                      // ej: p{ ... }     //     .p, .h1{ ... }
 

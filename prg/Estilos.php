@@ -5,22 +5,17 @@
 */
 abstract class Estilos
 {
-    public function __construction()
+    public static $estilos;
+
+    public function __construct()
     {
-        $estilos[""] = "";
+        $this->estilos = [];
 
-    }
+        // estilo 1
+        $this->estilos[""] = new Estilo();
 
-    public function estilo1()
-    {
-        $estilo = new Estilo();
-        $estilo->font = new Font();
-
-
-
-
-
-        // return $this->estilos[""];
+        // estilo 2
+        $this->estilos[""] = new Estilo();
     }
 }
 ?>
