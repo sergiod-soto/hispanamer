@@ -170,10 +170,33 @@ class Tabla extends Elemento
 
         $html = "<table";
         if ($this->clase != null && $this->clase != "") {
-            $html .= " class=\"$this->clase\" ";
+            $html .= " class=\"$this->clase\">";
         }
+        // anhado la cabecera
+        $html .=
+            "
+            <tr>
+            ";
+        foreach ($this->cabecera as $cabecera) {
+            $html .= "<th>";
+            if (is_string($cabecera)) {
+                $html .= $cabecera . "</td>";
+            } else {
+                if (is_object($cabecera) && method_exists($cabecera, 'renderizar')) {
+                    $html .= $cabecera->renderizar() . "</td>";
+                } else {
+                    $html .= "[NULL]" . "</td>";
+                }
+            }
+            $html .= "</th>";
+        }
+        $html .=
+            "
+            </tr>
+            ";
 
-        $html .= ">" . $htmlFilas . "</table>";
+        // anhado el cuerpo
+        $html .= $htmlFilas . "</table>";
 
         return $html;
     }

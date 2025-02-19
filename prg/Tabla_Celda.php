@@ -80,12 +80,13 @@ class Tabla_Celda extends Elemento
         }
         if (is_string($this->contenido)) {
             $html .= ">" . $this->contenido . "</td>";
+        } else {
+            if (is_object($this->contenido) && method_exists($this->contenido, 'renderizar')) {
+                $html .= ">" . $this->contenido->renderizar() . "</td>";
+            } else {
+                $html .= ">" . "[NULL]" . "</td>";
+            }
         }
-        if (is_object($this->contenido) && method_exists($this->contenido, 'renderizar')) {
-            $html .= ">" . $this->contenido->renderizar() . "</td>";
-        }
-
-
         return $html;
     }
     function hide()
