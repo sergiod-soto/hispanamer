@@ -4,10 +4,47 @@
     clase para gestionar la direccion de elementos
 */
 
-enum Iconos: string
+/*
+    ICONOS
+*/
+$urlPDF = "";
+$urlEXCEL = "";
+$urlBotonNuevo = "";
+$urlBotonEditar = "";
+$urlBotonEliminar = "";
+$urlBotonLupa = "";
+$urlBotonImpresora = "";
+$urlBotonFlechaAtras = "";
+$urlBotonFlechaAdelante = "";
+$urlBotonRecargar = "";
+$urlBotonTest = "";
+
+
+
+/*
+    BASE DE DATOS
+*/
+//
+
+
+
+
+enum Icono: string
 {
-    case iconoPDF = "";
-    case iconoExcel = "";
-    // etc
+    case PDF = $urlPDF;
+    case EXCEL = $urlEXCEL;
+    case botonNuevo = $urlBotonNuevo;
+    case botonEditar = $urlBotonEditar;
+    case botonEliminar = $urlBotonEliminar;
+    case botonLupa = $urlBotonLupa;
+    case botonImpresora = $urlBotonImpresora;
+    case botonFlechaAtras = $urlBotonFlechaAtras;
+    case botonFlechaAdelante = $urlBotonFlechaAdelante;
+    case botonRecargar = $urlBotonRecargar;
+    case botonTest = $urlBotonTest;
+}
+enum DB: string
+{
+    case a = "";
 }
 ?>
