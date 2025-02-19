@@ -148,9 +148,12 @@ class Seccion extends Elemento
         $elementos = $elementosReturn;
         $htmlReturn = "";
 
-        if (count($elementos) <= 1) {                // NO se ponen <div>s
+        if (count($elementos) < 1) {
+            return $htmlReturn;
+        }
+        if (count($elementos) == 1) {                // NO se ponen <div>s
             $htmlReturn .= "<span id='$this->id'>";  //encapsulo la fila
-            foreach ($fila as $item) {
+            foreach ($elementos[0] as $item) {
                 $htmlReturn .= $item->renderizar();
             }
             $htmlReturn .= "</span>";  //encapsulo la fila

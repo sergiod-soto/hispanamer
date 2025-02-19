@@ -8,20 +8,19 @@ class Tabla_Celda extends Elemento
 
     public $contenido;
     public $funcion;
+    public $tabla;
 
-    public function __construct($id, string $clase, $modo, $elemento, $funcion, $padre)
+    public function __construct($id, string $clase, $elemento, $funcion, $padre)
     {
-
-
-
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $modo,
-            $padre,
             null,
+            $padre,
+            "",
         );
+        $this->tabla = null;
         $this->contenido = $elemento;
         $this->funcion = $funcion;
     }
@@ -33,16 +32,14 @@ class Tabla_Celda extends Elemento
     */
     public static function crear($id, string $clase, $elemento, $funcion, $padre)
     {
-        // Crea el botón
+        // Crea la celda
         $tabla_celda = new self(
             $id,
             $clase,
-            null,
             $elemento,
             $funcion,
             $padre,
         );
-
 
         $modoPadre = null;
         if ($padre != null) {
@@ -64,24 +61,15 @@ class Tabla_Celda extends Elemento
     {
         $this->modo = $modo;
     }
-
-
-    function setEditableOff()
+    public function setFila($fila)
     {
-
+        $this->elementoPadre = $fila;
     }
-    function setEditableOn()
+    public function setTabla($tabla)
     {
-
+        $this->tabla = $tabla;
     }
-    function hide()
-    {
 
-    }
-    function show()
-    {
-
-    }
     function renderizar()
     {
         $html = "<td";
@@ -90,9 +78,23 @@ class Tabla_Celda extends Elemento
         if ($this->clase != null && $this->clase != "") {
             $html .= " class=\"$this->clase\" ";
         }
-        $html .= ">" . $this->contenido->renderizar() . "</td>";
-        
+        if (is_string($this->contenido)) {
+            $html .= ">" . $this->contenido . "</td>";
+        }
+        if (is_object($this->contenido) && method_exists($this->contenido, 'renderizar')) {
+            $html .= ">" . $this->contenido->renderizar() . "</td>";
+        }
+
+
         return $html;
+    }
+    function hide()
+    {
+
+    }
+    function show()
+    {
+
     }
     public function setSiguienteFoco($elemento)
     {

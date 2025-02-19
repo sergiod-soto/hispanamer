@@ -209,7 +209,17 @@ $checkbox = CheckBox::crear(
     $seccion,
 );
 
-
+$tabla = Tabla::crear(
+    Elemento::getNewId(),
+    "claseTabla",
+    ["c1","c2","c3"],
+    [
+                ["f1c1", "f1c2", "f1c3"],
+                ["f2c1", "f2c2", "f2c3"]
+    ],
+    null,
+    $seccion,
+);
 
 
 
@@ -219,19 +229,8 @@ $checkbox = CheckBox::crear(
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$seccion->add($seccion2, fila: 0, columna: 1);
-$seccion->add($seccion3, fila: 1, columna: 0);
-$seccion->add($seccion4, fila: 1, columna: 1);
+$seccion->add($tabla, fila: 0, columna: 0);
 
-
-$seccion2->add($boton1, 0, 0);
-$seccion2->add($boton2, 0, 1);
-
-$seccion3->add($boton3, 0, 0);
-$seccion3->add($boton4, 0, 1);
-
-$seccion4->add($boton5, 0, 0);
-$seccion4->add($boton6, 0, 1);
 
 
 

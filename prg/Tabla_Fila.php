@@ -6,21 +6,19 @@
 class Tabla_Fila extends Elemento
 {
 
-    public $datos;
     public $columnas;
 
-    public function __construct($id, string $clase, $modo, $datos, $columnas, $padre)
+    public function __construct($id, string $clase, $columnas, $padre)
     {
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $modo,
+            null,
             $padre,
             "",
         );
 
-        $this->datos = $datos;
         $this->columnas = $columnas;
     }
 
@@ -28,14 +26,12 @@ class Tabla_Fila extends Elemento
         patron de diseño para crear una fila con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $modo, $datos, $columnas, $padre)
+    public static function crear($id, string $clase, $columnas, $padre)
     {
-        // Crea el botón
+        // Crea la fila
         $tabla_fila = new self(
             $id,
             $clase,
-            null,
-            $datos,
             $columnas,
             $padre,
         );
@@ -60,6 +56,10 @@ class Tabla_Fila extends Elemento
     public function setModo($modo)
     {
         $this->modo = $modo;
+    }
+    public function setTabla($tabla)
+    {
+        $this->elementoPadre = $tabla;
     }
     function hide()
     {
