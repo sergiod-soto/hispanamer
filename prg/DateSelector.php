@@ -20,6 +20,10 @@ class DateSelector extends Elemento implements IEditable, Input
     {
 
     }
+    function setVisible($visible)
+    {
+
+    }
     function setEditableOff()
     {
 

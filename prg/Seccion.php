@@ -81,6 +81,10 @@ class Seccion extends Elemento
     {
         // TODO
     }
+    function setVisible($visible)
+    {
+
+    }
 
     /*
         Anhade un Elemento a la Seccion

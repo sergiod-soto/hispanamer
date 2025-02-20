@@ -29,6 +29,9 @@ class TextBox extends Elemento implements IEditable
     {
 
     }
+    function setVisible($visible){
+
+    }
     function renderizar()
     {
 

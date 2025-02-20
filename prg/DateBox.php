@@ -27,6 +27,10 @@ class DateBox extends Elemento implements Input, IEditable
     {
 
     }
+    function setVisible($visible)
+    {
+
+    }
     public function renderizar()
     {
 

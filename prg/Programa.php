@@ -21,12 +21,16 @@ class Programa extends Modo implements IRenderizable
     public $elementos;
     public $autor;
     public $fecha;
-    public $scripts;
-    public function __construct($autor, $fecha, $scripts)
+    public $scriptsCabecera;
+    public $scriptsBody;
+
+    public function __construct($autor, $fecha, $scriptsCabecera, $scriptsBody)
     {
         $this->cookies = [];
         $this->elementos = [];
-        $this->scripts = $scripts;
+        $this->scriptsCabecera = $scriptsCabecera;
+        $this->scriptsBody = $scriptsBody;
+
         $this->titulo = "";
         $this->cabecera = "";
         $this->cuerpo = "";
@@ -39,10 +43,10 @@ class Programa extends Modo implements IRenderizable
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($autor, $fecha, $scripts)
+    public static function crear($autor, $fecha, $scriptsCabecera, $scriptsBody)
     {
         // Crea el programa
-        $programa = new self($autor, $fecha, $scripts);
+        $programa = new self($autor, $fecha, $scriptsCabecera, $scriptsBody);
 
         // Crea el modo, inyectando el botón en el constructor
         $modo = new Modo(null, $programa);
@@ -106,9 +110,13 @@ class Programa extends Modo implements IRenderizable
     */
     function renderizar()
     {
-        $htmlScripts = "";
-        foreach ($this->scripts as $script) {
-            $htmlScripts .= "<script src=\"$script\"></script>";
+        $htmlScriptsCabecera = "";
+        foreach ($this->scriptsCabecera as $script) {
+            $htmlScriptsCabecera .= "<script src=\"$script\"></script>";
+        }
+        $htmlScriptsBody = "";
+        foreach ($this->scriptsBody as $script) {
+            $htmlScriptsBody .= "<script src=\"$script\"></script>";
         }
 
         return $this->html =
@@ -119,12 +127,12 @@ class Programa extends Modo implements IRenderizable
                     <meta charset='UTF-8'>
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     $this->cabecera 
-                    $htmlScripts
+                    $htmlScriptsCabecera
                 </head>
 
                 <body>
                     $this->cuerpo
-                    " . PDF . "
+                    $htmlScriptsBody
                 </body>
             </html>
             ";

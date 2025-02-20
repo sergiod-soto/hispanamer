@@ -3,8 +3,11 @@
 /*
 
 */
-//define("PDF", "<img src=\"../multimedia/iconos/registro.png\" alt=\"Descargar PDF\" width=\"32\" height=\"32\">");
-define("PDF", "<img src= \"/multimedia/registro.png\" alt=\"Descargar PDF\" width=\"32\" height=\"32\">");
+define("iconoNuevo", "<img id=\"iconoPDF\" src= \"/multimedia/iconos/nuevo.png\" alt=\"Descargar PDF\" width=\"32\" height=\"32\">");
+
+
+
+
 
 
 /*    

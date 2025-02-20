@@ -24,6 +24,9 @@ class TimeBox extends Elemento implements IEditable
     {
 
     }
+    function setVisible($visible){
+
+    }
     function renderizar()
     {
 

@@ -62,6 +62,9 @@ class Texto extends Elemento implements IRenderizable
     {
         // TODO
     }
+    function setVisible($visible){
+
+    }
 
     function renderizar()
     {

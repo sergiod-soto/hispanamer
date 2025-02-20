@@ -32,7 +32,7 @@ class Tabla extends Elemento
         patron de diseño para crear una tabla con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $cabecera, $datos, $funcionCeldas, $padre)
+    public static function crear($id, string $clase, $cabecera, $datos, $padre)
     {
         //////////////////////////////////////////////////////////////////////
         //
@@ -94,7 +94,6 @@ class Tabla extends Elemento
                     Elemento::getNewId(),
                     "",
                     $elemento,
-                    $funcionCeldas,
                     null,
                 );
             }
@@ -156,6 +155,9 @@ class Tabla extends Elemento
     }
     function show()
     {
+
+    }
+    function setVisible($visible){
 
     }
     function renderizar()

@@ -121,6 +121,10 @@ class PopUp extends Elemento
     {
 
     }
+    function setVisible($visible)
+    {
+
+    }
     function setEditableOff()
     {
 

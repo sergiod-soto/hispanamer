@@ -75,6 +75,10 @@ class CheckBox extends Elemento implements Input, IEditable
     {
 
     }
+    function setVisible($visible)
+    {
+
+    }
     function setEditableOn()
     {
 

@@ -10,7 +10,7 @@ class Tabla_Celda extends Elemento
     public $funcion;
     public $tabla;
 
-    public function __construct($id, string $clase, $elemento, $funcion, $padre)
+    public function __construct($id, string $clase, $elemento, $padre)
     {
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -22,7 +22,6 @@ class Tabla_Celda extends Elemento
         );
         $this->tabla = null;
         $this->contenido = $elemento;
-        $this->funcion = $funcion;
     }
 
 
@@ -30,14 +29,13 @@ class Tabla_Celda extends Elemento
         patron de diseño para crear una celda con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $elemento, $funcion, $padre)
+    public static function crear($id, string $clase, $elemento, $padre)
     {
         // Crea la celda
         $tabla_celda = new self(
             $id,
             $clase,
             $elemento,
-            $funcion,
             $padre,
         );
 
@@ -95,6 +93,9 @@ class Tabla_Celda extends Elemento
     }
     function show()
     {
+
+    }
+    function setVisible($visible){
 
     }
     public function setSiguienteFoco($elemento)

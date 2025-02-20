@@ -17,6 +17,9 @@ class Imagen extends Elemento implements IEditable
     {
 
     }
+    function setVisible($visible){
+
+    }
     public function renderizar()
     {
 

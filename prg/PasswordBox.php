@@ -34,6 +34,10 @@ class PasswordBox extends Elemento
     {
 
     }
+    function setVisible($visible)
+    {
+
+    }
     public function setSiguienteFoco($elemento)
     {
         $this->siguienteFoco = $elemento;

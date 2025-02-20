@@ -18,16 +18,21 @@ spl_autoload_register(function ($class_name) {
 
 //............................................
 // el programa base
-$scripts =
+$scriptsCabecera =
     [
-        "asd",
-        "urlScript2"
+
     ];
+$scriptsBody =
+    [
+        "js/prg1/script.js",
+    ];
+
 
 $programa = Programa::crear(
     autor: "sergiod",
     fecha: "17/02/2025",
-    scripts: $scripts
+    scriptsCabecera: $scriptsCabecera,
+    scriptsBody: $scriptsBody
 );
 
 
@@ -85,7 +90,6 @@ $boton1 = Button::crear(
     Elemento::getNewId(),
     "",
     "1 ",
-    null,
     $seccion2,
 );
 
@@ -97,7 +101,6 @@ $boton2 = Button::crear(
     Elemento::getNewId(),
     "",
     "2 ",
-    null,
     $seccion2,
 );
 
@@ -107,7 +110,6 @@ $boton3 = Button::crear(
     Elemento::getNewId(),
     "",
     "3 ",
-    null,
     $seccion3,
 );
 //............................................
@@ -116,7 +118,6 @@ $boton4 = Button::crear(
     Elemento::getNewId(),
     "",
     "4 ",
-    null,
     $seccion3,
 );
 //............................................
@@ -125,7 +126,6 @@ $boton5 = Button::crear(
     Elemento::getNewId(),
     "",
     "5 ",
-    null,
     $seccion4,
 );
 //............................................
@@ -134,7 +134,6 @@ $boton6 = Button::crear(
     Elemento::getNewId(),
     "",
     "6 ",
-    null,
     $seccion4,
 );
 
@@ -212,13 +211,12 @@ $checkbox = CheckBox::crear(
 
 $tabla = Tabla::crear(
     Elemento::getNewId(),
-    "claseTabla",
+    "tabla",
     ["c1", "c2", "c3"],
     [
-        ["f1c1", "f1c2", "f1c3"],
-        ["f2c1", "f2c2", "f2c3"]
+        [$boton1, "f1c2", "f1c3"],
+        ["f2c1", iconoNuevo, "f2c3"]
     ],
-    null,
     $seccion,
 );
 

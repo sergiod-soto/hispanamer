@@ -69,6 +69,9 @@ class Tabla_Fila extends Elemento
     {
 
     }
+    function setVisible($visible){
+
+    }
     function renderizar()
     {
         // preparo la fila

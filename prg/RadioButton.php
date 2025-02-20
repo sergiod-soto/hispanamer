@@ -34,6 +34,9 @@ class RadioButton extends Elemento
     {
 
     }
+    function setVisible($visible){
+
+    }
     function renderizar()
     {
 

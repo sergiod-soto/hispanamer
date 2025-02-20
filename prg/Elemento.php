@@ -45,6 +45,7 @@ abstract class Elemento implements IRenderizable
 
     abstract public function hide();
     abstract public function show();
+    abstract public function setVisible($visible);
     abstract public function setSiguienteFoco($elemento);
     abstract public function renderizar();
 }

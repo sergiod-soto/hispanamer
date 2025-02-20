@@ -77,5 +77,8 @@ class HourBox extends Elemento
     {
 
     }
+    function setVisible($visible){
+
+    }
 }
 ?>
