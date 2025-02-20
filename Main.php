@@ -95,7 +95,7 @@ $seccion4 = Seccion::crear(
 // un boton
 $boton1 = Button::crear(
     Elemento::getNewId(),
-    "",
+    "b1",
     "1 ",
     $seccion2,
 );
@@ -219,8 +219,20 @@ $checkbox = CheckBox::crear(
 $tabla = Tabla::crear(
     Elemento::getNewId(),
     "tabla",
-    ["c1", iconoNuevo, "c3", $boton2],
+    ["c1111111111c1111111111", iconoNuevo, "c3", $boton2],
     [
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        [$boton1, "f1c2", "f1c3", "f1c4"],
         [$boton1, "f1c2", "f1c3", "f1c4"],
         ["f2c1", iconoNuevo, iconoNuevo, "f2c4"]
     ],

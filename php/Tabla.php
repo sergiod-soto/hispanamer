@@ -13,6 +13,9 @@ class Tabla extends Elemento
     public $filas;
     public $filaSeleccionada;
 
+    // variable para el id de las filas de la tabla
+    public static $idFila = 0;
+
     public function __construct($id, string $clase, $cabecera, $datos, $padre)
     {
         // Llamamos al constructor de la clase Elemento
@@ -240,6 +243,11 @@ class Tabla extends Elemento
     public function setSiguienteFoco($elemento)
     {
         return;
+    }
+
+    public static function getIdFila()
+    {
+        return Tabla::$idFila++;
     }
 }
 

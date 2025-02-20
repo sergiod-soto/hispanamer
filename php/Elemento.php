@@ -39,8 +39,7 @@ abstract class Elemento implements IRenderizable
     }
     public static function getNewId()
     {
-        Elemento::$idElemento++;
-        return "id_" . Elemento::$idElemento;
+        return "id_" . Elemento::$idElemento++;
     }
 
     abstract public function hide();

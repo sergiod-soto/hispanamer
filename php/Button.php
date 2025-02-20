@@ -13,7 +13,11 @@ class Button extends Elemento implements Input
 
     public function __construct($id, string $clase, $modo, $text, $padre)
     {
-        $html = "<button id=\"$id\" type='button'>$text</button>";
+        if ($clase != null && $clase != "") {
+            $html = "<button id=\"$id\" class=\"$clase\" type='button'>$text</button>";
+        } else {
+            $html = "<button id=\"$id\" type='button'>$text</button>";
+        }
         $this->text = $text;
 
 
@@ -94,7 +98,11 @@ class Button extends Elemento implements Input
     function cambiarText($text)
     {
         $this->text = $text;
-        $this->html = "<button type='button'>$text</button>";
+        if ($this->clase != null && $this->clase != "") {
+            $this->html = "<button id=\"$this->id\" class=\"$this->clase\" type='button'>$text</button>";
+        } else {
+            $this->html = "<button id=\"$this->id\" type='button'>$text</button>";
+        }
     }
 
     /*

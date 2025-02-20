@@ -1,27 +1,33 @@
 /* La tabla tiene ancho fijo y usa table-layout: fixed para respetar los anchos de cada <col> */
-#id_18 {
-    width: 600px; 
+#id_17 {
+    width: 600px;
     table-layout: fixed;
     border-collapse: collapse;
-  }
-  
-  th, td {
+}
+
+th,
+td {
     border: 1px solid #000;
     padding: 8px;
-    position: relative;  /* Permite posicionar el resizer dentro */
+    position: relative;
+    /* Permite posicionar el resizer dentro */
     overflow: hidden;
-    
-  }
-  
-  /* Estilo para el separador que se usa para redimensionar */
-  .resizer {
+    white-space: nowrap; /* Evita que el texto se divida */
+
+
+}
+
+/* Estilo para el separador que se usa para redimensionar */
+.resizer {
     position: absolute;
     top: 0;
     right: 0;
     width: 5px;
     height: 100%;
     cursor: col-resize;
-    user-select: none;
-    z-index: 10;
-  }
-  
+    background-color: transparent;
+}
+
+.resizer:hover {
+    background-color: gray;
+}

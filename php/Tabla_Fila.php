@@ -1,5 +1,11 @@
 <?php
 
+// class autoloader
+spl_autoload_register(function ($class_name) {
+    $file = "php/" . $class_name . '.php';
+    include_once $file;
+});
+
 /*
     clase interna de Tabla
 */
@@ -69,7 +75,8 @@ class Tabla_Fila extends Elemento
     {
 
     }
-    function setVisible($visible){
+    function setVisible($visible)
+    {
 
     }
     function renderizar()
@@ -82,7 +89,7 @@ class Tabla_Fila extends Elemento
         }
         //
 
-        $html = "<tr";
+        $html = "<tr id=\"idFila_" . Tabla::getIdFila() . "\"";
         if ($this->clase != null && $this->clase != "") {
             $html .= " class=\"$this->clase\" ";
         }
