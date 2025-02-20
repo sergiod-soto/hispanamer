@@ -1,9 +1,5 @@
 <?php
 
-// class autoloader
-spl_autoload_register(function ($class_name) {
-    include "../../programa/prg/" . $class_name . '.php';
-});
 
 
 
@@ -25,10 +21,12 @@ class Programa extends Modo implements IRenderizable
     public $elementos;
     public $autor;
     public $fecha;
-    public function __construct($autor, $fecha)
+    public $scripts;
+    public function __construct($autor, $fecha, $scripts)
     {
         $this->cookies = [];
         $this->elementos = [];
+        $this->scripts = $scripts;
         $this->titulo = "";
         $this->cabecera = "";
         $this->cuerpo = "";
@@ -41,10 +39,10 @@ class Programa extends Modo implements IRenderizable
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($autor, $fecha)
+    public static function crear($autor, $fecha, $scripts)
     {
-        // Crea el botón
-        $programa = new self($autor, $fecha);
+        // Crea el programa
+        $programa = new self($autor, $fecha, $scripts);
 
         // Crea el modo, inyectando el botón en el constructor
         $modo = new Modo(null, $programa);
@@ -108,6 +106,11 @@ class Programa extends Modo implements IRenderizable
     */
     function renderizar()
     {
+        $htmlScripts = "";
+        foreach ($this->scripts as $script) {
+            $htmlScripts .= "<script src=\"$script\"></script>";
+        }
+
         return $this->html =
             "
             <!DOCTYPE html>
@@ -116,10 +119,12 @@ class Programa extends Modo implements IRenderizable
                     <meta charset='UTF-8'>
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     $this->cabecera 
+                    $htmlScripts
                 </head>
 
                 <body>
-                    $this->cuerpo    
+                    $this->cuerpo
+                    " . PDF . "
                 </body>
             </html>
             ";

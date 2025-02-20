@@ -1,11 +1,13 @@
 <?php
 
+// include de scripts sin clase
+include_once "prg/Iconos.php";
+
 // class autoloader
 spl_autoload_register(function ($class_name) {
-    $file = "../prg/" . $class_name . '.php';
+    $file = "prg/" . $class_name . '.php';
     include_once $file;
 });
-
 
 
 
@@ -16,18 +18,17 @@ spl_autoload_register(function ($class_name) {
 
 //............................................
 // el programa base
-$programa = Programa::crear(autor: "sergiod", fecha: "17/02/2025");
+$scripts =
+    [
+        "asd",
+        "urlScript2"
+    ];
 
-
-
-
-
-
-
-
-
-
-
+$programa = Programa::crear(
+    autor: "sergiod",
+    fecha: "17/02/2025",
+    scripts: $scripts
+);
 
 
 
@@ -212,10 +213,10 @@ $checkbox = CheckBox::crear(
 $tabla = Tabla::crear(
     Elemento::getNewId(),
     "claseTabla",
-    ["c1","c2","c3"],
+    ["c1", "c2", "c3"],
     [
-                ["f1c1", "f1c2", "f1c3"],
-                ["f2c1", "f2c2", "f2c3"]
+        ["f1c1", "f1c2", "f1c3"],
+        ["f2c1", "f2c2", "f2c3"]
     ],
     null,
     $seccion,
@@ -293,4 +294,7 @@ $htmlPrograma = $programa->Renderizar();
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 echo $htmlPrograma;
+
+
+
 ?>
