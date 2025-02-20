@@ -157,7 +157,8 @@ class Tabla extends Elemento
     {
 
     }
-    function setVisible($visible){
+    function setVisible($visible)
+    {
 
     }
     function renderizar()
@@ -170,16 +171,36 @@ class Tabla extends Elemento
         }
         //
 
-        $html = "<table";
+        $html = "<table id=\"$this->id\"";
         if ($this->clase != null && $this->clase != "") {
             $html .= " class=\"$this->clase\">";
         }
+
+        // obtengo id para cada cabecera
+        $cabeceraId = [];
+        for ($i = 0; $i < count($this->cabecera); $i++) {
+            $cabeceraId[] = Elemento::getNewId();
+        }
+
+
+        // anhado el <colgroup>
+        $html .= "<colgroup>";
+        for ($i = 0; $i < count($cabeceraId); $i++) {
+            $html .= "<col id=\"" . $cabeceraId[$i] . "\">";
+        }
+        $html .= "</colgroup>";
+
+
+        $html .= "<thead>";
+
+
         // anhado la cabecera
         $html .=
             "
             <tr>
             ";
-        foreach ($this->cabecera as $cabecera) {
+        for ($i = 0; $i < count($this->cabecera); $i++) {
+            $cabecera = $this->cabecera[$i];
             $html .= "<th>";
             if (is_string($cabecera)) {
                 $html .= $cabecera . "</td>";
@@ -190,12 +211,18 @@ class Tabla extends Elemento
                     $html .= "[NULL]" . "</td>";
                 }
             }
-            $html .= "</th>";
+            if ($i == (count($this->cabecera) - 1)) {
+                $html .= "<div class=\"resizer\ data-left-col=\"" . $cabeceraId[$i] . "></div></th>";
+            } else {
+                $html .= "<div class=\"resizer\" data-left-col=\"" . $cabeceraId[$i] .
+                    "\" data-right-col=\"" . $cabeceraId[$i + 1] . "\"></div></th>";
+            }
         }
         $html .=
             "
-            </tr>
+            </tr></thead>
             ";
+
 
         // anhado el cuerpo
         $html .= $htmlFilas . "</table>";

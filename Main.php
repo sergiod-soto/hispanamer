@@ -1,11 +1,11 @@
 <?php
 
 // include de scripts sin clase
-include_once "prg/Iconos.php";
+include_once "php/Iconos.php";
 
 // class autoloader
 spl_autoload_register(function ($class_name) {
-    $file = "prg/" . $class_name . '.php';
+    $file = "php/" . $class_name . '.php';
     include_once $file;
 });
 
@@ -24,7 +24,13 @@ $scriptsCabecera =
     ];
 $scriptsBody =
     [
-        "js/prg1/script.js",
+        "js/prg1/boton_1.js",
+        "js/prg1/boton_2.js",
+        "js/prg1/tabla.js",
+    ];
+$css =
+    [
+        "css/prg1/tabla.css",
     ];
 
 
@@ -32,7 +38,8 @@ $programa = Programa::crear(
     autor: "sergiod",
     fecha: "17/02/2025",
     scriptsCabecera: $scriptsCabecera,
-    scriptsBody: $scriptsBody
+    scriptsBody: $scriptsBody,
+    css: $css,
 );
 
 
@@ -212,10 +219,10 @@ $checkbox = CheckBox::crear(
 $tabla = Tabla::crear(
     Elemento::getNewId(),
     "tabla",
-    ["c1", "c2", "c3"],
+    ["c1", iconoNuevo, "c3", $boton2],
     [
-        [$boton1, "f1c2", "f1c3"],
-        ["f2c1", iconoNuevo, iconoNuevo]
+        [$boton1, "f1c2", "f1c3", "f1c4"],
+        ["f2c1", iconoNuevo, iconoNuevo, "f2c4"]
     ],
     $seccion,
 );

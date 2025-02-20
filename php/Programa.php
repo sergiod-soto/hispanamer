@@ -23,13 +23,15 @@ class Programa extends Modo implements IRenderizable
     public $fecha;
     public $scriptsCabecera;
     public $scriptsBody;
+    public $css;
 
-    public function __construct($autor, $fecha, $scriptsCabecera, $scriptsBody)
+    public function __construct($autor, $fecha, $scriptsCabecera, $scriptsBody, $css)
     {
         $this->cookies = [];
         $this->elementos = [];
         $this->scriptsCabecera = $scriptsCabecera;
         $this->scriptsBody = $scriptsBody;
+        $this->css = $css;
 
         $this->titulo = "";
         $this->cabecera = "";
@@ -43,10 +45,16 @@ class Programa extends Modo implements IRenderizable
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($autor, $fecha, $scriptsCabecera, $scriptsBody)
+    public static function crear($autor, $fecha, $scriptsCabecera, $scriptsBody, $css)
     {
         // Crea el programa
-        $programa = new self($autor, $fecha, $scriptsCabecera, $scriptsBody);
+        $programa = new self(
+            $autor,
+            $fecha,
+            $scriptsCabecera,
+            $scriptsBody,
+            $css
+        );
 
         // Crea el modo, inyectando el botón en el constructor
         $modo = new Modo(null, $programa);
@@ -118,6 +126,10 @@ class Programa extends Modo implements IRenderizable
         foreach ($this->scriptsBody as $script) {
             $htmlScriptsBody .= "<script src=\"$script\"></script>";
         }
+        $htmlCss = "";
+        foreach ($this->css as $css) {
+            $htmlCss .= "<link rel=\"stylesheet\" href=\"$css\">";
+        }
 
         return $this->html =
             "
@@ -128,6 +140,7 @@ class Programa extends Modo implements IRenderizable
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     $this->cabecera 
                     $htmlScriptsCabecera
+                    $htmlCss
                 </head>
 
                 <body>
