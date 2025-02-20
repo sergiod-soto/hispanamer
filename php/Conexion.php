@@ -9,18 +9,30 @@
 
 class Conexion
 {
+    public $conn; // 
 
-    private $tabla;
-    private $direccion;
-
-    function __construct($tabla)
+    public function __construct($servername, $baseDatos, $username, $password)
     {
-        $this->tabla = $tabla;
+
+        // Create connection
+        $conn = new mysqli(
+            $servername,
+            $username,       // root
+            $password,       // 025811
+            $baseDatos,
+        );
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } else {
+            echo "Connected successfully";
+        }
     }
 
-    function getDireccion()
+    public function consulta($consulta)
     {
-        return $this->direccion;
+
     }
 }
 
