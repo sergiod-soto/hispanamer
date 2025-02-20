@@ -215,7 +215,7 @@ $tabla = Tabla::crear(
     ["c1", "c2", "c3"],
     [
         [$boton1, "f1c2", "f1c3"],
-        ["f2c1", iconoNuevo, "f2c3"]
+        ["f2c1", iconoNuevo, iconoNuevo]
     ],
     $seccion,
 );
