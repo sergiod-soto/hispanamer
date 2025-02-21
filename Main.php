@@ -33,10 +33,12 @@ $programa = Programa::crear(
     scriptsBody:
     [
         "js/prg1/tabla.js",
+        "js/prg1/timeBox.js",
     ],
     css:
     [
         "css/prg1/tabla.css",
+        "css/prg1/timeBox.css",
     ],
 );
 
@@ -89,7 +91,12 @@ $tabla = Tabla::crear
 
 
 
-
+$selectorHoras = TimeBox::crear
+(
+    Elemento::getNewId(),
+    "",
+    $seccion
+);
 
 
 
@@ -100,7 +107,7 @@ $tabla = Tabla::crear
 
 
 $seccion->add($tabla, 0, 0);
-
+$seccion->add($selectorHoras, 0, 1);
 
 
 
