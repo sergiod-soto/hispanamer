@@ -15,50 +15,29 @@ spl_autoload_register(function ($class_name) {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-//          Declaramos los elementos que componen el programa
+//          1º se crean el programa y la conexion
+//          2º se hacen las consultas necesarias
+//          3º se crean los elementos
+//          4º se colocan
+//          5º se renderiza
 //////////////////////////////////////////////////////////////////////////////////////////////
-
-//............................................
-// el programa base
-$scriptsCabecera =
-    [
-
-    ];
-$scriptsBody =
-    [
-
-    ];
-$css =
-    [
-
-    ];
 
 
 $programa = Programa::crear(
     autor: "sergiod",
     fecha: "17/02/2025",
-    scriptsCabecera: $scriptsCabecera,
-    scriptsBody: $scriptsBody,
-    css: $css,
-);
+    scriptsCabecera:
+    [
 
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-//          Creamos los elementos 
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-
-$botonTest = Button::crear
-(
-    Elemento::getNewId(),
-    "",
-    "PRUEBAS",
-    $programa
+    ],
+    scriptsBody:
+    [
+        "js/prg1/tabla.js",
+    ],
+    css:
+    [
+        "css/prg1/tabla.css",
+    ],
 );
 
 
@@ -74,6 +53,39 @@ $conexion = new Conexion
 
 
 
+$returnArrayConsulta = [];
+$respuesta = $conexion->consulta("SELECT nombre FROM clientes ");
+foreach ($respuesta as $elem) {
+    $returnArrayConsulta[] = [$elem, $elem, $elem];
+}
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//          Creamos los elementos 
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+$seccion = Seccion::crear
+(
+    Elemento::getNewId(),
+    "",
+    $programa
+);
+
+$tabla = Tabla::crear
+(
+    Seccion::getNewId(),
+    "",
+    ["Nombre", "Nombre #2", "Nombre #3"],
+    $returnArrayConsulta,
+    $seccion
+);
+
 
 
 
@@ -87,8 +99,7 @@ $conexion = new Conexion
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
+$seccion->add($tabla, 0, 0);
 
 
 
@@ -108,14 +119,7 @@ $conexion = new Conexion
 $titulo = "Titulo";
 //.......................
 
-
-
-
-
-
-
 //.......................
-
 $cabecera =
     "
     <meta charset='UTF-8'>
@@ -124,12 +128,7 @@ $cabecera =
 //.......................
 
 
-
-
-
-
 //.......................
-
 $cuerpo =
     "" .
     $seccion->renderizar() .

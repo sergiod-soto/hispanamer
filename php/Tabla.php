@@ -16,7 +16,7 @@ class Tabla extends Elemento
     // variable para el id de las filas de la tabla
     public static $idFila = 0;
 
-    public function __construct($id, string $clase, $cabecera, $datos, $padre)
+    public function __construct($id, string $clase, array $cabecera, array $datos, $padre)
     {
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -35,7 +35,7 @@ class Tabla extends Elemento
         patron de diseño para crear una tabla con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $cabecera, $datos, $padre)
+    public static function crear($id, string $clase, array $cabecera, array $datos, $padre)
     {
         //////////////////////////////////////////////////////////////////////
         //
@@ -45,7 +45,13 @@ class Tabla extends Elemento
         /*
             comprobamos que la tabla contenga datos
         */
-        if (count($datos) < 1 || count($datos[0]) < 1) {
+        if (count($datos) <= 0) {
+            throw new Exception("Matriz de datos vacia");
+        }
+        if (gettype($datos[0]) != "array") {
+            throw new Exception("Datos es un array, no una matriz");
+        }
+        if (count($datos[0]) < 1) {
             throw new Exception("Matriz de datos vacia");
         }
 
@@ -74,7 +80,7 @@ class Tabla extends Elemento
         if (count($cabecera) != count($datos[0])) {
             throw new Exception(
                 "Discrepancia entre la longitud de la cabecera (" . count($cabecera) .
-                " y el número de columnas (" . count($datos[0]) . ")"
+                ") y el número de columnas (" . count($datos[0]) . ")"
             );
         }
 
@@ -174,7 +180,7 @@ class Tabla extends Elemento
         }
         //
 
-        $html = "<table id=\"$this->id\"";
+        $html = "<div class=\"tabla-contenedor\"><div class=\"tabla-scroll\"><table id=\"$this->id\"";
         if ($this->clase != null && $this->clase != "") {
             $html .= " class=\"$this->clase\">";
         }
@@ -204,7 +210,7 @@ class Tabla extends Elemento
             ";
         for ($i = 0; $i < count($this->cabecera); $i++) {
             $cabecera = $this->cabecera[$i];
-            $html .= "<th>";
+            $html .= "<th><div class = \"div_borde_cabecera\">";
             if (is_string($cabecera)) {
                 $html .= $cabecera . "</td>";
             } else {
@@ -215,20 +221,20 @@ class Tabla extends Elemento
                 }
             }
             if ($i == (count($this->cabecera) - 1)) {
-                $html .= "<div class=\"resizer\ data-left-col=\"" . $cabeceraId[$i] . "></div></th>";
+                $html .= "<div class=\"resizer\" data-left-col=\"" . $cabeceraId[$i] . "\"></div></div></th>";
             } else {
                 $html .= "<div class=\"resizer\" data-left-col=\"" . $cabeceraId[$i] .
-                    "\" data-right-col=\"" . $cabeceraId[$i + 1] . "\"></div></th>";
+                    "\" data-right-col=\"" . $cabeceraId[$i + 1] . "\"></div></div></th>";
             }
         }
         $html .=
             "
-            </tr></thead>
+            </tr></div></thead>
             ";
 
 
         // anhado el cuerpo
-        $html .= $htmlFilas . "</table>";
+        $html .= $htmlFilas . "</table></div></div>";
 
         return $html;
     }
