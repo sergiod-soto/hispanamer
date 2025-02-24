@@ -75,8 +75,9 @@ if ($method === "GET") {
     $texto = TextBox::crear(
         Elemento::getNewId(),
         "",
+        "",
         "PLACEHOLDER",
-        $seccion
+        $seccion,
     );
 
 

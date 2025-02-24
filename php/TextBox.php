@@ -9,21 +9,13 @@ class TextBox extends Elemento implements IEditable
 
     public $texto;
 
-<<<<<<< HEAD
     public function __construct($id, string $clase, $modo, $text, $placeHolder, $padre)
-=======
-    public function __construct($id, string $clase, $modo, $text, $padre)
->>>>>>> fea2cfbc2576ef37a17a9de0475d0ea0e3589daa
     {
         $html = "<span id=\"$id\" ";
         if ($clase != null && $clase != "") {
             $html .= "class=\"$clase\"";
         }
-<<<<<<< HEAD
         $html .= "><input type=\"text\" placeholder=\"$placeHolder\" />$text</span>";
-=======
-        $html .= ">$text</span>";
->>>>>>> fea2cfbc2576ef37a17a9de0475d0ea0e3589daa
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -39,11 +31,7 @@ class TextBox extends Elemento implements IEditable
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-<<<<<<< HEAD
     public static function crear($id, string $clase, $text, $placeHolder, $padre)
-=======
-    public static function crear($id, string $clase, $text, $padre)
->>>>>>> fea2cfbc2576ef37a17a9de0475d0ea0e3589daa
     {
         // Crea el botón
         $boton = new self(
@@ -51,10 +39,7 @@ class TextBox extends Elemento implements IEditable
             $clase,
             null,
             $text,
-<<<<<<< HEAD
             $placeHolder,
-=======
->>>>>>> fea2cfbc2576ef37a17a9de0475d0ea0e3589daa
             $padre,
         );
 
