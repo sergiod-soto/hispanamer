@@ -1,3 +1,5 @@
+
+
 function timerFunction(funcion, id) {
     // Referencias a elementos
     const timeInput = document.getElementById(id);
@@ -202,12 +204,3 @@ function timerFunction(funcion, id) {
     cancelBtn.addEventListener("click", closeModal);
     overlay.addEventListener("click", closeModal);
 };
-
-
-// funcion 1
-timerFunction(
-    function (tiempo) {
-        localStorage.getItem()
-    },
-    "timeInput"
-);
