@@ -100,14 +100,14 @@ class Tabla extends Elemento
             $columnas = [];
             foreach ($fila as $elemento) {
                 $columnas[] = Tabla_Celda::crear(
-                    Elemento::getNewId(),
+                    "",
                     "",
                     $elemento,
                     null,
                 );
             }
             $filas[] = Tabla_Fila::crear(          // creo nueva fila y la guardo
-                Elemento::getNewId(),
+                "",
                 "",                         // por defecto, las filas no tienen clase, se pueden recorrer y anhadirseles a posteriori
                 $columnas,
                 null,
@@ -180,7 +180,7 @@ class Tabla extends Elemento
         }
         //
 
-        $html = "<div class=\"tabla-contenedor\"><div class=\"tabla-scroll\"><table id=\"$this->id\"";
+        $html = "<span class=\"tabla-contenedor\"><div class=\"tabla-scroll\"><table id=\"$this->id\"";
         if ($this->clase != null && $this->clase != "") {
             $html .= " class=\"$this->clase\">";
         }
@@ -234,7 +234,7 @@ class Tabla extends Elemento
 
 
         // anhado el cuerpo
-        $html .= $htmlFilas . "</table></div></div>";
+        $html .= $htmlFilas . "</table></div></span>";
 
         return $html;
     }

@@ -14,7 +14,15 @@ spl_autoload_register(function ($class_name) {
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+$method = $_SERVER["REQUEST_METHOD"];
+if ($method === "GET") {
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
 //          1º se crean el programa y la conexion
 //          2º se hacen las consultas necesarias
 //          3º se crean los elementos
@@ -23,43 +31,22 @@ spl_autoload_register(function ($class_name) {
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$programa = Programa::crear(
-    autor: "sergiod",
-    fecha: "17/02/2025",
-    scriptsCabecera:
-    [
+    $programa = Programa::crear(
+        autor: "sergiod",
+        fecha: "17/02/2025",
+        scriptsCabecera:
+        [
 
-    ],
-    scriptsBody:
-    [
-        "js/prg1/tabla.js",
-        "js/prg1/timeBox.js",
-    ],
-    css:
-    [
-        "css/prg1/tabla.css",
-        "css/prg1/timeBox.css",
-    ],
-);
+        ],
+        scriptsBody:
+        [
 
+        ],
+        css:
+        [
 
-
-$conexion = new Conexion
-(
-    "localhost",
-    "hispanamer",
-    "root",
-    "025811"
-);
-
-
-
-
-$returnArrayConsulta = [];
-$respuesta = $conexion->consulta("SELECT nombre FROM clientes ");
-foreach ($respuesta as $elem) {
-    $returnArrayConsulta[] = [$elem, $elem, $elem];
-}
+        ],
+    );
 
 
 
@@ -67,54 +54,48 @@ foreach ($respuesta as $elem) {
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
 //          Creamos los elementos 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$seccion = Seccion::crear
-(
-    Elemento::getNewId(),
-    "",
-    $programa
-);
+    $seccion = Seccion::crear
+    (
+        Elemento::getNewId(),
+        "",
+        $programa
+    );
 
-$tabla = Tabla::crear
-(
-    Seccion::getNewId(),
-    "",
-    ["Nombre", "Nombre #2", "Nombre #3"],
-    $returnArrayConsulta,
-    $seccion
-);
 
+    $texto = TextBox::crear(
+        Elemento::getNewId(),
+        "",
+        "PLACEHOLDER",
+        $seccion
+    );
 
 
 
-$selectorHoras = TimeBox::crear
-(
-    Elemento::getNewId(),
-    "",
-    $seccion
-);
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////
 //          Colocamos los elementos 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-$seccion->add($tabla, 0, 0);
-$seccion->add($selectorHoras, 0, 1);
+    $seccion->add($boton, 0, 0);
+    $seccion->add($texto, 1, 0);
 
 
 
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
 //          Generamos el HTML final
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -122,46 +103,44 @@ $seccion->add($selectorHoras, 0, 1);
 
 
 
-//.......................
-$titulo = "Titulo";
-//.......................
+    //.......................
+    $titulo = "Titulo";
+    //.......................
 
-//.......................
-$cabecera =
-    "
+    //.......................
+    $cabecera =
+        "
     <meta charset='UTF-8'>
     <title>$titulo</title>
     ";
-//.......................
+    //.......................
 
 
-//.......................
-$cuerpo =
-    "" .
-    $seccion->renderizar() .
-    "";
-//.......................
-
-
-
-
-
-//.......................
-
-$programa->titulo = $titulo;
-$programa->cabecera = $cabecera;
-$programa->cuerpo = $cuerpo;
-
-$htmlPrograma = $programa->Renderizar();
+    //.......................
+    $cuerpo =
+        "" .
+        $seccion->renderizar() .
+        "";
+    //.......................
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-//          echo del programa
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-echo $htmlPrograma;
 
 
+    //.......................
 
+    $programa->titulo = $titulo;
+    $programa->cabecera = $cabecera;
+    $programa->cuerpo = $cuerpo;
+
+    $htmlPrograma = $programa->Renderizar();
+    echo $htmlPrograma;
+}
+
+if ($method === "POST") {
+
+    // Leer el cuerpo de la solicitud
+    $inputJSON = file_get_contents("php://input");
+    $input = json_decode($inputJSON, true);
+}
 ?>

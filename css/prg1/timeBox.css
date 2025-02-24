@@ -1,5 +1,8 @@
  /* Estilo general y fondo industrial */
  
+ #id_2{
+  position: relative;
+ }
   /* Input principal */
   #timeInput {
     width: 120px;

@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+function timerFunction(funcion, id) {
     // Referencias a elementos
-    const timeInput = document.getElementById("timeInput");
+    const timeInput = document.getElementById(id);
     const overlay = document.getElementById("overlay");
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modalTitle");
@@ -154,7 +154,27 @@ document.addEventListener("DOMContentLoaded", function () {
             const minuteStr = selectedMinute < 10 ? "0" + selectedMinute : selectedMinute;
             ficha = `${hourStr}:${minuteStr}`;
             timeInput.value = ficha;
-            console.log("Ficha guardada:", ficha);
+
+
+            /*
+            fetch("http://localhost:8000/Main.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ "tiempo": ficha }) // Enviar el tiempo en formato JSON
+            })
+            */
+
+
+
+
+            /**
+             *  Aquí va qué debe hacer el boton Aceptar
+             * 
+             */
+            funcion(ficha);
+
             closeModal();
         } else {
             alert("Por favor, selecciona la hora y los minutos.");
@@ -181,4 +201,13 @@ document.addEventListener("DOMContentLoaded", function () {
     timeInput.addEventListener("click", openModal);
     cancelBtn.addEventListener("click", closeModal);
     overlay.addEventListener("click", closeModal);
-});
+};
+
+
+// funcion 1
+timerFunction(
+    function (tiempo) {
+        localStorage.getItem()
+    },
+    "timeInput"
+);
