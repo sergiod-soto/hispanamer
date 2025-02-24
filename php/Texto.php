@@ -16,7 +16,7 @@ class Texto extends Elemento implements IRenderizable
             $clase,
             $modo,
             $padre,
-            $text,
+            "" . $text . "",
         );
     }
 
@@ -62,7 +62,8 @@ class Texto extends Elemento implements IRenderizable
     {
         // TODO
     }
-    function setVisible($visible){
+    function setVisible($visible)
+    {
 
     }
 

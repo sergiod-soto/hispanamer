@@ -40,34 +40,18 @@ if ($method === "GET") {
         ],
         scriptsBody:
         [
-            "js/prg1/Tabla.js",
-            "js/prg1/TimeBox.js",
+
         ],
         css:
         [
-            "css/prg1/Tabla.css",
-            "css/prg1/TimeBox.css",
+
         ],
     );
 
 
 
-    $conexion = new Conexion
-    (
-        "localhost",
-        "hispanamer",
-        "root",
-        "025811"
-    );
 
 
-
-
-    $returnArrayConsulta = [];
-    $respuesta = $conexion->consulta("SELECT nombre FROM clientes ");
-    foreach ($respuesta as $elem) {
-        $returnArrayConsulta[] = [$elem, $elem, $elem];
-    }
 
 
 
@@ -87,30 +71,11 @@ if ($method === "GET") {
         $programa
     );
 
-    $tabla = Tabla::crear
-    (
-        Seccion::getNewId(),
-        "",
-        ["Nombre", "Nombre #2", "Nombre #3"],
-        $returnArrayConsulta,
-        $seccion
-    );
 
-
-
-
-    $selectorHoras = TimeBox::crear
-    (
+    $texto = TextBox::crear(
         Elemento::getNewId(),
         "",
-        $seccion
-    );
-
-    $textBox = TextBox::crear(
-        Elemento::getNewId(),
-        "",
-        "asd",
-        "asdf",
+        "PLACEHOLDER",
         $seccion
     );
 
@@ -121,9 +86,9 @@ if ($method === "GET") {
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    $seccion->add($tabla, 0, 0);
-    $seccion->add($selectorHoras, 1, 0);
-    $seccion->add($textBox, 2, 0);
+    $seccion->add($boton, 0, 0);
+    $seccion->add($texto, 1, 0);
+
 
 
 
