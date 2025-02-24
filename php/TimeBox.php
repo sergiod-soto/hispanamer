@@ -16,7 +16,7 @@ class TimeBox extends Elemento implements IEditable
         }
         $html =
             "
-            <div id=\"$id\" $tagClase>
+            <span id=\"$id\" $tagClase>
             <input type=\"text\" id=\"timeInput\" placeholder=\"h/min\" readonly>
             
             <div id=\"overlay\"></div>
@@ -38,7 +38,7 @@ class TimeBox extends Elemento implements IEditable
                 <button id=\"cancelBtn\">Cancelar</button>
                 </div>
             </div>
-            </div>
+            </span>
             ";
 
 

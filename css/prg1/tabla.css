@@ -18,6 +18,7 @@
 /**/
 
 .tabla-contenedor {
+    display: inline-block;
     width: 100%;
     max-height: 300px;
     max-width: 450px;
