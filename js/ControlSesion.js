@@ -17,7 +17,7 @@ if (sesion != null ||
 
 
     for (let i = 0; i < data.length; i++) {
-        data["funcion"](data["id"], data["value"]);
+        new Function("return" + data[i].funcion)()(data[i].id, data[i].value);
     }
 }
 
