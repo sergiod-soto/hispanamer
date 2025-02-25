@@ -1,6 +1,7 @@
-document.getElementById("id_2").addEventListener("click", () => {
-    id = "id_1";
-    guardar(Elemento.TextBox, id, document.getElementById(id));
+document.getElementById("id_3").addEventListener("click", () => {
+    guardar(Elemento.TextBox, "id_1");
+    guardar(Elemento.TextBox, "id_2");
+
 });
 
 

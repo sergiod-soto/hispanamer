@@ -72,7 +72,7 @@ const Elemento = {
 };
 
 /**
- * Pasa de id "id_X" a int:X
+ * Pasa de id {string:id_X} a {int:X}
  * @param {String} texto
  * @returns id
  */
@@ -81,7 +81,7 @@ function extraerNumero(texto) {
     return match ? parseInt(match[1], 10) : null;
 }
 
-function guardar(elemento, id, value) {
+function guardar(elemento, id) {
 
     // primero, actualizo la fecha de la sesion
     let sesionJson = JSON.parse(localStorage.getItem("sesion"));

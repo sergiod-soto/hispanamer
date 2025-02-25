@@ -74,6 +74,14 @@ if ($method === "GET") {
         $seccion,
     );
 
+    $texto2 = TextBox::crear(
+        Elemento::getNewId(),
+        "",
+        "texto de textBox2",
+        "",
+        $seccion,
+    );
+
     $boton = Button::crear(
         Elemento::getNewId(),
         "",
@@ -92,6 +100,7 @@ if ($method === "GET") {
 
 
     $seccion->add($texto, 0, 0);
+    $seccion->add($texto2, 0, 10);
     $seccion->add($boton, 2, 0);
 
 
