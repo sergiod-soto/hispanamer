@@ -11,11 +11,11 @@ class TextBox extends Elemento implements IEditable
 
     public function __construct($id, string $clase, $modo, $text, $placeHolder, $padre)
     {
-        $html = "<span id=\"$id\" ";
+        $html = "<span ";
         if ($clase != null && $clase != "") {
             $html .= "class=\"$clase\"";
         }
-        $html .= "><input type=\"text\" placeholder=\"$placeHolder\" />$text</span>";
+        $html .= "><input type=\"text\" id=\"$id\" placeholder=\"$placeHolder\" />$text</span>";
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(

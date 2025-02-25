@@ -36,11 +36,11 @@ if ($method === "GET") {
         fecha: "17/02/2025",
         scriptsCabecera:
         [
-            "js/prg1/InicioSesion.js"
+
         ],
         scriptsBody:
         [
-
+            "js/ControlSesion.js"
         ],
         css:
         [
@@ -48,7 +48,7 @@ if ($method === "GET") {
         ],
     );
 
-   
+
 
 
 
@@ -72,6 +72,16 @@ if ($method === "GET") {
         "PLACEHOLDER",
         $seccion,
     );
+
+    $boton = Button::crear(
+        Elemento::getNewId(),
+        "",
+        "XXX",
+        "",
+        $seccion
+    );
+
+
     $_SESSION["a"] = $texto->texto;
 
 
@@ -81,7 +91,7 @@ if ($method === "GET") {
 
 
     $seccion->add($texto, 0, 0);
-
+    $seccion->add($boton, 2, 0);
 
 
 
@@ -128,6 +138,7 @@ if ($method === "GET") {
 
     $htmlPrograma = $programa->Renderizar();
     echo $htmlPrograma;
+
 }
 
 if ($method === "POST") {
@@ -137,3 +148,6 @@ if ($method === "POST") {
     $input = json_decode($inputJSON, true);
 }
 ?>
+<script>
+    localStorage.setItem("prgActual", "prg1");
+</script>

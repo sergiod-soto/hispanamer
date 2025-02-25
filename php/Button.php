@@ -11,13 +11,16 @@ class Button extends Elemento implements Input
     public $funcion;
     public $text;
 
-    public function __construct($id, string $clase, $modo, $text, $padre)
+    public function __construct($id, string $clase, $modo, $text, $funcion, $padre)
     {
+        $html = "<button id=\"$id\"";
         if ($clase != null && $clase != "") {
-            $html = "<button id=\"$id\" class=\"$clase\" type='button'>$text</button>";
-        } else {
-            $html = "<button id=\"$id\" type='button'>$text</button>";
+            $html .= " class=\"$clase\"";
         }
+        if ($funcion != null && $funcion != "") {
+            $html .= " onclick=\"$funcion\"";
+        }
+        $html .= " type='button'>$text</button>";
         $this->text = $text;
 
 
@@ -35,7 +38,7 @@ class Button extends Elemento implements Input
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $text, $padre)
+    public static function crear($id, string $clase, $text, $funcion, $padre)
     {
         // Crea el botón
         $boton = new self(
@@ -43,6 +46,7 @@ class Button extends Elemento implements Input
             $clase,
             null,
             $text,
+            $funcion,
             $padre,
         );
 
