@@ -1,13 +1,21 @@
-localStorage.getItem("sesion").fecha = new Date().getDate();
+document.getElementById("id_2").addEventListener("click", () => {
 
-let texto = getElementById("id_1").value;
-let sesion = localStorage.getItem("sesion");
-prg = localStorage.getItem("pregActual");
+    let sesionJson = JSON.parse(localStorage.getItem("sesion"));
+    sesionJson.fecha = new Date().getDate();
+    localStorage.setItem("sesion", JSON.stringify(sesionJson));
 
-let funcion = (id, value) => {
-    document.getelementById(id).value = value
-};
+    let texto = document.getElementById("id_1").value;
+    prg = localStorage.getItem("prgActual");
 
-sesion[prg]["data"][0]["id"] = "id_1";
-sesion[prg]["data"][0]["funcion"] = funcion.toString();
-sesion[prg]["data"][0]["value"] = texto;
+    let funcion = (id, value) => {
+        document.getElementById(id).value = value
+    };
+
+    sesionJson[prg].data[0].id = "id_1";
+    sesionJson[prg].data[0].funcion = funcion.toString();
+    sesionJson[prg].data[0].value = texto;
+
+    localStorage.setItem("sesion", JSON.stringify(sesionJson))
+});
+
+

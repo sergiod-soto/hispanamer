@@ -40,7 +40,9 @@ if ($method === "GET") {
         ],
         scriptsBody:
         [
-            "js/ControlSesion.js"
+            "js/ControlSesion.js",
+            "js/prg1/boton_1.js"
+
         ],
         css:
         [
