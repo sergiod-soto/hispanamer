@@ -14,7 +14,7 @@ spl_autoload_register(function ($class_name) {
 
 
 
-
+$prg = "prg1";
 
 
 
@@ -42,7 +42,6 @@ if ($method === "GET") {
         [
             "js/ControlSesion.js",
             "js/prg1/boton_1.js"
-
         ],
         css:
         [
@@ -117,6 +116,10 @@ if ($method === "GET") {
         "
     <meta charset='UTF-8'>
     <title>$titulo</title>
+    <!-- necesario para que el sistema de sesion sepa en que programa estamos -->
+    <script>
+    localStorage.setItem(\"prgActual\", \"" . $prg . "\");
+    </script>
     ";
     //.......................
 
@@ -150,6 +153,3 @@ if ($method === "POST") {
     $input = json_decode($inputJSON, true);
 }
 ?>
-<script>
-    localStorage.setItem("prgActual", "prg1");
-</script>
