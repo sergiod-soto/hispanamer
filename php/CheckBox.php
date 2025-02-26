@@ -43,7 +43,7 @@ class CheckBox extends Elemento implements Input, IEditable
         // Crea el modo, inyectando el botón en el constructor
         $modo = new Modo($modoPadre, $checkBox);
 
-        // Asigna el modo al botón
+        // Asigna el modo al checkBox
         $checkBox->setModo($modo);
 
         return $checkBox;

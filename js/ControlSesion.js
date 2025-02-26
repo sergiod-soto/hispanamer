@@ -85,7 +85,11 @@ function extraerNumero(texto) {
 
 /**
  * No usar esta funcion, guardar con "guardar()"
- * @Param {Elemento} elemento 
+ * 
+ * En esta seccion elegimos de que manera se
+ * guarda cada elemento por tipo
+ * 
+ * @param {Elemento} elemento 
  * @param {String} id 
  */
 function guardarAux(elemento, id) {
@@ -108,7 +112,16 @@ function guardarAux(elemento, id) {
 
             break;
         case ("CheckBox"):
+            checked = document.getElementById(id).checked;
 
+            funcion = (id, checked) => {
+                document.getElementById(id).checked = checked
+            };
+
+            sesionJson[prg].data[id].funcion = funcion.toString();
+            sesionJson[prg].data[id].value = checked;
+
+            localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
         case ("DateBox"):
 
@@ -134,7 +147,7 @@ function guardarAux(elemento, id) {
         case ("TextBox"):
 
             value = document.getElementById(id).value;
-            let funcion = (id, value) => {
+            funcion = (id, value) => {
                 document.getElementById(id).value = value
             };
             sesionJson[prg].data[id].funcion = funcion.toString();
@@ -151,13 +164,20 @@ function guardarAux(elemento, id) {
     }
 }
 
+/**
+ * En esta parte elegimos que evento provoca que 
+ * se guarde cada elemento por tipo
+ * 
+ * @param {Elemento} elemento 
+ * @param {String} id 
+ */
 function guardar(elemento, id) {
     switch (elemento) {
         case ("Button"):
 
             break;
         case ("CheckBox"):
-
+            document.getElementById(id).addEventListener("change", function () { guardarAux(Elemento.CheckBox, id) });
             break;
         case ("DateBox"):
 
@@ -181,7 +201,7 @@ function guardar(elemento, id) {
 
             break;
         case ("TextBox"):
-            document.getElementById(id).addEventListener("input", function () { guardar(Elemento.TextBox, id); });
+            document.getElementById(id).addEventListener("input", function () { guardarAux(Elemento.TextBox, id) });
             break;
         case ("Texto"):
 

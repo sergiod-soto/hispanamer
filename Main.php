@@ -41,7 +41,7 @@ if ($method === "GET") {
         scriptsBody:
         [
             "js/ControlSesion.js",
-            "js/prg1/boton_1.js"
+            "js/prg1/boton_1.js",
         ],
         css:
         [
@@ -65,33 +65,17 @@ if ($method === "GET") {
         $programa
     );
 
-
-    $texto = TextBox::crear(
+    $cb = CheckBox::crear
+    (
         Elemento::getNewId(),
         "",
-        "",
-        "PLACEHOLDER",
-        $seccion,
-    );
-
-    $texto2 = TextBox::crear(
-        Elemento::getNewId(),
-        "",
-        "texto de textBox2",
-        "",
-        $seccion,
-    );
-
-    $boton = Button::crear(
-        Elemento::getNewId(),
-        "",
-        "XXX",
-        "",
+        "lorem ipsum",
+        "nombre",
+        "value",
         $seccion
     );
 
 
-    $_SESSION["a"] = $texto->texto;
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,9 +83,8 @@ if ($method === "GET") {
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    $seccion->add($texto, 0, 0);
-    $seccion->add($texto2, 0, 10);
-    $seccion->add($boton, 2, 0);
+    $seccion->add($cb, 0, 0);
+
 
 
 
