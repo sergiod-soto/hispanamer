@@ -47,6 +47,8 @@ if (localStorage.getItem("sesion") == null) {
         }
     }
 }
+
+
 //#endregion
 
 
@@ -81,12 +83,25 @@ function extraerNumero(texto) {
     return match ? parseInt(match[1], 10) : null;
 }
 
-function guardar(elemento, id) {
+/**
+ * No usar esta funcion, guardar con "guardar()"
+ * @Param {Elemento} elemento 
+ * @param {String} id 
+ */
+function guardarAux(elemento, id) {
 
     // primero, actualizo la fecha de la sesion
     let sesionJson = JSON.parse(localStorage.getItem("sesion"));
     sesionJson.fecha = new Date().getDate();
+
+    prg = localStorage.getItem("prgActual");
+
+    if (sesionJson[prg].data[id] == undefined) {
+        sesionJson[prg].data[id] = {};
+    }
+
     localStorage.setItem("sesion", JSON.stringify(sesionJson));
+
 
     switch (elemento) {
         case ("Button"):
@@ -117,13 +132,11 @@ function guardar(elemento, id) {
 
             break;
         case ("TextBox"):
-            prg = localStorage.getItem("prgActual");
 
             value = document.getElementById(id).value;
             let funcion = (id, value) => {
                 document.getElementById(id).value = value
             };
-            sesionJson[prg].data[id] = {};
             sesionJson[prg].data[id].funcion = funcion.toString();
             sesionJson[prg].data[id].value = value;
 
@@ -138,4 +151,44 @@ function guardar(elemento, id) {
     }
 }
 
+function guardar(elemento, id) {
+    switch (elemento) {
+        case ("Button"):
+
+            break;
+        case ("CheckBox"):
+
+            break;
+        case ("DateBox"):
+
+            break;
+        case ("HourBox"):
+
+            break;
+        case ("NoteBox"):
+
+            break;
+        case ("PasswordBox"):
+
+            break;
+        case ("RadioButton"):
+
+            break;
+        case ("SelectBox"):
+
+            break;
+        case ("Tabla"):
+
+            break;
+        case ("TextBox"):
+            document.getElementById(id).addEventListener("input", function () { guardar(Elemento.TextBox, id); });
+            break;
+        case ("Texto"):
+
+            break;
+        case ("TimeBox"):
+
+            break;
+    }
+}
 
