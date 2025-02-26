@@ -41,11 +41,11 @@ if ($method === "GET") {
         scriptsBody:
         [
             "js/ControlSesion.js",
-            "js/prg1/boton_1.js",
+            "js/DateBox.js",
         ],
         css:
         [
-
+            "css/prg1/DateBox.css",
         ],
     );
 
@@ -65,13 +65,11 @@ if ($method === "GET") {
         $programa
     );
 
-    $cb = CheckBox::crear
+    $db = DateBox::crear
     (
         Elemento::getNewId(),
         "",
-        "lorem ipsum",
-        "nombre",
-        "value",
+        "D/M/A",
         $seccion
     );
 
@@ -83,7 +81,7 @@ if ($method === "GET") {
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    $seccion->add($cb, 0, 0);
+    $seccion->add($db, 0, 0);
 
 
 
@@ -133,8 +131,7 @@ if ($method === "GET") {
     $programa->cabecera = $cabecera;
     $programa->cuerpo = $cuerpo;
 
-    $htmlPrograma = $programa->Renderizar();
-    echo $htmlPrograma;
+    echo $programa->Renderizar();
 
 }
 
