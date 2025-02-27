@@ -2,20 +2,14 @@
 
 
 
-/**/
-/**/
-/* HAY QUE ACTUALIZAR AL ID DE LA TABLA!!! */
-/**/
-/**/
-#id_1 {
+
+#id_1sssss {
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
 }
 
-/**/
-/**/
-/**/
+
 
 .tabla-contenedor {
     display: inline-block;

@@ -2,6 +2,8 @@
     position: relative;
     display: inline-block;
     margin: 10px;
+    width: 150px;
+
 }
 
 .fechaInput {

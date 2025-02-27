@@ -42,12 +42,21 @@ if ($method === "GET") {
         [
             "js/ControlSesion.js",
             "js/DateBox.js",
-            "js/prg1/boton_1.js",
-            "js/prg1/DateBox.js",
+            "js/NoteBox.js",
+            "js/PasswordBox.js",
+            "js/RadioButton.js",
+            "js/SelectBox.js",
+            "js/Tabla.js",
+            "js/TextBox.js",
+            "js/TimeBox.js",
+
+            "js/prg1/ElementosAGuardar.js",
         ],
         css:
         [
-            "css/prg1/DateBox.css",
+            "css/DateBox.css",
+            "css/prg1/Tabla.css",
+            "css/prg1/TimeBox.css",
         ],
     );
 
@@ -66,22 +75,19 @@ if ($method === "GET") {
         "",
         $programa
     );
-
-    $db = DateBox::crear
-    (
+    $d = DateBox::crear(
         Elemento::getNewId(),
         "",
-        "D/M/A",
-        $seccion
-    );  
-    
-    $db2 = DateBox::crear
-    (
-        Elemento::getNewId(),
         "",
-        "D/M/A",
         $seccion
     );
+
+    $t = TimeBox::crear(
+        Elemento::getNewId(),
+        "",
+        $seccion,
+    );
+
 
 
 
@@ -91,9 +97,9 @@ if ($method === "GET") {
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    $seccion->add( $db, 0, 0);
-    $seccion->add( $db2, 0, 10);
+    $seccion->add($d, 0, 0);
 
+    $seccion->add($t, 0, 11);
 
 
 

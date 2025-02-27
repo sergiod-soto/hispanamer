@@ -10,13 +10,10 @@ class TimeBox extends Elemento implements IEditable
 
     public function __construct($id, string $clase, $modo, $padre)
     {
-        $tagClase = "";
-        if ($clase != null && $this->clase != "") {
-            $this->html = " class=\"$clase\">";
-        }
+
         $html =
             "
-            <span id=\"$id\" $tagClase>
+            <span id=\"$id\" class=\"timeBox-Container $clase\">
             <input type=\"text\" id=\"timeInput\" placeholder=\"h/min\" readonly>
             
             <div id=\"overlay\"></div>

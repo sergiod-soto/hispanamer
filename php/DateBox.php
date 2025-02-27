@@ -15,7 +15,7 @@ class DateBox extends Elemento implements Input, IEditable
 
         $html =
             "
-            <div class=\"datepicker-container\" id=\"$id\">
+            <span class=\"datepicker-container\" id=\"$id\">
                 <input type=\"text\" class=\"fechaInput\" readonly placeholder=$placeHolder>
                 <div class=\"calendar\">
                     <div class=\"calendar-header\">
@@ -27,7 +27,7 @@ class DateBox extends Elemento implements Input, IEditable
                         <button class=\"btnHoy\">Hoy</button>
                     </div>
                 </div>
-            </div>
+            </span>
             ";
 
 
