@@ -123,9 +123,26 @@ function guardarAux(elemento, id) {
 
             localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
+
+
+
+
+
+
+
         case ("DateBox"):
 
             break;
+
+
+
+
+
+
+
+
+
+
         case ("HourBox"):
 
             break;
@@ -180,7 +197,9 @@ function guardar(elemento, id) {
             document.getElementById(id).addEventListener("change", function () { guardarAux(Elemento.CheckBox, id) });
             break;
         case ("DateBox"):
-
+            document.getElementById("fechaInput" + id).addEventListener("fechaSeleccionada", (event) => {
+                console.log("Fecha seleccionada:", event.detail.fecha);
+            });
             break;
         case ("HourBox"):
 

@@ -42,6 +42,7 @@ if ($method === "GET") {
         [
             "js/ControlSesion.js",
             "js/DateBox.js",
+            "js/prg1/boton_1.js",
         ],
         css:
         [
@@ -71,6 +72,14 @@ if ($method === "GET") {
         "",
         "D/M/A",
         $seccion
+    );  
+    
+    $db2 = DateBox::crear
+    (
+        Elemento::getNewId(),
+        "",
+        "D/M/A",
+        $seccion
     );
 
 
@@ -81,7 +90,8 @@ if ($method === "GET") {
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    $seccion->add($db, 0, 0);
+    $seccion->add( $db, 0, 0);
+    $seccion->add( $db, 0, 10);
 
 
 
