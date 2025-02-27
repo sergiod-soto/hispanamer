@@ -1,3 +1,4 @@
+
 //#region
 
 if (localStorage.getItem("sesion") == null) {
@@ -36,12 +37,15 @@ if (localStorage.getItem("sesion") == null) {
                 data = sesion[prg].data;
 
 
-                // new Function("return" + data[i].funcion)()(data[i].id, data[i].value);
                 llaves = Object.keys(data)
 
                 for (i = 0; i < llaves.length; i++) {
                     key = llaves[i];
-                    new Function("return" + data[key].funcion)()(key, data[key].value);
+                    try {
+                        new Function("return" + data[key].funcion)()(key, data[key].value);
+                    } catch (e) {
+                        console.error("error cargando la funcion a ejecutar: " + e)
+                    }
                 }
             }
         }
@@ -92,7 +96,7 @@ function extraerNumero(texto) {
  * @param {Elemento} elemento 
  * @param {String} id 
  */
-function guardarAux(elemento, id) {
+function guardarAux(elemento, id, value) {
 
     // primero, actualizo la fecha de la sesion
     let sesionJson = JSON.parse(localStorage.getItem("sesion"));
@@ -109,10 +113,13 @@ function guardarAux(elemento, id) {
 
     switch (elemento) {
         case ("Button"):
-
+            /**
+             *  nada que hacer aqui
+             */
             break;
+
         case ("CheckBox"):
-            checked = document.getElementById(id).checked;
+            checked = value;
 
             funcion = (id, checked) => {
                 document.getElementById(id).checked = checked
@@ -124,46 +131,45 @@ function guardarAux(elemento, id) {
             localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
 
-
-
-
-
-
-
         case ("DateBox"):
+            ///////////////////////////////////////////////////////////
+            funcion = (id, value) => {
+                value = JSON.parse(value)
+                document.getElementById(id).querySelector(".fechaInput").value = value;
+            }
 
+            sesionJson[prg].data[id].funcion = funcion.toString();
+            sesionJson[prg].data[id].value = JSON.stringify(value);
+
+            localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
-
-
-
-
-
-
-
-
-
 
         case ("HourBox"):
 
             break;
+
         case ("NoteBox"):
 
             break;
+
         case ("PasswordBox"):
 
             break;
+
         case ("RadioButton"):
 
             break;
+
         case ("SelectBox"):
 
             break;
+
         case ("Tabla"):
 
             break;
+
         case ("TextBox"):
 
-            value = document.getElementById(id).value;
             funcion = (id, value) => {
                 document.getElementById(id).value = value
             };
@@ -172,9 +178,11 @@ function guardarAux(elemento, id) {
 
             localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
+
         case ("Texto"):
 
             break;
+
         case ("TimeBox"):
 
             break;
@@ -190,44 +198,62 @@ function guardarAux(elemento, id) {
  */
 function guardar(elemento, id) {
     switch (elemento) {
-        case ("Button"):
 
+        case ("Button"):
+            /**
+             *  nada que hacer aqui
+             */
             break;
+
         case ("CheckBox"):
-            document.getElementById(id).addEventListener("change", function () { guardarAux(Elemento.CheckBox, id) });
-            break;
-        case ("DateBox"):
-            document.getElementById("fechaInput" + id).addEventListener("fechaSeleccionada", (event) => {
-                console.log("Fecha seleccionada:", event.detail.fecha);
+            document.getElementById(id).addEventListener("change", () => {
+                guardarAux(Elemento.CheckBox, id, document.getElementById(id).checked)
             });
             break;
+
+        case ("DateBox"):
+            document.addEventListener("fechaSeleccionada" + id, (event) => {
+                value = event.detail.date
+                guardarAux(Elemento.DateBox, id, value);
+            });
+            break;
+
         case ("HourBox"):
 
             break;
+
         case ("NoteBox"):
 
             break;
+
         case ("PasswordBox"):
 
             break;
+
         case ("RadioButton"):
 
             break;
+
         case ("SelectBox"):
 
             break;
+
         case ("Tabla"):
 
             break;
+
         case ("TextBox"):
-            document.getElementById(id).addEventListener("input", function () { guardarAux(Elemento.TextBox, id) });
+            document.getElementById(id).addEventListener("input", function () {
+                guardarAux(Elemento.TextBox, id, document.getElementById(id).value);
+            });
             break;
+
         case ("Texto"):
 
             break;
+
         case ("TimeBox"):
 
             break;
     }
 }
-

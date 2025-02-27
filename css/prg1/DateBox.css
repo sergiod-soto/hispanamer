@@ -1,18 +1,16 @@
 .datepicker-container {
     position: relative;
     display: inline-block;
+    margin: 10px;
 }
 
-.contenedor {
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
-}
-
-input {
+.fechaInput {
     width: 150px;
-    padding: 5px;
-    text-align: center;
+    padding: 8px;
     cursor: pointer;
-    background-color: white;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
 .calendar {
@@ -20,16 +18,19 @@ input {
     position: absolute;
     top: 40px;
     left: 0;
-    background: white;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    width: 220px;
+    background: #292929;
+    color: #fff;
+    border: 2px solid #555;
     padding: 10px;
-    z-index: 1000;
-
     border-radius: 6px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    z-index: 10;
 }
 
-.calendar select {
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
 }
 
@@ -37,55 +38,32 @@ input {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
-    text-align: center;
 }
 
 .day {
-    padding: 8px;
+    text-align: center;
+    padding: 6px;
     cursor: pointer;
-    border: 1px solid transparent;
+    background: #444;
+    border-radius: 3px;
 }
 
 .day:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-.selected {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-}
-
-
-/* Contenedor del botón "Hoy" */
-.calendar-footer {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* 🔘 Botón "Hoy" */
-#btnHoy {
-    margin-top: 10px;
-    padding: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    background: #ff4500;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 20%;
-
-    
-}
-
-#btnHoy:hover {
     background: #ff7733;
 }
 
-#btnHoy:active {
-    background: #ff2200;
+.calendar-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btnHoy {
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #ff4500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
 }

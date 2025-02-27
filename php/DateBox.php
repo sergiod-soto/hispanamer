@@ -15,14 +15,16 @@ class DateBox extends Elemento implements Input, IEditable
 
         $html =
             "
-            <div id = \"$id\" class=\"datepicker-container contenedor $clase\">
-                <input type=\"text\" id=\"fechaInput$id\" readonly placeholder=\"$placeHolder\">
-                <div class=\"calendar\" id=\"calendar$id\">
-                    <select id=\"monthSelect$id\"></select>
-                    <select id=\"yearSelect$id\"></select>
-                    <div class=\"days-container\" id=\"daysContainer$id\"></div>
+            <div class=\"datepicker-container\" id=\"$id\">
+                <input type=\"text\" class=\"fechaInput\" readonly placeholder=$placeHolder>
+                <div class=\"calendar\">
+                    <div class=\"calendar-header\">
+                        <select class=\"monthSelect\"></select>
+                        <select class=\"yearSelect\"></select>
+                    </div>
+                    <div class=\"days-container\"></div>
                     <div class=\"calendar-footer\">
-                        <button id=\"btnHoy$id\">Hoy</button>
+                        <button class=\"btnHoy\">Hoy</button>
                     </div>
                 </div>
             </div>

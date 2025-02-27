@@ -43,6 +43,7 @@ if ($method === "GET") {
             "js/ControlSesion.js",
             "js/DateBox.js",
             "js/prg1/boton_1.js",
+            "js/prg1/DateBox.js",
         ],
         css:
         [
@@ -91,7 +92,7 @@ if ($method === "GET") {
 
 
     $seccion->add( $db, 0, 0);
-    $seccion->add( $db, 0, 10);
+    $seccion->add( $db2, 0, 10);
 
 
 
