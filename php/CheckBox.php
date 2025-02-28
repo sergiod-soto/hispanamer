@@ -75,18 +75,7 @@ class CheckBox extends Elemento implements Input, IEditable
     {
         return $this->html;
     }
-    function hide()
-    {
 
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     function setEditableOn()
     {
 

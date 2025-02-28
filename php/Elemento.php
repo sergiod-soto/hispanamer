@@ -39,9 +39,6 @@ abstract class Elemento implements IRenderizable
         return "id_" . Elemento::$idElemento++;
     }
 
-    abstract public function hide();
-    abstract public function show();
-    abstract public function setVisible($visible);
     abstract public function setSiguienteFoco($elemento);
     abstract public function renderizar();
 }

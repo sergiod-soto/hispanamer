@@ -10,8 +10,8 @@
 class Programa extends Modo implements IRenderizable
 {
 
+    public $nombre;
     public $conexion;           // conexion a la base de datos
-    public $cookies;            // gestion de informacion
     public $estilo;             // estilo del programa     
     public $html;               // html de la pagina del programa
     public $cabecera;
@@ -25,9 +25,8 @@ class Programa extends Modo implements IRenderizable
     public $scriptsBody;
     public $css;
 
-    public function __construct($autor, $fecha, $scriptsCabecera, $scriptsBody, $css)
+    public function __construct($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $css)
     {
-        $this->cookies = [];
         $this->elementos = [];
         $this->scriptsCabecera = $scriptsCabecera;
         $this->scriptsBody = $scriptsBody;
@@ -39,18 +38,20 @@ class Programa extends Modo implements IRenderizable
         //
         $this->autor = $autor;
         $this->fecha = $fecha;
+        $this->nombre = $nombre;
     }
 
     /*
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($autor, $fecha, $scriptsCabecera, $scriptsBody, $css)
+    public static function crear($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $css)
     {
         // Crea el programa
         $programa = new self(
             $autor,
             $fecha,
+            $nombre,
             $scriptsCabecera,
             $scriptsBody,
             $css
@@ -120,15 +121,15 @@ class Programa extends Modo implements IRenderizable
     {
         $htmlScriptsCabecera = "";
         foreach ($this->scriptsCabecera as $script) {
-            $htmlScriptsCabecera .= "<script src=\"$script\"></script>";
+            $htmlScriptsCabecera .= "<script src=\"$script\"></script>\n";
         }
         $htmlScriptsBody = "";
         foreach ($this->scriptsBody as $script) {
-            $htmlScriptsBody .= "<script src=\"$script\"></script>";
+            $htmlScriptsBody .= "<script src=\"$script\"></script>\n";
         }
         $htmlCss = "";
         foreach ($this->css as $css) {
-            $htmlCss .= "<link rel=\"stylesheet\" href=\"$css\">";
+            $htmlCss .= "<link rel=\"stylesheet\" href=\"$css\">\n";
         }
 
         return $this->html =

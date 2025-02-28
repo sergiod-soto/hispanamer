@@ -11,26 +11,42 @@ class RadioButton extends Elemento
 
 
 
-    function __construct($id, $labels, $name, $value, $horizontal, $clase, $modo, $padre)
+    function __construct($id, $labels, $name, $values, $posicionTexto, $clase, $modo, $padre)
     {
+
+        if (count($labels) != count($values)) {
+            throw new Exception("número de etiquetas (" . count($labels) . ")" .
+                " y valores (" . count($values) . ") debe ser igual.");
+        }
 
         // preparo el html de cada elemento
         $htmlRadios = "";
 
-        foreach ($labels as $label) {
-            $htmlRadios .=
-                "
-                <label>
-                    <input type=\"radio\" name=\"$name\" value=\"$value\">$label
-                </label>
-                ";
+        if ($posicionTexto == RadioButton::posicionTextoDerecha()) {
+            for ($i = 0; $i < count($labels); $i++) {
+                $htmlRadios .=
+                    "
+                    <label><input type=\"radio\" class=\"selector\" 
+                    name=\"$name\" value=\"" . $values[$i] . "\">" . $labels[$i] . "</label>
+                    ";
+            }
+        } else {
+            for ($i = 0; $i < count($labels); $i++) {
+                $htmlRadios .=
+                    "
+                    <label>" . $labels[$i] . "<input type=\"radio\"
+                    class=\"selector\" name=\"$name\" value=\"" . $values[$i] . "\"></label>
+                    ";
+            }
         }
 
         $html =
             "
-            <form>
-            $htmlRadios
-            </form>
+            <span id= \"$id\" class=\"$clase spanRadioButton\" data-tipo=\"RadioButton\">
+                <form id=\"form_$id\">
+                    $htmlRadios
+                </form>
+            </span>
             ";
 
         // Llamamos al constructor de la clase Elemento
@@ -42,24 +58,22 @@ class RadioButton extends Elemento
             $html
         );
 
-        // Inicializamos el atributo específico de RadioButton
-        $this->labels = $labels;
-        $this->horizontal = $horizontal;
+
     }
 
     /*
-        patron de diseño para crear un timeBox con modo creado, el cual con el propio boton
+        patron de diseño para crear un radioButton con modo creado, el cual con el propio radioButton
         y evitar dependencia circular
     */
-    public static function crear($id, $labels, $name, $value, $horizontal, string $clase, $padre)
+    public static function crear($id, $labels, $name, $values, $posicionTexto, string $clase, $padre)
     {
         // Crea el botón
-        $boton = new self(
+        $radioButton = new self(
             $id,
             $labels,
             $name,
-            $value,
-            $horizontal,
+            $values,
+            $posicionTexto,
             $clase,
             null,
             $padre,
@@ -71,12 +85,12 @@ class RadioButton extends Elemento
             $modoPadre = $padre->modo;
         }
         // Crea el modo, inyectando el radioButton en el constructor
-        $modo = new Modo($modoPadre, $boton);
+        $modo = new Modo($modoPadre, $radioButton);
 
-        // Asigna el modo al botón
-        $boton->setModo($modo);
+        // Asigna el modo al radioButton
+        $radioButton->setModo($modo);
 
-        return $boton;
+        return $radioButton;
     }
 
     /*
@@ -86,13 +100,14 @@ class RadioButton extends Elemento
     {
         $this->modo = $modo;
     }
-    public static function horizontal()
+
+    public static function posicionTextoIzquierda()
     {
-        return "horizontal";
+        return "izquierda";
     }
-    public static function vertical()
+    public static function posicionTextoDerecha()
     {
-        return "vertical";
+        return "derecha";
     }
 
 

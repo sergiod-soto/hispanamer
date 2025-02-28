@@ -143,23 +143,31 @@ function guardarAux(elemento, id, value) {
             break;
 
         case ("NoteBox"):
-
+            // TODO
             break;
 
         case ("PasswordBox"):
-
+            // TODO
             break;
 
         case ("RadioButton"):
+            funcion = (id, value) => {
+                document.getElementById(id).
+                    querySelector(`input[type="radio"][value="${value}"]`).checked = true;
+            }
 
+            sesionJson[prg].data[id].funcion = funcion.toString();
+            sesionJson[prg].data[id].value = value;
+
+            localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
 
         case ("SelectBox"):
-
+            // TODO
             break;
 
         case ("Tabla"):
-
+            // TODO
             break;
 
         case ("TextBox"):
@@ -175,7 +183,7 @@ function guardarAux(elemento, id, value) {
             break;
 
         case ("Texto"):
-
+            // DEJAR VACIO
             break;
 
         case ("TimeBox"):
@@ -226,23 +234,25 @@ function setGuardableEnSesion(id) {
             break;
 
         case ("NoteBox"):
-
+            // TODO
             break;
 
         case ("PasswordBox"):
-
+            // TODO
             break;
 
         case ("RadioButton"):
-
+            document.getElementById(id).addEventListener("input", function (event) {
+                guardarAux(Elemento.RadioButton, id, event.target.value);
+            });
             break;
 
         case ("SelectBox"):
-
+            // TODO
             break;
 
         case ("Tabla"):
-
+            // TODO
             break;
 
         case ("TextBox"):
@@ -252,7 +262,7 @@ function setGuardableEnSesion(id) {
             break;
 
         case ("Texto"):
-
+            // DEJAR VACIO
             break;
 
         case ("TimeBox"):

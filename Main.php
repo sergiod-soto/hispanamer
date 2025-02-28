@@ -14,10 +14,6 @@ spl_autoload_register(function ($class_name) {
 
 
 
-$prg = "prg1";
-
-
-
 
 $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "GET") {
@@ -34,6 +30,7 @@ if ($method === "GET") {
     $programa = Programa::crear(
         autor: "sergiod",
         fecha: "17/02/2025",
+        nombre: "prg1",
         scriptsCabecera:
         [
 
@@ -44,10 +41,11 @@ if ($method === "GET") {
             "js/DateBox.js",
             "js/NoteBox.js",
             "js/PasswordBox.js",
+            "js/Popup.js",
             "js/RadioButton.js",
             "js/SelectBox.js",
             "js/Tabla.js",
-            "js/TextBox.js",
+            //"js/TextBox.js",
             "js/TimeBox.js",
 
             "js/prg1/ElementosAGuardar.js",
@@ -55,8 +53,11 @@ if ($method === "GET") {
         css:
         [
             "css/DateBox.css",
+            "css/Popup.css",
+
             "css/prg1/Tabla.css",
             "css/prg1/TimeBox.css",
+
         ],
     );
 
@@ -75,17 +76,22 @@ if ($method === "GET") {
         "",
         $programa
     );
-    $r = RadioButton::crear(
+
+    $b = Button::crear(
         Elemento::getNewId(),
-        ["a", "b", "c"],
-        "name",
-        "value",
-        RadioButton::horizontal(),
         "",
-        $seccion,
+        "popup", //js/prg1/ElementosAGuardar.js
+        "showPopup()",
+        $seccion
+
     );
-
-
+    $p = PopUp::crear(
+        "popup",
+        "",
+        "holis",
+        PopupEstado::Error->value,
+        null
+    );
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,10 +99,10 @@ if ($method === "GET") {
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    $seccion->add($r, 0, 0);
 
 
-
+    $seccion->add($b, 0, 0);
+    $seccion->add($p, 999, 999);
 
 
 
@@ -116,13 +122,11 @@ if ($method === "GET") {
     //.......................
     $cabecera =
         "
-    <meta charset='UTF-8'>
-    <title>$titulo</title>
-    <!-- necesario para que el sistema de sesion sepa en que programa estamos -->
-    <script>
-    localStorage.setItem(\"prgActual\", \"" . $prg . "\");
-    </script>
-    ";
+        <meta charset='UTF-8'>
+        <title>$titulo</title>
+        <!-- necesario para que el sistema de sesion sepa en que programa estamos -->
+        <script>localStorage.setItem(\"prgActual\", \"" . $programa->nombre . "\");</script>
+        ";
     //.......................
 
 

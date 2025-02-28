@@ -1,0 +1,42 @@
+.popup {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 4cm;
+    height: 3cm;
+    background-color: white;
+    /* Por defecto */
+    color: black;
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid transparent;
+}
+
+/* Colores para cada estado */
+.popup.advertencia {
+    background-color: yellow;
+    color: black;
+    border-color: #ffcc00;
+}
+
+.popup.error {
+    background-color: red;
+    color: white;
+    border-color: darkred;
+}
+
+.popup.bien {
+    background-color: green;
+    color: white;
+    border-color: darkgreen;
+}
+
+.popup.neutral {
+    background-color: rgb(255, 255, 255);
+    color: rgb(139, 48, 48);
+    border-color: darkgreen;
+}

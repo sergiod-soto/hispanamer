@@ -13,10 +13,8 @@ class Button extends Elemento implements Input
 
     public function __construct($id, string $clase, $modo, $text, $funcion, $padre)
     {
-        $html = "<button id=\"$id\" data-tipo=\"TimeBox\"";
-        if ($clase != null && $clase != "") {
-            $html .= " class=\"$clase\"";
-        }
+        $html = "<button id=\"$id\" data-tipo=\"Button\" class=\"$clase\"";
+        
         if ($funcion != null && $funcion != "") {
             $html .= " onclick=\"$funcion\"";
         }
@@ -74,39 +72,6 @@ class Button extends Elemento implements Input
     public function setSiguienteFoco($elemento)
     {
         $this->siguienteFoco = $elemento;
-    }
-
-    /*
-        vuelve al elemento invisible
-    */
-    function hide()
-    {
-        // TODO
-    }
-
-    /*
-        vuelve al elemento visible
-    */
-    function show()
-    {
-        // TODO
-    }
-    function setVisible($visible)
-    {
-        // TODO
-    }
-
-    /*
-        se cambia el texto que aparece en el boton
-    */
-    function cambiarText($text)
-    {
-        $this->text = $text;
-        if ($this->clase != null && $this->clase != "") {
-            $this->html = "<button id=\"$this->id\" class=\"$this->clase\" type='button'>$text</button>";
-        } else {
-            $this->html = "<button id=\"$this->id\" type='button'>$text</button>";
-        }
     }
 
     /*

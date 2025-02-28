@@ -1,59 +1,35 @@
 <?php
 
-/*
-    bastante autoexplicativo. es un popup.
-
-    FALTA INTEGRAR EL CSS Y EL JS
-
+/**
+ *  Bastante autoexplicativo. es un popup.
+ */
 
 
-
-    (FROM CHATGPT)
-
-    CSS:
-    .popup {
-        position: fixed; // Fija la posición del popup //
-        bottom: 10px; // Ajusta la posición desde el borde inferior //
-        right: 10px; // Ajusta la posición desde el borde derecho //
-        width: 4cm; // Establece el ancho del popup //
-        height: 3cm; // Establece la altura del popup //
-        background-color: rgba(0, 0, 0, 0.7); // Fondo semi-transparente //
-        color: white; // Color del texto //
-        text-align: center; // Centra el texto //
-        display: none; // Inicialmente oculto //
-        justify-content: center;
-        align-items: center;
-        border-radius: 5px; // Bordes redondeados //
-    }
-
-    JS:
-
-    // Muestra el popup durante 2 segundos y luego lo oculta
-    function showPopup() {
-        var popup = document.getElementById('popup');
-        popup.style.display = 'flex'; // Muestra el popup
-        setTimeout(function() {
-            popup.style.display = 'none'; // Oculta el popup después de 2 segundos
-        }, 2000);
-    }
+/**
+ *  enum para controlar
+ */
+enum PopupEstado: string
+{
+    case Ok = "bien";
+    case Warning = "advertencia ";
+    case Error = "error ";
+    case Neutral = "neutral";
+}
 
 
-
-
-*/
 class PopUp extends Elemento
 {
 
     public $html;
     public $text;
 
-    public function __construct($id, string $clase, $modo, $text, $padre)
+    public function __construct($id, string $clase, $modo, $text, $estado, $padre)
     {
         $html =
             "
-            <div id='$id' class='$clase'>
+            <span id='$id' class='popup .$estado $clase'>
             $text
-            </div>
+            </span>
             ";
 
         $this->text = $text;
@@ -73,7 +49,7 @@ class PopUp extends Elemento
        patron de diseño para crear un boton con modo creado, el cual con el propio boton
        y evitar dependencia circular
    */
-    public static function crear($id, string $clase, $text, $padre)
+    public static function crear($id, string $clase, $text, $estado, $padre)
     {
         // Crea el popup
         $popup = new self(
@@ -81,6 +57,7 @@ class PopUp extends Elemento
             $clase,
             null,
             $text,
+            $estado,
             $padre,
         );
 
@@ -106,25 +83,6 @@ class PopUp extends Elemento
         $this->modo = $modo;
     }
 
-
-    function hide()
-    {
-
-    }
-
-    /*
-        show() especial.
-        al llamarse, aparece el popup durante 2 segundos y 
-        pasado ese tiempo, automaticamente desaparece
-    */
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     function setEditableOff()
     {
 
@@ -135,7 +93,7 @@ class PopUp extends Elemento
     }
     function renderizar()
     {
-
+        return $this->html;
     }
     public function setSiguienteFoco($elemento)
     {
