@@ -1,18 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".datepicker-container").forEach(function (container) {
+    document.querySelectorAll(".timeBox-Container ").forEach(function (container) {
         // Referencias a elementos
-        const timeInput = document.getElementById(id);
-        const overlay = document.getElementById("overlay");
-        const modal = document.getElementById("modal");
-        const modalTitle = document.getElementById("modalTitle");
-        const dialContainer = document.getElementById("dialContainer");
-        const markersContainer = document.getElementById("markers");
-        const timeDisplay = document.getElementById("timeDisplay");
-        const adjustButtons = document.getElementById("adjustButtons");
-        const plusBtn = document.getElementById("plusBtn");
-        const minusBtn = document.getElementById("minusBtn");
-        const confirmBtn = document.getElementById("confirmBtn");
-        const cancelBtn = document.getElementById("cancelBtn");
+        const timeInput = container.querySelector(".timeInput");
+        const overlay = container.querySelector(".overlay-timeBox");
+        const modal = container.querySelector(".modal");
+        const modalTitle = container.querySelector(".modalTitle");
+        const dialContainer = container.querySelector(".dialContainer");
+        const markersContainer = container.querySelector(".markers");
+        const timeDisplay = container.querySelector(".timeDisplay");
+        const adjustButtons = container.querySelector(".adjustButtons");
+        const plusBtn = container.querySelector(".plusBtn");
+        const minusBtn = container.querySelector(".minusBtn");
+        const confirmBtn = container.querySelector(".confirmBtn");
+        const cancelBtn = container.querySelector(".cancelBtn");
 
         let selectedHour = null;
         let selectedMinute = null;
@@ -156,25 +156,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 ficha = `${hourStr}:${minuteStr}`;
                 timeInput.value = ficha;
 
-
-                /*
-                fetch("http://localhost:8000/Main.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ "tiempo": ficha }) // Enviar el tiempo en formato JSON
-                })
-                */
-
-
-
-
                 /**
-                 *  Aquí va qué debe hacer el boton Aceptar
-                 * 
+                 *  Aquí va qué debe hacer el boton Aceptar 
                  */
-                funcion(ficha);
+                tiempo = new Date();
+                tiempo.setHours(selectedHour);
+                tiempo.setMinutes(selectedMinute);
+
+                const eventoHoraSeleccionada = new CustomEvent("horaSeleccionada" + container.id, {
+                    detail: { hour: tiempo.getHours(), minute: tiempo.getMinutes(), time: hourStr + ":" + minuteStr }
+                });
+                document.dispatchEvent(eventoHoraSeleccionada);
 
                 closeModal();
             } else {
@@ -204,7 +196,3 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.addEventListener("click", closeModal);
     });
 });
-
-function timerFunction(funcion, id) {
-
-};

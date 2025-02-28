@@ -75,19 +75,15 @@ if ($method === "GET") {
         "",
         $programa
     );
-    $d = DateBox::crear(
+    $r = RadioButton::crear(
         Elemento::getNewId(),
-        "",
-        "",
-        $seccion
-    );
-
-    $t = TimeBox::crear(
-        Elemento::getNewId(),
+        ["a", "b", "c"],
+        "name",
+        "value",
+        RadioButton::horizontal(),
         "",
         $seccion,
     );
-
 
 
 
@@ -97,9 +93,8 @@ if ($method === "GET") {
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    $seccion->add($d, 0, 0);
+    $seccion->add($r, 0, 0);
 
-    $seccion->add($t, 0, 11);
 
 
 

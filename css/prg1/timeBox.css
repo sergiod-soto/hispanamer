@@ -1,10 +1,10 @@
  /* Estilo general y fondo industrial */
  
- #id_2{
+ .timeBox-Container {
   position: relative;
  }
   /* Input principal */
-  #timeInput {
+  .timeInput {
     width: 120px;
     padding: 10px;
     font-size: 16px;
@@ -16,7 +16,7 @@
     color: #e0e0e0;
   }
   /* Fondo semitransparente */
-  #overlay {
+  .overlay-timeBox {
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@
     z-index: 900;
   }
   /* Modal con estética industrial */
-  #modal {
+  .modal {
     display: none;
     position: fixed;
     top: 50%;
@@ -41,7 +41,7 @@
     width: 400px;
     padding: 15px;
   }
-  #modalTitle {
+  .modalTitle {
     border-radius: 5px;
     background-color: #d1d0d0;
     margin: 0 0 15px 0;
@@ -49,13 +49,13 @@
     text-align: center;
   }
   /* Contenedor del dial y botones de ajuste */
-  #modalContent {
+.modalContent {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   /* Dial circular */
-  #dialContainer {
+  .dialContainer {
     position: relative;
     width: 300px;
     height: 300px;
@@ -65,7 +65,7 @@
     margin-right: 15px;
   }
   /* Contenedor de marcadores (para no borrar el display central) */
-  #markers {
+  .markers {
     position: absolute;
     top: 0;
     left: 0;
@@ -73,7 +73,7 @@
     height: 100%;
   }
   /* Display central de la hora */
-  #timeDisplay {
+  .timeDisplay {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -107,13 +107,13 @@
     font-weight: bold;
   }
   /* Contenedor de botones de ajuste (solo en modo minutos) */
-  #adjustButtons {
+  .adjustButtons {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #adjustButtons button {
+  .adjustButtons button {
     width: 40px;
     height: 40px;
     margin: 5px 0;
@@ -125,16 +125,16 @@
     cursor: pointer;
     transition: background 0.2s;
   }
-  #adjustButtons button:hover {
+  .adjustButtons button:hover {
     background: #666;
   }
   /* Pie del modal con botones de confirmar y cancelar */
-  #modalFooter {
+  .modalFooter {
     margin-top: 15px;
     display: flex;
     justify-content: space-around;
   }
-  #modalFooter button {
+  .modalFooter button {
     padding: 8px 12px;
     font-size: 16px;
     background: #444;
@@ -144,6 +144,6 @@
     cursor: pointer;
     transition: background 0.2s;
   }
-  #modalFooter button:hover {
+  .modalFooter button:hover {
     background: #666;
   }

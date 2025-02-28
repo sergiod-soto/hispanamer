@@ -66,7 +66,6 @@ const Elemento = {
     Button: "Button",
     CheckBox: "CheckBox",
     DateBox: "DateBox",
-    HourBox: "HourBox",
     NoteBox: "NoteBox",
     PasswordBox: "PasswordBox",
     RadioButton: "RadioButton",
@@ -132,7 +131,6 @@ function guardarAux(elemento, id, value) {
             break;
 
         case ("DateBox"):
-            ///////////////////////////////////////////////////////////
             funcion = (id, value) => {
                 value = JSON.parse(value)
                 document.getElementById(id).querySelector(".fechaInput").value = value;
@@ -142,10 +140,6 @@ function guardarAux(elemento, id, value) {
             sesionJson[prg].data[id].value = JSON.stringify(value);
 
             localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-
-        case ("HourBox"):
-
             break;
 
         case ("NoteBox"):
@@ -173,6 +167,7 @@ function guardarAux(elemento, id, value) {
             funcion = (id, value) => {
                 document.getElementById(id).value = value
             };
+
             sesionJson[prg].data[id].funcion = funcion.toString();
             sesionJson[prg].data[id].value = value;
 
@@ -185,6 +180,14 @@ function guardarAux(elemento, id, value) {
 
         case ("TimeBox"):
 
+            funcion = (id, value) => {
+                document.getElementById(id).querySelector(".timeInput").value = value;
+            }
+
+            sesionJson[prg].data[id].funcion = funcion.toString();
+            sesionJson[prg].data[id].value = value;
+
+            localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
     }
 }
@@ -196,7 +199,11 @@ function guardarAux(elemento, id, value) {
  * @param {Elemento} elemento 
  * @param {String} id 
  */
-function guardar(elemento, id) {
+function setGuardableEnSesion(id) {
+
+    // obtengo el atributo "data-tipo" del elemento con "id"
+    elemento = document.getElementById(id).getAttribute("data-tipo");
+
     switch (elemento) {
 
         case ("Button"):
@@ -216,10 +223,6 @@ function guardar(elemento, id) {
                 value = event.detail.date
                 guardarAux(Elemento.DateBox, id, value);
             });
-            break;
-
-        case ("HourBox"):
-
             break;
 
         case ("NoteBox"):
@@ -253,7 +256,10 @@ function guardar(elemento, id) {
             break;
 
         case ("TimeBox"):
-
+            document.addEventListener("horaSeleccionada" + id, (event) => {
+                value = event.detail.time;
+                guardarAux(Elemento.TimeBox, id, value);
+            });
             break;
     }
 }

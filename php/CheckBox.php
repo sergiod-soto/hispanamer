@@ -13,9 +13,17 @@ class CheckBox extends Elemento implements Input, IEditable
     {
         $html =
             "
-            <input type='checkbox' id='$id' name='$name' value='$value'>
+            <input type='checkbox' id='$id' data-tipo=\"CheckBox\"
+            ";
+        if ($clase != null && $clase != "") {
+            $html .= " class=\"$clase\"";
+        }
+        $html .=
+            "
+            name='$name' value='$value'>
             <label for='$id'>$text</label>
             ";
+
         $this->text = $text;
         $this->value = $value;
 

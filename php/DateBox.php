@@ -15,7 +15,7 @@ class DateBox extends Elemento implements Input, IEditable
 
         $html =
             "
-            <span class=\"datepicker-container\" id=\"$id\">
+            <span class=\"datepicker-container\" id=\"$id\" data-tipo=\"DateBox\">
                 <input type=\"text\" class=\"fechaInput\" readonly placeholder=$placeHolder>
                 <div class=\"calendar\">
                     <div class=\"calendar-header\">

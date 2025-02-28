@@ -1,13 +1,10 @@
 .datepicker-container {
     position: relative;
-    display: inline-block;
-    margin: 10px;
-    width: 150px;
-
 }
 
 .fechaInput {
-    width: 150px;
+    width: 75px;
+    height: 10px;
     padding: 8px;
     cursor: pointer;
     background: #f0f0f0;

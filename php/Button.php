@@ -13,7 +13,7 @@ class Button extends Elemento implements Input
 
     public function __construct($id, string $clase, $modo, $text, $funcion, $padre)
     {
-        $html = "<button id=\"$id\"";
+        $html = "<button id=\"$id\" data-tipo=\"TimeBox\"";
         if ($clase != null && $clase != "") {
             $html .= " class=\"$clase\"";
         }

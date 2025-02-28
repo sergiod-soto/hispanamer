@@ -13,26 +13,26 @@ class TimeBox extends Elemento implements IEditable
 
         $html =
             "
-            <span id=\"$id\" class=\"timeBox-Container $clase\">
-            <input type=\"text\" id=\"timeInput\" placeholder=\"h/min\" readonly>
+            <span id=\"$id\" class=\"timeBox-Container $clase\" data-tipo=\"TimeBox\">
+            <input type=\"text\" class=\"timeInput\" placeholder=\"h/min\" readonly>
             
-            <div id=\"overlay\"></div>
+            <div class=\"overlay-timeBox\"></div>
             
-            <div id=\"modal\">
-                <div id=\"modalTitle\">Selecciona la Hora</div>
-                <div id=\"modalContent\">
-                <div id=\"dialContainer\">
-                    <div id=\"markers\"></div>
-                    <div id=\"timeDisplay\">--:--</div>
+            <div class=\"modal\">
+                <div class=\"modalTitle\">Selecciona la Hora</div>
+                <div class=\"modalContent\">
+                <div class=\"dialContainer\">
+                    <div class=\"markers\"></div>
+                    <div class=\"timeDisplay\">--:--</div>
                 </div>
-                <div id=\"adjustButtons\">
-                    <button id=\"plusBtn\">+</button>
-                    <button id=\"minusBtn\">−</button>
+                <div class=\"adjustButtons\">
+                    <button class=\"plusBtn\">+</button>
+                    <button class=\"minusBtn\">−</button>
                 </div>
                 </div>
-                <div id=\"modalFooter\">
-                <button id=\"confirmBtn\">Confirmar</button>
-                <button id=\"cancelBtn\">Cancelar</button>
+                <div class=\"modalFooter\">
+                <button class=\"confirmBtn\">Confirmar</button>
+                <button class=\"cancelBtn\">Cancelar</button>
                 </div>
             </div>
             </span>
@@ -50,7 +50,7 @@ class TimeBox extends Elemento implements IEditable
     }
 
     /*
-        patron de diseño para crear un boton con modo creado, el cual con el propio boton
+        patron de diseño para crear un timeBox con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
     public static function crear($id, string $clase, $padre)
