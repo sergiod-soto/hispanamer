@@ -11,7 +11,7 @@ class RadioButton extends Elemento
 
 
 
-    function __construct($id, $labels, $name, $values, $posicionTexto, $clase, $modo, $padre)
+    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, $modo, $padre)
     {
 
         if (count($labels) != count($values)) {
@@ -24,11 +24,19 @@ class RadioButton extends Elemento
 
         if ($posicionTexto == RadioButton::posicionTextoDerecha()) {
             for ($i = 0; $i < count($labels); $i++) {
-                $htmlRadios .=
-                    "
+                if ($i != $default) {
+                    $htmlRadios .=
+                        "
                     <label><input type=\"radio\" class=\"selector\" 
                     name=\"$name\" value=\"" . $values[$i] . "\">" . $labels[$i] . "</label>
                     ";
+                } else {
+                    $htmlRadios .=
+                        "
+                    <label><input type=\"radio\" class=\"selector\" 
+                    name=\"$name\" value=\"" . $values[$i] . "\" checked>" . $labels[$i] . "</label>
+                    ";
+                }
             }
         } else {
             for ($i = 0; $i < count($labels); $i++) {
@@ -65,7 +73,7 @@ class RadioButton extends Elemento
         patron de diseño para crear un radioButton con modo creado, el cual con el propio radioButton
         y evitar dependencia circular
     */
-    public static function crear($id, $labels, $name, $values, $posicionTexto, string $clase, $padre)
+    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase, $padre)
     {
         // Crea el botón
         $radioButton = new self(
@@ -73,6 +81,7 @@ class RadioButton extends Elemento
             $labels,
             $name,
             $values,
+            $default,
             $posicionTexto,
             $clase,
             null,

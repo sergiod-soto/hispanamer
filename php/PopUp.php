@@ -13,7 +13,7 @@ enum PopupEstado: string
     case Ok = "bien";
     case Warning = "advertencia ";
     case Error = "error ";
-    case Neutral = "neutral";
+    case Normal = "normal";
 }
 
 
@@ -27,9 +27,9 @@ class PopUp extends Elemento
     {
         $html =
             "
-            <span id='$id' class='popup .$estado $clase'>
+            <div id='$id' class='popup $estado $clase'>
             $text
-            </span>
+            </div>
             ";
 
         $this->text = $text;

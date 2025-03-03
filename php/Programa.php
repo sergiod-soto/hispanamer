@@ -24,6 +24,7 @@ class Programa extends Modo implements IRenderizable
     public $scriptsCabecera;
     public $scriptsBody;
     public $css;
+    public $popup;
 
     public function __construct($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $css)
     {
@@ -62,6 +63,15 @@ class Programa extends Modo implements IRenderizable
 
         // Asigna el modo al botón
         $programa->setModo($modo);
+
+        // creo un popup
+        $programa->popup = PopUp::crear(
+            "popup",
+            "",
+            "",
+            PopupEstado::Normal->value,
+            null
+        );
 
         return $programa;
     }
@@ -113,6 +123,11 @@ class Programa extends Modo implements IRenderizable
         unset($elementos[$elementoId]);
     }
 
+    public static function showPopup($texto, $estado)
+    {
+        return "showPopup('$texto', '$estado->value')";
+    }
+
 
     /*
         
@@ -146,6 +161,7 @@ class Programa extends Modo implements IRenderizable
 
                 <body>
                     $this->cuerpo
+                    " . $this->popup->renderizar() . "
                     $htmlScriptsBody
                 </body>
             </html>

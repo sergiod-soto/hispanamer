@@ -1,42 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .popup {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 4cm;
-    height: 3cm;
-    background-color: white;
-    /* Por defecto */
-    color: black;
-    text-align: center;
+    bottom: 20px;
+    right: 25%;
+    width: 250px;
+    min-height: 20px;
+    /* Permitir que crezca con el contenido */
+    padding: 15px;
     display: none;
-    justify-content: center;
+    /* Asegura que los elementos se alineen correctamente */
+    justify-content: flex-start;
     align-items: center;
-    border-radius: 5px;
-    font-weight: bold;
-    border: 2px solid transparent;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    border-left: 6px solid transparent;
+    color: #fff;
+    text-align: left;
+    /* Asegura que el texto no se centre */
+    gap: 10px;
+    /* Espacio entre icono y texto */
 }
 
-/* Colores para cada estado */
+.popup::before {
+    display: flex;
+
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Normal (informativo, neutro) */
+.popup.normal {
+
+    color: #000000;
+    background-color: #ffffff;
+    border-left-color: #555;
+}
+
+.popup.normal::before {
+    flex-shrink: 0; /* Evita que se reduzca */
+
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+/* Advertencia (color ámbar) */
 .popup.advertencia {
-    background-color: yellow;
+    background-color: #ffbf00;
+    border-left-color: #e68a00;
     color: black;
-    border-color: #ffcc00;
 }
 
+.popup.advertencia::before {
+    flex-shrink: 0; /* Evita que se reduzca */
+
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../multimedia/iconos/warning.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+}
+
+/* Error (color rojo) */
 .popup.error {
-    background-color: red;
-    color: white;
-    border-color: darkred;
+    
+    background-color: #d9534f;
+    border-left-color: #a94442;
 }
 
+.popup.error::before {
+    flex-shrink: 0; /* Evita que se reduzca */
+
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../multimedia/iconos/error.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+}
+
+/* Bien (color verde) */
 .popup.bien {
-    background-color: green;
-    color: white;
-    border-color: darkgreen;
+    background-color: #5cb85c;
+    border-left-color: #3d8b3d;
 }
 
-.popup.neutral {
-    background-color: rgb(255, 255, 255);
-    color: rgb(139, 48, 48);
-    border-color: darkgreen;
+.popup.bien::before {
+    flex-shrink: 0; /* Evita que se reduzca */
+
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../multimedia/iconos/ok.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
 }

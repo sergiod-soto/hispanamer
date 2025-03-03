@@ -77,21 +77,39 @@ if ($method === "GET") {
         $programa
     );
 
-    $b = Button::crear(
+    $b1 = Button::crear(
         Elemento::getNewId(),
         "",
-        "popup", //js/prg1/ElementosAGuardar.js
-        "showPopup()",
+        "popup ok",
+        Programa::showPopup("estado ok", PopupEstado::Ok),
         $seccion
 
     );
-    $p = PopUp::crear(
-        "popup",
+    $b2 = Button::crear(
+        Elemento::getNewId(),
         "",
-        "holis",
-        PopupEstado::Error->value,
-        null
+        "popup error",
+        Programa::showPopup("estado error. sdpflspdl pslvpsvpsdpvls dpvsdpv sdpvlsdplv", PopupEstado::Error),
+        $seccion
+
     );
+    $b3 = Button::crear(
+        Elemento::getNewId(),
+        "",
+        "popup warning",
+        Programa::showPopup("estado warning", PopupEstado::Warning),
+        $seccion
+
+    );
+    $b4 = Button::crear(
+        Elemento::getNewId(),
+        "",
+        "popup neutro",
+        Programa::showPopup("estado neutro", PopupEstado::Normal),
+        $seccion
+
+    );
+
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,8 +119,10 @@ if ($method === "GET") {
 
 
 
-    $seccion->add($b, 0, 0);
-    $seccion->add($p, 999, 999);
+    $seccion->add($b1, 0, 0);
+    $seccion->add($b2, 1, 0);
+    $seccion->add($b3, 2, 0);
+    $seccion->add($b4, 3, 0);
 
 
 
