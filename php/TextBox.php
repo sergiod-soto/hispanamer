@@ -28,7 +28,7 @@ class TextBox extends Elemento implements IEditable
     }
 
     /*
-        patron de diseño para crear un boton con modo creado, el cual con el propio boton
+        patron de diseño para crear un TextBox con modo creado, el cual con el propio TextBox
         y evitar dependencia circular
     */
     public static function crear($id, string $clase, $text, $placeHolder, $padre)
@@ -48,7 +48,7 @@ class TextBox extends Elemento implements IEditable
         if ($padre != null) {
             $modoPadre = $padre->modo;
         }
-        // Crea el modo, inyectando el botón en el constructor
+        // Crea el modo, inyectando el TextBox en el constructor
         $modo = new Modo($modoPadre, $boton);
 
         // Asigna el modo al botón

@@ -54,6 +54,8 @@ if ($method === "GET") {
         [
             "css/DateBox.css",
             "css/Popup.css",
+            "css/PasswordBox.css",
+            //"css/Tabla.css",
 
             "css/prg1/Tabla.css",
             "css/prg1/TimeBox.css",
@@ -77,46 +79,14 @@ if ($method === "GET") {
         $programa
     );
 
-    $b1 = Button::crear(
-        Elemento::getNewId(),
+    $tabla = Tabla::crear(
+        "id_1",
         "",
-        "popup ok",
-        Programa::showPopup("estado ok", PopupEstado::Ok),
-        $seccion
-
-    );
-    $b2 = Button::crear(
-        Elemento::getNewId(),
-        "",
-        "popup error",
-        Programa::showPopup("estado error. sdpflspdl pslvpsvpsdpvls dpvsdpv sdpvlsdplv", PopupEstado::Error),
-        $seccion
-
-    );
-    $b3 = Button::crear(
-        Elemento::getNewId(),
-        "",
-        "popup warning",
-        Programa::showPopup("estado warning", PopupEstado::Warning),
-        $seccion
-
-    );
-    $b4 = Button::crear(
-        Elemento::getNewId(),
-        "",
-        "popup neutro",
-        Programa::showPopup("estado neutro", PopupEstado::Normal),
-        $seccion
-
-    );
-
-    $a = NoteBox::crear(
-        Elemento::getNewId(),
-        "",
-        "",
-        "ASD",
-        "titulo",
-        "",
+        ["c1", "c2", "c3"],
+        [
+            ["1", "2", 3],
+            ["4", "5", "6"]
+        ],
         $seccion
     );
 
@@ -129,11 +99,8 @@ if ($method === "GET") {
 
 
 
-    $seccion->add($b1, 0, 0);
-    $seccion->add($b2, 1, 0);
-    $seccion->add($b3, 2, 0);
-    $seccion->add($b4, 3, 0);
-    $seccion->add($a, 4, 0);
+    $seccion->add($tabla, 0, 0);
+
 
 
 

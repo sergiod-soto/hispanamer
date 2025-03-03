@@ -70,22 +70,18 @@ class Tabla_Celda extends Elemento
 
     function renderizar()
     {
-        $html = "<td";
+        $html = "<td class=\"$this->clase\">";
 
-        // anhado clase
-        if ($this->clase != null && $this->clase != "") {
-            $html .= " class=\"$this->clase\" ";
-        }
         if (is_string($this->contenido)) {
-            $html .= ">" . $this->contenido . "</td>";
-        } else {
-            if (is_object($this->contenido) && method_exists($this->contenido, 'renderizar')) {
-                $html .= ">" . $this->contenido->renderizar() . "</td>";
-            } else {
-                $html .= ">" . "[NULL]" . "</td>";
-            }
+            return $html .= $this->contenido . "</td>";
         }
-        return $html;
+        if (is_int($this->contenido)) {
+            return $html .= (string) $this->contenido . "</td>";
+        }
+        if (is_object($this->contenido) && method_exists($this->contenido, 'renderizar')) {
+            return $html .= $this->contenido->renderizar() . "</td>";
+        }
+        return $html .= "[NULL]" . "</td>";
     }
     function hide()
     {
@@ -95,7 +91,8 @@ class Tabla_Celda extends Elemento
     {
 
     }
-    function setVisible($visible){
+    function setVisible($visible)
+    {
 
     }
     public function setSiguienteFoco($elemento)

@@ -97,7 +97,6 @@ function extraerNumero(texto) {
  * @param {*} value
  */
 function guardarAux(elemento, id, value) {
-
     // primero, actualizo la fecha de la sesion
     let sesionJson = JSON.parse(localStorage.getItem("sesion"));
     sesionJson.fecha = new Date().getDate();
@@ -159,7 +158,14 @@ function guardarAux(elemento, id, value) {
             break;
 
         case ("PasswordBox"):
-            // TODO
+            funcion = (id, value) => {
+                document.getElementById("input" + id).value = value
+            };
+
+            sesionJson[prg].data[id].funcion = funcion.toString();
+            sesionJson[prg].data[id].value = value;
+
+            localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
 
         case ("RadioButton"):
@@ -175,7 +181,14 @@ function guardarAux(elemento, id, value) {
             break;
 
         case ("SelectBox"):
-            // TODO
+            funcion = (id, value) => {
+                document.getElementById("select" + id).value = value
+            };
+
+            sesionJson[prg].data[id].funcion = funcion.toString();
+            sesionJson[prg].data[id].value = value;
+
+            localStorage.setItem("sesion", JSON.stringify(sesionJson));
             break;
 
         case ("Tabla"):
@@ -219,9 +232,10 @@ function guardarAux(elemento, id, value) {
  * @param {String} id 
  */
 function guardar(id) {
-    // obtengo el atributo "data-tipo" del elemento con "id"
-    elemento = document.getElementById(id).getAttribute("data-tipo");
 
+    // obtengo el atributo "data-tipo" del elemento con "id"
+
+    elemento = document.getElementById(id).getAttribute("data-tipo");
     switch (elemento) {
 
         case ("Button"):
@@ -250,7 +264,9 @@ function guardar(id) {
             break;
 
         case ("PasswordBox"):
-            // TODO
+            document.getElementById(id).addEventListener("input", function () {
+                guardarAux(Elemento.PasswordBox, id, document.getElementById("input" + id).value);
+            });
             break;
 
         case ("RadioButton"):
@@ -260,7 +276,9 @@ function guardar(id) {
             break;
 
         case ("SelectBox"):
-            // TODO
+            document.getElementById(id).addEventListener("change", function () {
+                guardarAux(Elemento.SelectBox, id, document.getElementById("select" + id).value);
+            });
             break;
 
         case ("Tabla"):

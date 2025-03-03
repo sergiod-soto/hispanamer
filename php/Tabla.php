@@ -214,10 +214,14 @@ class Tabla extends Elemento
             if (is_string($cabecera)) {
                 $html .= $cabecera . "</td>";
             } else {
-                if (is_object($cabecera) && method_exists($cabecera, 'renderizar')) {
-                    $html .= $cabecera->renderizar() . "</td>";
+                if (is_int($cabecera)) {
+                    $html .= (string) $cabecera . "</td>";
                 } else {
-                    $html .= "[NULL]" . "</td>";
+                    if (is_object($cabecera) && method_exists($cabecera, 'renderizar')) {
+                        $html .= $cabecera->renderizar() . "</td>";
+                    } else {
+                        $html .= "[NULL]" . "</td>";
+                    }
                 }
             }
             if ($i == (count($this->cabecera) - 1)) {
