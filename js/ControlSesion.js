@@ -87,13 +87,14 @@ function extraerNumero(texto) {
 }
 
 /**
- * No usar esta funcion, guardar con "guardar()"
+ * -NO- usar esta funcion, guardar con "guardar()"
  * 
  * En esta seccion elegimos de que manera se
  * guarda cada elemento por tipo
  * 
  * @param {Elemento} elemento 
  * @param {String} id 
+ * @param {*} value
  */
 function guardarAux(elemento, id, value) {
 
@@ -102,6 +103,10 @@ function guardarAux(elemento, id, value) {
     sesionJson.fecha = new Date().getDate();
 
     prg = localStorage.getItem("prgActual");
+
+    if (prg == null || prg == undefined) {
+        return;
+    }
 
     if (sesionJson[prg].data[id] == undefined) {
         sesionJson[prg].data[id] = {};
@@ -143,7 +148,14 @@ function guardarAux(elemento, id, value) {
             break;
 
         case ("NoteBox"):
-            // TODO
+            funcion = (id, value) => {
+                document.getElementById(id).value = value
+            };
+
+            sesionJson[prg].data[id].funcion = funcion.toString();
+            sesionJson[prg].data[id].value = value;
+
+            localStorage.setItem("sesion", JSON.stringify(sesionJson))
             break;
 
         case ("PasswordBox"):
@@ -204,11 +216,9 @@ function guardarAux(elemento, id, value) {
  * En esta parte elegimos que evento provoca que 
  * se guarde cada elemento por tipo
  * 
- * @param {Elemento} elemento 
  * @param {String} id 
  */
-function setGuardableEnSesion(id) {
-
+function guardar(id) {
     // obtengo el atributo "data-tipo" del elemento con "id"
     elemento = document.getElementById(id).getAttribute("data-tipo");
 
@@ -234,7 +244,9 @@ function setGuardableEnSesion(id) {
             break;
 
         case ("NoteBox"):
-            // TODO
+            document.getElementById(id).addEventListener("input", function () {
+                guardarAux(Elemento.NoteBox, id, document.getElementById(id).value);
+            });
             break;
 
         case ("PasswordBox"):

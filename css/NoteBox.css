@@ -1,0 +1,27 @@
+.textbox-multiline {
+    width: 300px;
+    /* Ancho del cuadro */
+    height: 100px;
+    /* Alto del cuadro */
+    padding: 5px;
+    /* Espaciado interno */
+    font-size: 14px;
+    border: 2px solid #ccc;
+    /* Borde como en C# */
+    border-radius: 4px;
+    /* Esquinas redondeadas (opcional) */
+    resize: none;
+    /* Evita redimensionar manualmente */
+    overflow-y: auto;
+    /* Activa la barra de desplazamiento vertical si es necesario */
+    background-color: white;
+    /* Fondo blanco */
+}
+
+/* Cuando el cuadro está enfocado */
+.textbox-multiline:focus {
+    border-color: #0078D7;
+    /* Color azul similar al de Windows */
+    outline: none;
+    /* Elimina el borde por defecto */
+}

@@ -110,6 +110,16 @@ if ($method === "GET") {
 
     );
 
+    $a = NoteBox::crear(
+        Elemento::getNewId(),
+        "",
+        "",
+        "ASD",
+        "titulo",
+        "",
+        $seccion
+    );
+
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -123,7 +133,7 @@ if ($method === "GET") {
     $seccion->add($b2, 1, 0);
     $seccion->add($b3, 2, 0);
     $seccion->add($b4, 3, 0);
-
+    $seccion->add($a, 4, 0);
 
 
 

@@ -15,7 +15,7 @@ class TextBox extends Elemento implements IEditable
         if ($clase != null && $clase != "") {
             $html .= "class=\"$clase\"";
         }
-        $html .= "><input type=\"text\" id=\"$id\" placeholder=\"$placeHolder\" />$text</span>";
+        $html .= "><input type=\"text\" id=\"$id\" placeholder=\"$placeHolder\" data-tipo=\"TextBox\"/>$text</span>";
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(

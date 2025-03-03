@@ -4,9 +4,12 @@ class PasswordBox extends Elemento
 {
 
     public $input;
+    public $sigTab;
 
-    public function __construct($id, string $clase, $modo, $text, $funcion, $padre, $minLength)
+    public function __construct($id, string $clase, $modo, $text, $padre, $minLength, $sigTab)
     {
+        $this->sigTab = $sigTab;
+        
         $html =
             "
             <label for='$id'>$text</label>

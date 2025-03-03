@@ -5,8 +5,9 @@
 */
 class DateBox extends Elemento implements Input, IEditable
 {
+    public $sigTab = null;
 
-    public function __construct($id, $clase, $placeHolder, $modo, $padre)
+    public function __construct($id, $clase, $placeHolder, $sigTab, $modo, $padre)
     {
         if ($clase == null) {
             $clase = "";
@@ -48,13 +49,14 @@ class DateBox extends Elemento implements Input, IEditable
        patron de diseño para crear un boton con modo creado, el cual con el propio boton
        y evitar dependencia circular
    */
-    public static function crear($id, string $clase, $placeHolder, $padre)
+    public static function crear($id, string $clase, $placeHolder, $sigTab, $padre)
     {
         // Crea el dateBox
         $dateBox = new self(
             $id,
             $clase,
             $placeHolder,
+            $sigTab,
             null,
             $padre,
         );

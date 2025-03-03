@@ -8,8 +8,9 @@ class CheckBox extends Elemento implements Input, IEditable
 
     public $text;
     public $value;
+    public $sigTab;
 
-    public function __construct($id, string $clase, $text, $name, $value, $modo, $padre)
+    public function __construct($id, string $clase, $text, $name, $value, $sigTab, $modo, $padre)
     {
         $html =
             "
@@ -30,7 +31,7 @@ class CheckBox extends Elemento implements Input, IEditable
         parent::__construct($id, $clase, $modo, $padre, $html);
 
     }
-    public static function crear($id, string $clase, $text, $name, $value, $padre)
+    public static function crear($id, string $clase, $text, $name, $value, $sigTab, $padre)
     {
         // Crea el botón
         $checkBox = new self(
@@ -39,6 +40,7 @@ class CheckBox extends Elemento implements Input, IEditable
             $text,
             $name,
             $value,
+            $sigTab,
             null,
             $padre,
         );
