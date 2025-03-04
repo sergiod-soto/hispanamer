@@ -180,7 +180,7 @@ class Tabla extends Elemento
         }
         //
 
-        $html = "<span class=\"tabla-contenedor\"><div class=\"tabla-scroll\"><table id=\"$this->id\"";
+        $html = "<span class=\" span-tabla-$this->id table-container\"><div class=\"tabla-scroll\"><table id=\"$this->id\"";
         if ($this->clase != null && $this->clase != "") {
             $html .= " class=\"$this->clase\">";
         }
@@ -195,7 +195,7 @@ class Tabla extends Elemento
         // anhado el <colgroup>
         $html .= "<colgroup>";
         for ($i = 0; $i < count($cabeceraId); $i++) {
-            $html .= "<col id=\"" . $cabeceraId[$i] . "\">";
+            $html .= "<col id=\" $cabeceraId[$i] \">";
         }
         $html .= "</colgroup>";
 
@@ -211,19 +211,21 @@ class Tabla extends Elemento
         for ($i = 0; $i < count($this->cabecera); $i++) {
             $cabecera = $this->cabecera[$i];
             $html .= "<th><div class = \"div_borde_cabecera\">";
+
             if (is_string($cabecera)) {
                 $html .= $cabecera . "</td>";
+
+            } elseif (is_int($cabecera)) {
+                $html .= (string) $cabecera . "</td>";
+
+            } elseif (is_object($cabecera) && method_exists($cabecera, 'renderizar')) {
+                $html .= $cabecera->renderizar() . "</td>";
+
             } else {
-                if (is_int($cabecera)) {
-                    $html .= (string) $cabecera . "</td>";
-                } else {
-                    if (is_object($cabecera) && method_exists($cabecera, 'renderizar')) {
-                        $html .= $cabecera->renderizar() . "</td>";
-                    } else {
-                        $html .= "[NULL]" . "</td>";
-                    }
-                }
+                $html .= "[NULL]" . "</td>";
             }
+
+
             if ($i == (count($this->cabecera) - 1)) {
                 $html .= "<div class=\"resizer\" data-left-col=\"" . $cabeceraId[$i] . "\"></div></div></th>";
             } else {
