@@ -58,7 +58,6 @@ if ($method === "GET") {
             "css/Tabla.css",
 
             "css/prg1/TimeBox.css",
-
         ],
     );
 

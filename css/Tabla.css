@@ -9,7 +9,6 @@
       max-height: 400px;
       overflow-y: auto;
       overflow-x: auto;
-      border: 1px solid #ccc;
       background: #fff;
       box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   }
@@ -31,7 +30,7 @@
 
   thead th {
       padding: 10px;
-      border: 1px solid #34495e;
+      /* border: 1px solid #34495e; */
       text-align: left;
       cursor: pointer;
       /* Indica que es interactiva */
