@@ -1,0 +1,5 @@
+
+/* cambia el text align de la columna elegida */
+table#id_1 tbody td:nth-child(3) {
+    text-align: right;
+}
