@@ -48,6 +48,7 @@ if ($method === "GET") {
             //"js/TextBox.js",
             "js/TimeBox.js",
 
+            "js/prg1/Tabla1.js",
             "js/prg1/ElementosAGuardar.js",
         ],
         css:
