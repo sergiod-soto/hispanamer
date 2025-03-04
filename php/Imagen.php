@@ -3,7 +3,7 @@
 /*
     imagen estatica. 
 */
-class Imagen extends Elemento implements IEditable
+class Imagen extends Elemento
 {
     public function __constructor()
     {
@@ -17,7 +17,8 @@ class Imagen extends Elemento implements IEditable
     {
 
     }
-    function setVisible($visible){
+    function setVisible($visible)
+    {
 
     }
     public function renderizar()

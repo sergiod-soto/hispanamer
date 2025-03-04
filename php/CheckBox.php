@@ -3,7 +3,7 @@
 /*
     checkbox, funciona como un interruptor
 */
-class CheckBox extends Elemento implements Input, IEditable
+class CheckBox extends Elemento implements Input
 {
 
     public $text;
@@ -27,13 +27,14 @@ class CheckBox extends Elemento implements Input, IEditable
 
         $this->text = $text;
         $this->value = $value;
+        $this->sigTab = $sigTab;
 
         parent::__construct($id, $clase, $modo, $padre, $html);
 
     }
     public static function crear($id, string $clase, $text, $name, $value, $sigTab, $padre)
     {
-        // Crea el botón
+        // Crea el checkBox
         $checkBox = new self(
             $id,
             $clase,
@@ -50,7 +51,7 @@ class CheckBox extends Elemento implements Input, IEditable
         if ($padre != null) {
             $modoPadre = $padre->modo;
         }
-        // Crea el modo, inyectando el botón en el constructor
+        // Crea el modo, inyectando el checkBox en el constructor
         $modo = new Modo($modoPadre, $checkBox);
 
         // Asigna el modo al checkBox
@@ -58,6 +59,11 @@ class CheckBox extends Elemento implements Input, IEditable
 
         return $checkBox;
     }
+    public function setModo($modo)
+    {
+        $this->modo = $modo;
+    }
+
     public function setSiguienteFoco($elemento)
     {
         $this->siguienteFoco = $elemento;
@@ -67,26 +73,10 @@ class CheckBox extends Elemento implements Input, IEditable
     {
         return $this->text;
     }
-    public function setText(string $text)
-    {
-        $this->text = $text;
-        $this->html = "<input type='checkbox' id='$this->id' name='$this->value' value='$text'>";
-    }
 
     public function renderizar()
     {
         return $this->html;
     }
-
-    function setEditableOn()
-    {
-
-    }
-    function setEditableOff()
-    {
-
-    }
-
-
 }
 ?>

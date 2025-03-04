@@ -1,6 +1,6 @@
 <?php
 
-class NoteBox extends Elemento implements IEditable
+class NoteBox extends Elemento
 {
     public $sigTab = null;
     public function __construct($id, string $clase, $modo, $text, $placeHolder, $titulo, $sigTab, $padre)

@@ -48,7 +48,7 @@ if ($method === "GET") {
             //"js/TextBox.js",
             "js/TimeBox.js",
 
-            "js/prg1/Tabla1.js",
+            //"js/prg1/Tabla1.js",
             "js/prg1/ElementosAGuardar.js",
         ],
         sonidos:
@@ -102,6 +102,15 @@ if ($method === "GET") {
         "",
         $tabla
     );
+    $link = Link::crear(
+        Elemento::getNewId(),
+        "",
+        "http://localhost/corporativo/",
+        Target::Blank,
+        "Hispanamer localhost",
+        "patata",
+        $tabla
+    );
 
     $tabla = Tabla::crear(
         "id_1",
@@ -113,7 +122,7 @@ if ($method === "GET") {
             [iconoLupa, iconoNuevo, iconoRecargar],
             [iconoReloj, iconoTest, 3],
             [EXCEL, PDF, $boton],
-            ["1", "2", 3],
+            ["LINK→", $link, "←LINK"],
             ["1", "2", 3],
             ["1", "2", 3],
             ["1", "2", 3],

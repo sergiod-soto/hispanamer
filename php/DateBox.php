@@ -3,7 +3,7 @@
 /*
     introduccion de fecha
 */
-class DateBox extends Elemento implements Input, IEditable
+class DateBox extends Elemento implements Input
 {
     public $sigTab = null;
 
