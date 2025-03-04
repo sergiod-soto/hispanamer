@@ -2,6 +2,7 @@
 
 // include de scripts sin clase
 include_once "php/Iconos.php";
+include_once "php/Sonidos.php";
 
 // class autoloader
 spl_autoload_register(function ($class_name) {
@@ -25,7 +26,6 @@ if ($method === "GET") {
     //          4º se colocan
     //          5º se renderiza
     //////////////////////////////////////////////////////////////////////////////////////////////
-
 
     $programa = Programa::crear(
         autor: "sergiod",
@@ -51,6 +51,10 @@ if ($method === "GET") {
             "js/prg1/Tabla1.js",
             "js/prg1/ElementosAGuardar.js",
         ],
+        sonidos:
+        [
+            sonidoEj1
+        ],
         css:
         [
             "css/DateBox.css",
@@ -60,6 +64,7 @@ if ($method === "GET") {
 
             "css/prg1/TimeBox.css",
         ],
+
     );
 
 
@@ -67,9 +72,12 @@ if ($method === "GET") {
 
 
 
-    //////////////////////////////////////////////////////////////////////////////////////////////
-    //          Creamos los elementos 
-    //////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //      Creamos los elementos 
+    //      
+    //      (tener en cuenta que si un elemento A usa otro B, 
+    //      B debe ser creado antes)
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     $seccion = Seccion::crear
     (
@@ -77,17 +85,33 @@ if ($method === "GET") {
         "",
         $programa
     );
+    $boton = Button::crear(
+        Elemento::getNewId(),
+        "",
+        "sonido",
+        "document.getElementById('sound-tirin').play()",
+        $tabla
+    );
+    $cb = CheckBox::crear(
+        Elemento::getNewId(),
+        "",
+        "checkBox",
+        "",
+        "",
+        "",
+        $tabla
+    );
 
     $tabla = Tabla::crear(
         "id_1",
         "",
         ["c1", "c2", "c3"],
         [
-            ["1", "2", 3],
-            ["4", "5", "6"],
-            ["1", "2", 3],
-            ["1", "2", 3],
-            ["1", "2", 3],
+            [iconoCalendario, iconoEditar, iconoEliminar],
+            [iconoFlechaAdelante, iconoFlechaAtras, iconoImpresora],
+            [iconoLupa, iconoNuevo, iconoRecargar],
+            [iconoReloj, iconoTest, 3],
+            [EXCEL, PDF, $boton],
             ["1", "2", 3],
             ["1", "2", 3],
             ["1", "2", 3],
@@ -102,6 +126,7 @@ if ($method === "GET") {
 
 
 
+
     //////////////////////////////////////////////////////////////////////////////////////////////
     //          Colocamos los elementos 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +135,9 @@ if ($method === "GET") {
 
 
     $seccion->add($tabla, 0, 0);
+
+
+
 
 
 

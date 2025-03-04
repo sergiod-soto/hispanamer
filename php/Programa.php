@@ -24,13 +24,15 @@ class Programa extends Modo implements IRenderizable
     public $scriptsCabecera;
     public $scriptsBody;
     public $css;
+    public $sonidos;
     public $popup;
 
-    public function __construct($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $css)
+    public function __construct($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $sonidos, $css)
     {
         $this->elementos = [];
         $this->scriptsCabecera = $scriptsCabecera;
         $this->scriptsBody = $scriptsBody;
+        $this->sonidos = $sonidos;
         $this->css = $css;
 
         $this->titulo = "";
@@ -46,7 +48,7 @@ class Programa extends Modo implements IRenderizable
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $css)
+    public static function crear($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $sonidos, $css)
     {
         // Crea el programa
         $programa = new self(
@@ -55,6 +57,7 @@ class Programa extends Modo implements IRenderizable
             $nombre,
             $scriptsCabecera,
             $scriptsBody,
+            $sonidos,
             $css
         );
 
@@ -138,13 +141,20 @@ class Programa extends Modo implements IRenderizable
         foreach ($this->scriptsCabecera as $script) {
             $htmlScriptsCabecera .= "<script src=\"$script\"></script>\n";
         }
+
         $htmlScriptsBody = "";
         foreach ($this->scriptsBody as $script) {
             $htmlScriptsBody .= "<script src=\"$script\"></script>\n";
         }
+
         $htmlCss = "";
         foreach ($this->css as $css) {
             $htmlCss .= "<link rel=\"stylesheet\" href=\"$css\">\n";
+        }
+
+        $htmlSonidos = "";
+        foreach ($this->sonidos as $sound) {
+            $htmlSonidos .= $sound;
         }
 
         return $this->html =
@@ -157,6 +167,7 @@ class Programa extends Modo implements IRenderizable
                     $this->cabecera 
                     $htmlScriptsCabecera
                     $htmlCss
+                    $htmlSonidos
                 </head>
 
                 <body>
