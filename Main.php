@@ -26,31 +26,15 @@ if ($method === "GET") {
         ],
         scriptsBody:
         [
-            "js/ControlSesion.js",
-            "js/DateBox.js",
-            "js/NoteBox.js",
-            "js/PasswordBox.js",
-            "js/Popup.js",
-            "js/RadioButton.js",
-            "js/SelectBox.js",
-            "js/Tabla.js",
-            //"js/TextBox.js",
-            "js/TimeBox.js",
-
             //"js/prg1/Tabla1.js",
             "js/prg1/ElementosAGuardar.js",
         ],
         sonidos:
         [
-            sonidoEj1
+
         ],
         css:
         [
-            "css/DateBox.css",
-            "css/Popup.css",
-            "css/PasswordBox.css",
-            "css/Tabla.css",
-
             "css/prg1/TimeBox.css",
             "css/prg1/Tabla.css"
         ],

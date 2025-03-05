@@ -26,6 +26,10 @@ class Programa extends Modo implements IRenderizable
     public $css;
     public $sonidos;
     public $popup;
+    public $scriptsBaseCabecera;
+    public $scriptsBaseBody;
+    public $sonidosBase;
+    public $cssBase;
 
     public function __construct($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $sonidos, $css)
     {
@@ -42,6 +46,35 @@ class Programa extends Modo implements IRenderizable
         $this->autor = $autor;
         $this->fecha = $fecha;
         $this->nombre = $nombre;
+
+        // scripts genericos
+        $this->scriptsBaseCabecera = [
+            "js/ControlSesion.js",
+            "js/DateBox.js",
+            "js/NoteBox.js",
+            "js/PasswordBox.js",
+            "js/Popup.js",
+            "js/RadioButton.js",
+            "js/SelectBox.js",
+            "js/Tabla.js",
+            //"js/TextBox.js",
+            "js/TimeBox.js",
+        ];
+
+        $this->scriptsBaseBody = [
+            // de momento vacio,
+            // tampoco creo que nunca se use
+        ];
+        $this->sonidosBase = [
+            Sonidos::sonidoEj1->value
+        ];
+
+        $this->cssBase = [
+            "css/DateBox.css",
+            "css/Popup.css",
+            "css/PasswordBox.css",
+            "css/Tabla.css",
+        ];
     }
 
     /*
@@ -50,6 +83,10 @@ class Programa extends Modo implements IRenderizable
     */
     public static function crear($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $sonidos, $css)
     {
+
+
+
+
         // Crea el programa
         $programa = new self(
             $autor,
@@ -73,7 +110,6 @@ class Programa extends Modo implements IRenderizable
             "",
             "",
             PopupEstado::Normal->value,
-            null
         );
 
         return $programa;
@@ -137,19 +173,38 @@ class Programa extends Modo implements IRenderizable
     */
     function renderizar()
     {
+        $htmlscriptsBaseCabecera = "";
+        foreach ($this->scriptsBaseCabecera as $script) {
+            $htmlscriptsBaseCabecera .= "<script src=\"$script\"></script>\n";
+        }
+
         $htmlScriptsCabecera = "";
         foreach ($this->scriptsCabecera as $script) {
             $htmlScriptsCabecera .= "<script src=\"$script\"></script>\n";
         }
 
+        $htmlscriptsBaseBody = "";
+        foreach ($this->scriptsBaseBody as $script) {
+            $htmlscriptsBaseBody .= "<script src=\"$script\"></script>\n";
+        }
         $htmlScriptsBody = "";
         foreach ($this->scriptsBody as $script) {
             $htmlScriptsBody .= "<script src=\"$script\"></script>\n";
         }
 
+        $htmlCssBase = "";
+        foreach ($this->cssBase as $css) {
+            $htmlCssBase .= "<link rel=\"stylesheet\" href=\"$css\">\n";
+        }
+
         $htmlCss = "";
         foreach ($this->css as $css) {
             $htmlCss .= "<link rel=\"stylesheet\" href=\"$css\">\n";
+        }
+
+        $htmlSonidosBase = "";
+        foreach ($this->sonidosBase as $sound) {
+            $htmlSonidosBase .= $sound;
         }
 
         $htmlSonidos = "";
@@ -165,14 +220,18 @@ class Programa extends Modo implements IRenderizable
                     <meta charset='UTF-8'>
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     $this->cabecera 
+                    $htmlscriptsBaseCabecera
                     $htmlScriptsCabecera
+                    $htmlCssBase
                     $htmlCss
+                    $htmlSonidosBase
                     $htmlSonidos
                 </head>
 
                 <body>
                     $this->cuerpo
                     " . $this->popup->renderizar() . "
+                    $htmlscriptsBaseBody
                     $htmlScriptsBody
                 </body>
             </html>
