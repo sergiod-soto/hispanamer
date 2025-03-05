@@ -31,7 +31,7 @@ if ($method === "GET") {
         ],
         sonidos:
         [
-
+            Sonidos::sonidoEj1->value
         ],
         css:
         [

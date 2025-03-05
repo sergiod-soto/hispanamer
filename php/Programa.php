@@ -12,7 +12,6 @@ class Programa extends Modo implements IRenderizable
 
     public $nombre;
     public $conexion;           // conexion a la base de datos
-    public $estilo;             // estilo del programa     
     public $html;               // html de la pagina del programa
     public $cabecera;
     public $titulo;             // titulo que aparece en la pestanha del navegador
@@ -66,7 +65,6 @@ class Programa extends Modo implements IRenderizable
             // tampoco creo que nunca se use
         ];
         $this->sonidosBase = [
-            Sonidos::sonidoEj1->value
         ];
 
         $this->cssBase = [
