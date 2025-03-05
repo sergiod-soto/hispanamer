@@ -65,7 +65,6 @@ if ($method === "GET") {
             "css/prg1/TimeBox.css",
             "css/prg1/Tabla.css"
         ],
-
     );
 
 
@@ -102,27 +101,55 @@ if ($method === "GET") {
         "",
         $tabla
     );
-    $link = Link::crear(
+    $link1 = Link::crear(
         Elemento::getNewId(),
         "",
         "http://localhost/corporativo/",
         Target::Blank,
         "Hispanamer localhost",
-        "patata",
+        "Nos vamos al localhost?",
+        $tabla
+    );
+    $link2 = Link::crear(
+        Elemento::getNewId(),
+        "",
+        "http://localhost/corporativo/",
+        Target::Blank,
+        Button::crear(
+            Elemento::getNewId(),
+            "",
+            "link",
+            "",
+            $tabla
+        ),
+        "Nos vamos al localhost?",
+        $tabla
+    );
+    $link3 = Link::crear(
+        Elemento::getNewId(),
+        "",
+        "http://localhost/corporativo/",
+        Target::Blank,
+        iconoPDF,
+        "Nos vamos al localhost?",
         $tabla
     );
 
     $tabla = Tabla::crear(
         "id_1",
         "",
-        ["c1", "c2", "c3"],
+        [
+            $boton,
+            $link3,
+            "c3"
+        ],
         [
             [iconoCalendario, iconoEditar, iconoEliminar],
             [iconoFlechaAdelante, iconoFlechaAtras, iconoImpresora],
             [iconoLupa, iconoNuevo, iconoRecargar],
             [iconoReloj, iconoTest, 3],
-            [EXCEL, PDF, $boton],
-            ["LINK→", $link, "←LINK"],
+            [iconoEXCEL, iconoPDF, $boton],
+            [$link1, $link2, $link3],
             ["1", "2", 3],
             ["1", "2", 3],
             ["1", "2", 3],

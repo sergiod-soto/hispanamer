@@ -35,8 +35,8 @@ define("iconoNuevo", "<img src= \"/multimedia/iconos/nuevo.png\" alt=\"Nuevo\" w
 define("iconoRecargar", "<img src= \"/multimedia/iconos/reload.png\" alt=\"Recargar\" width=\"32\" height=\"32\">");
 define("iconoReloj", "<img src= \"/multimedia/iconos/reloj.png\" alt=\"Hora\" width=\"32\" height=\"32\">");
 
-define("EXCEL", "<img src= \"/multimedia/iconos/excel.png\" alt=\"Descargar EXCEL\" width=\"32\" height=\"32\">");
-define("PDF", "<img src= \"/multimedia/iconos/pdf.png\" alt=\"Descargar PDF\" width=\"32\" height=\"32\">");
+define("iconoEXCEL", "<img src= \"/multimedia/iconos/excel.png\" alt=\"Descargar EXCEL\" width=\"32\" height=\"32\">");
+define("iconoPDF", "<img src= \"/multimedia/iconos/pdf.png\" alt=\"Descargar PDF\" width=\"32\" height=\"32\">");
 
 
 // icono para ejecutar funciones de los desarrolladores

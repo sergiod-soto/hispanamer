@@ -32,8 +32,7 @@
       padding: 10px;
       /* border: 1px solid #34495e; */
       text-align: left;
-      cursor: pointer;
-      /* Indica que es interactiva */
+      cursor: default;
   }
 
   tbody td {

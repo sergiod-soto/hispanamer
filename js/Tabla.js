@@ -1,4 +1,4 @@
-function functionCabecera(f) {
+function funcionCabecera(f) {
   // Se seleccionan todas las celdas de la cabecera
   const headers = document.querySelectorAll('thead th');
   headers.forEach(header => {
@@ -7,10 +7,14 @@ function functionCabecera(f) {
     });
   });
 
+  // pongo a toda la cabecera que el cursor sea una mano
+  document.querySelectorAll("thead th").forEach(th => {
+    th.style.cursor = "pointer";
+  });
 }
 
 
-function functionFila(f) {
+function funcionFila(f) {
   // Eventos para cada fila del cuerpo de la tabla
   const rows = document.querySelectorAll('tbody tr');
   rows.forEach((row, index) => {
@@ -18,8 +22,6 @@ function functionFila(f) {
       f(index);
     });
   });
-
-
 }
 
 
