@@ -92,7 +92,7 @@ if ($method === "GET") {
         "n",
         ["1", "2", "3"],
         "",
-        PosicionTexto::izquierda,
+        PosicionTexto::derecha,
         "",
         $seccion
     );
