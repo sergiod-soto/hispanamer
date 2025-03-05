@@ -35,6 +35,8 @@ class RadioButton extends Elemento
         $labelDer = "";
 
         for ($i = 0; $i < count($labels); $i++) {
+            $labelIzq = "";
+            $labelDer = "";
             if ($posicionTexto == PosicionTexto::derecha) {
                 $labelDer = $labels[$i];
             } else {
