@@ -85,8 +85,17 @@ if ($method === "GET") {
         "",
         $programa
     );
-  
 
+    $r = RadioButton::crear(
+        Elemento::getNewId(),
+        ["asd1", "asd2", "asd3"],
+        "n",
+        ["1", "2", "3"],
+        "",
+        PosicionTexto::izquierda,
+        "",
+        $seccion
+    );
 
 
 
@@ -97,7 +106,7 @@ if ($method === "GET") {
 
 
 
-    //$seccion->add($tabla, 0, 0);
+    $seccion->add($r, 0, 0);
 
 
 

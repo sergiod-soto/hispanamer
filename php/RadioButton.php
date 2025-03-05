@@ -1,6 +1,10 @@
 <?php
 
-
+enum PosicionTexto: string
+{
+    case izquierda = "izquierda";
+    case derecha = "derecha";
+}
 
 class RadioButton extends Elemento
 {
@@ -11,39 +15,41 @@ class RadioButton extends Elemento
 
     function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, $padre)
     {
-
+        if ($default == null || $default == "") {
+            $default = 0;
+        }
         if (count($labels) != count($values)) {
             throw new Exception("número de etiquetas (" . count($labels) . ")" .
                 " y valores (" . count($values) . ") debe ser igual.");
+        }
+        if ($default >= count($values)) {
+            throw new Exception("RadioButton (name: $name) default: $default, count(\$values): " .
+                count($values) . " (\$default maximo: " . count($values) - 1 . ")");
         }
 
         // preparo el html de cada elemento
         $htmlRadios = "";
 
-        if ($posicionTexto == RadioButton::posicionTextoDerecha()) {
-            for ($i = 0; $i < count($labels); $i++) {
-                if ($i != $default) {
-                    $htmlRadios .=
-                        "
-                    <label><input type=\"radio\" class=\"selector\" 
-                    name=\"$name\" value=\"" . $values[$i] . "\">" . $labels[$i] . "</label>
-                    ";
-                } else {
-                    $htmlRadios .=
-                        "
-                    <label><input type=\"radio\" class=\"selector\" 
-                    name=\"$name\" value=\"" . $values[$i] . "\" checked>" . $labels[$i] . "</label>
-                    ";
-                }
+        $checked = "";
+        $labelIzq = "";
+        $labelDer = "";
+
+        for ($i = 0; $i < count($labels); $i++) {
+            if ($posicionTexto == PosicionTexto::derecha) {
+                $labelDer = $labels[$i];
+            } else {
+                $labelIzq = $labels[$i];
             }
-        } else {
-            for ($i = 0; $i < count($labels); $i++) {
-                $htmlRadios .=
-                    "
-                    <label>" . $labels[$i] . "<input type=\"radio\"
-                    class=\"selector\" name=\"$name\" value=\"" . $values[$i] . "\"></label>
-                    ";
+            if ($i == $default) {
+                $checked = "checked";
+            } else {
+                $checked = "";
             }
+            $htmlRadios .=
+                "
+                <label>$labelIzq<input type=\"radio\" class=\"selector\" 
+                name=\"$name\" value=\"" . $values[$i] . "\" $checked>$labelDer</label>
+                ";
         }
 
         $html =
@@ -54,6 +60,20 @@ class RadioButton extends Elemento
                 </form>
             </span>
             ";
+        ///////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -79,7 +99,7 @@ class RadioButton extends Elemento
             $name,
             $values,
             $default,
-            $posicionTexto,
+            $posicionTexto->value,
             $clase,
             $padre,
         );
@@ -87,15 +107,6 @@ class RadioButton extends Elemento
         return $radioButton;
     }
 
-    
-    public static function posicionTextoIzquierda()
-    {
-        return "izquierda";
-    }
-    public static function posicionTextoDerecha()
-    {
-        return "derecha";
-    }
 
 
     public function setEditableOn()
