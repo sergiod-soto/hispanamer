@@ -30,11 +30,8 @@ class RadioButton extends Elemento
         // preparo el html de cada elemento
         $htmlRadios = "";
 
-        $checked = "";
-        $labelIzq = "";
-        $labelDer = "";
-
         for ($i = 0; $i < count($labels); $i++) {
+            $checked = "";
             $labelIzq = "";
             $labelDer = "";
             if ($posicionTexto == PosicionTexto::derecha) {
@@ -44,8 +41,6 @@ class RadioButton extends Elemento
             }
             if ($i == $default) {
                 $checked = "checked";
-            } else {
-                $checked = "";
             }
             $htmlRadios .=
                 "
