@@ -7,7 +7,7 @@ class Imagen extends Elemento
 {
     public function __construct($id, string $clase, $imagen)
     {
-        $html = "<img id=\"$id\" class=\"$clase\" $imagen>";
+        $html = "<img id=\"$id\" class=\"$clase\" $imagen->value>";
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
