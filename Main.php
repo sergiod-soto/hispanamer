@@ -85,81 +85,7 @@ if ($method === "GET") {
         "",
         $programa
     );
-    $boton = Button::crear(
-        Elemento::getNewId(),
-        "",
-        "sonido",
-        "document.getElementById('sound-tirin').play()",
-        $tabla
-    );
-    $cb = CheckBox::crear(
-        Elemento::getNewId(),
-        "",
-        "checkBox",
-        "",
-        "",
-        "",
-        $tabla
-    );
-    $link1 = Link::crear(
-        Elemento::getNewId(),
-        "",
-        "http://localhost/corporativo/",
-        Target::Blank,
-        "Hispanamer localhost",
-        "Nos vamos al localhost?",
-        $tabla
-    );
-    $link2 = Link::crear(
-        Elemento::getNewId(),
-        "",
-        "http://localhost/corporativo/",
-        Target::Blank,
-        Button::crear(
-            Elemento::getNewId(),
-            "",
-            "link",
-            "",
-            $tabla
-        ),
-        "Nos vamos al localhost?",
-        $tabla
-    );
-    $link3 = Link::crear(
-        Elemento::getNewId(),
-        "",
-        "http://localhost/corporativo/",
-        Target::Blank,
-        iconoPDF,
-        "Nos vamos al localhost?",
-        $tabla
-    );
-
-    $tabla = Tabla::crear(
-        "id_1",
-        "",
-        [
-            $boton,
-            $link3,
-            "c3"
-        ],
-        [
-            [iconoCalendario, iconoEditar, iconoEliminar],
-            [iconoFlechaAdelante, iconoFlechaAtras, iconoImpresora],
-            [iconoLupa, iconoNuevo, iconoRecargar],
-            [iconoReloj, iconoTest, 3],
-            [iconoEXCEL, iconoPDF, $boton],
-            [$link1, $link2, $link3],
-            ["1", "2", 3],
-            ["1", "2", 3],
-            ["1", "2", 3],
-            ["1", "2", 3],
-            ["1", "2", 3],
-            ["1", "2", 3],
-            ["1", "2", 3],
-        ],
-        $seccion
-    );
+  
 
 
 
@@ -171,7 +97,7 @@ if ($method === "GET") {
 
 
 
-    $seccion->add($tabla, 0, 0);
+    //$seccion->add($tabla, 0, 0);
 
 
 

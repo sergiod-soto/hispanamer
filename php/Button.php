@@ -5,7 +5,7 @@ require_once "Programa.php";
 /*
     boton con texto. al presionarse ejecuta la funcion "funcion"
 */
-class Button extends Elemento implements Input
+class Button extends Elemento
 {
 
     public $funcion;

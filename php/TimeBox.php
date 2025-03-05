@@ -3,7 +3,7 @@
 /*
     introduccion de hora
 */
-class TimeBox extends Elemento implements IEditable
+class TimeBox extends Elemento
 {
 
     public $tiempo;

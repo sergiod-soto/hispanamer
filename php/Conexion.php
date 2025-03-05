@@ -1,9 +1,9 @@
 <?php
 
-/*
- *  abstraccion de la conexion a la base de datos
- *  puede haber tantas como se quiera, incluyendo a diferentes
- *  bases de datos
+/**
+ * abstraccion de la conexion a la base de datos
+ * puede haber tantas como se quiera, incluyendo a diferentes
+ * bases de datos
  */
 
 

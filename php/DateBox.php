@@ -3,7 +3,7 @@
 /*
     introduccion de fecha
 */
-class DateBox extends Elemento implements Input
+class DateBox extends Elemento 
 {
     public $sigTab = null;
 

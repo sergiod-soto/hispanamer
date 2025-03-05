@@ -86,13 +86,13 @@ class Seccion extends Elemento
 
     }
 
-    /*
-        Anhade un Elemento a la Seccion
-
-        @param Elemento elemento
-        @param int fila
-        @param int columna
-    */
+    /**
+     * Anhade un Elemento a la Seccion
+     * @param Elemento $elemento
+     * @param int $fila
+     * @param int $columna
+     * @return void
+     */
     function add(Elemento $elemento, int $fila, int $columna)
     {
         $this->elementos[$fila][$columna] = $elemento;

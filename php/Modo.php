@@ -34,16 +34,20 @@ class Modo
 
             $this->enEdicion = true;    // pongo la flag a modo editar
 
+            /*
             if ($this->elemento instanceof IEditable) { // si el elemento es editable
                 $this->elemento->setEditableOn();
             }
+            */
         } else {          // modo editar: OFF
 
             $this->enEdicion = false;    // pongo la flag a modo NO editar
 
+            /*
             if ($this->elemento instanceof IEditable) { // si el elemento es editable
                 $this->elemento->setEditableOff();
             }
+            */
         }
 
         foreach ($this->modos as $modo) { // propago el cambio

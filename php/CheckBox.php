@@ -3,7 +3,7 @@
 /*
     checkbox, funciona como un interruptor
 */
-class CheckBox extends Elemento implements Input
+class CheckBox extends Elemento
 {
 
     public $text;

@@ -1,6 +1,6 @@
 <?php
 
-class SelectBox extends Elemento implements Input, IEditable
+class SelectBox extends Elemento
 {
 
 
