@@ -8,13 +8,9 @@ class RadioButton extends Elemento
 
     public $labels;
     public $horizontal;
-    public $sigTab;
 
-
-
-    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, $sigTab, $modo, $padre)
+    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, $padre)
     {
-        $this->sigTab = $sigTab;
 
         if (count($labels) != count($values)) {
             throw new Exception("número de etiquetas (" . count($labels) . ")" .
@@ -63,7 +59,6 @@ class RadioButton extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $modo,
             $padre,
             $html
         );
@@ -75,7 +70,7 @@ class RadioButton extends Elemento
         patron de diseño para crear un radioButton con modo creado, el cual con el propio radioButton
         y evitar dependencia circular
     */
-    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase, $sigTab, $padre)
+    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase, $padre)
     {
         // Crea el botón
         $radioButton = new self(
@@ -86,33 +81,13 @@ class RadioButton extends Elemento
             $default,
             $posicionTexto,
             $clase,
-            $sigTab,
-            null,
             $padre,
         );
-
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando el radioButton en el constructor
-        $modo = new Modo($modoPadre, $radioButton);
-
-        // Asigna el modo al radioButton
-        $radioButton->setModo($modo);
 
         return $radioButton;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
-
+    
     public static function posicionTextoIzquierda()
     {
         return "izquierda";

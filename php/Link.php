@@ -20,7 +20,7 @@ class Link extends Elemento
     public $elementoInterno;
     public $titulo;
 
-    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $titulo, $modo, $padre)
+    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $titulo, $padre)
     {
         $contenido = "";
         if (is_string($elementoInterno)) {
@@ -46,7 +46,7 @@ class Link extends Elemento
         $this->url = $url;
         $this->elementoInterno = $elementoInterno;
 
-        parent::__construct($id, $clase, $modo, $padre, $html);
+        parent::__construct($id, $clase, $padre, $html);
 
     }
     public static function crear($id, string $clase, $url, $target, $elementoInterno, $titulo, $padre)
@@ -59,39 +59,15 @@ class Link extends Elemento
             $target,
             $elementoInterno,
             $titulo,
-            null,
             $padre,
         );
-
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando el Link en el constructor
-        $modo = new Modo($modoPadre, $link);
-
-        // Asigna el modo al Link
-        $link->setModo($modo);
 
         return $link;
     }
 
-    function hide()
-    {
-
-    }
-    function show()
-    {
-
-    }
     public function renderizar()
     {
         return $this->html;
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        return;
     }
 }
 

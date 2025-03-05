@@ -8,9 +8,8 @@ class TimeBox extends Elemento
 
     public $tiempo;
 
-    public function __construct($id, string $clase, $modo, $padre)
+    public function __construct($id, string $clase, $padre)
     {
-
         $html =
             "
             <span id=\"$id\" class=\"timeBox-Container $clase\" data-tipo=\"TimeBox\">
@@ -43,7 +42,6 @@ class TimeBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $modo,
             $padre,
             $html,
         );
@@ -59,66 +57,16 @@ class TimeBox extends Elemento
         $boton = new self(
             $id,
             $clase,
-            null,
             $padre,
         );
-
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando el botón en el constructor
-        $modo = new Modo($modoPadre, $boton);
-
-        // Asigna el modo al botón
-        $boton->setModo($modo);
 
         return $boton;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
-
-
-
-
-
-    public function setEditableOn()
-    {
-
-    }
-    public function setEditableOff()
-    {
-
-    }
-    function hide()
-    {
-
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     function renderizar()
     {
 
         return $this->html;
     }
-    public function setSiguienteFoco($elemento)
-    {
-        $this->siguienteFoco = $elemento;
-    }
-
 }
-
 ?>

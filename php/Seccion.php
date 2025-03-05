@@ -12,13 +12,12 @@ class Seccion extends Elemento
     public $elementos;
 
 
-    public function __construct($id, $clase, $modo, $padre)
+    public function __construct($id, $clase, $padre)
     {
         $html = "";
         parent::__construct(
             $id,
             $clase,
-            $modo,
             $padre,
             $html,
         );
@@ -35,55 +34,10 @@ class Seccion extends Elemento
         $seccion = new self(
             $id,
             $clase,
-            null,
             $padre,
         );
 
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando la seccion en el constructor
-        $modo = new Modo($modoPadre, $seccion);
-
-        // Asigna el modo al botón
-        $seccion->setModo($modo);
-
         return $seccion;
-    }
-
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        return;
-    }
-
-
-    /*
-
-    */
-    function hide()
-    {
-        // TODO
-    }
-
-    /*
-
-    */
-    function show()
-    {
-        // TODO
-    }
-    function setVisible($visible)
-    {
-
     }
 
     /**
@@ -100,7 +54,8 @@ class Seccion extends Elemento
 
 
     /*
-        Esta muy cerdo, primero recorre toda la matriz para compactarla
+        Implementacion muy cerda :/ 
+        Primero recorre toda la matriz para compactarla
         y luego la vuelve a recorrer para renderizarla
     */
     function renderizar()
@@ -262,7 +217,5 @@ class Seccion extends Elemento
         }
         echo ("<br>------------------------------------");
     }
-
-
 }
 ?>

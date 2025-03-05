@@ -4,7 +4,7 @@ class SelectBox extends Elemento
 {
 
 
-    public function __construct($id, string $clase, $name, $modo, $valores, $default, $etiquetas, $padre)
+    public function __construct($id, string $clase, $name, $valores, $default, $etiquetas, $padre)
     {
 
         $htmlDefault = "";
@@ -39,7 +39,6 @@ class SelectBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $modo,
             $padre,
             $html,
         );
@@ -74,7 +73,6 @@ class SelectBox extends Elemento
         $selectBox = new self(
             $id,
             $clase,
-            null,
             $name,
             $valores,
             $default,
@@ -84,59 +82,12 @@ class SelectBox extends Elemento
 
         );
 
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando el SelectBox en el constructor
-        $modo = new Modo($modoPadre, $selectBox);
-
-        // Asigna el modo al SelectBox
-        $selectBox->setModo($modo);
-
         return $selectBox;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
-
-    public function setEditableOn()
-    {
-
-    }
-    public function setEditableOff()
-    {
-
-    }
-    function hide()
-    {
-
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     public function renderizar()
     {
         return $this->html;
     }
-    public function setSiguienteFoco($elemento)
-    {
-        $this->siguienteFoco = $elemento;
-    }
-
 }
-
-
-
 ?>

@@ -12,14 +12,13 @@ abstract class Elemento implements IRenderizable
     public $html;
     public $id;
     public $visible;
-    public $modo;
     public $elementoPadre;
     public $clase;
     public $siguienteFoco;
     public static $idElemento = 0;
 
 
-    function __construct($id, string $clase, $modo, $elementoPadre, $html)
+    function __construct($id, string $clase, $elementoPadre, $html)
     {
         $this->id = $id;
         $this->clase = $clase;
@@ -27,19 +26,13 @@ abstract class Elemento implements IRenderizable
         $this->visible = true;                      // por defecto es visible
         $this->elementoPadre = $elementoPadre;
         $this->html = $html;
-        $this->modo = $modo;                        // modo no es opcional. aunque no sea editable, hace
-        // falta para propagar la edicion a los elementos hijos
     }
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
+
     public static function getNewId()
     {
         return "id_" . Elemento::$idElemento++;
     }
 
-    abstract public function setSiguienteFoco($elemento);
     abstract public function renderizar();
 }
 ?>

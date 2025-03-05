@@ -10,7 +10,7 @@ class CheckBox extends Elemento
     public $value;
     public $sigTab;
 
-    public function __construct($id, string $clase, $text, $name, $value, $sigTab, $modo, $padre)
+    public function __construct($id, string $clase, $text, $name, $value, $sigTab, $padre)
     {
         $html =
             "
@@ -29,7 +29,7 @@ class CheckBox extends Elemento
         $this->value = $value;
         $this->sigTab = $sigTab;
 
-        parent::__construct($id, $clase, $modo, $padre, $html);
+        parent::__construct($id, $clase, $padre, $html);
 
     }
     public static function crear($id, string $clase, $text, $name, $value, $sigTab, $padre)
@@ -42,36 +42,10 @@ class CheckBox extends Elemento
             $name,
             $value,
             $sigTab,
-            null,
             $padre,
         );
 
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando el checkBox en el constructor
-        $modo = new Modo($modoPadre, $checkBox);
-
-        // Asigna el modo al checkBox
-        $checkBox->setModo($modo);
-
         return $checkBox;
-    }
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
-
-    public function setSiguienteFoco($elemento)
-    {
-        $this->siguienteFoco = $elemento;
-    }
-
-    public function getText()
-    {
-        return $this->text;
     }
 
     public function renderizar()

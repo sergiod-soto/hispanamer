@@ -23,7 +23,7 @@ class PopUp extends Elemento
     public $html;
     public $text;
 
-    public function __construct($id, string $clase, $modo, $text, $estado, $padre)
+    public function __construct($id, string $clase, $text, $estado, $padre)
     {
         $html =
             "
@@ -39,7 +39,6 @@ class PopUp extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $modo,
             $padre,
             $html,
         );
@@ -55,49 +54,17 @@ class PopUp extends Elemento
         $popup = new self(
             $id,
             $clase,
-            null,
             $text,
             $estado,
             $padre,
         );
 
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando el botón en el constructor
-        $modo = new Modo($modoPadre, $popup);
-
-        // Asigna el modo al botón
-        $popup->setModo($modo);
-
         return $popup;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
-
-    function setEditableOff()
-    {
-
-    }
-    function setEditableOn()
-    {
-
-    }
     function renderizar()
     {
         return $this->html;
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        return;
     }
 }
 ?>

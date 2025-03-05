@@ -9,7 +9,7 @@ class TextBox extends Elemento
 
     public $texto;
 
-    public function __construct($id, string $clase, $modo, $text, $placeHolder, $padre)
+    public function __construct($id, string $clase, $text, $placeHolder, $padre)
     {
         $html = "<span ";
         if ($clase != null && $clase != "") {
@@ -21,7 +21,6 @@ class TextBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $modo,
             $padre,
             $html,
         );
@@ -37,63 +36,17 @@ class TextBox extends Elemento
         $boton = new self(
             $id,
             $clase,
-            null,
             $text,
             $placeHolder,
             $padre,
         );
 
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando el TextBox en el constructor
-        $modo = new Modo($modoPadre, $boton);
-
-        // Asigna el modo al botón
-        $boton->setModo($modo);
-
         return $boton;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
-
-
-
-    public function setEditableOn()
-    {
-
-    }
-    public function setEditableOff()
-    {
-
-    }
-    function hide()
-    {
-
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     function renderizar()
     {
         return $this->html;
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        $this->siguienteFoco = $elemento;
     }
 }
 ?>

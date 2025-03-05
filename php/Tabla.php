@@ -11,7 +11,6 @@ class Tabla extends Elemento
     public $cabecera;
     public $datos;
     public $filas;
-    public $filaSeleccionada;
 
     // variable para el id de las filas de la tabla
     public static $idFila = 0;
@@ -22,7 +21,6 @@ class Tabla extends Elemento
         parent::__construct(
             $id,
             $clase,
-            null,
             $padre,
             "",
         );
@@ -137,39 +135,11 @@ class Tabla extends Elemento
             }
         }
 
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando la tabla en el constructor
-        $modo = new Modo($modoPadre, $tabla);
-
-        // Asigna el modo al botón
-        $tabla->setModo($modo);
 
         return $tabla;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
 
-    function hide()
-    {
-
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     function renderizar()
     {
         // preparo las columnas
@@ -244,23 +214,9 @@ class Tabla extends Elemento
 
         return $html;
     }
-    function setEditableOff()
-    {
-        return;
-    }
-    function setEditableOn()
-    {
-        return;
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        return;
-    }
-
     public static function getIdFila()
     {
         return Tabla::$idFila++;
     }
 }
-
 ?>
