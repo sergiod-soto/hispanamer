@@ -83,7 +83,6 @@ if ($method === "GET") {
     (
         Elemento::getNewId(),
         "",
-        $programa
     );
 
     $r = RadioButton::crear(
@@ -94,7 +93,20 @@ if ($method === "GET") {
         "",
         PosicionTexto::derecha,
         "",
-        $seccion
+    );
+    $i = Imagen::crear(
+        Elemento::getNewId(),
+        "",
+        Imagenes::Hispanamer->value
+    );
+
+    $link = Link::crear(
+        Elemento::getNewId(),
+        "a",
+        "https://www.hispanamer.es/",
+        Target::Self,
+        $i,
+        "aq",
     );
 
 
@@ -108,6 +120,8 @@ if ($method === "GET") {
 
     $seccion->add($r, 0, 0);
 
+
+    $seccion->add($link, 1, 0);
 
 
 

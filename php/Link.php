@@ -1,6 +1,5 @@
 <?php
 
-
 enum Target: string
 {
     case Self = "_self";     // - Default. Opens the document in the same window/tab as it was clicked (por defecto)
@@ -16,11 +15,7 @@ enum Target: string
 
 class Link extends Elemento
 {
-    public $url;
-    public $elementoInterno;
-    public $titulo;
-
-    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $titulo, $padre)
+    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $texto)
     {
         $contenido = "";
         if (is_string($elementoInterno)) {
@@ -38,18 +33,15 @@ class Link extends Elemento
 
         $html =
             "
-            <a href=\"$url\" target=\"$target->value\" title=\"$titulo\">
+            <a href=\"$url\" target=\"$target->value\" title=\"$texto\">
                 $contenido
             </a>
             ";
 
-        $this->url = $url;
-        $this->elementoInterno = $elementoInterno;
-
-        parent::__construct($id, $clase, $padre, $html);
+        parent::__construct($id, $clase, $html);
 
     }
-    public static function crear($id, string $clase, $url, $target, $elementoInterno, $titulo, $padre)
+    public static function crear($id, string $clase, $url, $target, $elementoInterno, $texto)
     {
         // Crea el Link
         $link = new self(
@@ -58,8 +50,7 @@ class Link extends Elemento
             $url,
             $target,
             $elementoInterno,
-            $titulo,
-            $padre,
+            $texto,
         );
 
         return $link;
@@ -70,5 +61,4 @@ class Link extends Elemento
         return $this->html;
     }
 }
-
 ?>

@@ -5,28 +5,23 @@
 */
 class Texto extends Elemento implements IRenderizable
 {
-    public $text;
-
-    public function __construct($id, string $clase, string $text, $padre)
+    public function __construct($id, string $clase, string $text)
     {
-        $this->text = $text;
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $text,
         );
     }
 
-    public static function crear($id, string $clase, string $text, $padre)
+    public static function crear($id, string $clase, string $text)
     {
         // Crea el texto
         $texto = new self(
             $id,
             $clase,
             $text,
-            $padre,
         );
 
         return $texto;

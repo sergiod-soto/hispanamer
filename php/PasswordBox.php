@@ -10,9 +10,8 @@ enum TipoPassword: string
 class PasswordBox extends Elemento
 {
     private $iconoOjo = "../multimedia/iconos/ojo.png";
-    public $input;
 
-    public function __construct($id, string $clase, $placeholder, $padre, $minLength, $maxLength, $tipoPW)
+    public function __construct($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPW)
     {
         $html =
             "
@@ -30,7 +29,6 @@ class PasswordBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
@@ -39,14 +37,13 @@ class PasswordBox extends Elemento
         patron de diseño para crear un TextBox con modo creado, el cual con el propio TextBox
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPw, $padre)
+    public static function crear($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPw)
     {
         // Crea el botón
         $boton = new self(
             $id,
             $clase,
             $placeholder,
-            $padre,
             $minLength,
             $maxLength,
             $tipoPw,

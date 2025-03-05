@@ -12,13 +12,12 @@ class Seccion extends Elemento
     public $elementos;
 
 
-    public function __construct($id, $clase, $padre)
+    public function __construct($id, $clase)
     {
         $html = "";
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
         $this->elementos = [];
@@ -28,13 +27,12 @@ class Seccion extends Elemento
         patron de diseño para crear una seccion con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $padre)
+    public static function crear($id, string $clase)
     {
         // Crea la seccion
         $seccion = new self(
             $id,
             $clase,
-            $padre,
         );
 
         return $seccion;
@@ -47,7 +45,7 @@ class Seccion extends Elemento
      * @param int $columna
      * @return void
      */
-    function add(Elemento $elemento, int $fila, int $columna)
+    function add($elemento, int $fila, int $columna)
     {
         $this->elementos[$fila][$columna] = $elemento;
     }

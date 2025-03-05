@@ -5,10 +5,7 @@
 */
 class TimeBox extends Elemento
 {
-
-    public $tiempo;
-
-    public function __construct($id, string $clase, $padre)
+    public function __construct($id, string $clase)
     {
         $html =
             "
@@ -42,7 +39,6 @@ class TimeBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
@@ -51,13 +47,12 @@ class TimeBox extends Elemento
         patron de diseño para crear un timeBox con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $padre)
+    public static function crear($id, string $clase)
     {
         // Crea el botón
         $boton = new self(
             $id,
             $clase,
-            $padre,
         );
 
         return $boton;

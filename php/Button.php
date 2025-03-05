@@ -11,7 +11,7 @@ class Button extends Elemento
     public $funcion;
     public $text;
 
-    public function __construct($id, string $clase, $text, $funcion, $padre)
+    public function __construct($id, string $clase, $text, $funcion)
     {
         $html = "<button id=\"$id\" data-tipo=\"Button\" class=\"$clase\"";
         
@@ -26,7 +26,6 @@ class Button extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
@@ -35,7 +34,7 @@ class Button extends Elemento
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $text, $funcion, $padre)
+    public static function crear($id, string $clase, $text, $funcion)
     {
         // Crea el botón
         $boton = new self(
@@ -43,7 +42,6 @@ class Button extends Elemento
             $clase,
             $text,
             $funcion,
-            $padre,
         );
 
         return $boton;

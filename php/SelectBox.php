@@ -4,14 +4,8 @@ class SelectBox extends Elemento
 {
 
 
-    public function __construct($id, string $clase, $name, $valores, $default, $etiquetas, $padre)
+    public function __construct($id, string $clase, $name, $valores, $default, $etiquetas)
     {
-
-        $htmlDefault = "";
-        if ($default != null) {
-            $htmlDefault = $default;
-        }
-
         $htmlOptions = "";
         for ($i = 0; $i < count($etiquetas); $i++) {
             if ($i == $default) {
@@ -20,7 +14,6 @@ class SelectBox extends Elemento
                 $htmlOptions .= "<option value=\"" . $valores[$i] . "\">" . $etiquetas[$i] . "</option>";
             }
         }
-
 
         $html =
             "
@@ -31,15 +24,10 @@ class SelectBox extends Elemento
             </form>
             ";
 
-
-
-
-
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
@@ -48,7 +36,7 @@ class SelectBox extends Elemento
         patron de diseño para crear un SelectBox con modo creado, el cual con el propio SelectBox
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $name, $valores, $etiquetas, int $default, $padre)
+    public static function crear($id, string $clase, $name, $valores, $etiquetas, int $default)
     {
         if (count($etiquetas) == 0) {
             throw new Exception("Error, no hay etiquetas.");
@@ -77,9 +65,6 @@ class SelectBox extends Elemento
             $valores,
             $default,
             $etiquetas,
-            $padre,
-
-
         );
 
         return $selectBox;

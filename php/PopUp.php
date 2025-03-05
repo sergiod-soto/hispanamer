@@ -19,11 +19,7 @@ enum PopupEstado: string
 
 class PopUp extends Elemento
 {
-
-    public $html;
-    public $text;
-
-    public function __construct($id, string $clase, $text, $estado, $padre)
+    public function __construct($id, string $clase, $text, $estado)
     {
         $html =
             "
@@ -32,14 +28,10 @@ class PopUp extends Elemento
             </div>
             ";
 
-        $this->text = $text;
-
-
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
@@ -48,7 +40,7 @@ class PopUp extends Elemento
        patron de diseño para crear un boton con modo creado, el cual con el propio boton
        y evitar dependencia circular
    */
-    public static function crear($id, string $clase, $text, $estado, $padre)
+    public static function crear($id, string $clase, $text, $estado)
     {
         // Crea el popup
         $popup = new self(
@@ -56,7 +48,6 @@ class PopUp extends Elemento
             $clase,
             $text,
             $estado,
-            $padre,
         );
 
         return $popup;

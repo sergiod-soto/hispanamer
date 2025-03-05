@@ -8,12 +8,7 @@ enum PosicionTexto: string
 
 class RadioButton extends Elemento
 {
-
-
-    public $labels;
-    public $horizontal;
-
-    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, $padre)
+    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase)
     {
 
         if (count($labels) != count($values)) {
@@ -64,37 +59,20 @@ class RadioButton extends Elemento
                 </form>
             </span>
             ";
-        ///////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html
         );
-
-
     }
 
     /*
         patron de diseño para crear un radioButton con modo creado, el cual con el propio radioButton
         y evitar dependencia circular
     */
-    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase, $padre)
+    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase)
     {
         // Crea el botón
         $radioButton = new self(
@@ -105,41 +83,14 @@ class RadioButton extends Elemento
             $default,
             $posicionTexto->value,
             $clase,
-            $padre,
         );
 
         return $radioButton;
     }
 
-
-
-    public function setEditableOn()
-    {
-
-    }
-    public function setEditableOff()
-    {
-
-    }
-    function hide()
-    {
-
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     function renderizar()
     {
         return $this->html;
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        $this->siguienteFoco = $elemento;
     }
 }
 ?>

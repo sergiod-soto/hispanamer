@@ -14,13 +14,12 @@ class Tabla_Fila extends Elemento
 
     public $columnas;
 
-    public function __construct($id, string $clase, $columnas, $padre)
+    public function __construct($id, string $clase, $columnas)
     {
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             "",
         );
 
@@ -31,23 +30,19 @@ class Tabla_Fila extends Elemento
         patron de diseño para crear una fila con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $columnas, $padre)
+    public static function crear($id, string $clase, $columnas)
     {
         // Crea la fila
         $tabla_fila = new self(
             $id,
             $clase,
             $columnas,
-            $padre,
         );
 
         return $tabla_fila;
     }
 
-    public function setTabla($tabla)
-    {
-        $this->elementoPadre = $tabla;
-    }
+
 
     function renderizar()
     {

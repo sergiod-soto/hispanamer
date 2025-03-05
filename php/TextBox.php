@@ -9,7 +9,7 @@ class TextBox extends Elemento
 
     public $texto;
 
-    public function __construct($id, string $clase, $text, $placeHolder, $padre)
+    public function __construct($id, string $clase, $text, $placeHolder)
     {
         $html = "<span ";
         if ($clase != null && $clase != "") {
@@ -21,7 +21,6 @@ class TextBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
@@ -30,7 +29,7 @@ class TextBox extends Elemento
         patron de diseño para crear un TextBox con modo creado, el cual con el propio TextBox
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $text, $placeHolder, $padre)
+    public static function crear($id, string $clase, $text, $placeHolder)
     {
         // Crea el botón
         $boton = new self(
@@ -38,7 +37,6 @@ class TextBox extends Elemento
             $clase,
             $text,
             $placeHolder,
-            $padre,
         );
 
         return $boton;

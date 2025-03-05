@@ -5,38 +5,31 @@
 */
 class Imagen extends Elemento
 {
-    public function __construct($id, string $clase, $url, $alternateText, $padre)
+    public function __construct($id, string $clase, $imagen)
     {
-        $html = "<img src=\"$url\" alt=\"$alternateText\">";
-
-
-
+        $html = "<img id=\"$id\" class=\"$clase\" $imagen>";
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
 
     /*
-        patron de diseño para crear un boton con modo creado, el cual con el propio boton
-        y evitar dependencia circular
+        patron de diseño para crear una imagen
     */
-    public static function crear($id, string $clase, $text, $funcion, $padre)
+    public static function crear($id, string $clase, $imagen)
     {
-        // Crea el botón
-        $boton = new self(
+        // Crea la imagen
+        $imagen = new self(
             $id,
             $clase,
-            $text,
-            $funcion,
-            $padre,
+            $imagen,
         );
 
-        return $boton;
+        return $imagen;
     }
 
 

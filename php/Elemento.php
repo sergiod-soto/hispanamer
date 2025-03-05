@@ -11,20 +11,16 @@ abstract class Elemento implements IRenderizable
 
     public $html;
     public $id;
-    public $visible;
-    public $elementoPadre;
     public $clase;
-    public $siguienteFoco;
+    
+    // contador para la gestion de ids de los elementos
     public static $idElemento = 0;
 
 
-    function __construct($id, string $clase, $elementoPadre, $html)
+    function __construct($id, string $clase, $html)
     {
         $this->id = $id;
         $this->clase = $clase;
-        $this->siguienteFoco = null;                // por defecto, no hay siguiente foco
-        $this->visible = true;                      // por defecto es visible
-        $this->elementoPadre = $elementoPadre;
         $this->html = $html;
     }
 

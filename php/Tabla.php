@@ -15,13 +15,12 @@ class Tabla extends Elemento
     // variable para el id de las filas de la tabla
     public static $idFila = 0;
 
-    public function __construct($id, string $clase, array $cabecera, array $datos, $padre)
+    public function __construct($id, string $clase, array $cabecera, array $datos)
     {
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             "",
         );
 
@@ -33,7 +32,7 @@ class Tabla extends Elemento
         patron de diseño para crear una tabla con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, array $cabecera, array $datos, $padre)
+    public static function crear($id, string $clase, array $cabecera, array $datos)
     {
         //////////////////////////////////////////////////////////////////////
         //
@@ -101,14 +100,12 @@ class Tabla extends Elemento
                     "",
                     "",
                     $elemento,
-                    null,
                 );
             }
             $filas[] = Tabla_Fila::crear(          // creo nueva fila y la guardo
                 "",
                 "",                         // por defecto, las filas no tienen clase, se pueden recorrer y anhadirseles a posteriori
                 $columnas,
-                null,
             );
 
         }
@@ -119,21 +116,11 @@ class Tabla extends Elemento
             $clase,
             $cabecera,
             $datos,
-            $padre,
         );
 
         $tabla->filas = $filas;
 
-        // paso la tabla a las filas previamente creadas 
-        for ($i = 0; $i < count($filas); $i++) {
-            $filas[$i]->setTabla($tabla);
-
-            // paso la fila y la tabla a las celdas previamente creadas
-            for ($j = 0; $j < count($filas[$i]->columnas); $j++) {
-                $filas[$i]->columnas[$j]->setFila($filas[$i]);
-                $filas[$i]->columnas[$j]->setTabla($tabla);
-            }
-        }
+      
 
 
         return $tabla;

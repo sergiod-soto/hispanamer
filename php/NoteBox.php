@@ -2,7 +2,7 @@
 
 class NoteBox extends Elemento
 {
-    public function __construct($id, string $clase, $text, $placeHolder, $titulo, $padre)
+    public function __construct($id, string $clase, $text, $placeHolder, $titulo)
     {
         $tituloHtml = "";
         if ($titulo != null && $titulo != "") {
@@ -19,7 +19,6 @@ class NoteBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $padre,
             $html,
         );
     }
@@ -28,7 +27,7 @@ class NoteBox extends Elemento
            patron de diseño para crear un noteBox con modo creado, el cual con el propio noteBox
            y evitar dependencia circular
        */
-    public static function crear($id, string $clase, $text, $placeHolder, $titulo, $padre)
+    public static function crear($id, string $clase, $text, $placeHolder, $titulo)
     {
         // Crea el noteBox
         $noteBox = new self(
@@ -37,7 +36,6 @@ class NoteBox extends Elemento
             $text,
             $placeHolder,
             $titulo,
-            $padre,
         );
 
         return $noteBox;
