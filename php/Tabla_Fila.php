@@ -20,7 +20,6 @@ class Tabla_Fila extends Elemento
         parent::__construct(
             $id,
             $clase,
-            null,
             $padre,
             "",
         );
@@ -42,43 +41,14 @@ class Tabla_Fila extends Elemento
             $padre,
         );
 
-
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando la fila en el constructor
-        $modo = new Modo($modoPadre, $tabla_fila);
-
-        // Asigna el modo al botón
-        $tabla_fila->setModo($modo);
-
         return $tabla_fila;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
     public function setTabla($tabla)
     {
         $this->elementoPadre = $tabla;
     }
-    function hide()
-    {
 
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
     function renderizar()
     {
         // preparo la fila
@@ -96,10 +66,6 @@ class Tabla_Fila extends Elemento
         $html .= ">" . $htmlFila . "</tr>";
 
         return $html;
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        return;
     }
 }
 ?>

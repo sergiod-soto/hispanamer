@@ -16,7 +16,6 @@ class Tabla_Celda extends Elemento
         parent::__construct(
             $id,
             $clase,
-            null,
             $padre,
             "",
         );
@@ -39,26 +38,10 @@ class Tabla_Celda extends Elemento
             $padre,
         );
 
-        $modoPadre = null;
-        if ($padre != null) {
-            $modoPadre = $padre->modo;
-        }
-        // Crea el modo, inyectando la celda en el constructor
-        $modo = new Modo($modoPadre, $tabla_celda);
-
-        // Asigna el modo al botón
-        $tabla_celda->setModo($modo);
-
         return $tabla_celda;
     }
 
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
-    }
+
     public function setFila($fila)
     {
         $this->elementoPadre = $fila;
@@ -82,22 +65,6 @@ class Tabla_Celda extends Elemento
             return $html .= $this->contenido->renderizar() . "</td>";
         }
         return $html .= "[NULL]" . "</td>";
-    }
-    function hide()
-    {
-
-    }
-    function show()
-    {
-
-    }
-    function setVisible($visible)
-    {
-
-    }
-    public function setSiguienteFoco($elemento)
-    {
-        return;
     }
 }
 ?>

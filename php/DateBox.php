@@ -50,7 +50,6 @@ class DateBox extends Elemento
             $id,
             $clase,
             $placeHolder,
-            $sigTab,
             $padre,
         );
 
