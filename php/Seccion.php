@@ -40,18 +40,23 @@ class Seccion extends Elemento
 
     /**
      * Anhade un Elemento a la Seccion
-     * @param Elemento $elemento
+     * @param Elemento[]|Elemento $elementos
      * @param int $fila
      * @param int $columna
      */
-    function add($elemento, int $fila, int $columna): Seccion|null
+    function add($elementos)
     {
-        $this->elementos[$fila][$columna] = $elemento;
-
-        if (get_class($elemento) == "Seccion") {
-            return $elemento;
+        if (count($elementos) == 0) {
+            throw new Exception("Se ha intentado anhadir un elemento, pero no se ha encontrado ninguno");
         }
-        return null;
+
+        foreach ($elementos as $item) {
+            $elemento = $item[0];
+            $fila = $item[1];
+            $columna = $item[2];
+
+            $this->elementos[$fila][$columna] = $elemento;
+        }
     }
 
 

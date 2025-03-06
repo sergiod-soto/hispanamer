@@ -147,6 +147,24 @@ class Programa implements IRenderizable
         return "showPopup('$texto', '$estado->value')";
     }
 
+    /**
+     * Obtiene la fecha actual con formato bonito
+     * @return string
+     */
+    public static function fecha()
+    {
+        $formatter = new IntlDateFormatter(
+            'es_ES', // Español de España
+            IntlDateFormatter::FULL,
+            IntlDateFormatter::NONE,
+            'Europe/Madrid',
+            IntlDateFormatter::GREGORIAN,
+            "EEEE, d 'de' MMMM 'de' y"
+        );
+
+        return ucfirst($formatter->format(new DateTime(date("d-m-Y"))));
+    }
+
 
     /*
         

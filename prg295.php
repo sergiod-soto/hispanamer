@@ -60,80 +60,140 @@ if ($method === "GET") {
 
 
     $base->add(
-        // cabecera:
-        $sCabecera = Seccion::crear
-        (
-            Elemento::getNewId(),
-            "",
-        ),
-        0,
-        0
+        [
+            [
+                // cabecera:
+                $sCabecera = Seccion::crear
+                (
+                    Elemento::getNewId(),
+                    "",
+                ),
+                0,
+                0
+            ],
+            [
+                $sCuerpo = Seccion::crear
+                (
+                    Elemento::getNewId(),
+                    "",
+                ),
+                1,
+                0
+            ]
+        ]
     );
 
 
 
     $sCabecera->add(
-        $sCabeceraSup = Seccion::crear
-        (
-            Elemento::getNewId(),
-            "",
-        ),
-        0,
-        0
+        [
+            [
+                $sCabeceraSup = Seccion::crear
+                (
+                    Elemento::getNewId(),
+                    "",
+                ),
+                0,
+                0
+            ],
+            [
+                $sCabeceraInf = Seccion::crear
+                (
+                    Elemento::getNewId(),
+                    "",
+                ),
+                1,
+                0
+            ]
+        ]
     );
-    //////
 
-    $sCabeceraSup->add(
-        $botonAtrasCabecera = Button::crear(
-            Elemento::getNewId(),
-            "",
-            iconoFlechaAtras,
-            "console.debug('Atras')"
-        ),
-        10,
-        10
-    );
+
+
+
+    $sCabeceraSup->add([
+        [
+            $botonAtrasCabecera = Button::crear(
+                Elemento::getNewId(),
+                "",
+                iconoFlechaAtras,
+                "console.debug('Atras')"
+            ),
+            10,
+            10
+        ],
+        [
+            Link::crear(
+                Elemento::getNewId(),
+                "",
+                "http://localhost/corporativo/prg181.php",
+                Target::Blank,
+                Imagen::crear(
+                    Elemento::getNewId(),
+                    "",
+                    Imagenes::Hispanamer
+                ),
+                ""
+            ),
+            10,
+            20
+        ],
+        [
+            Texto::crear(
+                Elemento::getNewId(),
+                "",
+                "Boletines de calidad. Tabla de unidades de medidas."
+            ),
+            10,
+            30
+        ],
+        [
+            Texto::crear(
+                Elemento::getNewId(),
+                "",
+                Programa::fecha(),
+            ),
+            10,
+            40
+
+        ],
+    ]);
 
 
     /////
 
-    $sCabecera->add(
-        $sCabeceraInf = Seccion::crear
-        (
-            Elemento::getNewId(),
-            "",
-        ),
-        1,
-        0
-    );
 
     $sCabeceraInf->add(
-        $sCabeceraInf1 = Seccion::crear
-        (
-            Elemento::getNewId(),
-            "",
-        ),
-        0,
-        10
+        [
+            [
+                $sCabeceraInf1 = Seccion::crear
+                (
+                    Elemento::getNewId(),
+                    "",
+                ),
+                0,
+                10
+            ],
+            [
+                $sCabeceraInf2 = Seccion::crear
+                (
+                    Elemento::getNewId(),
+                    "",
+                ),
+                0,
+                20
+            ],
+            [
+                $sCabeceraInf3 = Seccion::crear
+                (
+                    Elemento::getNewId(),
+                    "",
+                ),
+                0,
+                30
+            ]
+        ]
     );
-    $sCabeceraInf->add(
-        $sCabeceraInf2 = Seccion::crear
-        (
-            Elemento::getNewId(),
-            "",
-        ),
-        0,
-        20
-    );
-    $sCabeceraInf->add(
-        $sCabeceraInf3 = Seccion::crear
-        (
-            Elemento::getNewId(),
-            "",
-        ),
-        0,
-        30
-    );
 
 
 
@@ -148,16 +208,8 @@ if ($method === "GET") {
 
 
 
-    $base->add(
-        // cuerpo
-        $sCuerpo = Seccion::crear
-        (
-            Elemento::getNewId(),
-            "",
-        ),
-        1,
-        0
-    );
+
+
 
 
 
