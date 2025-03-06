@@ -151,7 +151,7 @@ class Programa implements IRenderizable
      * Obtiene la fecha actual con formato bonito
      * @return string
      */
-    public static function fecha()
+    public static function fechaActual()
     {
         $formatter = new IntlDateFormatter(
             'es_ES', // Español de España

@@ -118,14 +118,14 @@ class Seccion extends Elemento
             return $htmlReturn;
         }
         if (count($elementos) == 1) {                // NO se ponen <div>s
-            $htmlReturn .= "<span id='$this->id'>";  //encapsulo la fila
+            $htmlReturn .= "<span id='$this->id' class=\"$this->clase\">";  //encapsulo la fila
             foreach ($elementos[0] as $item) {
                 $htmlReturn .= $item->renderizar();
             }
             $htmlReturn .= "</span>";  //encapsulo la fila
             return $htmlReturn;
         }
-        $htmlReturn .= "<div id='$this->id'>";  //encapsulo la fila
+        $htmlReturn .= "<div id='$this->id' class=\"$this->clase\">";  //encapsulo la fila
         foreach ($elementos as $fila) {
 
             // Pongo <div>s a cada fila

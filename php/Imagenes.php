@@ -9,6 +9,7 @@
  */
 enum Imagenes: string
 {
-    case Hispanamer = "src= \"/multimedia/imagenes/hispanamer.jpg\" alt=\"Imagen Hispanamer\"";
+    case Hispanamer = "src= \"/multimedia/imagenes/logoactual.bmp\" alt=\"Imagen Hispanamer\"";
+    case Hispanamer2 = "src= \"/multimedia/imagenes/hispanamer.jpg\" alt=\"Imagen Hispanamer\"";
 }
 ?>

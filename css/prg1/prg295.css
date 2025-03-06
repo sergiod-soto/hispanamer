@@ -1,0 +1,12 @@
+.cabecera{
+    width: auto;
+}
+.cabeceraSup {
+    display: flex;
+    align-items: flex-start; /* Alinea el texto arriba */
+}
+
+.imagenLogo{
+    width: auto;
+    height: 50px;
+}

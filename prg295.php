@@ -34,6 +34,7 @@ if ($method === "GET") {
         ],
         css:
         [
+            "css/prg1/prg295.css",
             "css/prg1/TimeBox.css",
             "css/prg1/Tabla.css"
         ],
@@ -59,20 +60,21 @@ if ($method === "GET") {
 
 
 
+    /* #region base */
     $base->add(
         [
             [
                 // cabecera:
-                $sCabecera = Seccion::crear
+                $cabecera = Seccion::crear
                 (
                     Elemento::getNewId(),
-                    "",
+                    "cabecera",
                 ),
                 0,
                 0
             ],
             [
-                $sCuerpo = Seccion::crear
+                $cuerpo = Seccion::crear
                 (
                     Elemento::getNewId(),
                     "",
@@ -82,36 +84,39 @@ if ($method === "GET") {
             ]
         ]
     );
+    /* #endregion */
 
 
 
-    $sCabecera->add(
+    /* #region cabecera */
+    $cabecera->add(
         [
             [
-                $sCabeceraSup = Seccion::crear
+                $cabeceraSup = Seccion::crear
                 (
                     Elemento::getNewId(),
-                    "",
+                    "cabeceraSup",
                 ),
                 0,
                 0
             ],
             [
-                $sCabeceraInf = Seccion::crear
+                $cabeceraInf = Seccion::crear
                 (
                     Elemento::getNewId(),
-                    "",
+                    "cabeceraInf",
                 ),
                 1,
                 0
             ]
         ]
     );
+    /* #endregion */
 
 
 
-
-    $sCabeceraSup->add([
+    /* #region  cabeceraSup */
+    $cabeceraSup->add([
         [
             $botonAtrasCabecera = Button::crear(
                 Elemento::getNewId(),
@@ -130,7 +135,7 @@ if ($method === "GET") {
                 Target::Blank,
                 Imagen::crear(
                     Elemento::getNewId(),
-                    "",
+                    "imagenLogo",
                     Imagenes::Hispanamer
                 ),
                 ""
@@ -139,34 +144,103 @@ if ($method === "GET") {
             20
         ],
         [
-            Texto::crear(
+            $cabeceraSupp1 = Seccion::crear(
                 Elemento::getNewId(),
-                "",
-                "Boletines de calidad. Tabla de unidades de medidas."
+                ""
             ),
             10,
             30
         ],
         [
-            Texto::crear(
+            $cabeceraSupp2 = Seccion::crear(
                 Elemento::getNewId(),
-                "",
-                Programa::fecha(),
+                ""
             ),
             10,
             40
-
+        ],
+        [
+            $cabeceraSupp3 = Seccion::crear(
+                Elemento::getNewId(),
+                ""
+            ),
+            10,
+            50
+        ],
+        [
+            $cabeceraSupp4 = Seccion::crear(
+                Elemento::getNewId(),
+                ""
+            ),
+            10,
+            60
         ],
     ]);
 
+    $cabeceraSupp1->add([
+        [
+            $cabeceraSupp1_1 = Seccion::crear(
+                Elemento::getNewId(),
+                ""
+            ),
+            0,
+            0
+        ],
+        [
+            $cabeceraSupp1_2 = Seccion::crear(
+                Elemento::getNewId(),
+                ""
+            ),
+            0,
+            0
+        ]
+    ]);
+    $cabeceraSupp1_1->add([
+        [
+            Texto::crear(Elemento::getNewId(), "", "Sesión iniciada:Enrique Becerra Cabezas"),
+            0,
+            0
+        ]
+    ]);
+    $cabeceraSupp1_2->add([
+        [
+            Texto::crear(Elemento::getNewId(), "", "Boletines de calidad. Tabla de unidades de medidas."),
+            1,
+            0
+        ]
+    ]);
+    $cabeceraSupp2->add([
+        [
+            Texto::crear(Elemento::getNewId(), "", Programa::fechaActual()),
+            0,
+            0
+        ]
+    ]);
+    $cabeceraSupp3->add([
+        [
+            Texto::crear(Elemento::getNewId(), "", "Versión: patatín-patatán."),
+            0,
+            0
+        ]
+    ]);
+    $cabeceraSupp4->add([
+        [
+            Texto::crear(Elemento::getNewId(), "", "Ejercicio fiscal: 2025"),
+            0,
+            0
+        ]
+    ]);
 
-    /////
+    /* #endregion */
 
 
-    $sCabeceraInf->add(
+
+
+    /* #region cabeceraInf */
+    $cabeceraInf->add(
         [
             [
-                $sCabeceraInf1 = Seccion::crear
+                $cabeceraInf1 = Seccion::crear
                 (
                     Elemento::getNewId(),
                     "",
@@ -175,7 +249,7 @@ if ($method === "GET") {
                 10
             ],
             [
-                $sCabeceraInf2 = Seccion::crear
+                $cabeceraInf2 = Seccion::crear
                 (
                     Elemento::getNewId(),
                     "",
@@ -184,7 +258,7 @@ if ($method === "GET") {
                 20
             ],
             [
-                $sCabeceraInf3 = Seccion::crear
+                $cabeceraInf3 = Seccion::crear
                 (
                     Elemento::getNewId(),
                     "",
@@ -194,6 +268,15 @@ if ($method === "GET") {
             ]
         ]
     );
+
+    $cabeceraInf1->add([
+        [
+            Texto::crear("", "", "sadf"),
+            0,
+            0
+        ]
+    ]);
+    /* #endregion */
 
 
 
