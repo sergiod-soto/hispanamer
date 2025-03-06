@@ -7,7 +7,7 @@
  *  el elemento mas basico. solo hay uno y contiene
  *  dentro todos los elementos que lo conforman
  */
-class Programa extends Modo implements IRenderizable
+class Programa implements IRenderizable
 {
 
     public $nombre;
@@ -62,7 +62,7 @@ class Programa extends Modo implements IRenderizable
 
         $this->scriptsBaseBody = [
             // de momento vacio,
-            // tampoco creo que nunca se use
+            // tampoco creo que nunca se use ¯\_(ツ)_/¯
         ];
         $this->sonidosBase = [
         ];
@@ -81,10 +81,6 @@ class Programa extends Modo implements IRenderizable
     */
     public static function crear($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $sonidos, $css)
     {
-
-
-
-
         // Crea el programa
         $programa = new self(
             $autor,
@@ -96,12 +92,6 @@ class Programa extends Modo implements IRenderizable
             $css
         );
 
-        // Crea el modo, inyectando el botón en el constructor
-        $modo = new Modo(null, $programa);
-
-        // Asigna el modo al botón
-        $programa->setModo($modo);
-
         // creo un popup
         $programa->popup = PopUp::crear(
             "popup",
@@ -111,14 +101,6 @@ class Programa extends Modo implements IRenderizable
         );
 
         return $programa;
-    }
-
-    /*
-        funcion auxiliar para la factory
-    */
-    public function setModo($modo)
-    {
-        $this->modo = $modo;
     }
 
     //..........................................................................

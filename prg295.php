@@ -19,14 +19,13 @@ if ($method === "GET") {
     $programa = Programa::crear(
         autor: "sergiod",
         fecha: "17/02/2025",
-        nombre: "prg1",
+        nombre: "prg295",
         scriptsCabecera:
         [
 
         ],
         scriptsBody:
         [
-            //"js/prg1/Tabla1.js",
             "js/prg1/ElementosAGuardar.js",
         ],
         sonidos:
@@ -52,35 +51,127 @@ if ($method === "GET") {
     //      B debe ser creado antes)
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    $seccion = Seccion::crear
+    $base = Seccion::crear
     (
         Elemento::getNewId(),
         "",
     );
 
-    $r = RadioButton::crear(
-        Elemento::getNewId(),
-        ["asd1", "asd2", "asd3"],
-        "n",
-        ["1", "2", "3"],
-        "",
-        PosicionTexto::derecha,
-        "",
-    );
-    $i = Imagen::crear(
-        Elemento::getNewId(),
-        "",
-        Imagenes::Hispanamer
+
+
+    $base->add(
+        // cabecera:
+        $sCabecera = Seccion::crear
+        (
+            Elemento::getNewId(),
+            "",
+        ),
+        0,
+        0
     );
 
-    $link = Link::crear(
-        Elemento::getNewId(),
-        "a",
-        URL::Hispanamer->value,
-        Target::Self,
-        $i,
-        "aq",
+
+
+    $sCabecera->add(
+        $sCabeceraSup = Seccion::crear
+        (
+            Elemento::getNewId(),
+            "",
+        ),
+        0,
+        0
     );
+    //////
+
+    $sCabeceraSup->add(
+        $botonAtrasCabecera = Button::crear(
+            Elemento::getNewId(),
+            "",
+            iconoFlechaAtras,
+            "console.debug('Atras')"
+        ),
+        10,
+        10
+    );
+
+
+    /////
+
+    $sCabecera->add(
+        $sCabeceraInf = Seccion::crear
+        (
+            Elemento::getNewId(),
+            "",
+        ),
+        1,
+        0
+    );
+
+    $sCabeceraInf->add(
+        $sCabeceraInf1 = Seccion::crear
+        (
+            Elemento::getNewId(),
+            "",
+        ),
+        0,
+        10
+    );
+    $sCabeceraInf->add(
+        $sCabeceraInf2 = Seccion::crear
+        (
+            Elemento::getNewId(),
+            "",
+        ),
+        0,
+        20
+    );
+    $sCabeceraInf->add(
+        $sCabeceraInf3 = Seccion::crear
+        (
+            Elemento::getNewId(),
+            "",
+        ),
+        0,
+        30
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $base->add(
+        // cuerpo
+        $sCuerpo = Seccion::crear
+        (
+            Elemento::getNewId(),
+            "",
+        ),
+        1,
+        0
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -91,10 +182,7 @@ if ($method === "GET") {
 
 
 
-    $seccion->add($r, 0, 0);
 
-
-    $seccion->add($link, 1, 0);
 
 
 
@@ -127,7 +215,7 @@ if ($method === "GET") {
     //.......................
     $cuerpo =
         "" .
-        $seccion->renderizar() .
+        $base->renderizar() .
         "";
     //.......................
 

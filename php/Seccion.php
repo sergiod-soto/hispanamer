@@ -43,11 +43,15 @@ class Seccion extends Elemento
      * @param Elemento $elemento
      * @param int $fila
      * @param int $columna
-     * @return void
      */
-    function add($elemento, int $fila, int $columna)
+    function add($elemento, int $fila, int $columna): Seccion|null
     {
         $this->elementos[$fila][$columna] = $elemento;
+
+        if (get_class($elemento) == "Seccion") {
+            return $elemento;
+        }
+        return null;
     }
 
 
