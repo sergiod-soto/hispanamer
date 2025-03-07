@@ -120,7 +120,7 @@ class Tabla extends Elemento
 
         $tabla->filas = $filas;
 
-      
+
 
 
         return $tabla;
@@ -136,11 +136,7 @@ class Tabla extends Elemento
             $htmlFilas .= $fila->renderizar();
         }
         //
-
-        $html = "<span class=\" span-tabla-$this->id table-container\"><div class=\"tabla-scroll\"><table id=\"$this->id\"";
-        if ($this->clase != null && $this->clase != "") {
-            $html .= " class=\"$this->clase\">";
-        }
+        $html = "<div class=\" div-tabla-$this->id table-container\"><div class=\"tabla-scroll\"><table id=\"$this->id\"  class=\"$this->clase\"";
 
         // obtengo id para cada cabecera
         $cabeceraId = [];
@@ -197,7 +193,7 @@ class Tabla extends Elemento
 
 
         // anhado el cuerpo
-        $html .= $htmlFilas . "</table></div></span>";
+        $html .= $htmlFilas . "</table></div></div>";
 
         return $html;
     }

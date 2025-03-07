@@ -13,7 +13,7 @@ class DateBox extends Elemento
 
         $html =
             "
-            <span class=\"datepicker-container\" id=\"$id\" data-tipo=\"DateBox\">
+            <div class=\"datepicker-container\" id=\"$id\" data-tipo=\"DateBox\">
                 <input type=\"text\" class=\"fechaInput\" readonly placeholder=$placeHolder>
                 <div class=\"calendar\">
                     <div class=\"calendar-header\">
@@ -25,7 +25,7 @@ class DateBox extends Elemento
                         <button class=\"btnHoy\">Hoy</button>
                     </div>
                 </div>
-            </span>
+            </div>
             ";
 
         // Llamamos al constructor de la clase Elemento

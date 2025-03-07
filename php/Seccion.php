@@ -134,43 +134,14 @@ class Seccion extends Elemento
 
             foreach ($fila as $item) {
                 $htmlReturn .= $item->renderizar();
-              
-              //  $htmlReturn .= $this->replaceOuterDivs($item->renderizar());
             }
-
             $htmlReturn .= "</div>"; // fin fila
-
         }
         $htmlReturn .= "</div>";  //encapsulo la fila
         return $htmlReturn;
     }
 
-    /*
-        metodo auxiliar de renderizar() al cual se le pasa
-        un elemento renderizado y, si esta encapsulado por
-        <div>, lo sustituye por <span>
-    */
-    private function replaceOuterDivs($html)
-    {
-        // Expresión regular mejorada para detectar el <div> externo aunque tenga espacios o saltos de línea
-        $pattern = '/^\s*<div([^>]*)>([\s\S]*?)<\/div>\s*$/';
 
-        // Reemplaza solo si el primer y último tag son <div> y </div>
-        $replacement = '<span$1>$2</span>';
-
-        return preg_replace($pattern, $replacement, $html);
-    }
-
-    function replaceOuterSpans($html)
-    {
-        // Expresión regular para detectar un <span> externo y su cierre </span>
-        $pattern = '/^\s*<span([^>]*)>([\s\S]*?)<\/span>\s*$/';
-
-        // Reemplaza solo si el primer y último tag son <span> y </span>
-        $replacement = '<div$1>$2</div>';
-
-        return preg_replace($pattern, $replacement, $html);
-    }
 
     /*
         metodo auxiliar para debug

@@ -11,11 +11,11 @@ class TextBox extends Elemento
 
     public function __construct($id, string $clase, $text, $placeHolder)
     {
-        $html = "<span ";
-        if ($clase != null && $clase != "") {
-            $html .= "class=\"$clase\"";
-        }
-        $html .= "><input type=\"text\" id=\"$id\" placeholder=\"$placeHolder\" data-tipo=\"TextBox\"/>$text</span>";
+        $html =
+            "
+            <div><input type=\"text\" class=\"$clase\" id=\"$id\" placeholder=\"$placeHolder\" data-tipo=\"TextBox\"/>
+                $text
+            </div>";
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(

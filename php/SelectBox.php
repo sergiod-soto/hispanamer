@@ -17,7 +17,7 @@ class SelectBox extends Elemento
 
         $html =
             "
-            <form id=\"$id\" data-tipo=\"SelectBox\">
+            <form id=\"$id\" class=\"$clase\" data-tipo=\"SelectBox\">
                 <select id=\"select$id\" name=\"$name\">
                     $htmlOptions
                 </select>

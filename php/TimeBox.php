@@ -9,29 +9,27 @@ class TimeBox extends Elemento
     {
         $html =
             "
-            <span id=\"$id\" class=\"timeBox-Container $clase\" data-tipo=\"TimeBox\">
-            <input type=\"text\" class=\"timeInput\" placeholder=\"h/min\" readonly>
-            
-            <div class=\"overlay-timeBox\"></div>
-            
-            <div class=\"modal\">
-                <div class=\"modalTitle\">Selecciona la Hora</div>
-                <div class=\"modalContent\">
-                <div class=\"dialContainer\">
-                    <div class=\"markers\"></div>
-                    <div class=\"timeDisplay\">--:--</div>
-                </div>
-                <div class=\"adjustButtons\">
-                    <button class=\"plusBtn\">+</button>
-                    <button class=\"minusBtn\">−</button>
-                </div>
-                </div>
-                <div class=\"modalFooter\">
-                <button class=\"confirmBtn\">Confirmar</button>
-                <button class=\"cancelBtn\">Cancelar</button>
+            <div id=\"$id\" class=\"timeBox-Container $clase\" data-tipo=\"TimeBox\">
+                <input type=\"text\" class=\"timeInput\" placeholder=\"h/min\" readonly>
+                <div class=\"overlay-timeBox\"></div>
+                <div class=\"modal\">
+                    <div class=\"modalTitle\">Selecciona la Hora</div>
+                    <div class=\"modalContent\">
+                    <div class=\"dialContainer\">
+                        <div class=\"markers\"></div>
+                        <div class=\"timeDisplay\">--:--</div>
+                    </div>
+                    <div class=\"adjustButtons\">
+                        <button class=\"plusBtn\">+</button>
+                        <button class=\"minusBtn\">−</button>
+                    </div>
+                    </div>
+                    <div class=\"modalFooter\">
+                    <button class=\"confirmBtn\">Confirmar</button>
+                    <button class=\"cancelBtn\">Cancelar</button>
+                    </div>
                 </div>
             </div>
-            </span>
             ";
 
 

@@ -53,11 +53,11 @@ class RadioButton extends Elemento
 
         $html =
             "
-            <span id= \"$id\" class=\"$clase spanRadioButton\" data-tipo=\"RadioButton\">
+            <div id= \"$id\" class=\"$clase spanRadioButton\" data-tipo=\"RadioButton\">
                 <form id=\"form_$id\">
                     $htmlRadios
                 </form>
-            </span>
+            </div>
             ";
 
         // Llamamos al constructor de la clase Elemento
