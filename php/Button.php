@@ -11,14 +11,10 @@ class Button extends Elemento
     public $funcion;
     public $text;
 
-    public function __construct($id, string $clase, $text, $funcion)
+    public function __construct($id, string $clase, $text, $title, $funcion)
     {
-        $html = "<button id=\"$id\" data-tipo=\"Button\" class=\"$clase\"";
-        
-        if ($funcion != null && $funcion != "") {
-            $html .= " onclick=\"$funcion\"";
-        }
-        $html .= " type='button'>$text</button>";
+        $html = "<button id=\"$id\" data-tipo=\"Button\" class=\"$clase\"  onclick=\"$funcion\" title=\"$title\" type='button'>$text</button>";
+
         $this->text = $text;
 
 
@@ -34,13 +30,14 @@ class Button extends Elemento
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $text, $funcion)
+    public static function crear($id, string $clase, $text, $title, $funcion)
     {
         // Crea el botón
         $boton = new self(
             $id,
             $clase,
             $text,
+            $title,
             $funcion,
         );
 

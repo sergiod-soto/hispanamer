@@ -1,12 +1,38 @@
-.cabecera{
-    width: auto;
-}
+
+
 .cabeceraSup {
     display: flex;
-    align-items: flex-start; /* Alinea el texto arriba */
+    align-items: flex-start;
+    /* Alinea el texto arriba */
+    border: 1px solid black;
+    border-bottom: none;
+
 }
 
-.imagenLogo{
+.cabeceraInf {
+    display: flex;
+    border: 1px solid black;
+}
+
+.imagenLogo {
     width: auto;
     height: 50px;
+}
+
+.boton-cabecera {
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer
+}
+
+.tabla{
+    width: 50%;
+}
+
+#id_19 {
+    width: 30%;
+}
+
+#id_20 {
+    width: 15%;
 }

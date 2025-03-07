@@ -37,25 +37,8 @@ class Conexion
         $result = $this->conn->query($consulta);
 
 
-
-
-
-
-
-
-
-
-
-
-
-        $r = [];
-        if ($result->num_rows > 0) {
-            // Salida de cada fila de resultado
-            while ($row = $result->fetch_assoc()) {
-                $r[] = $row["nombre"];
-            }
-        } else {
-            echo "0 resultados";
+        while ($row = $result->fetch_assoc()) {
+            $r[] = array_values($row);  // Guarda toda la fila en el array
         }
 
 

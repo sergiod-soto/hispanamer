@@ -16,6 +16,14 @@ if ($method === "GET") {
     //          5º se renderiza
     //////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     *      realizo la consulta inicial
+     */
+    $conexion = new Conexion("localhost", "hispanamer", "root", "025811");
+    $datos = $conexion->consulta("SELECT codigo, medidas FROM boletines_tabla_medidas");
+    //
+    //
+
     $programa = Programa::crear(
         autor: "sergiod",
         fecha: "17/02/2025",
@@ -122,6 +130,7 @@ if ($method === "GET") {
                 Elemento::getNewId(),
                 "",
                 iconoFlechaAtras,
+                "",
                 "console.debug('Atras')"
             ),
             10,
@@ -271,17 +280,101 @@ if ($method === "GET") {
 
     $cabeceraInf1->add([
         [
-            Texto::crear("", "", "sadf"),
+            Button::crear(
+                Elemento::getNewId(),
+                "boton-cabecera",
+                iconoNuevo,
+                "Nuevo",
+                "console.debug('clic en nuevo')",
+            ),
+            0,
+            0
+        ],
+        [
+            Button::crear(
+                Elemento::getNewId(),
+                "boton-cabecera",
+                iconoEditar,
+                "Editar",
+                "console.debug('clic en editar')",
+            ),
+            0,
+            1
+        ],
+        [
+            Button::crear(
+                Elemento::getNewId(),
+                "boton-cabecera",
+                iconoEliminar,
+                "Borrar",
+                "console.debug('clic en borrar')",
+            ),
+            0,
+            2
+        ]
+    ]);
+
+    $cabeceraInf2->add([
+        [
+            Button::crear(
+                Elemento::getNewId(),
+                "boton-cabecera",
+                iconoPDF,
+                "Descarga PDF",
+                "console.debug('clic en PDF')",
+            ),
+            0,
+            0
+        ],
+        [
+            Button::crear(
+                Elemento::getNewId(),
+                "boton-cabecera",
+                iconoEXCEL,
+                "Descarga Excel",
+                "console.debug('clic en EXCEL')",
+            ),
+            0,
+            1
+        ],
+    ]);
+
+    /* #endregion */
+
+
+    /* #region  body*/
+    $cuerpo->add([
+        [
+            $cuerpo1 = Seccion::crear(
+                Elemento::getNewId(),
+                "tabla",
+            ),
+            0,
+            0
+        ],
+        [
+            $cuerpo2 = Seccion::crear(
+                Elemento::getNewId(),
+                "",
+            ),
+            0,
+            1
+        ]
+    ]);
+
+    $cuerpo1->add([
+        [
+            $tabla = Tabla::crear(
+                Elemento::getNewId(),
+                "",
+                ["codigo", "medidas"],
+                $datos,
+            ),
             0,
             0
         ]
     ]);
     /* #endregion */
-
-
-
-
-
 
 
 
