@@ -6,6 +6,10 @@ include_once "php/Includes.php";
 
 
 $method = $_SERVER["REQUEST_METHOD"];
+
+echo $_REQUEST;
+
+
 if ($method === "GET") {
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -332,7 +336,7 @@ if ($method === "GET") {
             0,
             1
         ],
-        
+
     ]);
 
     $cabeceraInf3->add([
@@ -358,9 +362,9 @@ if ($method === "GET") {
             0,
             1
         ],
-        
+
     ]);
-    
+
 
     /* #endregion */
 
@@ -522,11 +526,11 @@ if ($method === "GET") {
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////
-    //          Colocamos los elementos 
+    //          
     //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+    $datos = json_encode($datos);
 
 
 
@@ -554,6 +558,19 @@ if ($method === "GET") {
         <title>$titulo</title>
         <!-- necesario para que el sistema de sesion sepa en que programa estamos -->
         <script>localStorage.setItem(\"prgActual\", \"" . $programa->nombre . "\");</script>
+
+         <script>
+        // Guardar la matriz en sessionStorage
+        var data = <?php echo $datos; ?>;
+        sessionStorage.setItem('miMatriz', JSON.stringify(data));
+
+        // Mostrarlo en consola para verificar
+        console.log(JSON.parse(sessionStorage.getItem('miMatriz')));
+        </script>
+
+        <script>
+            
+        </script>
         ";
     //.......................
 

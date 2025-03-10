@@ -197,9 +197,6 @@ function guardarAux(elemento, id, value) {
 
         case ("TextBox"):
 
-            console.debug("document.getElementById(\"id_39\").value: " + document.getElementById("id_39").value)
-            console.debug(document.getElementById("id_39"))
-
             funcion = (id, value) => {
                 document.getElementById(id).value = value
             };
