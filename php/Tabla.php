@@ -163,7 +163,7 @@ class Tabla extends Elemento
             ";
         for ($i = 0; $i < count($this->cabecera); $i++) {
             $cabecera = $this->cabecera[$i];
-            $html .= "<th><div class = \"div_borde_cabecera\">";
+            $html .= "<th><div class = \"div_borde_cabecera $i\">";
 
             if (is_string($cabecera)) {
                 $html .= $cabecera . "</td>";
@@ -200,6 +200,35 @@ class Tabla extends Elemento
     public static function getIdFila()
     {
         return Tabla::$idFila++;
+    }
+
+    /**
+     * pasa de      
+     *              [
+     *                  [a,b],
+     *                  [c,d]
+     *              ] 
+     * a            
+     *              [
+     *                  [0,a,b],
+     *                  [1,c,d]
+     *              ]
+     * 
+     * @param mixed $matriz
+     * @return array[]
+     */
+    public static function addId($matriz, $offSet)
+    {
+        $matriz_con_indices = [];
+
+        // Recorrer cada fila de la matriz original
+        foreach ($matriz as $indice => $fila) {
+            // Añadir el índice al inicio de la fila
+            array_unshift($fila, ($indice + $offSet));
+            // Añadir la fila modificada a la matriz resultante
+            $matriz_con_indices[] = $fila;
+        }
+        return $matriz_con_indices;
     }
 }
 ?>

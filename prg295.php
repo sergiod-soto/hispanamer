@@ -21,6 +21,7 @@ if ($method === "GET") {
      */
     $conexion = new Conexion("localhost", "hispanamer", "root", "025811");
     $datos = $conexion->consulta("SELECT codigo, medidas FROM boletines_tabla_medidas");
+    $datos = Tabla::addId($datos, 1);
     //
     //
 
@@ -34,7 +35,8 @@ if ($method === "GET") {
         ],
         scriptsBody:
         [
-            "js/prg1/ElementosAGuardar.js",
+            "js/prg295/ElementosAGuardar.js",
+            "js/prg295/Tabla.js",
         ],
         sonidos:
         [
@@ -42,9 +44,9 @@ if ($method === "GET") {
         ],
         css:
         [
-            "css/prg1/prg295.css",
-            "css/prg1/TimeBox.css",
-            "css/prg1/Tabla.css"
+            "css/prg295/prg295.css",
+            "css/prg295/TimeBox.css",
+            "css/prg295/Tabla.css"
         ],
     );
 
@@ -85,7 +87,7 @@ if ($method === "GET") {
                 $cuerpo = Seccion::crear
                 (
                     Elemento::getNewId(),
-                    "",
+                    "cuerpo",
                 ),
                 1,
                 0
@@ -93,8 +95,6 @@ if ($method === "GET") {
         ]
     );
     /* #endregion */
-
-
 
     /* #region cabecera */
     $cabecera->add(
@@ -121,9 +121,7 @@ if ($method === "GET") {
     );
     /* #endregion */
 
-
-
-    /* #region  cabeceraSup */
+    /* #region cabeceraSup */
     $cabeceraSup->add([
         [
             $botonAtrasCabecera = Button::crear(
@@ -242,9 +240,6 @@ if ($method === "GET") {
 
     /* #endregion */
 
-
-
-
     /* #region cabeceraInf */
     $cabeceraInf->add(
         [
@@ -341,8 +336,7 @@ if ($method === "GET") {
 
     /* #endregion */
 
-
-    /* #region  body*/
+    /* #region body */
     $cuerpo->add([
         [
             $cuerpo1 = Seccion::crear(
@@ -355,7 +349,7 @@ if ($method === "GET") {
         [
             $cuerpo2 = Seccion::crear(
                 Elemento::getNewId(),
-                "",
+                "datos",
             ),
             0,
             1
@@ -367,7 +361,7 @@ if ($method === "GET") {
             $tabla = Tabla::crear(
                 Elemento::getNewId(),
                 "",
-                ["codigo", "medidas"],
+                ["", "codigo", "medidas"],
                 $datos,
             ),
             0,
@@ -376,11 +370,107 @@ if ($method === "GET") {
     ]);
     /* #endregion */
 
+    /* #region datos */
+    $cuerpo2->add(
+        [
+            [
+                $cuerpo21 = Seccion::crear(
+                    Elemento::getNewId(),
+                    ""
+                ),
+                0,
+                0
+            ],
+            [
+                $cuerpo22 = Seccion::crear(
+                    Elemento::getNewId(),
+                    ""
+                ),
+                1,
+                0
+            ],
+        ],
+    );
 
 
+    $cuerpo21->add([
+        [
+            Texto::crear(
+                Elemento::getNewId(),
+                "",
+                "Consulta"
+            ),
+            0,
+            0
+        ]
+    ]);
+    $cuerpo22->add([
+        [
+            $seccionTexto = Seccion::crear(
+                Elemento::getNewId(),
+                ""
+            ),
+            0,
+            0
+        ],
+        [
+            $seccionCuadro = Seccion::crear(
+                Elemento::getNewId(),
+                ""
+            ),
+            0,
+            1
+        ],
+    ]);
+
+    /* #endregion */
+
+    /* #region datos inferior */
+    $seccionTexto->add([
+        [
+            Texto::crear(
+                Elemento::getNewId(),
+                "",
+                "Código:"
+            ),
+            0,
+            0
+        ],
+        [
+            Texto::crear(
+                Elemento::getNewId(),
+                "",
+                "Unidad de medidas:"
+            ),
+            1,
+            0
+        ]
+    ]);
 
 
-
+    $seccionCuadro->add([
+        [
+            TextBox::crear(
+                Elemento::getNewId(),
+                "",
+                "",
+                "xxx"
+            ),
+            0,
+            0
+        ],
+        [
+            TextBox::crear(
+                Elemento::getNewId(),
+                "",
+                "",
+                ""
+            ),
+            1,
+            0
+        ]
+    ]);
+    /* #endregion */
 
 
 
@@ -426,7 +516,7 @@ if ($method === "GET") {
 
 
     //.......................
-    $titulo = "Titulo";
+    $titulo = "prg295";
     //.......................
 
     //.......................

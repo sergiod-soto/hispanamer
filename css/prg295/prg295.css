@@ -1,12 +1,13 @@
-
-
 .cabeceraSup {
     display: flex;
     align-items: flex-start;
-    /* Alinea el texto arriba */
     border: 1px solid black;
     border-bottom: none;
 
+}
+
+.fila-seleccionada {
+    background-color: rgba(255, 255, 0, 0.808) !important;
 }
 
 .cabeceraInf {
@@ -25,10 +26,20 @@
     cursor: pointer
 }
 
-.tabla{
-    width: 50%;
-    height: 10%;
+.cabecera {
+    height: 15vh;
 }
+
+.cuerpo {
+    height: 80vh;
+    display: flex;
+}
+
+.tabla {
+    width: 50%;
+    overflow-y: auto;
+}
+
 
 #id_19 {
     width: 30%;
@@ -36,4 +47,16 @@
 
 #id_20 {
     width: 15%;
+}
+
+#id_28 {
+    width: 50%;
+}
+
+#id_30 {
+    background-color: rgb(199, 199, 199);
+}
+
+#id_31 {
+    display: flex;
 }
