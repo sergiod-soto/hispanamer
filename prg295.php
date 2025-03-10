@@ -332,7 +332,35 @@ if ($method === "GET") {
             0,
             1
         ],
+        
     ]);
+
+    $cabeceraInf3->add([
+        [
+            Button::crear(
+                Elemento::getNewId(),
+                "boton-cabecera",
+                iconoGuardar,
+                "Guardar",
+                "console.debug('clic en guardar')",
+            ),
+            0,
+            0
+        ],
+        [
+            Button::crear(
+                Elemento::getNewId(),
+                "boton-cabecera",
+                iconoCancelar,
+                "Cancelar",
+                "console.debug('clic en cancelar')",
+            ),
+            0,
+            1
+        ],
+        
+    ]);
+    
 
     /* #endregion */
 
@@ -454,7 +482,7 @@ if ($method === "GET") {
                 Elemento::getNewId(),
                 "",
                 "",
-                "xxx"
+                "Código"
             ),
             0,
             0
@@ -464,7 +492,7 @@ if ($method === "GET") {
                 Elemento::getNewId(),
                 "",
                 "",
-                ""
+                "Unidades"
             ),
             1,
             0

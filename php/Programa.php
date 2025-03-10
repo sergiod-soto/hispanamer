@@ -48,7 +48,6 @@ class Programa implements IRenderizable
 
         // scripts genericos
         $this->scriptsBaseCabecera = [
-            "js/ControlSesion.js",
             "js/DateBox.js",
             "js/NoteBox.js",
             "js/PasswordBox.js",
@@ -61,8 +60,7 @@ class Programa implements IRenderizable
         ];
 
         $this->scriptsBaseBody = [
-            // de momento vacio,
-            // tampoco creo que nunca se use ¯\_(ツ)_/¯
+            "js/ControlSesion.js",
         ];
         $this->sonidosBase = [
         ];

@@ -37,9 +37,9 @@
 
 .tabla {
     width: 50%;
+    max-width: 600px;
     overflow-y: auto;
 }
-
 
 #id_19 {
     width: 30%;
@@ -49,14 +49,26 @@
     width: 15%;
 }
 
-#id_28 {
+#id_30 {
     width: 50%;
 }
 
-#id_30 {
+#id_32 {
+    padding-left: 20px;
     background-color: rgb(199, 199, 199);
 }
 
-#id_31 {
+#id_33 {
+    padding-top: 20px;
+    padding-left: 20px;
     display: flex;
+}
+
+#id_35 {
+    width: 50%;
+    max-width: 150px;
+}
+
+#id_36 {
+    width: 50%;
 }

@@ -25,10 +25,12 @@ define("favicon", "<link rel=\"icon\" href=\"ruta/al/favicon.ico\" type=\"image/
 //
 
 define("iconoCalendario", "<img src= \"/multimedia/iconos/calendario.png\" alt=\"Calendario\" width=\"32\" height=\"32\">");
+define("iconoCancelar", "<img src= \"/multimedia/iconos/cancelar.png\" alt=\"Cancelar\" width=\"32\" height=\"32\">");
 define("iconoEditar", "<img src= \"/multimedia/iconos/editar.png\" alt=\"Editar\" width=\"32\" height=\"32\">");
 define("iconoEliminar", "<img src= \"/multimedia/iconos/delete.png\" alt=\"Eliminar\" width=\"32\" height=\"32\">");
 define("iconoFlechaAdelante", "<img src= \"/multimedia/iconos/adelante.png\" alt=\"Adelante\" width=\"32\" height=\"32\">");
 define("iconoFlechaAtras", "<img src= \"/multimedia/iconos/atras.png\" alt=\"Atras\" width=\"32\" height=\"32\">");
+define("iconoGuardar", "<img src= \"/multimedia/iconos/guardar.png\" alt=\"Guardar\" width=\"32\" height=\"32\">");
 define("iconoImpresora", "<img src= \"/multimedia/iconos/impresora.png\" alt=\"Imprimir\" width=\"32\" height=\"32\">");
 define("iconoLupa", "<img src= \"/multimedia/iconos/lupa.png\" alt=\"Lupa\" width=\"32\" height=\"32\">");
 define("iconoNuevo", "<img src= \"/multimedia/iconos/nuevo.png\" alt=\"Nuevo\" width=\"32\" height=\"32\">");
