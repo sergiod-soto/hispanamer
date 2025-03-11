@@ -12,10 +12,11 @@
  * @param {*} elementoEnterID 
  */
 
-function setFoco(elementoActualID, elementoTabID, elementoEnterID) {
+function setFoco(elementoActualID, elementoSiguienteID) {
     var elementoActual = document.getElementById(elementoActualID);
-    var elementoTab = document.getElementById(elementoTabID);
-    var elementoEnter = document.getElementById(elementoEnterID);
+    var elementoSiguiente = document.getElementById(elementoSiguienteID);
+
+    console.debug(elementoActual)
 
     switch (elementoActual.getAttribute("data-tipo")) {
 
@@ -23,30 +24,49 @@ function setFoco(elementoActualID, elementoTabID, elementoEnterID) {
 
 
             break;
+
         case ("CheckBox"):
 
 
             break;
+
         case ("DateBox"):
 
 
             break;
+
         case ("NoteBox"):
 
 
             break;
+
         case ("PasswordBox"):
 
 
             break;
+
         case ("RadioButton"):
+            elementoActual.addEventListener("keydown", function (event) {
+                if ((event.key === "Tab" && !event.shiftKey) &&
+                    document.activeElement === elementoActual) {
 
+                    event.preventDefault();
+                    auxTab(elementoActual, elementoActual, event);
+                }
+                if (event.key === "Enter" &&
+                    document.activeElement === elementoActual) {
 
+                    event.preventDefault();
+                    auxEnter(elementoActual, elementoSiguiente, event);
+                }
+            });
             break;
+
         case ("SelectBox"):
 
 
             break;
+
         case ("Tabla"):
             // TODO
             break;
@@ -56,14 +76,17 @@ function setFoco(elementoActualID, elementoTabID, elementoEnterID) {
                 if ((event.key === "Tab" && !event.shiftKey) ||
                     event.key === "Enter" &&
                     document.activeElement === elementoActual) {
+
                     event.preventDefault();
                     auxTab(elementoActual, elementoTab, event);
                 }
             });
             break;
+
         case ("Texto"):
             // DEJAR VACIO
             break;
+
         case ("TimeBox"):
 
             break;
@@ -103,8 +126,12 @@ function setFoco(elementoActualID, elementoTabID, elementoEnterID) {
                 break;
             case ("RadioButton"):
 
+                if (elementoActual != elementoTab) {
+                    // entro al radio button desde un elemento externo
+                    // tengo que poner el foco en el elemento [0]
+                } else {
 
-
+                }
 
 
 
@@ -168,7 +195,7 @@ function setFoco(elementoActualID, elementoTabID, elementoEnterID) {
             case ("RadioButton"):
 
 
-
+                console.debug("entra enter")
 
 
 
