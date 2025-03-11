@@ -10,10 +10,10 @@
  */
 enum PopupEstado: string
 {
-    case Ok = "bien";
-    case Warning = "advertencia ";
-    case Error = "error ";
-    case Normal = "normal";
+    case OK = "bien";
+    case WARNING = "advertencia ";
+    case ERROR = "error ";
+    case NORMAL = "normal";
 }
 
 

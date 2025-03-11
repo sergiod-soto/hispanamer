@@ -2,12 +2,13 @@
 
 enum PosicionTexto: string
 {
-    case izquierda = "izquierda";
-    case derecha = "derecha";
+    case IZQUIERDA = "IZQUIERDA";
+    case DERECHA = "DERECHA";
 }
 
 class RadioButton extends Elemento
 {
+    public $contador = 0;
     function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase)
     {
 
@@ -23,8 +24,10 @@ class RadioButton extends Elemento
             $default = 0;
         }
         if ($posicionTexto == null || $posicionTexto == "") {
-            $posicionTexto = PosicionTexto::izquierda;
+            $posicionTexto = PosicionTexto::IZQUIERDA;
         }
+
+        $this->contador = 0;
 
         // preparo el html de cada elemento
         $htmlRadios = "";
@@ -34,7 +37,7 @@ class RadioButton extends Elemento
             $labelIzq = "";
             $labelDer = "";
 
-            if ($posicionTexto == PosicionTexto::derecha->value) {
+            if ($posicionTexto == PosicionTexto::DERECHA->value) {
                 $labelDer = $labels[$i];
             } else {
                 $labelIzq = $labels[$i];
@@ -46,14 +49,14 @@ class RadioButton extends Elemento
 
             $htmlRadios .=
                 "
-                <label>$labelIzq<input type=\"radio\" class=\"selector\" 
+                <label>$labelIzq<input type=\"radio\" id=\"rb_" . $id . "_" . $this->contador++ . "\" class=\"selector\" 
                 name=\"$name\" value=\"" . $values[$i] . "\" $checked>$labelDer</label>
                 ";
         }
 
         $html =
             "
-            <div id= \"$id\" class=\"$clase spanRadioButton\" data-tipo=\"RadioButton\">
+            <div id=\"$id\" class=\"$clase divRadioButton\" data-tipo=\"RadioButton\">
                 <form id=\"form_$id\">
                     $htmlRadios
                 </form>

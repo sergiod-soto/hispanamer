@@ -2,9 +2,9 @@
 
 enum TipoPassword: string
 {
-    case registro = "new-password";
-    case login = "current-password";
-    case off = "off";
+    case REGISTRO = "new-password";
+    case LOGIN = "current-password";
+    case OFF = "off";
 }
 
 class PasswordBox extends Elemento

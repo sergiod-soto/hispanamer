@@ -52,7 +52,6 @@ class Programa implements IRenderizable
             "js/NoteBox.js",
             "js/PasswordBox.js",
             "js/Popup.js",
-            "js/RadioButton.js",
             "js/SelectBox.js",
             "js/Tabla.js",
             //"js/TextBox.js",
@@ -60,7 +59,10 @@ class Programa implements IRenderizable
         ];
 
         $this->scriptsBaseBody = [
+            "js/RadioButton.js",
+            //
             "js/ControlSesion.js",
+            "js/ControlFocus.js"
         ];
         $this->sonidosBase = [
         ];
@@ -95,7 +97,7 @@ class Programa implements IRenderizable
             "popup",
             "",
             "",
-            PopupEstado::Normal->value,
+            PopupEstado::NORMAL->value,
         );
 
         return $programa;

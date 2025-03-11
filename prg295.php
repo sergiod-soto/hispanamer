@@ -29,10 +29,22 @@ if ($method === "GET") {
     //
     //
 
+
+
+
+
+
+
+
+
+
+
+
     $programa = Programa::crear(
         autor: "sergiod",
         fecha: "17/02/2025",
         nombre: "prg295",
+
         scriptsCabecera:
         [
 
@@ -40,6 +52,7 @@ if ($method === "GET") {
         scriptsBody:
         [
             "js/prg295/ElementosAGuardar.js",
+            "js/prg295/Focos.js",
             "js/prg295/Tabla.js",
         ],
         sonidos:
@@ -500,6 +513,30 @@ if ($method === "GET") {
             ),
             1,
             0
+        ],
+        [
+            RadioButton::crear(
+                Elemento::getNewId(),
+                ["label1", "label2", "label3"],
+                "",
+                [1, 2, 3],
+                "",
+                PosicionTexto::DERECHA,
+                ""
+            ),
+            2,
+            0
+        ]
+        ,
+        [
+            TextBox::crear(
+                Elemento::getNewId(),
+                "",
+                "",
+                "asdf"
+            ),
+            3,
+            0
         ]
     ]);
     /* #endregion */
@@ -558,18 +595,8 @@ if ($method === "GET") {
         <title>$titulo</title>
         <!-- necesario para que el sistema de sesion sepa en que programa estamos -->
         <script>localStorage.setItem(\"prgActual\", \"" . $programa->nombre . "\");</script>
-
          <script>
-        // Guardar la matriz en sessionStorage
-        var data = <?php echo $datos; ?>;
-        sessionStorage.setItem('miMatriz', JSON.stringify(data));
-
-        // Mostrarlo en consola para verificar
-        console.log(JSON.parse(sessionStorage.getItem('miMatriz')));
-        </script>
-
-        <script>
-            
+            var tabla = '$datos';
         </script>
         ";
     //.......................

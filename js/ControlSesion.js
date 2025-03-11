@@ -86,151 +86,13 @@ function extraerNumero(texto) {
     return match ? parseInt(match[1], 10) : null;
 }
 
-/**
- * -NO- usar esta funcion, guardar con "guardar()"
- * 
- * En esta seccion elegimos de que manera se
- * guarda cada elemento por tipo
- * 
- * @param {Elemento} elemento 
- * @param {String} id 
- * @param {*} value
- */
-function guardarAux(elemento, id, value) {
-    // primero, actualizo la fecha de la sesion
-    let sesionJson = JSON.parse(localStorage.getItem("sesion"));
-    sesionJson.fecha = new Date().getDate();
-
-    prg = localStorage.getItem("prgActual");
-
-    if (prg == null || prg == undefined) {
-        return;
-    }
-
-    if (sesionJson[prg].data[id] == undefined) {
-        sesionJson[prg].data[id] = {};
-    }
-
-    localStorage.setItem("sesion", JSON.stringify(sesionJson));
-
-
-    switch (elemento) {
-        case ("Button"):
-            /**
-             *  nada que hacer aqui
-             */
-            break;
-
-        case ("CheckBox"):
-            checked = value;
-
-            funcion = (id, checked) => {
-                document.getElementById(id).checked = checked
-            };
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = checked;
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-
-        case ("DateBox"):
-            funcion = (id, value) => {
-                value = JSON.parse(value)
-                document.getElementById(id).querySelector(".fechaInput").value = value;
-            }
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = JSON.stringify(value);
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-
-        case ("NoteBox"):
-            funcion = (id, value) => {
-                document.getElementById(id).value = value
-            };
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = value;
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-
-        case ("PasswordBox"):
-            funcion = (id, value) => {
-                document.getElementById("input" + id).value = value
-            };
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = value;
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-
-        case ("RadioButton"):
-            funcion = (id, value) => {
-                document.getElementById(id).
-                    querySelector(`input[type="radio"][value="${value}"]`).checked = true;
-            }
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = value;
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-
-        case ("SelectBox"):
-            funcion = (id, value) => {
-                document.getElementById("select" + id).value = value
-            };
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = value;
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson));
-            break;
-
-        case ("Tabla"):
-            // TODO
-            break;
-
-        case ("TextBox"):
-
-            funcion = (id, value) => {
-                document.getElementById(id).value = value
-            };
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = value;
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-
-        case ("Texto"):
-            // DEJAR VACIO
-            break;
-
-        case ("TimeBox"):
-
-            funcion = (id, value) => {
-                document.getElementById(id).querySelector(".timeInput").value = value;
-            }
-
-            sesionJson[prg].data[id].funcion = funcion.toString();
-            sesionJson[prg].data[id].value = value;
-
-            localStorage.setItem("sesion", JSON.stringify(sesionJson))
-            break;
-    }
-}
 
 /**
- * En esta parte elegimos que evento provoca que 
- * se guarde cada elemento por tipo
+ * Se guarda cada elemento por tipo
  * 
  * @param {String} id 
  */
+
 function guardar(id) {
 
     // obtengo el atributo "data-tipo" del elemento con "id"
@@ -301,5 +163,144 @@ function guardar(id) {
                 guardarAux(Elemento.TimeBox, id, value);
             });
             break;
+    }
+
+
+
+    /** 
+     * En esta seccion elegimos de que manera se
+     * guarda cada elemento por tipo
+     * 
+     * @param {Elemento} elemento 
+     * @param {String} id 
+     * @param {*} value
+     */
+    function guardarAux(elemento, id, value) {
+        // primero, actualizo la fecha de la sesion
+        let sesionJson = JSON.parse(localStorage.getItem("sesion"));
+        sesionJson.fecha = new Date().getDate();
+
+        prg = localStorage.getItem("prgActual");
+
+        if (prg == null || prg == undefined) {
+            return;
+        }
+
+        if (sesionJson[prg].data[id] == undefined) {
+            sesionJson[prg].data[id] = {};
+        }
+
+        localStorage.setItem("sesion", JSON.stringify(sesionJson));
+
+
+        switch (elemento) {
+            case ("Button"):
+                /**
+                 *  nada que hacer aqui
+                 */
+                break;
+
+            case ("CheckBox"):
+                checked = value;
+
+                funcion = (id, checked) => {
+                    document.getElementById(id).checked = checked
+                };
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = checked;
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson))
+                break;
+
+            case ("DateBox"):
+                funcion = (id, value) => {
+                    value = JSON.parse(value)
+                    document.getElementById(id).querySelector(".fechaInput").value = value;
+                }
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = JSON.stringify(value);
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson))
+                break;
+
+            case ("NoteBox"):
+                funcion = (id, value) => {
+                    document.getElementById(id).value = value
+                };
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = value;
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson))
+                break;
+
+            case ("PasswordBox"):
+                funcion = (id, value) => {
+                    document.getElementById("input" + id).value = value
+                };
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = value;
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson))
+                break;
+
+            case ("RadioButton"):
+                funcion = (id, value) => {
+                    document.getElementById(id).
+                        querySelector(`input[type="radio"][value="${value}"]`).checked = true;
+                }
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = value;
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson))
+                break;
+
+            case ("SelectBox"):
+                funcion = (id, value) => {
+                    document.getElementById("select" + id).value = value
+                };
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = value;
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson));
+                break;
+
+            case ("Tabla"):
+                // TODO
+                break;
+
+            case ("TextBox"):
+
+                funcion = (id, value) => {
+                    document.getElementById(id).value = value
+                };
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = value;
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson))
+                break;
+
+            case ("Texto"):
+                // DEJAR VACIO
+                break;
+
+            case ("TimeBox"):
+
+                funcion = (id, value) => {
+                    document.getElementById(id).querySelector(".timeInput").value = value;
+                }
+
+                sesionJson[prg].data[id].funcion = funcion.toString();
+                sesionJson[prg].data[id].value = value;
+
+                localStorage.setItem("sesion", JSON.stringify(sesionJson))
+                break;
+        }
     }
 }
