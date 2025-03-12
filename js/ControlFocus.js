@@ -75,7 +75,6 @@ function setFocos(arrayFocos) {
                         auxEnter(elementoActual, elementoSiguiente, event);
                     }
                 });
-
                 break;
 
             case ("DateBox"):
@@ -83,7 +82,13 @@ function setFocos(arrayFocos) {
                 break;
 
             case ("NoteBox"):
+                elementoActual.addEventListener("keydown", function (event) {
+                    if (event.key === "Tab" && !event.shiftKey) {
 
+                        event.preventDefault();
+                        auxTab(elementoActual, elementoSiguiente, event);
+                    }
+                });
                 break;
 
             case ("PasswordBox"):
@@ -169,12 +174,10 @@ function setFocos(arrayFocos) {
 
                 case ("DateBox"):
 
-
                     break;
 
                 case ("NoteBox"):
-
-
+                    elementoSiguiente.focus();
                     break;
 
                 case ("PasswordBox"):

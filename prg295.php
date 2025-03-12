@@ -563,10 +563,10 @@ if ($method === "GET") {
         ],
         [
             NoteBox::crear(
-                Elemento::getNewId(),
                 "",
                 "",
                 "",
+                "placeholder",
                 ""
             ),
             6,
