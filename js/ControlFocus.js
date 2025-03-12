@@ -27,7 +27,7 @@ function setFocos(arrayFocos) {
 
 
 
-    
+
 
     /**
      *  Enlaza un elemento con su siguiente 'Tab' y su siguiente 'Enter'
@@ -62,27 +62,31 @@ function setFocos(arrayFocos) {
         switch (elementoActual.getAttribute("data-tipo")) {
 
             case ("Button"):
-
-
+                // no hace falta hacer nada (creo)
                 break;
 
             case ("CheckBox"):
+                elementoActual.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter" &&
+                        document.activeElement === elementoActual) {
 
+                        elementoActual.checked = !elementoActual.checked;
+                        event.preventDefault();
+                        auxEnter(elementoActual, elementoSiguiente, event);
+                    }
+                });
 
                 break;
 
             case ("DateBox"):
 
-
                 break;
 
             case ("NoteBox"):
 
-
                 break;
 
             case ("PasswordBox"):
-
 
                 break;
 
@@ -114,7 +118,6 @@ function setFocos(arrayFocos) {
 
             case ("SelectBox"):
 
-
                 break;
 
             case ("Tabla"):
@@ -140,6 +143,9 @@ function setFocos(arrayFocos) {
             case ("TimeBox"):
 
                 break;
+
+            default:
+                throw "Tipo de elemento desconocido";
         }
 
         /**
@@ -154,13 +160,11 @@ function setFocos(arrayFocos) {
             switch (elementoSiguiente.getAttribute("data-tipo")) {
 
                 case ("Button"):
-
-
+                    // no hace falta hacer nada
                     break;
 
                 case ("CheckBox"):
-
-
+                    elementoSiguiente.focus();
                     break;
 
                 case ("DateBox"):
@@ -235,6 +239,9 @@ function setFocos(arrayFocos) {
                 case ("TimeBox"):
 
                     break;
+
+                default:
+                    throw "Tipo de elemento desconocido";
             }
         };
 
@@ -252,13 +259,11 @@ function setFocos(arrayFocos) {
             switch (elementosiguiente.getAttribute("data-tipo")) {
 
                 case ("Button"):
-
-
+                    // no hace falta hacer nada
                     break;
 
                 case ("CheckBox"):
-
-
+                    elementoSiguiente.focus();
                     break;
 
                 case ("DateBox"):
@@ -317,6 +322,9 @@ function setFocos(arrayFocos) {
                 case ("TimeBox"):
 
                     break;
+
+                default:
+                    throw "Tipo de elemento desconocido";
             }
         };
 

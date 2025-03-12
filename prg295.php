@@ -526,8 +526,7 @@ if ($method === "GET") {
             ),
             2,
             0
-        ]
-        ,
+        ],
         [
             RadioButton::crear(
                 Elemento::getNewId(),
@@ -540,8 +539,18 @@ if ($method === "GET") {
             ),
             3,
             0
-        ]
-        ,
+        ],
+        [
+            CheckBox::crear(
+                Elemento::getNewId(),
+                "",
+                "asdf",
+                "asdf",
+                "asdf"
+            ),
+            4,
+            0
+        ],
         [
             TextBox::crear(
                 Elemento::getNewId(),
@@ -549,7 +558,20 @@ if ($method === "GET") {
                 "",
                 "asdf"
             ),
-            4,
+            5,
+            0
+        ],
+        [
+            Button::crear(
+                Elemento::getNewId(),
+                "",
+                "aaaa",
+                "",
+                "
+                            respuesta = window.confirm('A')
+                         "
+            ),
+            6,
             0
         ]
     ]);
