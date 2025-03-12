@@ -11,6 +11,10 @@ class TextBox extends Elemento
 
     public function __construct($id, string $clase, $text, $placeHolder)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+        
         $html =
             "
             <div><input type=\"text\" class=\"$clase\" id=\"$id\" placeholder=\"$placeHolder\" data-tipo=\"TextBox\"/>

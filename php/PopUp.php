@@ -21,6 +21,10 @@ class PopUp extends Elemento
 {
     public function __construct($id, string $clase, $text, $estado)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+        
         $html =
             "
             <div id='$id' class='popup $estado $clase'>

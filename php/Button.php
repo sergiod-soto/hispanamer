@@ -13,6 +13,9 @@ class Button extends Elemento
 
     public function __construct($id, string $clase, $text, $title, $funcion)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
         $html = "<button id=\"$id\" data-tipo=\"Button\" class=\"$clase\"  onclick=\"$funcion\" title=\"$title\" type='button'>$text</button>";
 
         $this->text = $text;

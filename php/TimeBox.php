@@ -7,6 +7,10 @@ class TimeBox extends Elemento
 {
     public function __construct($id, string $clase)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+
         $html =
             "
             <div id=\"$id\" class=\"timeBox-Container $clase\" data-tipo=\"TimeBox\">

@@ -562,14 +562,12 @@ if ($method === "GET") {
             0
         ],
         [
-            Button::crear(
+            NoteBox::crear(
                 Elemento::getNewId(),
                 "",
-                "aaaa",
                 "",
-                "
-                            respuesta = window.confirm('A')
-                         "
+                "",
+                ""
             ),
             6,
             0

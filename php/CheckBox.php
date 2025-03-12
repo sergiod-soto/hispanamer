@@ -7,6 +7,10 @@ class CheckBox extends Elemento
 {
     public function __construct($id, string $clase, $text, $name, $value)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+
         $html =
             "
             <input type='checkbox' id='$id' data-tipo=\"CheckBox\"

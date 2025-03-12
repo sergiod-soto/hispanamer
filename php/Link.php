@@ -17,6 +17,10 @@ class Link extends Elemento
 {
     public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $texto)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+
         $contenido = "";
         if (is_string($elementoInterno)) {
             $contenido .= $elementoInterno . "</td>";

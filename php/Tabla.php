@@ -17,6 +17,10 @@ class Tabla extends Elemento
 
     public function __construct($id, string $clase, array $cabecera, array $datos)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,

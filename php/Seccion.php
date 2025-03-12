@@ -14,6 +14,10 @@ class Seccion extends Elemento
 
     public function __construct($id, $clase)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+        
         $html = "";
         parent::__construct(
             $id,

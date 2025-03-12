@@ -6,6 +6,10 @@ class SelectBox extends Elemento
 
     public function __construct($id, string $clase, $name, $valores, $default, $etiquetas)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+        
         $htmlOptions = "";
         for ($i = 0; $i < count($etiquetas); $i++) {
             if ($i == $default) {

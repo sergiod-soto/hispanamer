@@ -7,6 +7,10 @@ class Imagen extends Elemento
 {
     public function __construct($id, string $clase, $imagen)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+
         $html = "<img id=\"$id\" class=\"$clase\" $imagen->value>";
 
         // Llamamos al constructor de la clase Elemento

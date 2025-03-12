@@ -7,8 +7,8 @@ class DateBox extends Elemento
 {
     public function __construct($id, $clase, $placeHolder)
     {
-        if ($clase == null) {
-            $clase = "";
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
         }
 
         $html =

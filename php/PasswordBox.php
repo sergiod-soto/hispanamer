@@ -9,10 +9,15 @@ enum TipoPassword: string
 
 class PasswordBox extends Elemento
 {
+
     private $iconoOjo = "../multimedia/iconos/ojo.png";
 
     public function __construct($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPW)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+
         $html =
             "
             <form>
