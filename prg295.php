@@ -529,13 +529,27 @@ if ($method === "GET") {
         ]
         ,
         [
+            RadioButton::crear(
+                Elemento::getNewId(),
+                ["label1", "label2", "label3"],
+                "",
+                [1, 2, 3],
+                "",
+                PosicionTexto::DERECHA,
+                ""
+            ),
+            3,
+            0
+        ]
+        ,
+        [
             TextBox::crear(
                 Elemento::getNewId(),
                 "",
                 "",
                 "asdf"
             ),
-            3,
+            4,
             0
         ]
     ]);
