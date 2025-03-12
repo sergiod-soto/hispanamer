@@ -1,18 +1,17 @@
 
+const mapa = new Map();
+
 function setFocos(arrayFocos) {
 
-    //
-    //
     //      PROGRAMACION DEFENSIVA
     //
-    //      array vacio, repeticion de elemento (a->b, a->c)
-    //
+    //      - array vacio
+    //      - indeterminacion siguiente elemento (a->b, a->c)
     //
 
     if (arrayFocos.length <= 1) {
         throw "arrayFocos.length <= 1";
     }
-    const mapa = new Map();
 
     for (let i = 0; i < arrayFocos.length - 1; i++) {
         if (mapa.get(arrayFocos[i]) != undefined) {
@@ -78,8 +77,7 @@ function setFocos(arrayFocos) {
                 break;
 
             case ("DateBox"):
-
-                break;
+                throw "no se puede poner un datebox como objetivo de foco"
 
             case ("NoteBox"):
                 elementoActual.addEventListener("keydown", function (event) {
@@ -92,7 +90,13 @@ function setFocos(arrayFocos) {
                 break;
 
             case ("PasswordBox"):
+                elementoActual.addEventListener("keydown", function (event) {
+                    if (event.key === "Tab" && !event.shiftKey) {
 
+                        event.preventDefault();
+                        auxTab(elementoActual, elementoSiguiente, event);
+                    }
+                });
                 break;
 
             case ("RadioButton"):
@@ -146,8 +150,7 @@ function setFocos(arrayFocos) {
                 break;
 
             case ("TimeBox"):
-
-                break;
+                throw "no se puede poner un timebox como objetivo de foco"
 
             default:
                 throw "Tipo de elemento desconocido";
@@ -173,16 +176,14 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("DateBox"):
-
-                    break;
+                    throw "no se puede poner un datebox como objetivo de siguiente foco"
 
                 case ("NoteBox"):
                     elementoSiguiente.focus();
                     break;
 
                 case ("PasswordBox"):
-
-
+                    elementoSiguiente.focus();
                     break;
 
                 case ("RadioButton"):
@@ -224,7 +225,6 @@ function setFocos(arrayFocos) {
 
                 case ("SelectBox"):
 
-
                     break;
 
                 case ("Tabla"):
@@ -240,8 +240,7 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("TimeBox"):
-
-                    break;
+                    throw "no se puede poner un timebox como objetivo de siguiente foco"
 
                 default:
                     throw "Tipo de elemento desconocido";
@@ -270,9 +269,7 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("DateBox"):
-
-
-                    break;
+                    throw "no se puede poner un datebox como objetivo de siguiente foco"
 
                 case ("NoteBox"):
 
@@ -280,8 +277,7 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("PasswordBox"):
-
-
+                    elementoSiguiente.focus();
                     break;
 
                 case ("RadioButton"):
@@ -323,8 +319,7 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("TimeBox"):
-
-                    break;
+                    throw "no se puede poner un timebox como objetivo de siguiente foco"
 
                 default:
                     throw "Tipo de elemento desconocido";

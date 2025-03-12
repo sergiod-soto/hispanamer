@@ -571,6 +571,15 @@ if ($method === "GET") {
             ),
             6,
             0
+        ],
+        [
+            DateBox::crear(
+                "",
+                "",
+                "",
+            ),
+            7,
+            0
         ]
     ]);
     /* #endregion */

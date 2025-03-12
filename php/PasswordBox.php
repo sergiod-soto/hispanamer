@@ -1,6 +1,6 @@
 <?php
 
-enum TipoPassword: string
+enum PasswordTipo: string
 {
     case REGISTRO = "new-password";
     case LOGIN = "current-password";
@@ -24,7 +24,7 @@ class PasswordBox extends Elemento
                 <div id=\"$id\" class=\"password-container\" data-tipo=\"PasswordBox\">
                     <input type='password' id='input$id' class='$clase' name='$id' 
                         minlength='$minLength' maxlength=\"$maxLength\" 
-                            placeholder=\"$placeholder\" autocomplete=\"$tipoPW->value\">
+                            placeholder=\"$placeholder\" autocomplete=\"$tipoPW->value\" data-tipo=\"PasswordBox\">
                     <img src=\"$this->iconoOjo\" id=\"toggleIcon$id\" class=\"toggle-password\" alt=\"Mostrar contraseña\">
                 </div>
             </form>
