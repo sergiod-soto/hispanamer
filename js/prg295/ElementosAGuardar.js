@@ -1,5 +1,5 @@
-//guardar("id_39");
-//guardar("id_40");
+//guardar(["id_39", "id_40", "id_31"]);
+guardar();
 
 //console.debug(JSON.parse(tabla));
 

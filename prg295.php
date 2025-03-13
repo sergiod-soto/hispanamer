@@ -498,6 +498,18 @@ if ($method === "GET") {
             1,
             0
         ),
+        Button::crear(
+            "",
+            "",
+            "test",
+            "",
+            "
+                        const scroll = document.getElementById('id_31').childNodes[3].scrollTop;
+                        console.debug('Scroll actual:', scroll.scrollTop);
+                    ",
+            2,
+            0
+        )
     ]);
     /* #endregion */
 
@@ -523,7 +535,7 @@ if ($method === "GET") {
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////
-             
+
     ////////////////////////////////////////////////////////////////////////////////////////////
 
 
