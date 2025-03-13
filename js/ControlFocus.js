@@ -126,7 +126,15 @@ function setFocos(arrayFocos) {
                 break;
 
             case ("SelectBox"):
+                elementoActual.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter" &&
+                        document.activeElement === elementoActual) {
 
+                        elementoActual.checked = !elementoActual.checked;
+                        event.preventDefault();
+                        auxEnter(elementoActual, elementoSiguiente, event);
+                    }
+                });
                 break;
 
             case ("Tabla"):
@@ -224,7 +232,7 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("SelectBox"):
-
+                    // el tab que no haga nada
                     break;
 
                 case ("Tabla"):
@@ -272,8 +280,7 @@ function setFocos(arrayFocos) {
                     throw "no se puede poner un datebox como objetivo de siguiente foco"
 
                 case ("NoteBox"):
-
-
+                    // se deja como funciona por defecto
                     break;
 
                 case ("PasswordBox"):
@@ -302,7 +309,6 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("SelectBox"):
-
 
                     break;
 

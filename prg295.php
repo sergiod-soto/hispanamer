@@ -573,10 +573,13 @@ if ($method === "GET") {
             0
         ],
         [
-            DateBox::crear(
+            SelectBox::crear(
                 "",
                 "",
                 "",
+                [1, 2, 3, 4, 5],
+                [1, 2, 3, 4, 5],
+                2
             ),
             7,
             0
