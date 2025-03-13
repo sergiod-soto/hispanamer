@@ -528,14 +528,13 @@ if ($method === "GET") {
             0
         ],
         [
-            RadioButton::crear(
-                Elemento::getNewId(),
-                ["label1", "label2", "label3"],
+            PasswordBox::crear(
                 "",
-                [1, 2, 3],
                 "",
-                PosicionTexto::DERECHA,
-                ""
+                "",
+                "",
+                "",
+                PasswordTipo::LOGIN
             ),
             3,
             0

@@ -90,7 +90,7 @@ function setFocos(arrayFocos) {
                 break;
 
             case ("PasswordBox"):
-                elementoActual.addEventListener("keydown", function (event) {
+                document.getElementById("input" + elementoActualID).addEventListener("keydown", function (event) {
                     if (event.key === "Tab" && !event.shiftKey) {
 
                         event.preventDefault();
@@ -126,15 +126,7 @@ function setFocos(arrayFocos) {
                 break;
 
             case ("SelectBox"):
-                elementoActual.addEventListener("keydown", function (event) {
-                    if (event.key === "Enter" &&
-                        document.activeElement === elementoActual) {
-
-                        elementoActual.checked = !elementoActual.checked;
-                        event.preventDefault();
-                        auxEnter(elementoActual, elementoSiguiente, event);
-                    }
-                });
+                // de momento no se hace nada
                 break;
 
             case ("Tabla"):
@@ -284,7 +276,7 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("PasswordBox"):
-                    elementoSiguiente.focus();
+                    document.getElementById("input" + elementoSiguiente.id).focus();
                     break;
 
                 case ("RadioButton"):
@@ -309,7 +301,7 @@ function setFocos(arrayFocos) {
                     break;
 
                 case ("SelectBox"):
-
+                    // de momento asi se deja
                     break;
 
                 case ("Tabla"):
