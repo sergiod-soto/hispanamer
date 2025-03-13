@@ -9,12 +9,12 @@ class TextBox extends Elemento
 
     public $texto;
 
-    public function __construct($id, string $clase, $text, $placeHolder)
+    public function __construct($id, string $clase, $text, $placeHolder, $fila, $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
         }
-        
+
         $html =
             "
             <div><input type=\"text\" class=\"$clase\" id=\"$id\" placeholder=\"$placeHolder\" data-tipo=\"TextBox\"/>
@@ -26,6 +26,8 @@ class TextBox extends Elemento
             $id,
             $clase,
             $html,
+            $fila,
+            $columna
         );
     }
 
@@ -33,7 +35,7 @@ class TextBox extends Elemento
         patron de diseño para crear un TextBox con modo creado, el cual con el propio TextBox
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $text, $placeHolder)
+    public static function crear($id, string $clase, $text, $placeHolder, $fila, $columna)
     {
         // Crea el botón
         $boton = new self(
@@ -41,6 +43,8 @@ class TextBox extends Elemento
             $clase,
             $text,
             $placeHolder,
+            $fila,
+            $columna
         );
 
         return $boton;

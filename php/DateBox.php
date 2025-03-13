@@ -5,7 +5,7 @@
 */
 class DateBox extends Elemento
 {
-    public function __construct($id, $clase, $placeHolder)
+    public function __construct($id, $clase, $placeHolder, $fila, $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -33,6 +33,8 @@ class DateBox extends Elemento
             $id,
             $clase,
             $html,
+            $fila,
+            $columna
         );
     }
 
@@ -40,13 +42,15 @@ class DateBox extends Elemento
        patron de diseño para crear un boton con modo creado, el cual con el propio boton
        y evitar dependencia circular
    */
-    public static function crear($id, string $clase, $placeHolder)
+    public static function crear($id, string $clase, $placeHolder, $fila, $columna)
     {
         // Crea el dateBox
         $dateBox = new self(
             $id,
             $clase,
             $placeHolder,
+            $fila,
+            $columna
         );
 
         return $dateBox;

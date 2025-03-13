@@ -7,7 +7,6 @@ class Tabla_Celda extends Elemento
 {
 
     public $contenido;
-    public $tabla;
 
     public function __construct($id, string $clase, $elemento)
     {
@@ -16,8 +15,9 @@ class Tabla_Celda extends Elemento
             $id,
             $clase,
             "",
+            0,
+            0
         );
-        $this->tabla = null;
         $this->contenido = $elemento;
     }
 

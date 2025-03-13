@@ -5,7 +5,7 @@
 */
 class CheckBox extends Elemento
 {
-    public function __construct($id, string $clase, $text, $name, $value)
+    public function __construct($id, string $clase, $text, $name, $value, $fila, $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -24,10 +24,10 @@ class CheckBox extends Elemento
             <label for='$id'>$text</label>
             ";
 
-        parent::__construct($id, $clase, $html);
+        parent::__construct($id, $clase, $html, $fila, $columna);
 
     }
-    public static function crear($id, string $clase, $text, $name, $value)
+    public static function crear($id, string $clase, $text, $name, $value, $fila, $columna)
     {
         // Crea el checkBox
         $checkBox = new self(
@@ -36,6 +36,8 @@ class CheckBox extends Elemento
             $text,
             $name,
             $value,
+            $fila,
+            $columna
         );
 
         return $checkBox;

@@ -19,8 +19,4 @@ let Peticion = class {
                 console.error('Error:', error);
             });
     }
-    peticion(body, destino) {
-        // Enviar la hora seleccionada al servidor usando fetch
-
-    };
 }

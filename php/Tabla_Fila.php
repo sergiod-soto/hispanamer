@@ -21,6 +21,8 @@ class Tabla_Fila extends Elemento
             $id,
             $clase,
             "",
+            0,
+            0
         );
 
         $this->columnas = $columnas;

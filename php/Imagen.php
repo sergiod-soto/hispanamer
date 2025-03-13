@@ -5,7 +5,7 @@
 */
 class Imagen extends Elemento
 {
-    public function __construct($id, string $clase, $imagen)
+    public function __construct($id, string $clase, $imagen, $fila, $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -18,19 +18,23 @@ class Imagen extends Elemento
             $id,
             $clase,
             $html,
+            $fila,
+            $columna
         );
     }
 
     /*
         patron de diseño para crear una imagen
     */
-    public static function crear($id, string $clase, $imagen)
+    public static function crear($id, string $clase, $imagen, $fila, $columna)
     {
         // Crea la imagen
         $imagen = new self(
             $id,
             $clase,
             $imagen,
+            $fila,
+            $columna
         );
 
         return $imagen;

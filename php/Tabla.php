@@ -4,6 +4,12 @@
     clase para generar una tabla
 
 
+
+    HAY UN BUG QUE PROBOCA QUE, EN CASO DE NO SER FILA Y COLUMNA == 0 EN EL CONSTRUCTOR,
+    EL PROGRAMA SE ROMPE INCLUSO CUANDO AL VALER $FILA == 0 Y $COLUMNA == 0.
+    
+    SI EL 0 ES VALOR POR REFERENCIA SE ROMPE
+
 */
 class Tabla extends Elemento
 {
@@ -15,7 +21,7 @@ class Tabla extends Elemento
     // variable para el id de las filas de la tabla
     public static $idFila = 0;
 
-    public function __construct($id, string $clase, array $cabecera, array $datos)
+    public function __construct($id, string $clase, array $cabecera, array $datos, $fila, $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -26,6 +32,8 @@ class Tabla extends Elemento
             $id,
             $clase,
             "",
+            $fila,
+            $columna
         );
 
         $this->cabecera = $cabecera;
@@ -36,7 +44,7 @@ class Tabla extends Elemento
         patron de diseño para crear una tabla con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, array $cabecera, array $datos)
+    public static function crear($id, string $clase, array $cabecera, array $datos, $fila, $columna)
     {
         //////////////////////////////////////////////////////////////////////
         //
@@ -120,6 +128,8 @@ class Tabla extends Elemento
             $clase,
             $cabecera,
             $datos,
+            0,
+            0
         );
 
         $tabla->filas = $filas;

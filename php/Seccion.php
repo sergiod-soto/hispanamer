@@ -12,17 +12,19 @@ class Seccion extends Elemento
     public $elementos;
 
 
-    public function __construct($id, $clase)
+    public function __construct($id, $clase, $fila, $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
         }
-        
+
         $html = "";
         parent::__construct(
             $id,
             $clase,
             $html,
+            $fila,
+            $columna
         );
         $this->elementos = [];
     }
@@ -31,12 +33,14 @@ class Seccion extends Elemento
         patron de diseño para crear una seccion con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase)
+    public static function crear($id, string $clase, $fila, $columna)
     {
         // Crea la seccion
         $seccion = new self(
             $id,
             $clase,
+            $fila,
+            $columna
         );
 
         return $seccion;
@@ -50,15 +54,28 @@ class Seccion extends Elemento
      */
     function add($elementos)
     {
+
+
         if (count($elementos) == 0) {
             throw new Exception("Se ha intentado anhadir un elemento, pero no se ha encontrado ninguno");
         }
 
-        foreach ($elementos as $item) {
-            $elemento = $item[0];
-            $fila = $item[1];
-            $columna = $item[2];
 
+
+        // echo $elementos;
+        // echo("<br>");
+        // echo count($elementos);
+        // echo("<br>");
+        // var_dump($elementos[0]);
+        // echo("<br>");
+
+
+
+
+        for ($i = 0; $i < count($elementos); $i++) {
+            $elemento = $elementos[$i];
+            $fila = $elementos[$i]->fila;
+            $columna = $elementos[$i]->columna;
             $this->elementos[$fila][$columna] = $elemento;
         }
     }

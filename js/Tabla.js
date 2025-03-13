@@ -6,17 +6,42 @@
  * @param {*} f 
  */
 function funcionCabecera(f) {
-  // Se seleccionan todas las celdas de la cabecera
-  const headers = document.querySelectorAll('thead th');
-  headers.forEach(header => {
-    header.addEventListener('click', function () {
-      f(header);
-    });
-  });
+
+  const cabeceras = document.getElementsByClassName("cabeceraTabla");
+
+  for (const cabecera of cabeceras) {
+
+    const divs = cabecera.children; // Obtiene los divs hijos
+
+    for (const div of divs) {
+
+      const hijo = div.firstChild; // Obtiene el primer hijo (puede ser un nodo de texto o un elemento)
+
+      if (hijo) {
+
+        // si el hijo es texto plano
+        if (hijo.nodeType === Node.TEXT_NODE) {
+          div.style.cursor = "pointer";
+          div.addEventListener('click', function () {
+            f(div);
+          });
+
+          // si el hijo es un elemento (como un icono, por ej)
+        } else if (hijo.nodeType === Node.ELEMENT_NODE) {
+          div.style.cursor = "pointer";
+          div.addEventListener('click', function () {
+            f(div);
+          });
+        }
+      }
+    }
+  }
+
+
 
   // pongo a toda la cabecera que el cursor sea una mano
   document.querySelectorAll("thead th").forEach(th => {
-    th.style.cursor = "pointer";
+
   });
 }
 
@@ -41,6 +66,11 @@ function funcionFila(f) {
 
 function sincronizarCabeceras() {
   let tabla = document.querySelector("table"); // Selecciona la tabla
+
+  if (tabla === undefined || tabla === null) {
+    return;
+  }
+
   let cabecera = document.querySelector(".cabeceraTabla"); // Selecciona el div contenedor
   let columnas = tabla.querySelectorAll("colgroup col"); // Selecciona las columnas de la cabecera de la tabla
   let divs = cabecera.children; // Selecciona los divs dentro de cabeceraTabla

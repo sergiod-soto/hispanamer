@@ -7,7 +7,6 @@ include_once "php/Includes.php";
 
 $method = $_SERVER["REQUEST_METHOD"];
 
-echo $_REQUEST;
 
 
 if ($method === "GET") {
@@ -83,6 +82,8 @@ if ($method === "GET") {
     (
         Elemento::getNewId(),
         "",
+        0,
+        0
     );
 
 
@@ -90,169 +91,177 @@ if ($method === "GET") {
     /* #region base */
     $base->add(
         [
-            [
-                // cabecera:
-                $cabecera = Seccion::crear
-                (
-                    Elemento::getNewId(),
-                    "cabecera",
-                ),
+
+            // cabecera:
+            $cabecera = Seccion::crear
+            (
+                Elemento::getNewId(),
+                "cabecera",
                 0,
                 0
-            ],
-            [
-                $cuerpo = Seccion::crear
-                (
-                    Elemento::getNewId(),
-                    "cuerpo",
-                ),
+            ),
+
+            $cuerpo = Seccion::crear
+            (
+                Elemento::getNewId(),
+                "cuerpo",
                 1,
                 0
-            ]
+            ),
         ]
     );
+
+
     /* #endregion */
 
     /* #region cabecera */
     $cabecera->add(
         [
-            [
-                $cabeceraSup = Seccion::crear
-                (
-                    Elemento::getNewId(),
-                    "cabeceraSup",
-                ),
+
+            $cabeceraSup = Seccion::crear
+            (
+                Elemento::getNewId(),
+                "cabeceraSup",
                 0,
                 0
-            ],
-            [
-                $cabeceraInf = Seccion::crear
-                (
-                    Elemento::getNewId(),
-                    "cabeceraInf",
-                ),
+            ),
+
+            $cabeceraInf = Seccion::crear
+            (
+                Elemento::getNewId(),
+                "cabeceraInf",
                 1,
                 0
-            ]
+            ),
         ]
     );
     /* #endregion */
 
     /* #region cabeceraSup */
     $cabeceraSup->add([
-        [
-            $botonAtrasCabecera = Button::crear(
-                Elemento::getNewId(),
-                "",
-                iconoFlechaAtras,
-                "",
-                "console.debug('Atras')"
-            ),
+
+        $botonAtrasCabecera = Button::crear(
+            Elemento::getNewId(),
+            "",
+            iconoFlechaAtras,
+            "",
+            "console.debug('Atras')",
             10,
             10
-        ],
-        [
-            Link::crear(
+        ),
+
+        Link::crear(
+            Elemento::getNewId(),
+            "",
+            "http://localhost/corporativo/prg181.php",
+            Target::Blank,
+            Imagen::crear(
                 Elemento::getNewId(),
-                "",
-                "http://localhost/corporativo/prg181.php",
-                Target::Blank,
-                Imagen::crear(
-                    Elemento::getNewId(),
-                    "imagenLogo",
-                    Imagenes::Hispanamer
-                ),
-                ""
+                "imagenLogo",
+                Imagenes::Hispanamer,
+                0,
+                0
             ),
+            "",
             10,
             20
-        ],
-        [
-            $cabeceraSupp1 = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+        ),
+
+        $cabeceraSupp1 = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             10,
             30
-        ],
-        [
-            $cabeceraSupp2 = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+        ),
+
+        $cabeceraSupp2 = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             10,
             40
-        ],
-        [
-            $cabeceraSupp3 = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+        ),
+
+        $cabeceraSupp3 = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             10,
             50
-        ],
-        [
-            $cabeceraSupp4 = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+        ),
+
+        $cabeceraSupp4 = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             10,
             60
-        ],
+        ),
     ]);
 
     $cabeceraSupp1->add([
-        [
-            $cabeceraSupp1_1 = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+
+        $cabeceraSupp1_1 = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             0,
             0
-        ],
-        [
-            $cabeceraSupp1_2 = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+        ),
+
+        $cabeceraSupp1_2 = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             0,
             0
-        ]
+        ),
+
     ]);
     $cabeceraSupp1_1->add([
-        [
-            Texto::crear(Elemento::getNewId(), "", "Sesión iniciada:Enrique Becerra Cabezas"),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            "Sesión iniciada:Enrique Becerra Cabezas",
             0,
             0
-        ]
+        ),
     ]);
     $cabeceraSupp1_2->add([
-        [
-            Texto::crear(Elemento::getNewId(), "", "Boletines de calidad. Tabla de unidades de medidas."),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            "Boletines de calidad. Tabla de unidades de medidas.",
             1,
             0
-        ]
+        ),
     ]);
     $cabeceraSupp2->add([
-        [
-            Texto::crear(Elemento::getNewId(), "", Programa::fechaActual()),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            Programa::fechaActual(),
             0,
             0
-        ]
+        ),
     ]);
     $cabeceraSupp3->add([
-        [
-            Texto::crear(Elemento::getNewId(), "", "Versión: patatín-patatán."),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            "Versión: patatín-patatán.",
             0,
             0
-        ]
+        ),
     ]);
     $cabeceraSupp4->add([
-        [
-            Texto::crear(Elemento::getNewId(), "", "Ejercicio fiscal: 2025"),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            "Ejercicio fiscal: 2025",
             0,
             0
-        ]
+        ),
     ]);
 
     /* #endregion */
@@ -260,122 +269,108 @@ if ($method === "GET") {
     /* #region cabeceraInf */
     $cabeceraInf->add(
         [
-            [
-                $cabeceraInf1 = Seccion::crear
-                (
-                    Elemento::getNewId(),
-                    "",
-                ),
+            $cabeceraInf1 = Seccion::crear
+            (
+                Elemento::getNewId(),
+                "",
                 0,
                 10
-            ],
-            [
-                $cabeceraInf2 = Seccion::crear
-                (
-                    Elemento::getNewId(),
-                    "",
-                ),
+            ),
+
+            $cabeceraInf2 = Seccion::crear
+            (
+                Elemento::getNewId(),
+                "",
                 0,
                 20
-            ],
-            [
-                $cabeceraInf3 = Seccion::crear
-                (
-                    Elemento::getNewId(),
-                    "",
-                ),
+            ),
+
+            $cabeceraInf3 = Seccion::crear
+            (
+                Elemento::getNewId(),
+                "",
                 0,
                 30
-            ]
+            ),
         ]
     );
 
     $cabeceraInf1->add([
-        [
-            Button::crear(
-                Elemento::getNewId(),
-                "boton-cabecera",
-                iconoNuevo,
-                "Nuevo",
-                "console.debug('clic en nuevo')",
-            ),
+
+        Button::crear(
+            Elemento::getNewId(),
+            "boton-cabecera",
+            iconoNuevo,
+            "Nuevo",
+            "console.debug('clic en nuevo')",
             0,
             0
-        ],
-        [
-            Button::crear(
-                Elemento::getNewId(),
-                "boton-cabecera",
-                iconoEditar,
-                "Editar",
-                "console.debug('clic en editar')",
-            ),
+        ),
+
+        Button::crear(
+            Elemento::getNewId(),
+            "boton-cabecera",
+            iconoEditar,
+            "Editar",
+            "console.debug('clic en editar')",
             0,
             1
-        ],
-        [
-            Button::crear(
-                Elemento::getNewId(),
-                "boton-cabecera",
-                iconoEliminar,
-                "Borrar",
-                "console.debug('clic en borrar')",
-            ),
+        ),
+        Button::crear(
+            Elemento::getNewId(),
+            "boton-cabecera",
+            iconoEliminar,
+            "Borrar",
+            "console.debug('clic en borrar')",
             0,
             2
-        ]
+        ),
     ]);
 
     $cabeceraInf2->add([
-        [
-            Button::crear(
-                Elemento::getNewId(),
-                "boton-cabecera",
-                iconoPDF,
-                "Descarga PDF",
-                "console.debug('clic en PDF')",
-            ),
+
+        Button::crear(
+            Elemento::getNewId(),
+            "boton-cabecera",
+            iconoPDF,
+            "Descarga PDF",
+            "console.debug('clic en PDF')",
             0,
             0
-        ],
-        [
-            Button::crear(
-                Elemento::getNewId(),
-                "boton-cabecera",
-                iconoEXCEL,
-                "Descarga Excel",
-                "console.debug('clic en EXCEL')",
-            ),
+        ),
+
+        Button::crear(
+            Elemento::getNewId(),
+            "boton-cabecera",
+            iconoEXCEL,
+            "Descarga Excel",
+            "console.debug('clic en EXCEL')",
             0,
             1
-        ],
-
+        ),
     ]);
 
     $cabeceraInf3->add([
-        [
-            Button::crear(
-                Elemento::getNewId(),
-                "boton-cabecera",
-                iconoGuardar,
-                "Guardar",
-                "console.debug('clic en guardar')",
-            ),
+
+        Button::crear(
+            Elemento::getNewId(),
+            "boton-cabecera",
+            iconoGuardar,
+            "Guardar",
+            "console.debug('clic en guardar')",
             0,
             0
-        ],
-        [
-            Button::crear(
-                Elemento::getNewId(),
-                "boton-cabecera",
-                iconoCancelar,
-                "Cancelar",
-                "console.debug('clic en cancelar')",
-            ),
+        ),
+
+        Button::crear(
+            Elemento::getNewId(),
+            "boton-cabecera",
+            iconoCancelar,
+            "Cancelar",
+            "console.debug('clic en cancelar')",
             0,
             1
-        ],
-
+        ),
     ]);
 
 
@@ -383,137 +378,126 @@ if ($method === "GET") {
 
     /* #region body */
     $cuerpo->add([
-        [
-            $cuerpo1 = Seccion::crear(
-                Elemento::getNewId(),
-                "tabla",
-            ),
+
+        $cuerpo1 = Seccion::crear(
+            Elemento::getNewId(),
+            "tabla",
             0,
             0
-        ],
-        [
-            $cuerpo2 = Seccion::crear(
-                Elemento::getNewId(),
-                "datos",
-            ),
+        ),
+
+        $cuerpo2 = Seccion::crear(
+            Elemento::getNewId(),
+            "datos",
             0,
             1
-        ]
+        ),
     ]);
 
-    $cuerpo1->add([
+    $cuerpo1->add(
         [
             $tabla = Tabla::crear(
                 Elemento::getNewId(),
                 "",
                 ["", "Código", "Medidas"],
                 $datos,
-            ),
-            0,
-            0
+                0,
+                0
+            )
         ]
-    ]);
+    );
     /* #endregion */
 
     /* #region datos */
     $cuerpo2->add(
         [
-            [
-                $cuerpo21 = Seccion::crear(
-                    Elemento::getNewId(),
-                    ""
-                ),
+            $cuerpo21 = Seccion::crear(
+                Elemento::getNewId(),
+                "",
                 0,
                 0
-            ],
-            [
-                $cuerpo22 = Seccion::crear(
-                    Elemento::getNewId(),
-                    ""
-                ),
+            ),
+
+            $cuerpo22 = Seccion::crear(
+                Elemento::getNewId(),
+                "",
                 1,
                 0
-            ],
+            ),
         ],
     );
 
 
     $cuerpo21->add([
-        [
-            Texto::crear(
-                Elemento::getNewId(),
-                "",
-                "Consulta"
-            ),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            "Consulta",
             0,
             0
-        ]
+        ),
     ]);
+
+
     $cuerpo22->add([
-        [
-            $seccionTexto = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+
+        $seccionTexto = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             0,
             0
-        ],
-        [
-            $seccionCuadro = Seccion::crear(
-                Elemento::getNewId(),
-                ""
-            ),
+        ),
+
+        $seccionCuadro = Seccion::crear(
+            Elemento::getNewId(),
+            "",
             0,
             1
-        ],
+        ),
     ]);
 
     /* #endregion */
 
     /* #region datos inferior */
     $seccionTexto->add([
-        [
-            Texto::crear(
-                Elemento::getNewId(),
-                "",
-                "Código:"
-            ),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            "Código:",
             0,
             0
-        ],
-        [
-            Texto::crear(
-                Elemento::getNewId(),
-                "",
-                "Unidad de medidas:"
-            ),
+        ),
+
+        Texto::crear(
+            Elemento::getNewId(),
+            "",
+            "Unidad de medidas:",
             1,
             0
-        ]
+        ),
     ]);
 
 
     $seccionCuadro->add([
-        [
-            TextBox::crear(
-                Elemento::getNewId(),
-                "",
-                "",
-                "Código"
-            ),
+
+        TextBox::crear(
+            Elemento::getNewId(),
+            "",
+            "",
+            "Código",
             0,
             0
-        ],
-        [
-            TextBox::crear(
-                Elemento::getNewId(),
-                "",
-                "",
-                "Unidades"
-            ),
+        ),
+        TextBox::crear(
+            Elemento::getNewId(),
+            "",
+            "",
+            "Unidades",
             1,
             0
-        ]
+        ),
     ]);
     /* #endregion */
 
@@ -538,9 +522,9 @@ if ($method === "GET") {
 
 
 
-    //////////////////////////////////////////////////////////////////////////////////////////////
-    //          
-    //////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////
+             
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
 
     $datos = json_encode($datos);

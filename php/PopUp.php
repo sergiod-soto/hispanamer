@@ -24,7 +24,7 @@ class PopUp extends Elemento
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
         }
-        
+
         $html =
             "
             <div id='$id' class='popup $estado $clase'>
@@ -37,6 +37,8 @@ class PopUp extends Elemento
             $id,
             $clase,
             $html,
+            0,
+            0
         );
     }
 
