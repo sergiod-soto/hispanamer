@@ -341,3 +341,19 @@ function setFocos(arrayFocos) {
         }
     }
 }
+
+
+/**
+  * Funcion que sobrescribe el comportamiento normal de "elemento"
+  * con "funcion" cuando se aprieta "enter"
+  * 
+  * @param {*} elemento 
+  * @param {*} funcion 
+  */
+function sobrescribirEnter(elemento, funcion) {
+    document.getElementById(elemento).addEventListener("keydown", function (event) {
+        if (event.key === "Enter" && document.activeElement === document.getElementById(elemento)) {
+            funcion();
+        }
+    });
+}

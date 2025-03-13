@@ -5,14 +5,16 @@
   .table-container {
       max-width: 100%;
       display: block;
-
-      overflow-y: auto;
-      overflow-x: auto;
       background: #fff;
       box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
       position: relative;
-      /* Necesario para que sticky funcione */
+      border:  1px solid #ccc;
+  }
 
+  .tabla-scroll {
+      overflow-y: auto;
+      overflow-x: auto;
+      max-height: 700px;
   }
 
   /* Estilos de la tabla */
@@ -20,15 +22,6 @@
       width: 100%;
       border-collapse: collapse;
   }
-
-  /* Cabecera fija */
-  thead {
-      background-color: #2c3e50;
-      color: #ecf0f1;
-
-
-  }
-
 
   thead th {
       z-index: 10;
@@ -38,23 +31,22 @@
 
   }
 
-  th {
-      top: 0;
-      position: sticky;
-
-  }
-
   tbody td {
       padding: 10px;
       border: 1px solid #ccc;
       text-align: left;
   }
 
-  /* Estilo de filas para un look industrial */
   tbody tr:nth-child(even) {
       background-color: #ecf0f1;
   }
 
   tbody tr:hover {
       background-color: #dcdde1;
+  }
+
+  .cabeceraTabla {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      display: flex;
   }

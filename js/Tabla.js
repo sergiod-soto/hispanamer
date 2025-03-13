@@ -39,6 +39,28 @@ function funcionFila(f) {
 }
 
 
+function sincronizarCabeceras() {
+  let tabla = document.querySelector("table"); // Selecciona la tabla
+  let cabecera = document.querySelector(".cabeceraTabla"); // Selecciona el div contenedor
+  let columnas = tabla.querySelectorAll("colgroup col"); // Selecciona las columnas de la cabecera de la tabla
+  let divs = cabecera.children; // Selecciona los divs dentro de cabeceraTabla
+
+  if (columnas.length !== divs.length) {
+    console.warn("Número de columnas y divs no coinciden. columnas.length: " + columnas.length + ", divs.length: " + divs.length);
+    return;
+  }
+
+  columnas.forEach((columna, index) => {
+    divs[index].style.width = `${columna.offsetWidth}px`; // Copia el ancho de cada columna
+  });
+}
+window.addEventListener("load", sincronizarCabeceras);
+window.addEventListener("resize", sincronizarCabeceras);
+
+
+
+
+
 
 
 

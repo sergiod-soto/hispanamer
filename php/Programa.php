@@ -11,12 +11,10 @@ class Programa implements IRenderizable
 {
 
     public $nombre;
-    public $conexion;           // conexion a la base de datos
     public $html;               // html de la pagina del programa
     public $cabecera;
     public $titulo;             // titulo que aparece en la pestanha del navegador
     public $cuerpo;
-    public $modo;
     public $elementos;
     public $autor;
     public $fecha;

@@ -37,7 +37,7 @@ class Link extends Elemento
 
         $html =
             "
-            <a href=\"$url\" target=\"$target->value\" title=\"$texto\">
+            <a id=\"$id\" href=\"$url\" target=\"$target->value\" title=\"$texto\">
                 $contenido
             </a>
             ";

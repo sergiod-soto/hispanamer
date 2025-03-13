@@ -406,7 +406,7 @@ if ($method === "GET") {
             $tabla = Tabla::crear(
                 Elemento::getNewId(),
                 "",
-                ["", "codigo", "medidas"],
+                ["", "Código", "Medidas"],
                 $datos,
             ),
             0,
@@ -512,75 +512,6 @@ if ($method === "GET") {
                 "Unidades"
             ),
             1,
-            0
-        ],
-        [
-            RadioButton::crear(
-                Elemento::getNewId(),
-                ["label1", "label2", "label3"],
-                "",
-                [1, 2, 3],
-                "",
-                PosicionTexto::DERECHA,
-                ""
-            ),
-            2,
-            0
-        ],
-        [
-            PasswordBox::crear(
-                "",
-                "",
-                "",
-                "",
-                "",
-                PasswordTipo::LOGIN
-            ),
-            3,
-            0
-        ],
-        [
-            CheckBox::crear(
-                Elemento::getNewId(),
-                "",
-                "asdf",
-                "asdf",
-                "asdf"
-            ),
-            4,
-            0
-        ],
-        [
-            TextBox::crear(
-                Elemento::getNewId(),
-                "",
-                "",
-                "asdf"
-            ),
-            5,
-            0
-        ],
-        [
-            NoteBox::crear(
-                "",
-                "",
-                "",
-                "placeholder",
-                ""
-            ),
-            6,
-            0
-        ],
-        [
-            SelectBox::crear(
-                "",
-                "",
-                "",
-                [1, 2, 3, 4, 5],
-                [1, 2, 3, 4, 5],
-                2
-            ),
-            7,
             0
         ]
     ]);

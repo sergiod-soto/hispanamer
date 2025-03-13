@@ -139,8 +139,40 @@ class Tabla extends Elemento
         foreach ($this->filas as $fila) {
             $htmlFilas .= $fila->renderizar();
         }
+
+        $cabecera = $this->cabecera;
+
+
+        $htmlCabecera = "<div id =\"cabecera$this->id\" class=\"cabeceraTabla $this->id\">";
+
+        for ($i = 0; $i < count($this->cabecera); $i++) {
+            $htmlCabecera .= "<div>";
+
+            if (is_string($cabecera[$i])) {
+                $htmlCabecera .= $cabecera[$i];
+
+            } elseif (is_int($cabecera[$i])) {
+                $htmlCabecera .= (string) $cabecera[$i] . "</td>";
+
+            } elseif (is_object($cabecera[$i]) && method_exists($cabecera[$i], 'renderizar')) {
+                $htmlCabecera .= $cabecera[$i]->renderizar() . "</td>";
+
+            } else {
+                $htmlCabecera .= "$cabecera[$i]" . "</td>";
+            }
+            $htmlCabecera .= "</div>";
+        }
+
+
+
+        $htmlCabecera .= "</div>";
         //
-        $html = "<div class=\" div-tabla-$this->id table-container\"><div class=\"tabla-scroll\"><table id=\"$this->id\"  class=\"$this->clase\"";
+        $html = "
+                    <div id=\"$this->id\" class=\" div-tabla-$this->id table-container\">
+                        $htmlCabecera
+                        <div class=\"tabla-scroll\">
+                        <table class=\"$this->clase\"
+                ";
 
         // obtengo id para cada cabecera
         $cabeceraId = [];
@@ -152,48 +184,20 @@ class Tabla extends Elemento
         // anhado el <colgroup>
         $html .= "<colgroup>";
         for ($i = 0; $i < count($cabeceraId); $i++) {
-            $html .= "<col id=\" $cabeceraId[$i] \">";
+            $html .= "<col id=\"$cabeceraId[$i]\">";
         }
         $html .= "</colgroup>";
 
 
-        $html .= "<thead>";
 
 
-        // anhado la cabecera
-        $html .=
-            "
-            <tr>
-            ";
-        for ($i = 0; $i < count($this->cabecera); $i++) {
-            $cabecera = $this->cabecera[$i];
-            $html .= "<th><div class = \"div_borde_cabecera $i\">";
-
-            if (is_string($cabecera)) {
-                $html .= $cabecera . "</td>";
-
-            } elseif (is_int($cabecera)) {
-                $html .= (string) $cabecera . "</td>";
-
-            } elseif (is_object($cabecera) && method_exists($cabecera, 'renderizar')) {
-                $html .= $cabecera->renderizar() . "</td>";
-
-            } else {
-                $html .= "[NULL]" . "</td>";
-            }
 
 
-            if ($i == (count($this->cabecera) - 1)) {
-                $html .= "<div class=\"resizer\" data-left-col=\"" . $cabeceraId[$i] . "\"></div></div></th>";
-            } else {
-                $html .= "<div class=\"resizer\" data-left-col=\"" . $cabeceraId[$i] .
-                    "\" data-right-col=\"" . $cabeceraId[$i + 1] . "\"></div></div></th>";
-            }
-        }
-        $html .=
-            "
-            </tr></div></thead>
-            ";
+
+
+
+
+
 
 
         // anhado el cuerpo

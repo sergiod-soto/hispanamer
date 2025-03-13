@@ -1,5 +1,35 @@
-
 /* cambia el text align de la columna elegida */
-table#id_1 tbody td:nth-child(3) {
+#id_31 tbody td:nth-child(1) {
+    text-align: center;
+}
+
+#id_31 tbody td:nth-child(2) {
     text-align: right;
+}
+
+#id_31 tbody td:nth-child(3) {
+    text-align: left;
+}
+
+#id_41 {
+    width: 20px;
+}
+
+#id_42 {
+    width: 100px;
+}
+
+
+.cabeceraSup {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 9px;
+}
+
+#id_6 {
+    width: 150px;
+    margin-right: 150px;
+}
+
+#id_5 {
+    margin-right: 50px;
 }

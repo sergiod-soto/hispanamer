@@ -13,7 +13,7 @@ abstract class Elemento implements IRenderizable
     public $id;
     public $clase;
     
-    // contador para la gestion de ids de los elementos
+    // contador para la gestion de ids de los
     public static $idElemento = 0;
 
 
