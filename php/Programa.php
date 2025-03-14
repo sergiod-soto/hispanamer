@@ -46,34 +46,41 @@ class Programa implements IRenderizable
 
         // scripts genericos
         $this->scriptsBaseCabecera = [
-            "js/DateBox.js",
-            "js/NoteBox.js",
-            "js/PasswordBox.js",
-            "js/Popup.js",
-            "js/SelectBox.js",
-            "js/Tabla.js",
-            //"js/TextBox.js",
-            "js/TimeBox.js",
+
         ];
 
         $this->scriptsBaseBody = [
-            "js/RadioButton.js",
             //
-            "js/ControlSesion.js",
-            "js/ControlFocus.js",
             "js/Calculadora.js",
-
+            "js/ControlFocus.js",
+            "js/ControlSesion.js",
+            "js/DateBox.js",
+            "js/Modo.js",
+            "js/Notas.js",
+            "js/NoteBox.js",
+            "js/PasswordBox.js",
+            "js/Peticion.js",
+            "js/Popup.js",
+            "js/RadioButton.js",
+            "js/SelectBox.js",
+            "js/Tabla.js",
+            "js/TimeBox.js",
+            "js/Utils.js",
         ];
         $this->sonidosBase = [
+
         ];
 
         $this->cssBase = [
-            "css/DateBox.css",
-            "css/Popup.css",
-            "css/PasswordBox.css",
-            "css/Tabla.css",
+            "css/Cabecera.css",
             "css/Calculadora.css",
-            "css/PiePagina.css"
+            "css/DateBox.css",
+            "css/GestionModo.css",
+            "css/NoteBox.css",
+            "css/PasswordBox.css",
+            "css/PiePagina.css",
+            "css/Popup.css",
+            "css/Tabla.css",
         ];
     }
 

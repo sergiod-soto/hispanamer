@@ -1,9 +1,10 @@
 let Peticion = class {
     constructor(body, destino) {
+        console.debug("entra?");
         fetch(destino, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/json",
             },
             body: body
         })

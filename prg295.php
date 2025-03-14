@@ -4,7 +4,6 @@ include_once "php/Includes.php";
 
 
 
-
 $method = $_SERVER["REQUEST_METHOD"];
 
 
@@ -22,15 +21,12 @@ if ($method === "GET") {
     /**
      *      realizo la consulta inicial
      */
-    try {
-        $conexion = new Conexion("localhost", "hispanamer", "root", "025811");
-        $datos = $conexion->consulta("SELECT codigo, medidas FROM boletines_tabla_medidas");
-        $datos = Tabla::addId($datos, 1);
-    } catch (Exception) {
-        echo ("error conectando con el servidor");
-    }
-    //
-    //
+
+    $conexion = new Conexion("localhost", "hispanamer", "root", "025811");
+    $datos = $conexion->consulta("SELECT codigo, medidas FROM boletines_tabla_medidas");
+    $datos = Tabla::addId($datos, 1);
+
+
 
 
 
@@ -59,6 +55,7 @@ if ($method === "GET") {
             "js/prg295/ElementosAGuardar.js",
             "js/prg295/Focos.js",
             "js/prg295/Tabla.js",
+            "js/prg295/prg295.js",
         ],
 
         sonidos:
@@ -70,7 +67,8 @@ if ($method === "GET") {
         [
             "css/prg295/prg295.css",
             "css/prg295/TimeBox.css",
-            "css/prg295/Tabla.css"
+            "css/prg295/Tabla.css",
+
         ],
     );
 
@@ -301,7 +299,7 @@ if ($method === "GET") {
             $cabeceraInf3 = Seccion::crear
             (
                 Elemento::getNewId(),
-                "",
+                "seccionGuardado",
                 0,
                 30
             ),
@@ -490,6 +488,19 @@ if ($method === "GET") {
             1,
             0
         ),
+        Button::crear(
+            "",
+            "",
+            "test",
+            "",
+            "
+                        var body = '';
+                        var destino = 'http://localhost:8000/prg295.php';
+                        var p = new Peticion('', destino);
+                     ",
+            2,
+            0
+        )
     ]);
 
 
