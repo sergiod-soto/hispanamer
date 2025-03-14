@@ -44,6 +44,7 @@ if ($method === "GET") {
 
 
     $programa = Programa::crear(
+
         autor: "sergiod",
         fecha: "17/02/2025",
         nombre: "prg295",
@@ -52,16 +53,19 @@ if ($method === "GET") {
         [
 
         ],
+
         scriptsBody:
         [
             "js/prg295/ElementosAGuardar.js",
             "js/prg295/Focos.js",
             "js/prg295/Tabla.js",
         ],
+
         sonidos:
         [
             Sonidos::sonidoEj1->value
         ],
+
         css:
         [
             "css/prg295/prg295.css",
@@ -280,7 +284,7 @@ if ($method === "GET") {
         [
             $cabeceraInf1 = Seccion::crear
             (
-                Elemento::getNewId(),
+                "",
                 "",
                 0,
                 10
@@ -288,7 +292,7 @@ if ($method === "GET") {
 
             $cabeceraInf2 = Seccion::crear
             (
-                Elemento::getNewId(),
+                "",
                 "",
                 0,
                 20
@@ -510,9 +514,25 @@ if ($method === "GET") {
     ]);
     /* #endregion */
 
-
     /* #region pie de pagina */
     $piePagina->add(
+        [
+            $piePagina1 = Seccion::crear(
+                "asd",
+                "",
+                0,
+                0
+            ),
+            $piePagina2 = Seccion::crear(
+                "",
+                "",
+                0,
+                1
+            )
+        ]
+    );
+
+    $piePagina1->add(
         [
             TextBox::crear(
                 "calculadoraInput",
@@ -538,6 +558,16 @@ if ($method === "GET") {
             )
         ]
     );
+
+    $piePagina2->add([
+        Texto::crear(
+            "piePaginaCosa",
+            "",
+            "(C)HISPANAMER S.A.  COMPAÑIA HISPANOAMERICANA DE PINTURAS S.A.",
+            0,
+            0
+        )
+    ]);
     /* #endregion */
 
 
@@ -547,20 +577,8 @@ if ($method === "GET") {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     ////////////////////////////////////////////////////////////////////////////////////////////
-
+    //          Datos a compartir con JS
     ////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -585,6 +603,9 @@ if ($method === "GET") {
     $titulo = "prg295";
     //.......................
 
+
+
+
     //.......................
     $cabecera =
         "
@@ -597,6 +618,9 @@ if ($method === "GET") {
         </script>
         ";
     //.......................
+
+
+
 
 
     //.......................
@@ -626,4 +650,6 @@ if ($method === "POST") {
     $inputJSON = file_get_contents("php://input");
     $input = json_decode($inputJSON, true);
 }
+
+
 ?>

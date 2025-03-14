@@ -42,11 +42,11 @@
 }
 
 #id_19 {
-    width: 30%;
+    width: 300px;
 }
 
 #id_20 {
-    width: 15%;
+    width: 300px;
 }
 
 #id_30 {
@@ -72,12 +72,11 @@
 #id_36 {
     width: 50%;
 }
-
-#seccion_calc {
-    border: none;
+#id_41{
+    width: 50%;
 }
 
-#separadorCalculadora {
-    margin-left: 5px;
-    margin-right: 5px;
+#asd {
+    display: flex;
+    width: 50%;
 }

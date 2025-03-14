@@ -72,6 +72,8 @@ class Programa implements IRenderizable
             "css/Popup.css",
             "css/PasswordBox.css",
             "css/Tabla.css",
+            "css/Calculadora.css",
+            "css/PiePagina.css"
         ];
     }
 

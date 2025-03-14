@@ -1,0 +1,15 @@
+#piePaginaCosa {
+    float: left;
+    color: #000000;
+    text-align: left;
+    font-family: verdana;
+    font-size: 10px;
+    font-weight: normal;
+    margin-top: 6px;
+    margin-left: 20px;
+    font-size: 9px;
+    color: #4c4c4c;
+    border-style: none;
+    border-width: 1px 0px 0px 0px;
+    border-color: red;
+}
