@@ -161,7 +161,6 @@ function guardar(ids) {
                 break;
 
             case ("Tabla"):
-                console.debug("entra?");
                 document.getElementById(id).childNodes[3].addEventListener("scroll", function () {
                     guardarAux(Elemento.Tabla, id, document.getElementById(id).childNodes[3].scrollTop);
                 });

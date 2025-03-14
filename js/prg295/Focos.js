@@ -1,4 +1,4 @@
 
 
-//setFocos(["id_39", "id_40"]);
+setFocos(["id_39", "id_40"]);
 

@@ -22,9 +22,13 @@ if ($method === "GET") {
     /**
      *      realizo la consulta inicial
      */
-    $conexion = new Conexion("localhost", "hispanamer", "root", "025811");
-    $datos = $conexion->consulta("SELECT codigo, medidas FROM boletines_tabla_medidas");
-    $datos = Tabla::addId($datos, 1);
+    try {
+        $conexion = new Conexion("localhost", "hispanamer", "root", "025811");
+        $datos = $conexion->consulta("SELECT codigo, medidas FROM boletines_tabla_medidas");
+        $datos = Tabla::addId($datos, 1);
+    } catch (Exception) {
+        echo ("error conectando con el servidor");
+    }
     //
     //
 
@@ -498,18 +502,6 @@ if ($method === "GET") {
             1,
             0
         ),
-        Button::crear(
-            "",
-            "",
-            "test",
-            "",
-            "
-                        const scroll = document.getElementById('id_31').childNodes[3].scrollTop;
-                        console.debug('Scroll actual:', scroll.scrollTop);
-                    ",
-            2,
-            0
-        )
     ]);
     /* #endregion */
 
