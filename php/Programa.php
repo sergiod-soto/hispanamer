@@ -60,7 +60,9 @@ class Programa implements IRenderizable
             "js/RadioButton.js",
             //
             "js/ControlSesion.js",
-            "js/ControlFocus.js"
+            "js/ControlFocus.js",
+            "js/Calculadora.js",
+
         ];
         $this->sonidosBase = [
         ];
@@ -217,6 +219,7 @@ class Programa implements IRenderizable
                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                     $this->cabecera 
                     $htmlscriptsBaseCabecera
+                    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js\"></script> 
                     $htmlScriptsCabecera
                     $htmlCssBase
                     $htmlCss

@@ -10,12 +10,12 @@ class Texto extends Elemento implements IRenderizable
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
         }
-
+        $html = "<div id=\"$id\" class=\"$clase\" data-tipo=\"Texto\">$text</div>";
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $text,
+            $html,
             $fila,
             $columna
         );

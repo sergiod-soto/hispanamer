@@ -112,10 +112,15 @@ if ($method === "GET") {
                 1,
                 0
             ),
+            $piePagina = Seccion::crear
+            (
+                "seccion_calc",
+                "cabeceraInf",
+                2,
+                0
+            ),
         ]
     );
-
-
     /* #endregion */
 
     /* #region cabecera */
@@ -506,6 +511,34 @@ if ($method === "GET") {
     /* #endregion */
 
 
+    /* #region pie de pagina */
+    $piePagina->add(
+        [
+            TextBox::crear(
+                "calculadoraInput",
+                "",
+                "",
+                "Calculadora",
+                0,
+                0
+            ),
+            Texto::crear(
+                "separadorCalculadora",
+                "",
+                " = ",
+                0,
+                1
+            ),
+            Texto::crear(
+                "calculadoraOutput",
+                "",
+                "",
+                0,
+                2
+            )
+        ]
+    );
+    /* #endregion */
 
 
 
