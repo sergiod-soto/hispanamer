@@ -494,7 +494,7 @@ if ($method === "GET") {
     $seccionCuadro->add([
 
         TextBox::crear(
-            Elemento::getNewId(),
+            "",
             "",
             "",
             "Código",
@@ -502,7 +502,7 @@ if ($method === "GET") {
             0
         ),
         TextBox::crear(
-            Elemento::getNewId(),
+            "",
             "",
             "",
             "Unidades",

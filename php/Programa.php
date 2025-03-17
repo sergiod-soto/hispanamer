@@ -15,7 +15,6 @@ class Programa implements IRenderizable
     public $cabecera;
     public $titulo;             // titulo que aparece en la pestanha del navegador
     public $cuerpo;
-    public $elementos;
     public $autor;
     public $fecha;
     public $scriptsCabecera;
@@ -30,7 +29,6 @@ class Programa implements IRenderizable
 
     public function __construct($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $sonidos, $css)
     {
-        $this->elementos = [];
         $this->scriptsCabecera = $scriptsCabecera;
         $this->scriptsBody = $scriptsBody;
         $this->sonidos = $sonidos;
@@ -129,26 +127,8 @@ class Programa implements IRenderizable
         return $idElemento;
     }
 
-    /*
-        anhade un nuevo elemento a la lista
-    */
-    public function addElemento($id, $elemento)
-    {
-        $this->elementos[$id] = $elemento;
-    }
-
-    /*
-        se elimina un elemento de la lista
-    */
-    public function removeElemento($elementoId)
-    {
-        if ($this->elementos == null || !array_key_exists($elementoId, $this->elementos)) {
-            throw new Exception(
-                "Se ha intentado eliminar un elemento en la clase Programa que no existe"
-            );
-        }
-        unset($elementos[$elementoId]);
-    }
+  
+ 
 
     public static function showPopup($texto, $estado)
     {
