@@ -53,6 +53,7 @@ class Programa implements IRenderizable
             //
             "js/Calculadora.js",
             "js/ControlFocus.js",
+            "js/ControlModos.js",
             "js/ControlSesion.js",
             "js/DateBox.js",
             "js/Modo.js",

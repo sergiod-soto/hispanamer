@@ -493,24 +493,14 @@ if ($method === "GET") {
             "test",
             "",
             "
-                        var texto1 = document.getElementById('id_40');
-                        var texto2 = document.getElementById('id_41');
+                        var texto1 = 'id_40';
+                        var texto2 = 'id_41';
 
-                        if(texto1.classList.contains('desaparecer')){
-                            texto1.classList.remove('desaparecer');
-                            texto1.classList.add('aparecer');
+                        var e1 = document.getElementById(texto1)
+                        var visible = e1.classList.contains('transparente');
 
-                            texto2.classList.add('desaparecer');
-                            texto2.classList.remove('aparecer');
-
-                        }else{
-                            texto1.classList.add('desaparecer');
-                            texto1.classList.remove('aparecer');
-
-                            texto2.classList.remove('desaparecer');
-                            texto2.classList.add('aparecer');
-
-                        }
+                        setTransparente(texto1, !visible);
+                        setTransparente(texto2, visible);
                      ",
             2,
             0

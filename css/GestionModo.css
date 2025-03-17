@@ -1,11 +1,27 @@
-.invisible {
+/* MODOS DE VISIBILIDAD*/
+.transparente {
     visibility: hidden
 }
 
-.desaparecer {
+.opaco {
+    visibility: ""
+}
+
+.invisible {
     display: none;
 }
 
-.aparecer {
+.visible {
     display: "";
+}
+
+/* MODOS DE FUNCIONALIDAD */
+.deshabilitado {
+    opacity: 30%;
+    pointer-events: none;
+}
+
+.habililitado {
+    opacity: 100%;
+    pointer-events: "";
 }
