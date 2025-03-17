@@ -494,8 +494,25 @@ if ($method === "GET") {
             "test",
             "",
             "
-                        var body = '';
-                        var destino = 'http://localhost:8000/prg295.php';
+                       var body = `
+                            {
+                                'array': 
+                                    [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                'boolean': true,
+                                'color': 'gold',
+                                'null': null,
+                                'number': 123,
+                                'object': {
+                                    'a': 'b',
+                                    'c': 'd'
+                                },
+                                'string': 'Hello World'
+                            }`;
+                                                    var destino = 'http://localhost:8000/prg295.php';
                         var p = new Peticion('', destino);
                      ",
             2,
@@ -656,10 +673,32 @@ if ($method === "GET") {
 }
 
 if ($method === "POST") {
-
+    error_log("a");
+    error_log(json_encode($_POST));
+    error_log("b");
     // Leer el cuerpo de la solicitud
-    $inputJSON = file_get_contents("php://input");
-    $input = json_decode($inputJSON, true);
+    $input = json_decode(file_get_contents("php://input"), true);
+
+
+
+
+
+    echo ('{
+  "array": [
+    1,
+    2,
+    3
+  ],
+  "boolean": true,
+  "\"color": "gold",
+  "null": null,
+  "number": 123,
+  "object": {
+    "a": "b",
+    "c": "d"
+  },
+  "string": "Hello World"
+}');
 }
 
 

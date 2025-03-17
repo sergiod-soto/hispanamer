@@ -1,6 +1,6 @@
 let Peticion = class {
     constructor(body, destino) {
-        console.debug("entra?");
+        console.debug("asdasd");
         fetch(destino, {
             method: 'POST',
             headers: {
