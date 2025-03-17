@@ -76,15 +76,7 @@ const Elemento = {
     TimeBox: "TimeBox",
 };
 
-/**
- * Pasa de id {string:id_X} a {int:X}
- * @param {String} texto
- * @returns id
- */
-function extraerNumero(texto) {
-    const match = texto.match(/^id_(\d+)$/);
-    return match ? parseInt(match[1], 10) : null;
-}
+
 
 
 /**

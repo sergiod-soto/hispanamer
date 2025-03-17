@@ -65,3 +65,24 @@ function setTransparente(elementoID, bool) {
         elemento.classList.add("opaco");
     }
 }
+
+function setBloqueada(tablaID, bool) {
+    try {
+        var elemento = document.getElementById(tablaID);
+    } catch (e) {
+        throw "Tabla no encontrada (" + tablaID + ")"
+    }
+    if (bool) {
+        // hay que bloquearla
+        if (elemento.classList.contains("tablaDesbloqueada")) {
+            elemento.classList.remove("tablaDesbloqueada");
+        }
+        elemento.classList.add("tablaBloqueada");
+    } else {
+        // hay que desbloquearla
+        if (elemento.classList.contains("tablaBloqueada")) {
+            elemento.classList.remove("tablaBloqueada");
+        }
+        elemento.classList.add("tablaDesbloqueada");
+    }
+}

@@ -25,3 +25,12 @@
     opacity: 100%;
     pointer-events: "";
 }
+
+/* CONTROL TABLA */
+.tablaBloqueada {
+    pointer-events: none;
+}
+
+.tablaDesbloqueada {
+    pointer-events: "";
+}
