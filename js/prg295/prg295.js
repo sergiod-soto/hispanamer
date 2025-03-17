@@ -101,7 +101,7 @@ function funcionCancelar() {
 
     if (filaSeleccionadaTabla1 !== undefined && filaSeleccionadaTabla1 !== null) {
         setHabilitado(botonEditar.id, true);
-        setHabilitado(botonBorrar.id, false);
+        setHabilitado(botonBorrar.id, true);
     }
 }
 
@@ -116,6 +116,24 @@ botonBorrar.onclick = funcionBorrar;
 
 botonGuardado.onclick = funcionGuardar;
 botonCancelar.onclick = funcionCancelar;
+
+
+function guardarClases() {
+    var botonNuevo = document.getElementById("id_21");
+    var botonEditar = document.getElementById("id_22");
+    var botonBorrar = document.getElementById("id_23");
+    
+    var botonPDF = document.getElementById("id_24");
+    var botonExcel = document.getElementById("id_25");
+    
+    var botonGuardado = document.getElementById("id_26");
+    var botonCancelar = document.getElementById("id_27");
+    
+    var tabla = document.getElementById("id_28");
+    
+    var cuerpoDatos = document.getElementById("id_32");
+}
+guardarClases();
 
 
 

@@ -1,24 +1,53 @@
+:root {
+    --text-align-col1: center;
+    --text-align-col2: right;
+    --text-align-col3: left;
+}
+
+
+
+
 /* cambia el text align de la columna elegida */
-#id_31 tbody td:nth-child(1) {
-    text-align: center;
+#id_30 tbody td:nth-child(1) {
+    text-align: var(--text-align-col1);
 }
 
-#id_31 tbody td:nth-child(2) {
-    text-align: right;
+#id_30 tbody td:nth-child(2) {
+    text-align: var(--text-align-col2);
 }
 
-#id_31 tbody td:nth-child(3) {
-    text-align: left;
+#id_30 tbody td:nth-child(3) {
+    text-align: var(--text-align-col3);
 }
 
-#col-0-tabla-id_31 {
+#col-0-tabla-id_30 {
     width: 20px;
 }
 
-#col-1-tabla-id_31 {
+#col-1-tabla-id_30 {
     width: 100px;
 }
 
+#cabeceraid_30 div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    position: relative;
+}
+
+#cabeceraid_30 div:nth-child(1) {
+    text-align: var(--text-align-col1);
+}
+
+#cabeceraid_30 div:nth-child(2) {
+    text-align: var(--text-align-col2);
+    right: 10px;
+}
+
+#cabeceraid_30 div:nth-child(3) {
+    text-align: var(--text-align-col3);
+    left: 10px;
+}
 
 .cabeceraSup {
     font-family: Verdana, Geneva, Tahoma, sans-serif;

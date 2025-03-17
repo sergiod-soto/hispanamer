@@ -409,7 +409,7 @@ if ($method === "GET") {
             $tabla = Tabla::crear(
                 Elemento::getNewId(),
                 "",
-                ["", "Código", "Medidas"],
+                ["#", "Código", "Medidas"],
                 $datos,
                 0,
                 0
