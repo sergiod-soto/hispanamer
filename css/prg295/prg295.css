@@ -38,6 +38,7 @@
 .tabla {
     width: 50%;
     max-width: 600px;
+    min-width: 500px;
     overflow-y: auto;
 }
 
@@ -50,7 +51,7 @@
 }
 
 #id_30 {
-    width: 50%;
+    width: 100%;
 }
 
 #id_32 {
@@ -72,8 +73,10 @@
 #id_36 {
     width: 50%;
 }
-#id_41{
-    width: 50%;
+#id_40{
+    width: 160px;
+}#id_41{
+    width: 160px;
 }
 
 #asd {

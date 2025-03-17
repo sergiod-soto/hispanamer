@@ -76,7 +76,6 @@ if ($method === "GET") {
 
 
 
-
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //      Creamos los elementos 
     //      
@@ -470,6 +469,8 @@ if ($method === "GET") {
 
     /* #endregion */
 
+
+
     /* #region datos inferior */
     $seccionTexto->add([
 
@@ -494,26 +495,25 @@ if ($method === "GET") {
             "test",
             "",
             "
-                       var body = `
-                            {
-                                'array': 
-                                    [
-                                        1,
-                                        2,
-                                        3
-                                    ],
-                                'boolean': true,
-                                'color': 'gold',
-                                'null': null,
-                                'number': 123,
-                                'object': {
-                                    'a': 'b',
-                                    'c': 'd'
-                                },
-                                'string': 'Hello World'
-                            }`;
-                                                    var destino = 'http://localhost:8000/prg295.php';
-                        var p = new Peticion('', destino);
+                        var destino = 'http://localhost:8000/prg295.php';
+                        p = new Peticion(JSON.stringify(
+                        {
+                            'array': [
+                                1,
+                                2,
+                                3
+                            ],
+                            'boolean': true,
+                            '\'color': 'gold',
+                            'null': null,
+                            'number': 123,
+                            'object': {
+                                'a': 'b',
+                                'c': 'd'
+                            },
+                            'string': 'Hello World'
+                            }
+                        ), destino);
                      ",
             2,
             0
@@ -673,33 +673,42 @@ if ($method === "GET") {
 }
 
 if ($method === "POST") {
-    error_log("a");
-    error_log(json_encode($_POST));
-    error_log("b");
+
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    error_log(print_r(array_keys($data), true));
+
     // Leer el cuerpo de la solicitud
     $input = json_decode(file_get_contents("php://input"), true);
 
+    // return al cliente
+    echo "{\"boolean\":true}";
 
-
-
-
-    echo ('{
-  "array": [
-    1,
-    2,
-    3
-  ],
-  "boolean": true,
-  "\"color": "gold",
-  "null": null,
-  "number": 123,
-  "object": {
-    "a": "b",
-    "c": "d"
-  },
-  "string": "Hello World"
-}');
 }
 
+
+/*                      funcion de un boton que manda un objeto al servidor
+"
+                        var destino = 'http://localhost:8000/prg295.php';
+                        var p = new Peticion(JSON.stringify(
+                        {
+                            'array': [
+                                1,
+                                2,
+                                3
+                            ],
+                            'boolean': true,
+                            '\'color': 'gold',
+                            'null': null,
+                            'number': 123,
+                            'object': {
+                                'a': 'b',
+                                'c': 'd'
+                            },
+                            'string': 'Hello World'
+                            }
+                        ), destino);
+                     "
+*/
 
 ?>

@@ -1,3 +1,3 @@
-var seccionGuardado = document.getElementById("id_21");
+//var seccionGuardado = document.getElementById("id_21");
 
-seccionGuardado.classList.add("invisible");
+//seccionGuardado.classList.add("invisible");

@@ -1,23 +1,21 @@
 let Peticion = class {
+    data = null;
     constructor(body, destino) {
-        console.debug("asdasd");
         fetch(destino, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: body
+            body: (body)
         })
             .then(response => response.json())
             .then(data => {
-
-                //
-                console.debug(data);
-                //
-
+                this.data = data;
             })
             .catch(error => {
                 console.error('Error:', error);
             });
+
     }
+
 }
