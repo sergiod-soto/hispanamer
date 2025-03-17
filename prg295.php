@@ -469,8 +469,6 @@ if ($method === "GET") {
 
     /* #endregion */
 
-
-
     /* #region datos inferior */
     $seccionTexto->add([
 
@@ -495,29 +493,50 @@ if ($method === "GET") {
             "test",
             "",
             "
-                        var destino = 'http://localhost:8000/prg295.php';
-                        p = new Peticion(JSON.stringify(
-                        {
-                            'array': [
-                                1,
-                                2,
-                                3
-                            ],
-                            'boolean': true,
-                            '\'color': 'gold',
-                            'null': null,
-                            'number': 123,
-                            'object': {
-                                'a': 'b',
-                                'c': 'd'
-                            },
-                            'string': 'Hello World'
-                            }
-                        ), destino);
+                        var texto1 = document.getElementById('id_40');
+                        var texto2 = document.getElementById('id_41');
+
+                        if(texto1.classList.contains('desaparecer')){
+                            texto1.classList.remove('desaparecer');
+                            texto1.classList.add('aparecer');
+
+                            texto2.classList.add('desaparecer');
+                            texto2.classList.remove('aparecer');
+
+                        }else{
+                            texto1.classList.add('desaparecer');
+                            texto1.classList.remove('aparecer');
+
+                            texto2.classList.remove('desaparecer');
+                            texto2.classList.add('aparecer');
+
+                        }
                      ",
             2,
             0
-        )
+        ),
+
+        Texto::crear(
+            "",
+            "",
+            "Texto 1 izq ",
+            4,
+            0
+        ),
+        Texto::crear(
+            "",
+            "",
+            "Texto 2 der ",
+            5,
+            1
+        ),
+        Texto::crear(
+            "",
+            "",
+            "Texto base ",
+            3,
+            0
+        ),
     ]);
 
 
@@ -546,14 +565,14 @@ if ($method === "GET") {
     $piePagina->add(
         [
             $piePagina1 = Seccion::crear(
-                "asd",
+                "seccionCalculadora",
                 "",
                 0,
                 0
             ),
             $piePagina2 = Seccion::crear(
                 "",
-                "",
+                "seccionNombre",
                 0,
                 1
             )
@@ -674,15 +693,13 @@ if ($method === "GET") {
 
 if ($method === "POST") {
 
+    // Leer el cuerpo de la solicitud
     $data = json_decode(file_get_contents("php://input"), true);
 
-    error_log(print_r(array_keys($data), true));
-
-    // Leer el cuerpo de la solicitud
-    $input = json_decode(file_get_contents("php://input"), true);
+    error_log($data["request"]);
 
     // return al cliente
-    echo "{\"boolean\":true}";
+    // echo "{\"boolean\":true}";
 
 }
 
@@ -692,20 +709,10 @@ if ($method === "POST") {
                         var destino = 'http://localhost:8000/prg295.php';
                         var p = new Peticion(JSON.stringify(
                         {
-                            'array': [
-                                1,
-                                2,
-                                3
-                            ],
-                            'boolean': true,
-                            '\'color': 'gold',
-                            'null': null,
-                            'number': 123,
-                            'object': {
-                                'a': 'b',
-                                'c': 'd'
-                            },
-                            'string': 'Hello World'
+                            var destino = 'http://localhost:8000/prg295.php';
+                            p = new Peticion(JSON.stringify(
+                            {
+                                'request': 'SELECT * FROM ...',
                             }
                         ), destino);
                      "

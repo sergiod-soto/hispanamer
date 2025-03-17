@@ -194,7 +194,7 @@ class Tabla extends Elemento
         // anhado el <colgroup>
         $html .= "<colgroup>";
         for ($i = 0; $i < count($cabeceraId); $i++) {
-            $html .= "<col id=\"$cabeceraId[$i]\">";
+            $html .= "<col id=\"col-$i-tabla-$this->id\" class=\"col-$i tabla-$this->id\">";
         }
         $html .= "</colgroup>";
 

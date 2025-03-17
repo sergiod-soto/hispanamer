@@ -1,3 +1,4 @@
-//var seccionGuardado = document.getElementById("id_21");
+var texto1 = document.getElementById("id_40");
+var texto2 = document.getElementById("id_41");
 
-//seccionGuardado.classList.add("invisible");
+texto2.classList.add("desaparecer");
