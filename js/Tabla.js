@@ -63,6 +63,11 @@ function funcionFila(f) {
   });
 }
 
+function deseleccionarFilas() {
+  const rows = document.querySelectorAll('tbody tr');
+  rows.forEach(f => f.classList.remove("fila-seleccionada"));
+}
+
 
 function sincronizarCabeceras() {
   let tabla = document.querySelector("table"); // Selecciona la tabla

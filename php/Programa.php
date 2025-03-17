@@ -56,7 +56,6 @@ class Programa implements IRenderizable
             "js/ControlModos.js",
             "js/ControlSesion.js",
             "js/DateBox.js",
-            "js/Modo.js",
             "js/Notas.js",
             "js/NoteBox.js",
             "js/PasswordBox.js",
@@ -66,7 +65,6 @@ class Programa implements IRenderizable
             "js/SelectBox.js",
             "js/Tabla.js",
             "js/TimeBox.js",
-            "js/Utils.js",
         ];
         $this->sonidosBase = [
 

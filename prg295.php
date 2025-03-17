@@ -151,7 +151,7 @@ if ($method === "GET") {
     $cabeceraSup->add([
 
         $botonAtrasCabecera = Button::crear(
-            Elemento::getNewId(),
+            "",
             "",
             iconoFlechaAtras,
             "",
@@ -161,12 +161,12 @@ if ($method === "GET") {
         ),
 
         Link::crear(
-            Elemento::getNewId(),
+            "",
             "",
             "http://localhost/corporativo/prg181.php",
             Target::Blank,
             Imagen::crear(
-                Elemento::getNewId(),
+                "",
                 "imagenLogo",
                 Imagenes::Hispanamer,
                 0,
@@ -178,29 +178,29 @@ if ($method === "GET") {
         ),
 
         $cabeceraSupp1 = Seccion::crear(
-            Elemento::getNewId(),
             "",
+            "cabeceraSupParte1",
             10,
             30
         ),
 
         $cabeceraSupp2 = Seccion::crear(
-            Elemento::getNewId(),
             "",
+            "cabeceraSupParte2",
             10,
             40
         ),
 
         $cabeceraSupp3 = Seccion::crear(
-            Elemento::getNewId(),
             "",
+            "cabeceraSupParte3",
             10,
             50
         ),
 
         $cabeceraSupp4 = Seccion::crear(
-            Elemento::getNewId(),
             "",
+            "cabeceraSupParte4",
             10,
             60
         ),
@@ -209,16 +209,16 @@ if ($method === "GET") {
     $cabeceraSupp1->add([
 
         $cabeceraSupp1_1 = Seccion::crear(
-            Elemento::getNewId(),
+            "",
             "",
             0,
             0
         ),
 
         $cabeceraSupp1_2 = Seccion::crear(
-            Elemento::getNewId(),
             "",
-            0,
+            "",
+            1,
             0
         ),
 
@@ -226,7 +226,7 @@ if ($method === "GET") {
     $cabeceraSupp1_1->add([
 
         Texto::crear(
-            Elemento::getNewId(),
+            "123",
             "",
             "Sesión iniciada:Enrique Becerra Cabezas",
             0,
@@ -239,7 +239,7 @@ if ($method === "GET") {
             Elemento::getNewId(),
             "",
             "Boletines de calidad. Tabla de unidades de medidas.",
-            1,
+            0,
             0
         ),
     ]);
@@ -312,7 +312,7 @@ if ($method === "GET") {
             "boton-cabecera",
             iconoNuevo,
             "Nuevo",
-            "console.debug('clic en nuevo')",
+            "",
             0,
             0
         ),
@@ -322,7 +322,7 @@ if ($method === "GET") {
             "boton-cabecera",
             iconoEditar,
             "Editar",
-            "console.debug('clic en editar')",
+            "",
             0,
             1
         ),
@@ -331,7 +331,7 @@ if ($method === "GET") {
             "boton-cabecera",
             iconoEliminar,
             "Borrar",
-            "console.debug('clic en borrar')",
+            "",
             0,
             2
         ),
@@ -344,7 +344,7 @@ if ($method === "GET") {
             "boton-cabecera",
             iconoPDF,
             "Descarga PDF",
-            "console.debug('clic en PDF')",
+            "",
             0,
             0
         ),
@@ -354,7 +354,7 @@ if ($method === "GET") {
             "boton-cabecera",
             iconoEXCEL,
             "Descarga Excel",
-            "console.debug('clic en EXCEL')",
+            "",
             0,
             1
         ),
@@ -367,7 +367,7 @@ if ($method === "GET") {
             "boton-cabecera",
             iconoGuardar,
             "Guardar",
-            "console.debug('clic en guardar')",
+            "",
             0,
             0
         ),
@@ -377,7 +377,7 @@ if ($method === "GET") {
             "boton-cabecera",
             iconoCancelar,
             "Cancelar",
-            "console.debug('clic en cancelar')",
+            "",
             0,
             1
         ),
@@ -487,46 +487,7 @@ if ($method === "GET") {
             1,
             0
         ),
-        Button::crear(
-            "",
-            "",
-            "test",
-            "",
-            "
-                        var texto1 = 'id_40';
-                        var texto2 = 'id_41';
 
-                        var e1 = document.getElementById(texto1)
-                        var visible = e1.classList.contains('transparente');
-
-                        setTransparente(texto1, !visible);
-                        setTransparente(texto2, visible);
-                     ",
-            2,
-            0
-        ),
-
-        Texto::crear(
-            "",
-            "",
-            "Texto 1 izq ",
-            4,
-            0
-        ),
-        Texto::crear(
-            "",
-            "",
-            "Texto 2 der ",
-            5,
-            1
-        ),
-        Texto::crear(
-            "",
-            "",
-            "Texto base ",
-            3,
-            0
-        ),
     ]);
 
 
@@ -648,6 +609,7 @@ if ($method === "GET") {
         "
         <meta charset='UTF-8'>
         <title>$titulo</title>
+        " . favicon . "
         <!-- necesario para que el sistema de sesion sepa en que programa estamos -->
         <script>localStorage.setItem(\"prgActual\", \"" . $programa->nombre . "\");</script>
          <script>

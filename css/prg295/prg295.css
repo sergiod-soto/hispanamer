@@ -1,19 +1,20 @@
 .cabeceraSup {
     display: flex;
     align-items: flex-start;
-    border: 1px solid black;
     border-bottom: none;
+    background-color: #f2f2f2;
+}
 
+.cabeceraInf {
+    display: flex;
+    background-color: #f2f2f2;
 }
 
 .fila-seleccionada {
     background-color: rgba(255, 255, 0, 0.808) !important;
 }
 
-.cabeceraInf {
-    display: flex;
-    border: 1px solid black;
-}
+
 
 .imagenLogo {
     width: auto;
@@ -42,35 +43,68 @@
     overflow-y: auto;
 }
 
+
+
+.cabeceraSupParte1 {
+    min-width: 250px;
+    width: 25%;
+}
+
+.cabeceraSupParte2 {
+    min-width: 250px;
+    width: 25%;
+}
+
+.cabeceraSupParte3 {
+    min-width: 250px;
+    width: 25%;
+}
+
+.cabeceraSupParte4 {
+    min-width: 250px;
+    width: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#id_18 {
+    width: 300px;
+}
+
 #id_19 {
     width: 300px;
 }
 
-#id_20 {
-    width: 300px;
-}
-
-#id_30 {
+#id_29 {
     width: 100%;
 }
 
-#id_32 {
+#id_31 {
     padding-left: 20px;
     background-color: rgb(199, 199, 199);
 }
 
-#id_33 {
+#id_32 {
     padding-top: 20px;
     padding-left: 20px;
     display: flex;
 }
 
-#id_35 {
+#id_34 {
     width: 50%;
     max-width: 150px;
 }
 
-#id_36 {
+#id_35 {
     width: 50%;
 }
-

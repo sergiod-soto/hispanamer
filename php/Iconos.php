@@ -21,7 +21,7 @@
 
 
 // el favicon es el iconito que aparece en la pestaña del navegador
-define("favicon", "<link rel=\"icon\" href=\"ruta/al/favicon.ico\" type=\"image/x-icon\">");
+define("favicon", "<link rel=\"icon\" href=\"multimedia/favicon/hispalogo.ico\" type=\"image/x-icon\">");
 //
 
 define("iconoCalendario", "<img src= \"/multimedia/iconos/calendario.png\" alt=\"Calendario\" width=\"32\" height=\"32\">");

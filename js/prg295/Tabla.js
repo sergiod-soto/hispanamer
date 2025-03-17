@@ -1,2 +1,10 @@
-funcionCabecera((header) => { console.debug(header) });
-funcionFila((index) => { console.debug("fila: " + index) });
+funcionCabecera((header) => {
+
+});
+
+
+funcionFila((index) => {
+    filaSeleccionadaTabla1 = index;
+    setHabilitado(botonEditar.id, true);
+    setHabilitado(botonBorrar.id, true);
+});
