@@ -98,7 +98,24 @@ if ($method === "GET") {
         [
 
             // cabecera:
-            Cabecera::getCabecera(0, 0),
+            Cabecera::getCabecera(
+                0,
+                0,
+                "Boletines de calidad. Tabla de unidades de medidas.",
+                "asdf",
+                "2025",
+                Cabecera::createFunctions(
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ),
+
+            ),
 
             $cuerpo = Seccion::crear
             (

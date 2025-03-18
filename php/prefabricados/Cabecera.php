@@ -10,11 +10,24 @@ include_once "php/Includes.php";
 class Cabecera
 {
 
-    public static function getCabecera($fila, $columna)
+    public static function createFunctions($fAtras, $fNuevo, $fEditar, $fBorrar, $fPDF, $fExcel, $fGuardar, $fCancelar)
+    {
+        return [
+            "atras" => $fAtras,
+            "nuevo" => $fNuevo,
+            "editar" => $fEditar,
+            "borrar" => $fBorrar,
+            "pdf" => $fPDF,
+            "excel" => $fExcel,
+            "guardar" => $fGuardar,
+            "cancelar" => $fCancelar,
+        ];
+    }
+    public static function getCabecera($fila, $columna, $nombre, $version, $ejercicioFiscal, $functions)
     {
         $cabecera = Seccion::crear
         (
-            "",
+            "cabeceraBase",
             "cabecera",
             $fila,
             $columna
@@ -26,7 +39,7 @@ class Cabecera
 
                 $cabeceraSup = Seccion::crear
                 (
-                    "",
+                    "seccionCabeceraSuperior",
                     "cabeceraSup",
                     0,
                     0
@@ -34,7 +47,7 @@ class Cabecera
 
                 $cabeceraInf = Seccion::crear
                 (
-                    "",
+                    "seccionCabeceraInferior",
                     "cabeceraInf",
                     1,
                     0
@@ -46,12 +59,12 @@ class Cabecera
         /* #region cabeceraSup */
         $cabeceraSup->add([
 
-            $botonAtrasCabecera = Button::crear(
-                "",
+            Button::crear(
+                "botonAtrasCabecera",
                 "",
                 iconoFlechaAtras,
                 "",
-                "console.debug('Atras')",
+                $functions["atras"],
                 10,
                 10
             ),
@@ -124,7 +137,7 @@ class Cabecera
             Texto::crear(
                 "123",
                 "",
-                "Sesión iniciada:Enrique Becerra Cabezas",
+                "Sesión iniciada:Enrique Becerra Cabezas", // TODO
                 0,
                 0
             ),
@@ -134,7 +147,7 @@ class Cabecera
             Texto::crear(
                 "",
                 "",
-                "Boletines de calidad. Tabla de unidades de medidas.",
+                $nombre,
                 0,
                 0
             ),
@@ -154,7 +167,7 @@ class Cabecera
             Texto::crear(
                 "",
                 "",
-                "Versión: patatín-patatán.",
+                $version,
                 0,
                 0
             ),
@@ -164,7 +177,7 @@ class Cabecera
             Texto::crear(
                 "",
                 "",
-                "Ejercicio fiscal: 2025",
+                "Ejercicio fiscal: $ejercicioFiscal",
                 0,
                 0
             ),
@@ -205,29 +218,29 @@ class Cabecera
 
             Button::crear(
                 "",
-                "boton-cabecera",
+                "boton-cabecera nuevo",
                 iconoNuevo,
                 "Nuevo",
-                "",
+                $functions["nuevo"],
                 0,
                 0
             ),
 
             Button::crear(
                 "",
-                "boton-cabecera",
+                "boton-cabecera editar",
                 iconoEditar,
                 "Editar",
-                "",
+                $functions["editar"],
                 0,
                 1
             ),
             Button::crear(
                 "",
-                "boton-cabecera",
+                "boton-cabecera borrar",
                 iconoEliminar,
                 "Borrar",
-                "",
+                $functions["borrar"],
                 0,
                 2
             ),
@@ -237,20 +250,20 @@ class Cabecera
 
             Button::crear(
                 "",
-                "boton-cabecera",
+                "boton-cabecera pdf",
                 iconoPDF,
                 "Descarga PDF",
-                "",
+                $functions["pdf"],
                 0,
                 0
             ),
 
             Button::crear(
                 "",
-                "boton-cabecera",
+                "boton-cabecera excel",
                 iconoEXCEL,
                 "Descarga Excel",
-                "",
+                $functions["excel"],
                 0,
                 1
             ),
@@ -260,20 +273,20 @@ class Cabecera
 
             Button::crear(
                 "",
-                "boton-cabecera",
+                "boton-cabecera guardar",
                 iconoGuardar,
                 "Guardar",
-                "",
+                $functions["guardar"],
                 0,
                 0
             ),
 
             Button::crear(
                 "",
-                "boton-cabecera",
+                "boton-cabecera cancelar",
                 iconoCancelar,
                 "Cancelar",
-                "",
+                $functions["cancelar"],
                 0,
                 1
             ),
