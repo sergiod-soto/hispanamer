@@ -12,7 +12,7 @@ class PiePagina
         $piePagina = Seccion::crear
         (
             "seccion_calc",
-            "cabeceraInf",
+            "",
             $fila,
             $columna
         );

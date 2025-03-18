@@ -1,5 +1,7 @@
 <?php
 
+use Dom\Text;
+
 include_once "php/Includes.php";
 
 
@@ -22,9 +24,8 @@ if ($method === "GET") {
      *      realizo la consulta inicial
      */
 
-    $conexion = new Conexion("localhost", "hispanamer", "root", "025811");
-    $datos = $conexion->consulta("SELECT codigo, medidas FROM boletines_tabla_medidas");
-    $datos = Tabla::addId($datos, 1);
+    //$conexion = new Conexion("localhost", "hispanamer", "root", "025811");
+    //$datos = $conexion->consulta("");
 
 
 
@@ -43,7 +44,7 @@ if ($method === "GET") {
 
         autor: "sergiod",
         fecha: "17/02/2025",
-        nombre: "prg295",
+        nombre: "prg317",
 
         scriptsCabecera:
         [
@@ -60,7 +61,7 @@ if ($method === "GET") {
 
         sonidos:
         [
-            Sonidos::sonidoEj1->value
+            //Sonidos::sonidoEj1->value
         ],
 
         css:
@@ -97,7 +98,7 @@ if ($method === "GET") {
     $base->add(
         [
 
-            // cabecera:
+            /* #region cabecera */
             Cabecera::getCabecera(
                 0,
                 0,
@@ -114,13 +115,13 @@ if ($method === "GET") {
                     "",
                     ""
                 ),
-
             ),
+            /* #endregion */
 
             $cuerpo = Seccion::crear
             (
-                Elemento::getNewId(),
-                "cuerpo",
+                "",
+                "body",
                 1,
                 0
             ),
@@ -130,147 +131,120 @@ if ($method === "GET") {
     /* #endregion */
 
 
+    /* #region body */
 
+    $cuerpo->add(
+        [
+            $cuerpoIzq = Seccion::crear(
+                "",
+                "",
+                0,
+                0
+            ),
+            $cuerpoDerecho = Seccion::crear(
+                "",
+                "",
+                0,
+                1
+            ),
+        ]
+    );
     /* #endregion */
 
-    /* #region body */
-    $cuerpo->add([
-
-        $cuerpoTabla = Seccion::crear(
-            Elemento::getNewId(),
-            "tabla",
+    /* #region parte izq */
+    $cuerpoIzq->add([
+        $cuerpoIzq1 = Seccion::crear(
+            "",
+            "",
             0,
             0
         ),
-
-        $cuerpoInput = Seccion::crear(
-            Elemento::getNewId(),
-            "input",
-            0,
-            1
+        $cuerpoIzq2 = Seccion::crear(
+            "",
+            "",
+            1,
+            0
+        ),
+        $cuerpoIzq3 = Seccion::crear(
+            "",
+            "",
+            2,
+            0
+        ),
+        $cuerpoIzq4 = Seccion::crear(
+            "",
+            "",
+            3,
+            0
         ),
     ]);
 
-    $cuerpoTabla->add(
+    $cuerpoIzq1->add(
         [
-            $tabla = Tabla::crear(
-                Elemento::getNewId(),
+            Texto::crear(
                 "",
-                [
-                    count($datos),
-                    "Propiedad",
-                    "Orden",
-                    "Descripción",
-                    "Requerido",
-                    "Obtenido",
-                    "Norma",
-                    "Unidades"
-                ],
-                $datos,
+                "",
+                "Relación de familias.",
                 0,
                 0
             )
         ]
     );
-    /* #endregion */
 
-    /* #region datos */
-    $cuerpoInput->add(
+    $cuerpoIzq2->add(
         [
-            $cuerpoInput1 = Seccion::crear(
-                Elemento::getNewId(),
+            Texto::crear(
                 "",
+                "",
+                "Buscar",
                 0,
                 0
             ),
-
-            $cuerpoInput2 = Seccion::crear(
-                Elemento::getNewId(),
+            TextBox::crear(
                 "",
-                1,
-                0
+                "",
+                "",
+                "",
+                0,
+                2
             ),
-        ],
+            Button::crear(
+                "",
+                "",
+                "Buscar",
+                "Buscar",
+                "",
+                0,
+                4
+            )
+        ]
     );
 
+    $cuerpoIzq3->add(
+        [
+            Tabla::crear(
+                "",
+                "",
+                ["Código", "Familia"],
+                [
+                    [1, 2],
+                    [3, 4],
+                    [5, 6]
+                ],
+                0,
+                0,
 
-    $cuerpoInput1->add([
+            )
+        ]
+    );
 
-        Texto::crear(
-            Elemento::getNewId(),
-            "",
-            "Consulta",
-            0,
-            0
-        ),
+    $cuerpoIzq4->add([
+
     ]);
 
 
-    $cuerpoInput2->add([
-
-        $seccionTexto = Seccion::crear(
-            Elemento::getNewId(),
-            "",
-            0,
-            0
-        ),
-
-        $seccionCuadro = Seccion::crear(
-            Elemento::getNewId(),
-            "",
-            0,
-            1
-        ),
-    ]);
 
     /* #endregion */
-
-    /* #region datos inferior */
-    $seccionTexto->add([
-
-        Texto::crear(
-            Elemento::getNewId(),
-            "",
-            "Código:",
-            0,
-            0
-        ),
-
-        Texto::crear(
-            Elemento::getNewId(),
-            "",
-            "Unidad de medidas:",
-            1,
-            0
-        ),
-
-    ]);
-
-
-    $seccionCuadro->add([
-
-        TextBox::crear(
-            "",
-            "",
-            "",
-            "Código",
-            0,
-            0
-        ),
-        TextBox::crear(
-            "",
-            "",
-            "",
-            "Unidades",
-            1,
-            0
-        ),
-    ]);
-    /* #endregion */
-
-
-
-
 
 
 
@@ -299,18 +273,13 @@ if ($method === "GET") {
 
 
 
-    //.......................
-    $titulo = "prg313";
-    //.......................
-
-
 
 
     //.......................
     $cabecera =
         "
         <meta charset='UTF-8'>
-        <title>$titulo</title>
+        <title>$programa->nombre</title>
         " . favicon . "
         <!-- necesario para que el sistema de sesion sepa en que programa estamos -->
         <script>localStorage.setItem(\"prgActual\", \"" . $programa->nombre . "\");</script>

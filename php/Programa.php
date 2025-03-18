@@ -78,6 +78,9 @@ class Programa implements IRenderizable
             "css/PiePagina.css",
             "css/Popup.css",
             "css/Tabla.css",
+            //
+            "css/prefabricados/Cabecera.css",
+            "css/prefabricados/PiePagina.css",
         ];
     }
 
@@ -127,8 +130,8 @@ class Programa implements IRenderizable
         return $idElemento;
     }
 
-  
- 
+
+
 
     public static function showPopup($texto, $estado)
     {

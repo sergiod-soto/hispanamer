@@ -70,9 +70,9 @@ class Cabecera
             ),
 
             Link::crear(
+                "linkHispanamerCabecera",
                 "",
-                "",
-                "http://localhost/corporativo/prg181.php",
+                URL::Corporativo->value,
                 Target::Blank,
                 Imagen::crear(
                     "",
@@ -87,29 +87,29 @@ class Cabecera
             ),
 
             $cabeceraSupp1 = Seccion::crear(
-                "",
                 "cabeceraSupParte1",
+                "",
                 10,
                 30
             ),
 
             $cabeceraSupp2 = Seccion::crear(
-                "",
                 "cabeceraSupParte2",
+                "",
                 10,
                 40
             ),
 
             $cabeceraSupp3 = Seccion::crear(
-                "",
                 "cabeceraSupParte3",
+                "",
                 10,
                 50
             ),
 
             $cabeceraSupp4 = Seccion::crear(
-                "",
                 "cabeceraSupParte4",
+                "",
                 10,
                 60
             ),
@@ -118,14 +118,14 @@ class Cabecera
         $cabeceraSupp1->add([
 
             $cabeceraSupp1_1 = Seccion::crear(
-                "",
+                "cabeceraSupp1_1",
                 "",
                 0,
                 0
             ),
 
             $cabeceraSupp1_2 = Seccion::crear(
-                "",
+                "cabeceraSupp1_2",
                 "",
                 1,
                 0
@@ -135,8 +135,8 @@ class Cabecera
         $cabeceraSupp1_1->add([
 
             Texto::crear(
-                "123",
-                "",
+                "sesion_iniciada",
+                "textoCabecera",
                 "Sesión iniciada:Enrique Becerra Cabezas", // TODO
                 0,
                 0
@@ -145,8 +145,8 @@ class Cabecera
         $cabeceraSupp1_2->add([
 
             Texto::crear(
-                "",
-                "",
+                "nombre_programa",
+                "textoCabecera",
                 $nombre,
                 0,
                 0
@@ -155,8 +155,8 @@ class Cabecera
         $cabeceraSupp2->add([
 
             Texto::crear(
-                "",
-                "",
+                "fecha_actual",
+                "textoCabecera",
                 Programa::fechaActual(),
                 0,
                 0
@@ -165,8 +165,8 @@ class Cabecera
         $cabeceraSupp3->add([
 
             Texto::crear(
-                "",
-                "",
+                "version_programa",
+                "textoCabecera",
                 $version,
                 0,
                 0
@@ -175,8 +175,8 @@ class Cabecera
         $cabeceraSupp4->add([
 
             Texto::crear(
-                "",
-                "",
+                "ejercicio_fiscal",
+                "textoCabecera",
                 "Ejercicio fiscal: $ejercicioFiscal",
                 0,
                 0
@@ -190,7 +190,7 @@ class Cabecera
             [
                 $cabeceraInf1 = Seccion::crear
                 (
-                    "",
+                    "cabeceraInf1",
                     "",
                     0,
                     10
@@ -198,7 +198,7 @@ class Cabecera
 
                 $cabeceraInf2 = Seccion::crear
                 (
-                    "",
+                    "cabeceraInf2",
                     "",
                     0,
                     20
@@ -206,8 +206,8 @@ class Cabecera
 
                 $cabeceraInf3 = Seccion::crear
                 (
+                    "cabeceraInf3",
                     "",
-                    "seccionGuardado",
                     0,
                     30
                 ),

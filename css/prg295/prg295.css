@@ -1,22 +1,4 @@
-.cabecera {
-    margin-bottom: 25px;
-}
 
-
-.cabeceraSup {
-    display: flex;
-    align-items: flex-start;
-    border-bottom: none;
-    background-color: #f2f2f2;
-}
-
-.cabeceraInf {
-    display: flex;
-    background-color: #f2f2f2;
-    border-top: 1px solid black;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
 
 .fila-seleccionada {
     background-color: rgba(255, 255, 0, 0.808) !important;
@@ -24,18 +6,7 @@
 
 
 
-.imagenLogo {
-    width: auto;
-    height: 50px;
-}
 
-.boton-cabecera {
-    border: 0px;
-    background-color: rgba(255, 255, 255, 0);
-    cursor: pointer;
-    padding-left: 5px;
-    padding-right: 5px;
-}
 
 
 
@@ -53,25 +24,6 @@
 
 
 
-.cabeceraSupParte1 {
-    min-width: 250px;
-    width: 25%;
-}
-
-.cabeceraSupParte2 {
-    min-width: 250px;
-    width: 25%;
-}
-
-.cabeceraSupParte3 {
-    min-width: 250px;
-    width: 25%;
-}
-
-.cabeceraSupParte4 {
-    min-width: 250px;
-    width: 25%;
-}
 
 
 
@@ -83,39 +35,6 @@
 
 
 
-
-
-#id_18 {
-    width: 300px;
-}
-
-#id_19 {
-    width: 300px;
-}
-
-#id_29 {
-    width: 100%;
-}
-
-#id_31 {
-    padding-left: 20px;
-    background-color: rgb(199, 199, 199);
-}
-
-#id_32 {
-    padding-top: 20px;
-    padding-left: 20px;
-    display: flex;
-}
-
-#id_34 {
-    width: 50%;
-    max-width: 150px;
-}
-
-#id_35 {
-    width: 50%;
-}
 
 
 
