@@ -11,6 +11,7 @@ include_once "php/URLs.php";
 include_once "php/URLs.php";
 
 include_once "php/prefabricados/Cabecera.php";
+include_once "php/prefabricados/PiePagina.php";
 
 
 // class autoloader

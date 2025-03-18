@@ -10,14 +10,14 @@ include_once "php/Includes.php";
 class Cabecera
 {
 
-    public static function getCabecera()
+    public static function getCabecera($fila, $columna)
     {
         $cabecera = Seccion::crear
         (
             "",
             "cabecera",
-            0,
-            0
+            $fila,
+            $columna
         );
 
         /* #region cabecera */
