@@ -1,4 +1,20 @@
+
+const PopupTipo = Object.freeze({
+    OK: "bien",
+    WARNING: "advertencia",
+    ERROR: "error",
+    NORMAL: "normal"
+});
+
+
+
+
+
+const timeDisplayed = 2000; // milisegundos que dura el popup visible
+
 var lastClickTime = new Date();
+
+
 
 
 function showPopup(texto, tipo) {
@@ -14,11 +30,11 @@ function showPopup(texto, tipo) {
 
     setTimeout(
         function () {
-            if (new Date() - lastClickTime >= 2000) {
+            if (new Date() - lastClickTime >= timeDisplayed) {
                 popup.style.display = 'none';
             }
         },
-        2000);
+        timeDisplayed);
 }
 
 function cambiarEstado(elemento, nuevoEstado) {

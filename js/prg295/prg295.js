@@ -73,6 +73,8 @@ function funcionBorrar() {
 function funcionGuardar() {
     console.debug("Funcion guardado");
 
+    showPopup("Elemento guardado.", PopupTipo.OK);
+
     setHabilitado(botonNuevo.id, true);
     setHabilitado(botonEditar.id, false);
     setHabilitado(botonBorrar.id, false);
@@ -105,8 +107,17 @@ function funcionCancelar() {
     }
 }
 
+/* #region  funciones */
 
+function guardar() {
 
+}
+
+function borrar(){
+    
+}
+
+/* #endregion */
 
 
 
@@ -118,22 +129,6 @@ botonGuardado.onclick = funcionGuardar;
 botonCancelar.onclick = funcionCancelar;
 
 
-function guardarClases() {
-    var botonNuevo = document.getElementById("id_21");
-    var botonEditar = document.getElementById("id_22");
-    var botonBorrar = document.getElementById("id_23");
-    
-    var botonPDF = document.getElementById("id_24");
-    var botonExcel = document.getElementById("id_25");
-    
-    var botonGuardado = document.getElementById("id_26");
-    var botonCancelar = document.getElementById("id_27");
-    
-    var tabla = document.getElementById("id_28");
-    
-    var cuerpoDatos = document.getElementById("id_32");
-}
-guardarClases();
 
 
 

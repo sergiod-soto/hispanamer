@@ -10,6 +10,8 @@ include_once "php/Sonidos.php";
 include_once "php/URLs.php";
 include_once "php/URLs.php";
 
+include_once "php/prefabricados/Cabecera.php";
+
 
 // class autoloader
 spl_autoload_register(function ($class_name) {
