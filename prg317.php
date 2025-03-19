@@ -53,23 +53,18 @@ if ($method === "GET") {
 
         scriptsBody:
         [
-            //"js/prg295/ElementosAGuardar.js",
-            //"js/prg295/Focos.js",
-            //"js/prg295/Tabla.js",
-            //"js/prg295/prg295.js",
+
         ],
 
         sonidos:
         [
-            //Sonidos::sonidoEj1->value
+
         ],
 
         css:
         [
-            "css/prg295/prg295.css",
-            "css/prg295/TimeBox.css",
-            "css/prg295/Tabla.css",
-
+            "css/prg317/prg317.css",
+            "css/prg317/Tabla.css"
         ],
     );
 
@@ -83,6 +78,8 @@ if ($method === "GET") {
     //      (tener en cuenta que si un elemento A usa otro B, 
     //      B debe ser creado antes)
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
     $base = Seccion::crear
     (
@@ -121,7 +118,7 @@ if ($method === "GET") {
             $cuerpo = Seccion::crear
             (
                 "",
-                "body",
+                "cuerpo",
                 1,
                 0
             ),
@@ -131,18 +128,18 @@ if ($method === "GET") {
     /* #endregion */
 
 
-    /* #region body */
+    /* #region cuerpo */
 
     $cuerpo->add(
         [
             $cuerpoIzq = Seccion::crear(
-                "",
+                "cuerpoIzq",
                 "",
                 0,
                 0
             ),
             $cuerpoDerecho = Seccion::crear(
-                "",
+                "cuerpoDer",
                 "",
                 0,
                 1
@@ -223,13 +220,33 @@ if ($method === "GET") {
     $cuerpoIzq3->add(
         [
             Tabla::crear(
-                "",
+                "tabla",
                 "",
                 ["Código", "Familia"],
                 [
-                    [1, 2],
-                    [3, 4],
-                    [5, 6]
+                    ["00001", "ASDFASDF"],
+                    ["00003", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
+                    ["00005", "ASDFASDF"],
                 ],
                 0,
                 0,
@@ -239,16 +256,154 @@ if ($method === "GET") {
     );
 
     $cuerpoIzq4->add([
+        Texto::crear(
+            "",
+            "",
+            "Copiar propiedades de una familia a otra",
+            0,
+            0
+        ),
+        $cuerpoIzq4CopiaPropiedades = Seccion::crear(
+            "",
+            "",
+            1,
+            0
+        )
+    ]);
 
+    $cuerpoIzq4CopiaPropiedades->add([
+
+        $copiaPropiedades1 = Seccion::crear(
+            "",
+            "",
+            0,
+            0
+        ),
+        $copiaPropiedades2 = Seccion::crear(
+            "",
+            "",
+            0,
+            1
+        ),
+        $copiaPropiedades3 = Seccion::crear(
+            "",
+            "",
+            0,
+            2
+        ),
+    ]);
+
+    $copiaPropiedades1->add(
+        [
+            Texto::crear(
+                "",
+                "",
+                "Familia origen",
+                0,
+                0
+            ),
+            TextBox::crear(
+                "",
+                "",
+                "",
+                "",
+                1,
+                0
+            )
+        ]
+    );
+
+
+
+    $copiaPropiedades2->add([
+        Button::crear(
+            "",
+            "",
+            iconoFlechaAdelante,
+            "Copiar propiedades",
+            "",
+            0,
+            0
+        )
     ]);
 
 
 
+    $copiaPropiedades3->add([
+        Texto::crear(
+            "",
+            "",
+            "Familia destino",
+            0,
+            0
+        ),
+        TextBox::crear(
+            "",
+            "",
+            "",
+            "",
+            1,
+            0
+        )
+    ]);
     /* #endregion */
 
 
 
+    /* #region cuerpo derecha */
+    $cuerpoDerecho->add([
 
+        $derSup = Seccion::crear(
+            "",
+            "",
+            0,
+            0
+        ),
+        $derInf = Seccion::crear(
+            "",
+            "",
+            1,
+            0
+        ),
+    ]);
+
+
+    /* #region derecha superior */
+
+    $derSup->add(
+        [
+            $derSup1 = Seccion::crear(
+                "",
+                "",
+                0,
+                0
+            ),
+            $derSup2 = Seccion::crear(
+                "",
+                "",
+                1,
+                0
+            ),
+            $derSup3 = Seccion::crear(
+                "",
+                "",
+                2,
+                0
+            ),
+        ]
+    );
+
+    /* #endregion */
+
+
+    /* #region derecha inferior */
+
+    $derInf->add([]);
+
+    /* #endregion */
+
+
+    /* #endregion */
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////

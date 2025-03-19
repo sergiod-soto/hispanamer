@@ -1,0 +1,114 @@
+#id_0 {
+    height: auto;
+}
+
+#cuerpoIzq {
+    width: 30%;
+    background-color: antiquewhite;
+    margin-left: 20px;
+
+}
+
+#id_9 {
+    display: flex;
+
+}
+
+#id_11 {
+    text-align: center;
+}
+
+
+#id_12 {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#id_14 {
+    width: 100%;
+    padding-top: 10px;
+    background-color: rgb(209, 208, 208);
+    padding-left: 10px;
+    padding-right: 10px;
+
+    border-top: 2px #ccc solid;
+
+    box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.3),
+        inset -4px -4px 6px rgba(255, 255, 255, 0.8);
+}
+
+#id_16 {
+    margin-right: 5px;
+}
+
+#id_17 {
+    margin-right: 10px;
+}
+
+#id_19 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(158, 158, 158);
+    width: 95%;
+
+}
+
+#id_20 {
+    display: flex;
+    margin-top: 15px;
+    padding-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+#id_21 {
+    width: auto;
+}
+
+#id_23 {
+    width: auto;
+}
+
+#id_24 {
+    text-align: center;
+}
+
+#id_25 {
+    width: 100%;
+}
+
+#id_26 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+#id_27 {
+    text-align: center;
+}
+
+#id_28 {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#cuerpoDer {
+    background-color: rgb(236, 236, 236);
+    width: 70%;
+}

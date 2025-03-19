@@ -180,7 +180,7 @@ class Tabla extends Elemento
         $html = "
                     <div id=\"$this->id\" class=\"div-tabla-$this->id table-container\" data-tipo=\"Tabla\">
                         $htmlCabecera
-                        <div class=\"tabla-scroll\">
+                        <div id=\"tabla-scroll-$this->id\" class=\"tabla-scroll\">
                         <table class=\"$this->clase\"
                 ";
 

@@ -69,13 +69,11 @@ class Programa implements IRenderizable
         ];
 
         $this->cssBase = [
-            "css/Cabecera.css",
             "css/Calculadora.css",
             "css/DateBox.css",
             "css/GestionModo.css",
             "css/NoteBox.css",
             "css/PasswordBox.css",
-            "css/PiePagina.css",
             "css/Popup.css",
             "css/Tabla.css",
             //

@@ -1,0 +1,47 @@
+:root {
+    --text-align-col1: right;
+    --text-align-col2: left;
+}
+
+
+
+
+
+
+
+#tabla {
+    width: 100%;
+    align-self: center;
+    min-height: 50vh;
+    margin-top: 10px;
+}
+
+#tabla-scroll-tabla {
+    max-height: 500px;
+}
+
+
+
+#cabeceratabla div {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#cabeceratabla :nth-child(1) {
+    text-align: var(--text-align-col1);
+    right: 10px;
+}
+
+#cabeceratabla :nth-child(2) {
+    text-align: var(--text-align-col2);
+    left: 10px;
+}
+
+#tabla tbody td:nth-child(1) {
+    text-align: var(--text-align-col1);
+}
+
+#tabla tbody td:nth-child(2) {
+    text-align: var(--text-align-col2);
+}
