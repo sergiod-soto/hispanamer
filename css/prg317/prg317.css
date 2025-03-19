@@ -1,17 +1,25 @@
 #id_0 {
     height: auto;
+    margin-left: 10px;
+}
+
+.cuerpo {
+    border: 2px solid #ccc;
+    max-width: 1500px;
 }
 
 #cuerpoIzq {
-    width: 30%;
+    width: 25%;
     background-color: antiquewhite;
-    margin-left: 20px;
+    border-right: 2px solid #ccc;
+}
 
+#cuerpoDer {
+    padding-left: 5px;
 }
 
 #id_9 {
     display: flex;
-
 }
 
 #id_11 {
@@ -23,17 +31,16 @@
     display: flex;
     margin-top: 10px;
     align-items: center;
-    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 #id_14 {
-    width: 100%;
     padding-top: 10px;
     background-color: rgb(209, 208, 208);
     padding-left: 10px;
     padding-right: 10px;
 
-    border-top: 2px #ccc solid;
+
 
     box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.3),
         inset -4px -4px 6px rgba(255, 255, 255, 0.8);
@@ -45,9 +52,15 @@
 
 #id_17 {
     margin-right: 10px;
+    width: 150px;
 }
 
-#id_19 {
+#id_18 img{
+    width: 15px;
+    height: 15px;
+}
+
+#id_19{
     text-align: center;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(158, 158, 158);
@@ -74,6 +87,7 @@
 
 #id_24 {
     text-align: center;
+    font-size: 14px;
 }
 
 #id_25 {
@@ -88,15 +102,31 @@
 
 #id_27 {
     text-align: center;
+    font-size: 14px;
 }
 
 #id_28 {
     width: 100%;
 }
 
+#id_32 {
+    display: flex;
+}
 
+#id_36 {
+    margin-right: 5px;
+}
 
+#id_37 {
+    width: 100px;
+    border: 1px solid black;
+    margin-right: 10px;
+}
 
+#id_38 {
+    width: 350px;
+    border: 1px solid black;
+}
 
 
 
@@ -110,5 +140,5 @@
 
 #cuerpoDer {
     background-color: rgb(236, 236, 236);
-    width: 70%;
+    width: 75%;
 }

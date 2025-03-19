@@ -53,7 +53,9 @@ if ($method === "GET") {
 
         scriptsBody:
         [
-
+            "js/prg317/prg317.js",
+            "js/prg317/TablaIzq.js",
+            "js/prg317/TablaDer.js"
         ],
 
         sonidos:
@@ -64,7 +66,7 @@ if ($method === "GET") {
         css:
         [
             "css/prg317/prg317.css",
-            "css/prg317/Tabla.css"
+            "css/prg317/TablaIzq.css"
         ],
     );
 
@@ -208,7 +210,7 @@ if ($method === "GET") {
             Button::crear(
                 "",
                 "",
-                "Buscar",
+                iconoLupa,
                 "Buscar",
                 "",
                 0,
@@ -220,7 +222,7 @@ if ($method === "GET") {
     $cuerpoIzq3->add(
         [
             Tabla::crear(
-                "tabla",
+                "tablaIzq",
                 "",
                 ["Código", "Familia"],
                 [
@@ -255,102 +257,10 @@ if ($method === "GET") {
         ]
     );
 
-    $cuerpoIzq4->add([
-        Texto::crear(
-            "",
-            "",
-            "Copiar propiedades de una familia a otra",
-            0,
-            0
-        ),
-        $cuerpoIzq4CopiaPropiedades = Seccion::crear(
-            "",
-            "",
-            1,
-            0
-        )
-    ]);
-
-    $cuerpoIzq4CopiaPropiedades->add([
-
-        $copiaPropiedades1 = Seccion::crear(
-            "",
-            "",
-            0,
-            0
-        ),
-        $copiaPropiedades2 = Seccion::crear(
-            "",
-            "",
-            0,
-            1
-        ),
-        $copiaPropiedades3 = Seccion::crear(
-            "",
-            "",
-            0,
-            2
-        ),
-    ]);
-
-    $copiaPropiedades1->add(
-        [
-            Texto::crear(
-                "",
-                "",
-                "Familia origen",
-                0,
-                0
-            ),
-            TextBox::crear(
-                "",
-                "",
-                "",
-                "",
-                1,
-                0
-            )
-        ]
-    );
-
-
-
-    $copiaPropiedades2->add([
-        Button::crear(
-            "",
-            "",
-            iconoFlechaAdelante,
-            "Copiar propiedades",
-            "",
-            0,
-            0
-        )
-    ]);
-
-
-
-    $copiaPropiedades3->add([
-        Texto::crear(
-            "",
-            "",
-            "Familia destino",
-            0,
-            0
-        ),
-        TextBox::crear(
-            "",
-            "",
-            "",
-            "",
-            1,
-            0
-        )
-    ]);
     /* #endregion */
 
-
-
     /* #region cuerpo derecha */
+
     $cuerpoDerecho->add([
 
         $derSup = Seccion::crear(
@@ -359,14 +269,19 @@ if ($method === "GET") {
             0,
             0
         ),
-        $derInf = Seccion::crear(
+        $derMedio = Seccion::crear(
             "",
             "",
             1,
             0
         ),
+        $derInf = Seccion::crear(
+            "",
+            "",
+            2,
+            0
+        ),
     ]);
-
 
     /* #region derecha superior */
 
@@ -390,18 +305,105 @@ if ($method === "GET") {
                 2,
                 0
             ),
+            $derSup4 = Seccion::crear(
+                "",
+                "",
+                3,
+                0
+            ),
+        ]
+    );
+
+    $derSup1->add(
+        [
+            Texto::crear(
+                "",
+                "",
+                "Propiedades asignadas a la familia:",
+                0,
+                0
+            ),
+            Texto::crear(
+                "",
+                "",
+                "asdf",
+                0,
+                1
+            ),
+            Texto::crear(
+                "",
+                "",
+                "asdf",
+                0,
+                2
+            ),
+
+        ]
+    );
+
+    $derSup2->add(
+        [
+            Texto::crear(
+                "",
+                "",
+                "Nota: Requerido y obtenido se obtiene valor del archivo",
+                0,
+                0
+            )
+        ]
+    );
+
+    $derSup3->add(
+        [
+            Tabla::crear(
+                "tablaDer",
+                "",
+                ["Código", "Requerido", "Obtenido", "Norma", "Unidades"],
+                [
+                    ["001", "GESALMA1.VISCO", "GESFA3", "UNE-234-2-34", "K.U"],
+                    ["002", "", "GESALMA1", "UNE-34-563-4", "micras"],
+                    ["003", "100", "100", "UNE 2 56", ""]
+                ],
+                0,
+                0
+            ),
+            Seccion::crear(
+                "",
+                "",
+                0,
+                1
+            )
         ]
     );
 
     /* #endregion */
 
+    /* #region derecha medio */
 
-    /* #region derecha inferior */
-
-    $derInf->add([]);
+    $derMedio->add([
+        Texto::crear(
+            "",
+            "",
+            "",
+            0,
+            2
+        ),
+    ]);
 
     /* #endregion */
 
+    /* #region derecha inferior */
+
+    $derInf->add([
+        Texto::crear(
+            "",
+            "",
+            "derInf",
+            0,
+            0
+        ),
+    ]);
+    /* #endregion */
 
     /* #endregion */
 

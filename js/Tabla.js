@@ -5,9 +5,9 @@
  * una mano al pasar por encima
  * @param {*} f 
  */
-function funcionCabecera(f) {
+function funcionCabeceraClicIzq(tabla, f) {
 
-  const cabeceras = document.getElementsByClassName("cabeceraTabla");
+  const cabeceras = tabla.getElementsByClassName("cabeceraTabla");
 
   for (const cabecera of cabeceras) {
 
@@ -49,9 +49,9 @@ function funcionCabecera(f) {
  * Ejecuta la funcion parametro al hacer clic en una fila
  * @param {*} f 
  */
-function funcionFila(f) {
+function funcionFilaClicIzq(tabla, f) {
   // Eventos para cada fila del cuerpo de la tabla
-  const rows = document.querySelectorAll('tbody tr');
+  const rows = tabla.querySelectorAll('tbody tr');
   rows.forEach(f => f.classList.remove("fila-seleccionada"));
   rows.forEach((row, index) => {
     row.addEventListener('click', function () {
@@ -63,6 +63,50 @@ function funcionFila(f) {
   });
 }
 
+
+
+
+
+function funcionCabeceraClicDer(tabla, f) {
+  const cabeceras = tabla.getElementsByClassName("cabeceraTabla");
+
+
+  const divs = cabecera.children; // Obtiene los divs hijos
+
+  for (const div of divs) {
+
+  }
+
+
+
+  // pongo a toda la cabecera que el cursor sea una mano
+  document.querySelectorAll("thead th").forEach(th => {
+
+  });
+}
+
+
+function funcionFilaClicDer(tabla, f) {
+  // Eventos para cada fila del cuerpo de la tabla
+  const rows = tabla.querySelectorAll('tbody tr');
+  rows.forEach(f => f.classList.remove("fila-seleccionada"));
+  rows.forEach((row, index) => {
+    row.addEventListener('contextmenu', function () {
+      const filas = document.querySelectorAll('tbody tr');
+      filas.forEach(filas => filas.classList.remove("fila-seleccionada"));
+      this.classList.add("fila-seleccionada");
+      //
+      f(index);
+    });
+  });
+}
+
+
+
+
+
+
+
 function deseleccionarFilas() {
   const rows = document.querySelectorAll('tbody tr');
   rows.forEach(f => f.classList.remove("fila-seleccionada"));
@@ -70,27 +114,36 @@ function deseleccionarFilas() {
 
 
 function sincronizarCabeceras() {
-  let tabla = document.querySelector("table"); // Selecciona la tabla
 
-  if (tabla === undefined || tabla === null) {
-    return;
-  }
 
-  let cabecera = document.querySelector(".cabeceraTabla"); // Selecciona el div contenedor
-  let columnas = tabla.querySelectorAll("colgroup col"); // Selecciona las columnas de la cabecera de la tabla
-  let divs = cabecera.children; // Selecciona los divs dentro de cabeceraTabla
+  let tablas = document.getElementsByClassName("table-container");
+  Array.from(tablas).forEach((tabla, i) => {
 
-  if (columnas.length !== divs.length) {
-    console.warn("Número de columnas y divs no coinciden. columnas.length: " + columnas.length + ", divs.length: " + divs.length);
-    return;
-  }
+    if (tabla === undefined || tabla === null) {
+      return;
+    }
 
-  columnas.forEach((columna, index) => {
-    divs[index].style.width = `${columna.offsetWidth}px`; // Copia el ancho de cada columna
+    let cabecera = tabla.querySelector(".cabeceraTabla"); // Selecciona el div contenedor
+    let columnas = tabla.querySelectorAll("colgroup col"); // Selecciona las columnas de la cabecera de la tabla
+    let divs = cabecera.children; // Selecciona los divs dentro de cabeceraTabla
+
+    if (columnas.length !== divs.length) {
+      console.warn("Número de columnas y divs no coinciden. columnas.length: " + columnas.length + ", divs.length: " + divs.length + " en tabla [" + tabla.id + ", " + i + "]");
+      return;
+    }
+
+    columnas.forEach((columna, index) => {
+      divs[index].style.width = `${columna.offsetWidth}px`; // Copia el ancho de cada columna
+    });
   });
 }
+
 window.addEventListener("load", sincronizarCabeceras);
 window.addEventListener("resize", sincronizarCabeceras);
+
+
+
+
 
 
 

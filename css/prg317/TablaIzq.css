@@ -9,39 +9,41 @@
 
 
 
-#tabla {
+#tablaIzq {
     width: 100%;
-    align-self: center;
     min-height: 50vh;
     margin-top: 10px;
+
+    border-bottom: 2px #ccc solid;
+    border-top: 2px #ccc solid;
 }
 
-#tabla-scroll-tabla {
-    max-height: 500px;
+#tabla-scroll-tablaIzq {
+    max-height: 650px;
 }
 
 
 
-#cabeceratabla div {
+#cabeceratablaIzq div {
     position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#cabeceratabla :nth-child(1) {
+#cabeceratablaIzq :nth-child(1) {
     text-align: var(--text-align-col1);
     right: 10px;
 }
 
-#cabeceratabla :nth-child(2) {
+#cabeceratablaIzq :nth-child(2) {
     text-align: var(--text-align-col2);
     left: 10px;
 }
 
-#tabla tbody td:nth-child(1) {
+#tablaIzq tbody td:nth-child(1) {
     text-align: var(--text-align-col1);
 }
 
-#tabla tbody td:nth-child(2) {
+#tablaIzq tbody td:nth-child(2) {
     text-align: var(--text-align-col2);
 }
