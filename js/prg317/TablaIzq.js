@@ -1,6 +1,18 @@
 
+var tablaIzq = document.getElementById("tablatablaIzq");
 
 
 
 
-//funcionFilaClicDer(document.getElementById("tablatablaIzq"), () => {console.debug("clic der")});
+function clicIzqTablaIzq(index) {
+    console.debug("clic izq, index: " + index);
+}
+
+function clicDerTablaIzq(index) {
+    console.debug("clic der, index: " + index);
+
+}
+
+
+funcionFilaClicIzq(tablaIzq, (index) => { clicIzqTablaIzq(index) });
+funcionFilaClicDer(tablaIzq, (index) => { clicDerTablaIzq(index) });

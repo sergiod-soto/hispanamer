@@ -61,9 +61,6 @@ function funcionFilaClicIzq(tabla, f) {
 }
 
 
-
-
-
 function funcionCabeceraClicDer(tabla, f) {
   const cabecera = tabla.firstChild;
   const divs = cabecera.children; // Obtiene los divs hijos

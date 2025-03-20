@@ -22,6 +22,7 @@ class Programa implements IRenderizable
     public $css;
     public $sonidos;
     public $popup;
+    public $desplegable;
     public $scriptsBaseCabecera;
     public $scriptsBaseBody;
     public $sonidosBase;
@@ -54,6 +55,7 @@ class Programa implements IRenderizable
             "js/ControlModos.js",
             "js/ControlSesion.js",
             "js/DateBox.js",
+            "js/Desplegable.js",
             "js/Notas.js",
             "js/NoteBox.js",
             "js/PasswordBox.js",
@@ -71,6 +73,7 @@ class Programa implements IRenderizable
         $this->cssBase = [
             "css/Calculadora.css",
             "css/DateBox.css",
+            "css/Desplegable.css",
             "css/GestionModo.css",
             "css/NoteBox.css",
             "css/PasswordBox.css",
@@ -105,6 +108,11 @@ class Programa implements IRenderizable
             "",
             "",
             PopupEstado::NORMAL->value,
+        );
+
+        $programa->desplegable = Desplegable::crear(
+            "",
+            "",
         );
 
         return $programa;
@@ -219,8 +227,9 @@ class Programa implements IRenderizable
                 </head>
 
                 <body>
-                    $this->cuerpo
-                    " . $this->popup->renderizar() . "
+                    $this->cuerpo 
+                    " . $this->popup->renderizar() . " 
+                    " . $this->desplegable->renderizar() . "
                     $htmlscriptsBaseBody
                     $htmlScriptsBody
                 </body>
