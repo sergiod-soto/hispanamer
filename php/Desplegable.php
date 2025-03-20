@@ -22,7 +22,6 @@ class Desplegable extends Elemento
         }
 
         $id = "desplegableid_" . Desplegable::$contador++;
-        echo ("id: " . $id . "<br>");
         $html =
             "
             <div id=\"$id\" class=\"context-menu\">
