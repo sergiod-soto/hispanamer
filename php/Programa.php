@@ -209,6 +209,8 @@ class Programa implements IRenderizable
                     $this->cabecera 
                     $htmlscriptsBaseCabecera
                     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js\"></script> 
+                    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js\"></script>
+                    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/sorts/tablesort.number.min.js\"></script>
                     $htmlScriptsCabecera
                     $htmlCssBase
                     $htmlCss

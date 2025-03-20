@@ -7,32 +7,29 @@
  */
 function funcionCabeceraClicIzq(tabla, f) {
 
-  const cabeceras = tabla.getElementsByClassName("cabeceraTabla");
+  const cabecera = tabla.firstChild;
 
-  for (const cabecera of cabeceras) {
+  const divs = cabecera.children; // Obtiene los divs hijos
 
-    const divs = cabecera.children; // Obtiene los divs hijos
+  for (const div of divs) {
 
-    for (const div of divs) {
+    const hijo = div.firstChild; // Obtiene el primer hijo (puede ser un nodo de texto o un elemento)
 
-      const hijo = div.firstChild; // Obtiene el primer hijo (puede ser un nodo de texto o un elemento)
+    if (hijo) {
 
-      if (hijo) {
+      // si el hijo es texto plano
+      if (hijo.nodeType === Node.TEXT_NODE) {
+        div.style.cursor = "pointer";
+        div.addEventListener('click', function () {
+          f(div);
+        });
 
-        // si el hijo es texto plano
-        if (hijo.nodeType === Node.TEXT_NODE) {
-          div.style.cursor = "pointer";
-          div.addEventListener('click', function () {
-            f(div);
-          });
-
-          // si el hijo es un elemento (como un icono, por ej)
-        } else if (hijo.nodeType === Node.ELEMENT_NODE) {
-          div.style.cursor = "pointer";
-          div.addEventListener('click', function () {
-            f(div);
-          });
-        }
+        // si el hijo es un elemento (como un icono, por ej)
+      } else if (hijo.nodeType === Node.ELEMENT_NODE) {
+        div.style.cursor = "pointer";
+        div.addEventListener('click', function () {
+          f(div);
+        });
       }
     }
   }
@@ -68,15 +65,29 @@ function funcionFilaClicIzq(tabla, f) {
 
 
 function funcionCabeceraClicDer(tabla, f) {
-  const cabeceras = tabla.getElementsByClassName("cabeceraTabla");
-
-
+  const cabecera = tabla.firstChild;
   const divs = cabecera.children; // Obtiene los divs hijos
 
   for (const div of divs) {
 
-  }
+    const hijo = div.firstChild; // Obtiene el primer hijo (puede ser un nodo de texto o un elemento)
 
+    if (hijo) {
+
+      // si el hijo es texto plano
+      if (hijo.nodeType === Node.TEXT_NODE) {
+        div.addEventListener('contextmenu', function () {
+          f(div);
+        });
+
+        // si el hijo es un elemento (como un icono, por ej)
+      } else if (hijo.nodeType === Node.ELEMENT_NODE) {
+        div.addEventListener('contextmenu', function () {
+          f(div);
+        });
+      }
+    }
+  }
 
 
   // pongo a toda la cabecera que el cursor sea una mano
@@ -91,15 +102,56 @@ function funcionFilaClicDer(tabla, f) {
   const rows = tabla.querySelectorAll('tbody tr');
   rows.forEach(f => f.classList.remove("fila-seleccionada"));
   rows.forEach((row, index) => {
-    row.addEventListener('contextmenu', function () {
+    row.addEventListener('contextmenu', function (event) {
+      event.preventDefault();
       const filas = document.querySelectorAll('tbody tr');
       filas.forEach(filas => filas.classList.remove("fila-seleccionada"));
       this.classList.add("fila-seleccionada");
+      //
+      // muestra de menu
+      //
+      // let menu = document.getElementById("menuContextualTablas");
+      // menu.style.top = `${event.pageY}px`;
+      // menu.style.left = `${event.pageX}px`;
+      // menu.style.display = "block";
       //
       f(index);
     });
   });
 }
+
+
+/**
+ * Se ordena la matriz 'matriz' en orden alfabetico 
+ * segun la columna 'columna' en orden 'descendente'
+ * 
+ * @param {HTMLTableElement} tabla (html)
+ * @param {int} columna 
+ * @param {boolean} descendente 
+ */
+function ordenacionAlfabetica(tabla, columna, descendente) {
+  let col = tabla.querySelector("tbody tr td:nth-child(" + columna + ")"); // Primera columna
+  return new Tablesort(tabla, { descending: descendente }).sortTable(col);
+}
+
+/**
+ * Se ordena la matriz 'matriz' en orden numerico 
+ * segun la columna 'columna' en orden 'descendente'
+ * 
+ * @param {HTMLTableElement} tabla 
+ * @param {int} columna 
+ * @param {boolean} descendente
+ */
+function ordenacionNumerica(tabla, columna, descendente) {
+  let col = tabla.querySelector("tbody tr td:nth-child(" + columna + ")"); // Segunda columna
+  col.setAttribute("data-sort-method", "number");
+  return new Tablesort(tabla, { descending: descendente }).sortTable(col);
+}
+
+
+
+
+
 
 
 

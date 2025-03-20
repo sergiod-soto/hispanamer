@@ -17,6 +17,7 @@ class Tabla extends Elemento
     public $cabecera;
     public $datos;
     public $filas;
+    
 
     // variable para el id de las filas de la tabla
     public static $idFila = 0;

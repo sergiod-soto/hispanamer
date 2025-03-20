@@ -1,4 +1,4 @@
-function f(container) {
+function funcionPasswordBox(container) {
     const passwordField = document.getElementById("input" + container.id);
     const toggleIcon = document.getElementById("toggleIcon" + container.id);
 
@@ -18,6 +18,6 @@ function f(container) {
 
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".password-container").forEach(function (container) {
-        f(container);
+        funcionPasswordBox(container);
     });
 });

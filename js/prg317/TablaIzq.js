@@ -3,4 +3,4 @@
 
 
 
-funcionFilaClicDer(document.getElementById("tablatablaIzq"), f);
+//funcionFilaClicDer(document.getElementById("tablatablaIzq"), () => {console.debug("clic der")});

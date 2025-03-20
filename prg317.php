@@ -288,7 +288,7 @@ if ($method === "GET") {
     $derSup->add(
         [
             $derSup1 = Seccion::crear(
-                "",
+                "propiedadesAsignadas",
                 "",
                 0,
                 0
@@ -361,8 +361,11 @@ if ($method === "GET") {
                 ["Código", "Requerido", "Obtenido", "Norma", "Unidades"],
                 [
                     ["001", "GESALMA1.VISCO", "GESFA3", "UNE-234-2-34", "K.U"],
-                    ["002", "", "GESALMA1", "UNE-34-563-4", "micras"],
-                    ["003", "100", "100", "UNE 2 56", ""]
+                    ["003", "", "GESALMA1", "UNE-34-563-4", "micras"],
+                    ["002", "100", "100", "UNE 2 56", ""],
+                    ["10", "GESALMA1.VISCO", "hESFA3", "UNE-234-2-34", "K.U"],
+                    ["11", "GESALMA1.VISCO", "iESFA3", "UNE-234-2-34", "K.U"],
+                    ["2", "GESALMA1.VISCO", "GESFA4", "UNE-234-2-34", "K.U"]
                 ],
                 0,
                 0
@@ -395,13 +398,25 @@ if ($method === "GET") {
     /* #region derecha inferior */
 
     $derInf->add([
-        Texto::crear(
+        button::crear(
             "",
             "",
-            "derInf",
+            "ABC",
+            "",
+            "ordenacionAlfabetica(document.getElementById('tablatablaDer'), 3, false)",
+            0,
+            1
+        ),
+        button::crear(
+            "",
+            "",
+            "123",
+            "",
+            "ordenacionNumerica(document.getElementById('tablatablaDer'), 1, false)",
             0,
             0
         ),
+
     ]);
     /* #endregion */
 
