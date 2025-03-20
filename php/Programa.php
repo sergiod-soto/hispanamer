@@ -105,16 +105,10 @@ class Programa implements IRenderizable
         // creo un popup
         $programa->popup = PopUp::crear(
             "popup",
-            "",
+            "popup",
             "",
             PopupEstado::NORMAL->value,
         );
-
-        $programa->desplegable = Desplegable::crear(
-            "",
-            "",
-        );
-
         return $programa;
     }
 
@@ -229,7 +223,6 @@ class Programa implements IRenderizable
                 <body>
                     $this->cuerpo 
                     " . $this->popup->renderizar() . " 
-                    " . $this->desplegable->renderizar() . "
                     $htmlscriptsBaseBody
                     $htmlScriptsBody
                 </body>

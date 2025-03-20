@@ -48,7 +48,7 @@ if ($method === "GET") {
 
         scriptsCabecera:
         [
-
+            "js/prg317/Desplegable1.js",
         ],
 
         scriptsBody:
@@ -96,6 +96,17 @@ if ($method === "GET") {
     /* #region base */
     $base->add(
         [
+            Desplegable::crear(
+                "",
+                [
+                    "Copiar propiedades",
+                    "Pegar propiedades"
+                ],
+                [
+                    "copiarPropiedades()",
+                    "pegarPropiedades()"
+                ]
+            ),
 
             /* #region cabecera */
             Cabecera::getCabecera(
@@ -403,7 +414,7 @@ if ($method === "GET") {
             "",
             "ABC",
             "",
-            "ordenacionAlfabetica(document.getElementById('tablatablaDer'), 3, false)",
+            "ordenacionAlfabetica(document.getElementById('tablatablaDer'), 3)",
             0,
             1
         ),
@@ -412,7 +423,7 @@ if ($method === "GET") {
             "",
             "123",
             "",
-            "ordenacionNumerica(document.getElementById('tablatablaDer'), 1, false)",
+            "ordenacionNumerica(document.getElementById('tablatablaDer'), 1)",
             0,
             0
         ),

@@ -104,15 +104,8 @@ function funcionFilaClicDer(tabla, f) {
       const filas = document.querySelectorAll('tbody tr');
       filas.forEach(filas => filas.classList.remove("fila-seleccionada"));
       this.classList.add("fila-seleccionada");
-      //
-      // muestra de menu
-      //
-      // let menu = document.getElementById("menuContextualTablas");
-      // menu.style.top = `${event.pageY}px`;
-      // menu.style.left = `${event.pageX}px`;
-      // menu.style.display = "block";
-      //
-      f(index);
+
+      f(index, event);
     });
   });
 }
@@ -126,7 +119,7 @@ function funcionFilaClicDer(tabla, f) {
  * @param {int} columna 
  * @param {boolean} descendente 
  */
-function ordenacionAlfabetica(tabla, columna, descendente) {
+function ordenacionAlfabetica(tabla, columna, descendente = false) {
   let col = tabla.querySelector("tbody tr td:nth-child(" + columna + ")"); // Primera columna
   return new Tablesort(tabla, { descending: descendente }).sortTable(col);
 }
@@ -139,7 +132,7 @@ function ordenacionAlfabetica(tabla, columna, descendente) {
  * @param {int} columna 
  * @param {boolean} descendente
  */
-function ordenacionNumerica(tabla, columna, descendente) {
+function ordenacionNumerica(tabla, columna, descendente = false) {
   let col = tabla.querySelector("tbody tr td:nth-child(" + columna + ")"); // Segunda columna
   col.setAttribute("data-sort-method", "number");
   return new Tablesort(tabla, { descending: descendente }).sortTable(col);
