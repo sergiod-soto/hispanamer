@@ -13,11 +13,11 @@ $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "GET") {
 
     //////////////////////////////////////////////////////////////////////////////////////////////
-    //          1º se crean el programa y la conexion
-    //          2º se hacen las consultas necesarias
-    //          3º se crean los elementos
-    //          4º se colocan
-    //          5º se renderiza
+    //          1ï¿½ se crean el programa y la conexion
+    //          2ï¿½ se hacen las consultas necesarias
+    //          3ï¿½ se crean los elementos
+    //          4ï¿½ se colocan
+    //          5ï¿½ se renderiza
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -194,7 +194,7 @@ if ($method === "GET") {
             Texto::crear(
                 "",
                 "",
-                "Relación de familias.",
+                "Relaciï¿½n de familias.",
                 0,
                 0
             )
@@ -235,7 +235,7 @@ if ($method === "GET") {
             Tabla::crear(
                 "tablaIzq",
                 "",
-                ["Código", "Familia"],
+                ["Cï¿½digo", "Familia"],
                 [
                     ["00001", "ASDFASDF"],
                     ["00003", "ASDFASDF"],
@@ -369,7 +369,7 @@ if ($method === "GET") {
             Tabla::crear(
                 "tablaDer",
                 "",
-                ["Código", "Requerido", "Obtenido", "Norma", "Unidades"],
+                ["Cï¿½digo", "Requerido", "Obtenido", "Norma", "Unidades"],
                 [
                     ["001", "GESALMA1.VISCO", "GESFA3", "UNE-234-2-34", "K.U"],
                     ["003", "", "GESALMA1", "UNE-34-563-4", "micras"],
