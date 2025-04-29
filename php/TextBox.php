@@ -32,13 +32,12 @@ class TextBox extends Elemento
     }
 
     /*
-        patron de diseño para crear un TextBox con modo creado, el cual con el propio TextBox
-        y evitar dependencia circular
+        patron de diseño para crear un TextBox
     */
-    public static function crear($id, string $clase, $text, $placeHolder, $fila, $columna)
+    public static function crear($id, string $clase, $text, string $placeHolder, int $fila, int $columna)
     {
         // Crea el botón
-        $boton = new self(
+        $textBox = new self(
             $id,
             $clase,
             $text,
@@ -47,7 +46,7 @@ class TextBox extends Elemento
             $columna
         );
 
-        return $boton;
+        return $textBox;
     }
 
     function renderizar()

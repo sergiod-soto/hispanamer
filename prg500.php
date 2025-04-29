@@ -1,6 +1,6 @@
 <?php
 
-use Dom\Text;
+
 
 include_once "php/Includes.php";
 
@@ -46,27 +46,21 @@ if ($method === "GET") {
         fecha: "25/04/2025",
         nombre: "prg500",
 
-        scriptsCabecera:
-        [
+        scriptsCabecera: [
             //"js/prg500/Desplegable1.js",
         ],
 
-        scriptsBody:
-        [
+        scriptsBody: [
             //"js/prg500/prg500.js",
             //"js/prg500/TablaIzq.js",
             //"js/prg500/TablaDer.js"
         ],
 
-        sonidos:
-        [
+        sonidos: [],
 
-        ],
-
-        css:
-        [
-            "css/prg500/prg317.css",
-            "css/prg500/TablaIzq.css"
+        css: [
+            //"css/prg500/prg317.css",
+            //"css/prg500/TablaIzq.css"
         ],
     );
 
@@ -83,8 +77,7 @@ if ($method === "GET") {
 
 
 
-    $base = Seccion::crear
-    (
+    $base = Seccion::crear(
         Elemento::getNewId(),
         "",
         0,
@@ -128,8 +121,7 @@ if ($method === "GET") {
             ),
             /* #endregion */
 
-            $cuerpo = Seccion::crear
-            (
+            $cuerpo = Seccion::crear(
                 "",
                 "cuerpo",
                 1,
@@ -145,68 +137,72 @@ if ($method === "GET") {
 
     $cuerpo->add(
         [
-            $cuerpoIzq = Seccion::crear(
-                "cuerpoIzq",
+            $seccionIzq = Seccion::crear(
                 "",
-                0,
+                "",
+                1,
                 0
             ),
-            $cuerpoDerecho = Seccion::crear(
-                "cuerpoDer",
+            $seccionDer = Seccion::crear(
                 "",
-                0,
+                "",
+                1,
                 1
-            ),
+            )
         ]
     );
     /* #endregion */
 
-    /* #region parte izq */
-    $cuerpoIzq->add([
-        $cuerpoIzq1 = Seccion::crear(
-            "",
-            "",
-            0,
-            0
-        ),
-        $cuerpoIzq2 = Seccion::crear(
-            "",
-            "",
-            1,
-            0
-        ),
-        $cuerpoIzq3 = Seccion::crear(
-            "",
-            "",
-            2,
-            0
-        ),
-        $cuerpoIzq4 = Seccion::crear(
-            "",
-            "",
-            3,
-            0
-        ),
-    ]);
 
-    $cuerpoIzq1->add(
+    /* #region seccionIzq */
+
+    $seccionIzq->add(
         [
-            Texto::crear(
+            $seccionIzqSup = Seccion::crear(
                 "",
                 "",
-                "Relaci�n de familias.",
                 0,
+                0
+            ),
+            $seccionIzqInf = Seccion::crear(
+                "",
+                "",
+                1,
                 0
             )
         ]
     );
 
-    $cuerpoIzq2->add(
+    $seccionIzqSup->add(
+        [
+            $seccionIzqSup1 = Seccion::crear(
+                "",
+                "",
+                0,
+                0
+            ),
+            $seccionIzqSup2 = Seccion::crear(
+                "",
+                "",
+                1,
+                0
+            ),
+            $seccionIzqSup3 = Seccion::crear(
+                "",
+                "",
+                2,
+                0
+            ),
+
+        ]
+    );
+    /* #region seccionIzqSup1*/
+    $seccionIzqSup1->add(
         [
             Texto::crear(
                 "",
                 "",
-                "Buscar",
+                "Cliente:",
                 0,
                 0
             ),
@@ -214,222 +210,99 @@ if ($method === "GET") {
                 "",
                 "",
                 "",
-                "",
+                "Nº Cliente",
                 0,
-                2
+                1
             ),
             Button::crear(
                 "",
                 "",
-                iconoLupa,
                 "Buscar",
                 "",
-                0,
-                4
-            )
-        ]
-    );
-
-    $cuerpoIzq3->add(
-        [
-            Tabla::crear(
-                "tablaIzq",
                 "",
-                ["C�digo", "Familia"],
-                [
-                    ["00001", "ASDFASDF"],
-                    ["00003", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                    ["00005", "ASDFASDF"],
-                ],
-                0,
-                0,
-
-            )
-        ]
-    );
-
-    /* #endregion */
-
-    /* #region cuerpo derecha */
-
-    $cuerpoDerecho->add([
-
-        $derSup = Seccion::crear(
-            "",
-            "",
-            0,
-            0
-        ),
-        $derMedio = Seccion::crear(
-            "",
-            "",
-            1,
-            0
-        ),
-        $derInf = Seccion::crear(
-            "",
-            "",
-            2,
-            0
-        ),
-    ]);
-
-    /* #region derecha superior */
-
-    $derSup->add(
-        [
-            $derSup1 = Seccion::crear(
-                "propiedadesAsignadas",
-                "",
-                0,
-                0
-            ),
-            $derSup2 = Seccion::crear(
-                "",
-                "",
-                1,
-                0
-            ),
-            $derSup3 = Seccion::crear(
-                "",
-                "",
-                2,
-                0
-            ),
-            $derSup4 = Seccion::crear(
-                "",
-                "",
-                3,
-                0
-            ),
-        ]
-    );
-
-    $derSup1->add(
-        [
-            Texto::crear(
-                "",
-                "",
-                "Propiedades asignadas a la familia:",
-                0,
-                0
-            ),
-            Texto::crear(
-                "",
-                "",
-                "asdf",
-                0,
-                1
-            ),
-            Texto::crear(
-                "",
-                "",
-                "asdf",
                 0,
                 2
             ),
-
+            DateBox::crear(
+                "",
+                "",
+                "Inicio📅",
+                0,
+                3
+            ),
+            Texto::crear(
+                "",
+                "",
+                "/",
+                0,
+                4,
+            ),
+            DateBox::crear(
+                "",
+                "",
+                "Fin📅",
+                0,
+                5
+            ),
         ]
     );
+    /* #endregion */
 
-    $derSup2->add(
+    /* #region seccionIzqSup2*/
+    $seccionIzqSup2->add(
         [
             Texto::crear(
                 "",
                 "",
-                "Nota: Requerido y obtenido se obtiene valor del archivo",
-                0,
-                0
-            )
-        ]
-    );
-
-    $derSup3->add(
-        [
-            Tabla::crear(
-                "tablaDer",
-                "",
-                ["C�digo", "Requerido", "Obtenido", "Norma", "Unidades"],
-                [
-                    ["001", "GESALMA1.VISCO", "GESFA3", "UNE-234-2-34", "K.U"],
-                    ["003", "", "GESALMA1", "UNE-34-563-4", "micras"],
-                    ["002", "100", "100", "UNE 2 56", ""],
-                    ["10", "GESALMA1.VISCO", "hESFA3", "UNE-234-2-34", "K.U"],
-                    ["11", "GESALMA1.VISCO", "iESFA3", "UNE-234-2-34", "K.U"],
-                    ["2", "GESALMA1.VISCO", "GESFA4", "UNE-234-2-34", "K.U"]
-                ],
+                "Nº Factura",
                 0,
                 0
             ),
-            Seccion::crear(
+            TextBox::crear(
                 "",
                 "",
+                "",
+                "Número",
                 0,
                 1
             )
         ]
     );
-
     /* #endregion */
 
-    /* #region derecha medio */
 
-    $derMedio->add([
-        Texto::crear(
-            "",
-            "",
-            "",
-            0,
-            2
-        ),
-    ]);
-
+    /* #region seccionIzqSup3*/
+    /*
+    $seccionIzqSup3->add(
+        []
+    );
+    */
     /* #endregion */
 
-    /* #region derecha inferior */
 
-    $derInf->add([
-        button::crear(
-            "",
-            "",
-            "ABC",
-            "",
-            "ordenacionAlfabetica(document.getElementById('tablatablaDer'), 3)",
-            0,
-            1
-        ),
-        button::crear(
-            "",
-            "",
-            "123",
-            "",
-            "ordenacionNumerica(document.getElementById('tablatablaDer'), 1)",
-            0,
-            0
-        ),
 
-    ]);
+
+    $seccionIzqInf->add(
+        [
+            Tabla::crear(
+                "",
+                "",
+                ["a", "b", "c"],
+                [
+                    ["a1", "b1", "c1"],
+                    ["a2", "b2", "c2"],
+                    ["a3", "b3", "c3"]
+                ],
+                0,
+                0
+            )
+        ]
+    );
     /* #endregion */
+
+
+    /* #region seccionDer */
+
 
     /* #endregion */
 
@@ -494,7 +367,6 @@ if ($method === "GET") {
     $programa->cuerpo = $cuerpo;
 
     echo $programa->Renderizar();
-
 }
 
 if ($method === "POST") {
@@ -523,5 +395,3 @@ if ($method === "POST") {
                         ), destino);
                      "
 */
-
-?>
