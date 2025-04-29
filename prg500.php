@@ -13,11 +13,11 @@ $method = $_SERVER["REQUEST_METHOD"];
 if ($method === "GET") {
 
     //////////////////////////////////////////////////////////////////////////////////////////////
-    //          1� se crean el programa y la conexion
-    //          2� se hacen las consultas necesarias
-    //          3� se crean los elementos
-    //          4� se colocan
-    //          5� se renderiza
+    //          1) se crean el programa y la conexion
+    //          2) se hacen las consultas necesarias
+    //          3) se crean los elementos
+    //          4) se colocan
+    //          5) se renderiza
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -59,7 +59,7 @@ if ($method === "GET") {
         sonidos: [],
 
         css: [
-            //"css/prg500/prg317.css",
+            "css/prg500/prg500.css",
             //"css/prg500/TablaIzq.css"
         ],
     );
@@ -78,7 +78,7 @@ if ($method === "GET") {
 
 
     $base = Seccion::crear(
-        Elemento::getNewId(),
+        "",
         "",
         0,
         0
@@ -138,13 +138,13 @@ if ($method === "GET") {
     $cuerpo->add(
         [
             $seccionIzq = Seccion::crear(
-                "",
+                "seccionIzq",
                 "",
                 1,
                 0
             ),
             $seccionDer = Seccion::crear(
-                "",
+                "seccionDer",
                 "",
                 1,
                 1
@@ -159,13 +159,13 @@ if ($method === "GET") {
     $seccionIzq->add(
         [
             $seccionIzqSup = Seccion::crear(
-                "",
+                "seccionIzqSup",
                 "",
                 0,
                 0
             ),
             $seccionIzqInf = Seccion::crear(
-                "",
+                "seccionIzqInf",
                 "",
                 1,
                 0
@@ -176,19 +176,19 @@ if ($method === "GET") {
     $seccionIzqSup->add(
         [
             $seccionIzqSup1 = Seccion::crear(
-                "",
+                "seccionIzqSup1",
                 "",
                 0,
                 0
             ),
             $seccionIzqSup2 = Seccion::crear(
-                "",
+                "seccionIzqSup2",
                 "",
                 1,
                 0
             ),
             $seccionIzqSup3 = Seccion::crear(
-                "",
+                "seccionIzqSup3",
                 "",
                 2,
                 0
@@ -270,13 +270,34 @@ if ($method === "GET") {
     );
     /* #endregion */
 
-
     /* #region seccionIzqSup3*/
-    /*
+
     $seccionIzqSup3->add(
-        []
+        [
+            Texto::crear(
+                "",
+                "",
+                "Tipo de actualización:",
+                0,
+                0
+            ),
+            SelectBox::crear(
+                "",
+                "",
+                "tipoActualizacion",
+                ["valor1", "valor2", "valor3", "valor4"],
+                [
+                    "Facturas del Día",
+                    "Tintométrico Pendientes",
+                    "Tintométrico JATMIX Pendientes",
+                    "Tintométrico AQUAMIX Pendientes"
+                ],
+                0,
+                0,
+                1
+            )
+        ]
     );
-    */
     /* #endregion */
 
 
@@ -302,7 +323,40 @@ if ($method === "GET") {
 
 
     /* #region seccionDer */
-
+    $seccionDer->add(
+        [
+            $seccionDer1 = Seccion::crear(
+                "seccionDer1",
+                "",
+                0,
+                0
+            ),
+            $seccionDer2 = Seccion::crear(
+                "seccionDer2",
+                "",
+                0,
+                1
+            ),
+            $seccionDer3 = Seccion::crear(
+                "seccionDer3",
+                "",
+                1,
+                0
+            ),
+            $seccionDer4 = Seccion::crear(
+                "seccionDer4",
+                "",
+                2,
+                0
+            ),
+            $seccionDer5 = Seccion::crear(
+                "seccionDer5",
+                "",
+                3,
+                0
+            ),
+        ]
+    );
 
     /* #endregion */
 

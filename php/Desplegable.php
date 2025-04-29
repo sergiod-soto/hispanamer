@@ -8,12 +8,12 @@ class Desplegable extends Elemento
 {
     public static $contador = 0;
 
-    public function __construct(string $clase, $etiquetas, $funciones)
+    public function __construct(string $clase, array $etiquetas, array $funciones)
     {
         if (count($etiquetas) != count($funciones)) {
             throw new Exception(
                 "Longitud etiquetas (" . count($etiquetas) .
-                ") != longitud funciones(" . count($funciones) . ")"
+                    ") != longitud funciones(" . count($funciones) . ")"
             );
         }
         $htmlLi = "";
@@ -31,8 +31,7 @@ class Desplegable extends Elemento
             </div>
             ";
 
-        parent::__construct($id, $clase, $html, Desplegable::$contador, 9999);
-
+        parent::__construct("", $clase, $html, Desplegable::$contador, 9999);
     }
     public static function crear(string $clase, $etiquetas, $funciones)
     {
@@ -51,4 +50,3 @@ class Desplegable extends Elemento
         return $this->html;
     }
 }
-?>
