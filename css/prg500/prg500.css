@@ -26,10 +26,23 @@
     margin-bottom: 20px;
 }
 
+#tabla-scroll-id_21 {
+    max-height: 63vh;
+}
 
-
-
-.clase1{
+#id_50 {
     display: flex;
 }
 
+#id_51 {
+    display: flex;
+}
+
+#id_52 {
+    display: flex;
+}
+
+
+.clase1 {
+    display: flex;
+}

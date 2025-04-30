@@ -249,5 +249,9 @@ class Tabla extends Elemento
         }
         return $matriz_con_indices;
     }
+
+    public function functionsetMaxHeight($altura){
+
+    }
 }
 ?>

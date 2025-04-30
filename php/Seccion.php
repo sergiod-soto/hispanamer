@@ -7,6 +7,9 @@
  * 
  *  puede contener cualquier otro tipo de "Elemento", incluyendo otras secciones.
  */
+
+use Dom\Element;
+
 class Seccion extends Elemento
 {
     public $elementos;
@@ -122,7 +125,6 @@ class Seccion extends Elemento
                             $elementosReturn[$iIte][$jIte] = $elementos[$i][$j];    // inserto el elemento
                             $jIte++;
                         }
-
                     }
                 }
                 $iIte++;
@@ -139,7 +141,7 @@ class Seccion extends Elemento
             return $htmlReturn;
         }
         if (count($elementos) == 1) {                // NO se ponen <div>s
-            $htmlReturn .= "<div id='$this->id' class=\"$this->clase\">";  //encapsulo la fila
+            $htmlReturn .= "<div id='$this->id' class=\"$this->clase\" >";  //encapsulo la fila
             foreach ($elementos[0] as $item) {
                 $htmlReturn .= $item->renderizar();
             }
@@ -151,7 +153,7 @@ class Seccion extends Elemento
 
             // Pongo <div>s a cada fila
 
-            $htmlReturn .= "<div>";  //encapsulo la fila
+            $htmlReturn .= "<div id=\"" . Elemento::getNewId() . "\" class=\"$this->clase\">";  //encapsulo la fila
 
             foreach ($fila as $item) {
                 $htmlReturn .= $item->renderizar();
@@ -219,4 +221,3 @@ class Seccion extends Elemento
         echo ("<br>------------------------------------");
     }
 }
-?>
