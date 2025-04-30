@@ -6,9 +6,7 @@
     width: 50%;
 }
 
-#seccionIzqSup {
-    height: 50%;
-}
+
 
 #seccionIzqSup1 {
     display: flex;
@@ -26,8 +24,10 @@
     margin-bottom: 20px;
 }
 
-#tabla-scroll-id_21 {
-    max-height: 63vh;
+
+
+#id_48{
+    background-color: rgba(127, 255, 212, 0.562);
 }
 
 #id_50 {

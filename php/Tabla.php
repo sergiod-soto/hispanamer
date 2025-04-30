@@ -17,7 +17,7 @@ class Tabla extends Elemento
     public $cabecera;
     public $datos;
     public $filas;
-    
+
 
     // variable para el id de las filas de la tabla
     public static $idFila = 0;
@@ -120,7 +120,6 @@ class Tabla extends Elemento
                 "",                         // por defecto, las filas no tienen clase, se pueden recorrer y anhadirseles a posteriori
                 $columnas,
             );
-
         }
 
         // Crea la tabla
@@ -161,13 +160,10 @@ class Tabla extends Elemento
 
             if (is_string($cabecera[$i])) {
                 $htmlCabecera .= $cabecera[$i];
-
             } elseif (is_int($cabecera[$i])) {
                 $htmlCabecera .= (string) $cabecera[$i] . "</td>";
-
             } elseif (is_object($cabecera[$i]) && method_exists($cabecera[$i], 'renderizar')) {
                 $htmlCabecera .= $cabecera[$i]->renderizar() . "</td>";
-
             } else {
                 $htmlCabecera .= "$cabecera[$i]" . "</td>";
             }
@@ -250,8 +246,36 @@ class Tabla extends Elemento
         return $matriz_con_indices;
     }
 
-    public function functionsetMaxHeight($altura){
+    public function setMaxHeight($altura)
+    {
+        $js =
+            '
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    document.getElementById("tabla-scroll-' . $this->id . '")
+                        .style.maxHeight = "' . $altura . '";
+                });
+            </script>
+            ';
 
+
+        echo ($js);
+    }
+
+
+    public function setMaxWidht($anchura)
+    {
+        $js =
+            '
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    document.getElementById("tabla-scroll-' . $this->id . '")
+                        .style.maxWidht = "' . $anchura . '";
+                });
+            </script>
+            ';
+
+
+        echo ($js);
     }
 }
-?>
