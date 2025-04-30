@@ -11,7 +11,7 @@ class Button extends Elemento
     public $funcion;
     public $text;
 
-    public function __construct($id, string $clase, $text, $title, $funcion, $fila, $columna)
+    public function __construct($id, string $clase, $text, $title, $funcion, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

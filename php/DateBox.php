@@ -5,7 +5,7 @@
 */
 class DateBox extends Elemento
 {
-    public function __construct($id, $clase, $placeHolder, $fila, $columna)
+    public function __construct($id, $clase, $placeHolder, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

@@ -12,7 +12,7 @@ class PasswordBox extends Elemento
 
     private $iconoOjo = "../multimedia/iconos/ojo.png";
 
-    public function __construct($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPW, $fila, $columna)
+    public function __construct($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPW, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

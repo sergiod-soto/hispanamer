@@ -15,7 +15,7 @@ enum Target: string
 
 class Link extends Elemento
 {
-    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $texto, $fila, $columna)
+    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $texto, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

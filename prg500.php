@@ -308,11 +308,11 @@ if ($method === "GET") {
             Tabla::crear(
                 "",
                 "",
-                ["a", "b", "c"],
+                ["?", "-", "Factura", "Fecha", "Cliente", "Nombre", "Kilos", "Base", "Asiento"],
                 [
-                    ["a1", "b1", "c1"],
-                    ["a2", "b2", "c2"],
-                    ["a3", "b3", "c3"]
+                    ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
+                    ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
+                    ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"]
                 ],
                 0,
                 0
@@ -327,7 +327,7 @@ if ($method === "GET") {
         [
             $seccionDer1 = Seccion::crear(
                 "seccionDer1",
-                "",
+                "clase1",
                 0,
                 0
             ),
@@ -357,6 +357,85 @@ if ($method === "GET") {
             ),
         ]
     );
+
+
+    /* #region seccionDer1 */
+    $seccionDer1->add([
+        $seccionDer11 = Seccion::crear(
+            "seccionDer11",
+            "clase1",
+            0,
+            0
+        ),
+        $seccionDer12 = Seccion::crear(
+            "seccionDer12",
+            "",
+            1,
+            0
+        ),
+        $seccionDer13 = Seccion::crear(
+            "seccionDer13",
+            "",
+            2,
+            0
+        ),
+        $seccionDer14 = Seccion::crear(
+            "seccionDer14",
+            "",
+            3,
+            0
+        )
+    ]);
+
+    $seccionDer11->add([
+        Texto::crear(
+            "",
+            "clase1",
+            "Alta:",
+            0,
+            0
+        ),
+        Texto::crear(
+            "",
+            "clase1",
+            "Lorem ipsum1",
+            0,
+            1
+        ),
+        Texto::crear(
+            "",
+            "clase1",
+            "Ultima Actualización:",
+            1,
+            0
+        ),
+        Texto::crear(
+            "",
+            "clase1",
+            "Lorem ipsum2",
+            1,
+            1
+        ),
+        Texto::crear(
+            "",
+            "clase1",
+            "Agente de venta",
+            2,
+            0
+        ),
+        Texto::crear(
+            "",
+            "clase1",
+            "Lorem ipsum3",
+            2,
+            1
+        ),
+    ]);
+
+
+    /* #endregion */
+
+
 
     /* #endregion */
 

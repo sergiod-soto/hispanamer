@@ -19,7 +19,7 @@ abstract class Elemento implements IRenderizable
     public static $idElemento = 0;
 
 
-    function __construct($id, string $clase, $html, $fila, $columna)
+    function __construct($id, string $clase, $html, int $fila, int $columna)
     {
         $this->id = $id;
         $this->clase = $clase;

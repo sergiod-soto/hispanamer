@@ -1,22 +1,35 @@
-#seccionIzq{
+#id_9 {
+    display: flex;
+}
+
+#seccionIzq {
     width: 50%;
 }
 
-#seccionIzqSup{
+#seccionIzqSup {
     height: 50%;
 }
 
-#seccionIzqSup1{
+#seccionIzqSup1 {
     display: flex;
     margin-bottom: 20px;
 }
-#seccionIzqSup2{
+
+#seccionIzqSup2 {
     display: flex;
     margin-bottom: 20px;
 
 }
-#seccionIzqSup3{
+
+#seccionIzqSup3 {
     display: flex;
     margin-bottom: 20px;
-
 }
+
+
+
+
+.clase1{
+    display: flex;
+}
+

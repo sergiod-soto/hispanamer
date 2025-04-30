@@ -2,7 +2,7 @@
 
 class NoteBox extends Elemento
 {
-    public function __construct($id, string $clase, $text, $placeholder, $titulo, $fila, $columna)
+    public function __construct($id, string $clase, $text, $placeholder, $titulo, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

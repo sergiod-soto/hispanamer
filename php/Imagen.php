@@ -5,7 +5,7 @@
 */
 class Imagen extends Elemento
 {
-    public function __construct($id, string $clase, $imagen, $fila, $columna)
+    public function __construct($id, string $clase, $imagen, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

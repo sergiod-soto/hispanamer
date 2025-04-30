@@ -5,7 +5,7 @@
 */
 class CheckBox extends Elemento
 {
-    public function __construct($id, string $clase, $text, $name, $value, $fila, $columna)
+    public function __construct($id, string $clase, $text, $name, $value, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

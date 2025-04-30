@@ -5,7 +5,7 @@
 */
 class TimeBox extends Elemento
 {
-    public function __construct($id, string $clase, $fila, $columna)
+    public function __construct($id, string $clase, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

@@ -22,7 +22,7 @@ class Tabla extends Elemento
     // variable para el id de las filas de la tabla
     public static $idFila = 0;
 
-    public function __construct($id, string $clase, array $cabecera, array $datos, $fila, $columna)
+    public function __construct($id, string $clase, array $cabecera, array $datos, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

@@ -9,7 +9,7 @@ enum PosicionTexto: string
 class RadioButton extends Elemento
 {
     public $contador = 0;
-    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, $fila, $columna)
+    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

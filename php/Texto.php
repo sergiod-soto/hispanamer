@@ -21,7 +21,7 @@ class Texto extends Elemento implements IRenderizable
         );
     }
 
-    public static function crear($id, string $clase, string $text, $fila, $columna)
+    public static function crear($id, string $clase, string $text, int $fila, int $columna)
     {
         // Crea el texto
         $texto = new self(

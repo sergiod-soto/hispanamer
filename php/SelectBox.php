@@ -4,7 +4,7 @@ class SelectBox extends Elemento
 {
 
 
-    public function __construct($id, string $clase, $name, array $valores, int $default, array $etiquetas, $fila, $columna)
+    public function __construct($id, string $clase, $name, array $valores, int $default, array $etiquetas, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();

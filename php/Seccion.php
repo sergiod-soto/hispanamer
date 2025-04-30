@@ -12,7 +12,7 @@ class Seccion extends Elemento
     public $elementos;
 
 
-    public function __construct($id, $clase, $fila, $columna)
+    public function __construct($id, $clase, int $fila, int $columna)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
