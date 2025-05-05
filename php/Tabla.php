@@ -42,8 +42,7 @@ class Tabla extends Elemento
     }
 
     /*
-        patron de diseño para crear una tabla con modo creado, el cual con el propio boton
-        y evitar dependencia circular
+        patron de diseño para crear una tabla
     */
     public static function crear($id, string $clase, array $cabecera, array $datos, $fila, $columna)
     {
@@ -139,7 +138,6 @@ class Tabla extends Elemento
 
         return $tabla;
     }
-
 
     function renderizar()
     {
@@ -269,8 +267,8 @@ class Tabla extends Elemento
             '
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    document.getElementById("tabla-scroll-' . $this->id . '")
-                        .style.maxWidht = "' . $anchura . '";
+                    document.getElementById("'. $this->id .'")
+                        .style.maxWidth = "' . $anchura . '";
                 });
             </script>
             ';

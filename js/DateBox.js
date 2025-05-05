@@ -1,3 +1,9 @@
+function funcionDateBox() {
+    document.querySelectorAll(".calendar").forEach(cal => cal.style.display = "none");
+    calendar.style.display = "block";
+    renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+};
+
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".datepicker-container").forEach(function (container) {
         const input = container.querySelector(".fechaInput");
@@ -9,11 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let currentDate = new Date();
 
-        input.addEventListener("click", () => {
-            document.querySelectorAll(".calendar").forEach(cal => cal.style.display = "none");
-            calendar.style.display = "block";
-            renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
-        });
+        input.addEventListener("click", funcionDateBox);
 
         document.addEventListener("click", (event) => {
             if (!container.contains(event.target)) {
@@ -88,3 +90,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+function readOnlyDateBox(dateBoxID) {
+    var dateBox = document.getElementById(dateBoxID).querySelector(".fechaInput");
+    dateBox.removeEventListener("click", funcionDateBox);
+    dateBox.style.cursor = "default";
+}
+
+function setFechaDateBox(dateBoxID, date) {
+    document.getElementById(dateBoxID).querySelector(".fechaInput").value =
+        `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).
+            toString().padStart(2, '0')}/${date.getFullYear()}`;
+}

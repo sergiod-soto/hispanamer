@@ -51,7 +51,7 @@ if ($method === "GET") {
         ],
 
         scriptsBody: [
-            //"js/prg500/prg500.js",
+            "js/prg500/prg500.js",
             //"js/prg500/TablaIzq.js",
             //"js/prg500/TablaDer.js"
         ],
@@ -301,36 +301,51 @@ if ($method === "GET") {
     /* #endregion */
 
     $datos = [
-        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
-        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
-        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"],
-        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
-        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
-        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"],
-        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
-        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
-        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"],
-        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
-        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
-        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"],
-        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
-        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
-        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"],
-        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
-        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
-        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"],
-        ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1"],
-        ["a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2"],
-        ["a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3"]
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+        [" ", "b1", "c1", "d1", "e1", "f1", "g1", "h1"]
     ];
+    $datos = Tabla::addId($datos, 0);
 
+    /*
+    $conexion = new Conexion(
+        Conexion::SERVERNAME,
+        Conexion::DATABASE,
+        Conexion::USUARIO,
+        Conexion::PASSWORD
+    );
+    */
+
+    $datos2 = null;
 
     $seccionIzqInf->add(
         [
             $tabla = Tabla::crear(
                 "",
                 "",
-                ["?", "-", "Factura", "Fecha", "Cliente", "Nombre", "Kilos", "Base", "Asiento"],
+                ["", "-", "Factura", "Fecha", "Cliente", "Nombre", "Kilos", "Base", "Asiento"],
                 $datos,
                 0,
                 0
@@ -339,6 +354,8 @@ if ($method === "GET") {
     );
 
     $tabla->setMaxHeight("63vh");
+    $tabla->setMaxWidht("90%");
+
 
     /* #endregion */
 
@@ -380,7 +397,9 @@ if ($method === "GET") {
     );
 
 
+
     /* #region seccionDer1 */
+
     $seccionDer1->add([
         $seccionDer11 = Seccion::crear(
             "seccionDer11",
@@ -453,6 +472,96 @@ if ($method === "GET") {
         ),
     ]);
 
+    /* #endregion */
+
+
+    $seccionDer2->add([
+        Linea::crear(
+            "",
+            "",
+            0,
+            0
+        ),
+        $seccionDer21 = Seccion::crear(
+            "",
+            "",
+            1,
+            0
+        )
+    ]);
+
+    $seccionDer21->add(
+        [
+            Texto::crear(
+                "",
+                "",
+                "Nº de Factura:",
+                0,
+                0
+            ),
+            Texto::crear(
+                "labelNumFactura",
+                "",
+                "",
+                0,
+                1
+            ),
+            Texto::crear(
+                "",
+                "",
+                "De Fecha:",
+                0,
+                2
+            ),
+            DateBox::crear(
+                "dateBox1",
+                "",
+                "",
+                0,
+                3
+            )
+        ]
+    );
+
+
+
+    /* #region seccionDer2 */
+
+
+    /* #endregion */
+
+
+
+
+
+    /* #region seccionDer3 */
+
+    /* #endregion */
+
+
+
+
+    /* #region seccionDer4 */
+
+    /* #endregion */
+
+
+
+
+
+
+
+    /* #region seccionDer5 */
+
+    /* #endregion */
+
+
+
+
+
+    /* #region seccionDer1 */
+
+
 
     /* #endregion */
 
@@ -488,7 +597,6 @@ if ($method === "GET") {
     //.......................
     $cabecera =
         "
-        <meta charset='UTF-8'>
         <title>$programa->nombre</title>
         " . favicon . "
         <!-- necesario para que el sistema de sesion sepa en que programa estamos -->

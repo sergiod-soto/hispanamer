@@ -3,7 +3,6 @@
 
   /* Contenedor de la tabla con dimensiones mínimas y máximas */
   .table-container {
-      max-width: 100%;
       display: block;
       background: #fff;
       box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);

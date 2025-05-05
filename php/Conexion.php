@@ -9,6 +9,11 @@
 
 class Conexion
 {
+
+    const SERVERNAME = "localhost";
+    const DATABASE = "hispanamer";
+    const USUARIO = "root";
+    const PASSWORD = "025811";
     public $conn; // 
 
     public function __construct($servername, $baseDatos, $username, $password)
