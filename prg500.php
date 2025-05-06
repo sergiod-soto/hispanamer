@@ -226,7 +226,7 @@ if ($method === "GET") {
             DateBox::crear(
                 "",
                 "",
-                "Inicio📅",
+                "Inicio",
                 0,
                 3
             ),
@@ -240,7 +240,7 @@ if ($method === "GET") {
             DateBox::crear(
                 "",
                 "",
-                "Fin📅",
+                "Fin",
                 0,
                 5
             ),
@@ -349,11 +349,48 @@ if ($method === "GET") {
                 $datos,
                 0,
                 0
+            ),
+            $seccionBajoTabla = Seccion::crear(
+                "asdasdasd",
+                "",
+                1,
+                0
             )
         ]
     );
 
-    $tabla->setMaxHeight("63vh");
+    $seccionBajoTabla->add([
+        Texto::crear(
+            "",
+            "",
+            "Kilos:",
+            0,
+            0
+        ),
+        Texto::crear(
+            "idKilosTabla",
+            "",
+            "",
+            0,
+            1
+        ),
+        Texto::crear(
+            "",
+            "",
+            "Valor:",
+            0,
+            2
+        ),
+        Texto::crear(
+            "idValorTabla",
+            "",
+            "",
+            0,
+            3
+        ),
+    ]);
+
+    $tabla->setMaxHeight("60vh");
     $tabla->setMaxWidht("90%");
 
 
@@ -472,17 +509,15 @@ if ($method === "GET") {
         ),
     ]);
 
-    /* #endregion */
 
-
-    $seccionDer2->add([
+    $seccionDer12->add([
         Linea::crear(
             "",
             "",
             0,
             0
         ),
-        $seccionDer21 = Seccion::crear(
+        $seccionDer121 = Seccion::crear(
             "",
             "",
             1,
@@ -490,12 +525,12 @@ if ($method === "GET") {
         )
     ]);
 
-    $seccionDer21->add(
+    $seccionDer121->add(
         [
             Texto::crear(
                 "",
                 "",
-                "N� de Factura:",
+                "Nº de Factura:",
                 0,
                 0
             ),
@@ -523,13 +558,173 @@ if ($method === "GET") {
         ]
     );
 
-
-
-    /* #region seccionDer2 */
-
-
     /* #endregion */
 
+    /* #region seccionDer2 */
+  
+
+
+
+
+    $seccionDer2->add([
+        $seccionDer21 = Seccion::crear(
+            "",
+            "",
+            0,
+            0
+        ),
+        $seccionDer22 = Seccion::crear(
+            "",
+            "",
+            1,
+            0
+        ),
+        $seccionDer23 = Seccion::crear(
+            "",
+            "",
+            2,
+            0
+        ),
+        $seccionDer24 = Seccion::crear(
+            "",
+            "",
+            3,
+            0
+        ),
+    ]);
+
+    $seccionDer21->add([
+        Texto::crear(
+            "",
+            "",
+            "Direccion Postal",
+            0,
+            0
+        ),
+        Texto::crear(
+            "seccionDer21TextOutput",
+            "",
+            "",
+            0,
+            1
+        )
+    ]);
+    $seccionDer22->add([
+        Texto::crear(
+            "",
+            "",
+            "VACIO",
+            0,
+            1
+        )
+    ]);
+    $seccionDer23->add([
+        Texto::crear(
+            "",
+            ":",
+            "Crédito",
+            0,
+            0
+        ),
+        Texto::crear(
+            "creditoOutput",
+            "",
+            "",
+            0,
+            1
+        ),
+        Texto::crear(
+            "",
+            "",
+            "Riesgo:",
+            0,
+            2
+        ),
+        Texto::crear(
+            "riesgoOutput",
+            "",
+            "",
+            0,
+            3
+        ),
+        Texto::crear(
+            "",
+            "",
+            "Dtos li, ge, ppp:",
+            0,
+            4
+        ),
+        Texto::crear(
+            "cosaRaraOutput1",
+            "",
+            "",
+            0,
+            5
+        ),
+        Texto::crear(
+            "cosaRaraOutput2",
+            "",
+            "",
+            0,
+            6
+        ),
+        Texto::crear(
+            "cosaRaraOutput3",
+            "",
+            "",
+            0,
+            7
+        ),
+        Texto::crear(
+            "",
+            "",
+            "Tarifa:",
+            1,
+            0
+        ),
+        Texto::crear(
+            "tarifaOutput",
+            "",
+            "",
+            1,
+            1
+        ),
+        Texto::crear(
+            "",
+            "",
+            "Pago",
+            1,
+            2
+        ),
+        Texto::crear(
+            "pagoOutput",
+            "",
+            "",
+            1,
+            3
+        ),
+    ]);
+
+
+
+
+    $seccionDer24->add([
+        $seccionDer241 = Seccion::crear(
+            "",
+            "",
+            0,
+            0
+        ),
+        $seccionDer242 = Seccion::crear(
+            "",
+            "",
+            0,
+            1
+        ),
+    ]);
+    /* #endregion */
+
+   
 
 
 
@@ -538,7 +733,7 @@ if ($method === "GET") {
 
     /* #endregion */
 
-
+    //$seccionDer3->
 
 
     /* #region seccionDer4 */

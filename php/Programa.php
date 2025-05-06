@@ -145,7 +145,7 @@ class Programa implements IRenderizable
     public static function fechaActual()
     {
         $formatter = new IntlDateFormatter(
-            'es_ES', // Español de España
+            'es_ES', // EspaÃ±ol de EspaÃ±a
             IntlDateFormatter::FULL,
             IntlDateFormatter::NONE,
             'Europe/Madrid',
