@@ -1,9 +1,3 @@
-function funcionDateBox() {
-    document.querySelectorAll(".calendar").forEach(cal => cal.style.display = "none");
-    calendar.style.display = "block";
-    renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
-};
-
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".datepicker-container").forEach(function (container) {
         const input = container.querySelector(".fechaInput");
@@ -15,7 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let currentDate = new Date();
 
-        input.addEventListener("click", funcionDateBox);
+        input.addEventListener("click", () => {
+            document.querySelectorAll(".calendar").forEach(cal => cal.style.display = "none");
+            calendar.style.display = "block";
+            renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+        });
 
         document.addEventListener("click", (event) => {
             if (!container.contains(event.target)) {
@@ -92,9 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+
 function readOnlyDateBox(dateBoxID) {
     var dateBox = document.getElementById(dateBoxID).querySelector(".fechaInput");
-    dateBox.removeEventListener("click", funcionDateBox);
+    dateBox.addEventListener('click', function (e) { e.stopImmediatePropagation() });
     dateBox.style.cursor = "default";
 }
 
@@ -102,4 +102,40 @@ function setFechaDateBox(dateBoxID, date) {
     document.getElementById(dateBoxID).querySelector(".fechaInput").value =
         `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).
             toString().padStart(2, '0')}/${date.getFullYear()}`;
+}
+
+
+var fecha1 = null;
+var fecha2 = null;
+function setIntervaloFechas(dateBoxID1, dateBoxID2, mensaje) {
+    var dateBox1 = document.getElementById(dateBoxID1).querySelector(".fechaInput");
+    var dateBox2 = document.getElementById(dateBoxID2).querySelector(".fechaInput");
+
+    var comprobarFechas = function () {
+        if (fecha1 == null || fecha2 == null) {
+            return true;
+        }
+        if (fecha1 > fecha2) {
+            return false;
+        }
+        return true;
+    };
+
+    dateBox1.addEventListener('click', function () {
+        fecha1 = dateBox1.value;
+        if (comprobarFechas()) {
+            return;
+        } else {
+            window.alert(mensaje);
+        }
+
+    });
+    dateBox2.addEventListener('click', function () {
+        fecha2 = dateBox2.value;
+        if (comprobarFechas()) {
+            return;
+        } else {
+            window.alert(mensaje);
+        }
+    });
 }
