@@ -22,6 +22,7 @@ class Programa implements IRenderizable
     public $css;
     public $sonidos;
     public $popup;
+    public $overlay;
     public $desplegable;
     public $scriptsBaseCabecera;
     public $scriptsBaseBody;
@@ -89,7 +90,7 @@ class Programa implements IRenderizable
         patron de diseño para crear un boton con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($autor, $fecha, $nombre, $scriptsCabecera, $scriptsBody, $sonidos, $css)
+    public static function crear($autor, $fecha, $nombre, $overlays, $scriptsCabecera, $scriptsBody, $sonidos, $css)
     {
         // Crea el programa
         $programa = new self(
@@ -100,6 +101,19 @@ class Programa implements IRenderizable
             $scriptsBody,
             $sonidos,
             $css
+        );
+
+        $overlayHtml = "";
+        if (count($overlays) > 0) {
+            foreach($overlays as $overlay){
+                $overlayHtml .= $overlay->renderizar();
+            }
+        }
+
+        $programa->overlay = BoxOverlay::crear(
+            "",
+            "",
+            $overlayHtml
         );
 
         // creo un popup
@@ -223,6 +237,7 @@ class Programa implements IRenderizable
                 <body>
                     $this->cuerpo 
                     " . $this->popup->renderizar() . " 
+                    " . $this->overlay->renderizar() . "
                     $htmlscriptsBaseBody
                     $htmlScriptsBody
                 </body>

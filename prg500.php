@@ -721,6 +721,17 @@ if ($method === "GET") {
             0,
             1
         ),
+        Button::crear(
+            "",
+            "",
+            "-test-",
+            "",
+            "
+                
+            ",
+            0,
+            5
+        )
     ]);
     /* #endregion */
 
@@ -809,11 +820,6 @@ if ($method === "GET") {
     //.......................
     $cuerpo =
         "" .
-        "
-        <div id=\"overlayBaseID\" class=\"overlay-hidden\" data-tipo=\"BoxOverlay\">
-                       
-                    </div>
-        " .
         $base->renderizar() .
         "";
     //.......................
