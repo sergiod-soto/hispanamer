@@ -561,7 +561,7 @@ if ($method === "GET") {
     /* #endregion */
 
     /* #region seccionDer2 */
-  
+
 
 
 
@@ -724,7 +724,7 @@ if ($method === "GET") {
     ]);
     /* #endregion */
 
-   
+
 
 
 
@@ -809,6 +809,11 @@ if ($method === "GET") {
     //.......................
     $cuerpo =
         "" .
+        "
+        <div id=\"overlayBaseID\" class=\"overlay-hidden\" data-tipo=\"BoxOverlay\">
+                       
+                    </div>
+        " .
         $base->renderizar() .
         "";
     //.......................

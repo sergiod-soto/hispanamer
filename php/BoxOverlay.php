@@ -10,8 +10,18 @@ require_once "Programa.php";
 class BoxOverlay extends Elemento
 {
 
-    public $funcion;
-    public $text;
+    static function crearBoxOverlays($overlays)
+    {
+        $html = "<div id=\"overlayBaseID\" class=\"overlay-hidden\" data-tipo=\"BoxOverlay\">";
+
+        foreach ($overlays as $overlay) {
+            $html .= $overlay->renderizar();
+        }
+
+        $html .= "</div>";
+
+        return $html;
+    }
 
     public function __construct($id, string $clase, $htmlInterno)
     {
@@ -19,11 +29,9 @@ class BoxOverlay extends Elemento
             $id = Elemento::getNewId();
         }
         $html = "
-                    <div id=\"$id\" class=\"$clase overlay-hidden\" data-tipo=\"BoxOverlay\">
-                        <div class=\"overlay-content\" id=\"overlay-content\">
-                            <!-- Aquí se insertará el HTML pasado -->
-                            $htmlInterno
-                        </div>
+                    <div class=\"overlay-content\" id=\"overlay-content\">
+                        <!-- Aquí se insertará el HTML pasado -->
+                        $htmlInterno
                     </div>
                 ";
 
