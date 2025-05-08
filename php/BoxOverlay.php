@@ -3,12 +3,14 @@
 
 require_once "Programa.php";
 
+
 /*
     Cuadro con elementos que se pone encima de todo e inabilita la interaccion con el
     resto del programa hasta que no se cierre
 */
 class BoxOverlay extends Elemento
 {
+    public static $contador = 0;
 
     static function crearBoxOverlays($overlays)
     {
@@ -29,11 +31,10 @@ class BoxOverlay extends Elemento
             $id = Elemento::getNewId();
         }
         $html = "
-                    <div class=\"overlay-content\" id=\"overlay-content\">
-                        <!-- Aquí se insertará el HTML pasado -->
+                    <div class=\"overlay-content\" id=\"$id\">
                         $htmlInterno
                     </div>
-                ";
+                "; 
 
 
 
@@ -42,7 +43,7 @@ class BoxOverlay extends Elemento
             $id,
             $clase,
             $html,
-            55965,
+            55965 + $this->contador++,
             52898
         );
     }

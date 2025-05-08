@@ -46,6 +46,18 @@ if ($method === "GET") {
         fecha: "25/04/2025",
         nombre: "prg500",
 
+        overlays: [
+            BoxOverlay::crear(
+                "o1",
+                "over1",
+                "overlay1"
+            ),
+            BoxOverlay::crear(
+                "o2",
+                "over2",
+                "overlay2"
+            )
+        ],
         scriptsCabecera: [
             //"js/prg500/Desplegable1.js",
         ],
@@ -122,8 +134,8 @@ if ($method === "GET") {
             /* #endregion */
 
             $cuerpo = Seccion::crear(
+                "cuerpo_id",
                 "",
-                "cuerpo",
                 1,
                 0
             ),
@@ -727,7 +739,7 @@ if ($method === "GET") {
             "-test-",
             "",
             "
-                
+                window.alert('asd');
             ",
             0,
             5

@@ -3,20 +3,31 @@ var lastBoxOverlay = null;
 function showOverlay(idBoxOverlay) {
     const overlay = document.getElementById(idBoxOverlay);
     const content = document.getElementById('overlay-content');
+    
     content.innerHTML = htmlContent;
     overlay.classList.remove('overlay-hidden');
     lastBoxOverlay = idBoxOverlay;
-  }
+}
 
-  function hideOverlay() {
+function hideOverlay() {
     document.getElementById(lastBoxOverlay).classList.add('overlay-hidden');
-  }
+}
 
-  // Ocultar al hacer clic fuera del contenido
-  window.addEventListener('click', function(e) {
-    const overlay = document.getElementById(lastBoxOverlay);
+// Ocultar al hacer clic fuera del contenido
+window.addEventListener('click', function (e) {
+    const overlay = document.getElementsByClassName("overlay-content");
+    console.debug(overlay);
     const content = overlay.querySelector(".overlay-content");
     if (e.target !== content) {
-      hideOverlay();
+        hideOverlay();
     }
-  });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".overlay-content").forEach(function (content) {
+        
+    });
+});

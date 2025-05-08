@@ -51,6 +51,7 @@ class Programa implements IRenderizable
 
         $this->scriptsBaseBody = [
             //
+            "js/BoxOverlay.js",
             "js/Calculadora.js",
             "js/ControlFocus.js",
             "js/ControlModos.js",
@@ -72,6 +73,7 @@ class Programa implements IRenderizable
         ];
 
         $this->cssBase = [
+            "css/BoxOverlay.css",
             "css/Calculadora.css",
             "css/DateBox.css",
             "css/Desplegable.css",
@@ -103,17 +105,15 @@ class Programa implements IRenderizable
             $css
         );
 
-        $overlayHtml = "";
+        $overlaysHtml = "";
         if (count($overlays) > 0) {
-            foreach($overlays as $overlay){
-                $overlayHtml .= $overlay->renderizar();
+            foreach ($overlays as $overlay) {
+                $overlaysHtml .= $overlay->renderizar();
             }
         }
 
-        $programa->overlay = BoxOverlay::crear(
-            "",
-            "",
-            $overlayHtml
+        $programa->overlay = BoxOverlay::crearBoxOverlays(
+            $overlaysHtml
         );
 
         // creo un popup
@@ -237,7 +237,7 @@ class Programa implements IRenderizable
                 <body>
                     $this->cuerpo 
                     " . $this->popup->renderizar() . " 
-                    " . $this->overlay->renderizar() . "
+                    " . $this->overlay . "
                     $htmlscriptsBaseBody
                     $htmlScriptsBody
                 </body>
