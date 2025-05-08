@@ -734,13 +734,11 @@ if ($method === "GET") {
             1
         ),
         Button::crear(
-            "",
+            "aaaaaaawsssas",
             "",
             "-test-",
             "",
-            "
-                window.alert('asd');
-            ",
+            "showOverlay('o1');",
             0,
             5
         )

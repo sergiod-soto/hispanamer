@@ -1,33 +1,87 @@
-var lastBoxOverlay = null;
 
-function showOverlay(idBoxOverlay) {
-    const overlay = document.getElementById(idBoxOverlay);
-    const content = document.getElementById('overlay-content');
-    
-    content.innerHTML = htmlContent;
-    overlay.classList.remove('overlay-hidden');
-    lastBoxOverlay = idBoxOverlay;
+
+/**
+ * variables
+ * 
+ */
+tiempoEspera = 300 // ms
+/**
+ * 
+ * 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cerrable = false;
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function showOverlay(idBoxOverlay) {
+    document.getElementById("overlayBaseID").classList.remove('overlay-hidden');
+    document.getElementById(idBoxOverlay).classList.remove('content-hidden');
+    await wait(tiempoEspera);
+    cerrable = true;
 }
 
 function hideOverlay() {
-    document.getElementById(lastBoxOverlay).classList.add('overlay-hidden');
+    document.getElementById("overlayBaseID").classList.add('overlay-hidden');
+
+    document.querySelectorAll(".overlay-content").forEach(function (content) {
+        content.classList.add('content-hidden');
+    });
+
+    cerrable = false;
 }
 
-// Ocultar al hacer clic fuera del contenido
-window.addEventListener('click', function (e) {
-    const overlay = document.getElementsByClassName("overlay-content");
-    console.debug(overlay);
-    const content = overlay.querySelector(".overlay-content");
-    if (e.target !== content) {
+
+
+
+
+
+
+
+
+const aux = (e) => {
+    overlay = document.getElementById("overlayBaseID");
+
+
+
+    dentro = false;
+    document.querySelectorAll(".overlay-content").forEach(function (content) {
+        if (e.target === content) {
+            dentro = true;
+        }
+    });
+    if (!dentro && cerrable) {
         hideOverlay();
     }
-});
+}
 
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".overlay-content").forEach(function (content) {
-        
-    });
-});
+
+
+
+// Ocultar al hacer clic fuera del contenido
+window.addEventListener('click', aux);
+
+
+
+
+
+
+

@@ -14,15 +14,11 @@ class BoxOverlay extends Elemento
 
     static function crearBoxOverlays($overlays)
     {
-        $html = "<div id=\"overlayBaseID\" class=\"overlay-hidden\" data-tipo=\"BoxOverlay\">";
-
-        foreach ($overlays as $overlay) {
-            $html .= $overlay->renderizar();
-        }
-
-        $html .= "</div>";
-
-        return $html;
+        return "
+                    <div id=\"overlayBaseID\" class=\"overlay-hidden\" data-tipo=\"BoxOverlay\">
+                        $overlays
+                    </div>
+                ";
     }
 
     public function __construct($id, string $clase, $htmlInterno)
@@ -31,10 +27,10 @@ class BoxOverlay extends Elemento
             $id = Elemento::getNewId();
         }
         $html = "
-                    <div class=\"overlay-content\" id=\"$id\">
+                    <div class=\"overlay-content content-hidden\" id=\"$id\">
                         $htmlInterno
                     </div>
-                "; 
+                ";
 
 
 
