@@ -21,13 +21,13 @@ class BoxOverlay extends Elemento
                 ";
     }
 
-    public function __construct($id, string $clase, $htmlInterno)
+    public function __construct($id, string $clase, $htmlInterno, $fijo)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
         }
         $html = "
-                    <div class=\"overlay-content content-hidden\" id=\"$id\">
+                    <div class=\"overlay-content content-hidden\" id=\"$id\" data-tipo=\"$fijo\">
                         $htmlInterno
                     </div>
                 ";
@@ -47,16 +47,17 @@ class BoxOverlay extends Elemento
     /*
         
     */
-    public static function crear($id, string $clase, $htmlInterno)
+    public static function crear($id, string $clase, $htmlInterno, $fijo)
     {
-        // Crea el botón
-        $boton = new self(
+        // Crea el boxOverlay
+        $boxOverlay = new self(
             $id,
             $clase,
-            $htmlInterno
+            $htmlInterno,
+            $fijo
         );
 
-        return $boton;
+        return $boxOverlay;
     }
 
     /*

@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         detail: { day: i, month: month, year: year, date: input.value }
                     });
                     document.dispatchEvent(eventoFechaSeleccionada);
+                    input.dispatchEvent(new Event('input')); // dispara el evento manualmente
                 });
                 daysContainer.appendChild(dayDiv);
             }
@@ -85,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             document.dispatchEvent(eventoFechaSeleccionada);
+            input.dispatchEvent(new Event('input')); // dispara el evento manualmente
         });
     });
 });
@@ -105,24 +107,27 @@ function setFechaDateBox(dateBoxID, date) {
 }
 
 
-var fecha1 = null;
-var fecha2 = null;
+
+
 function setIntervaloFechas(dateBoxID1, dateBoxID2, mensaje) {
     var dateBox1 = document.getElementById(dateBoxID1).querySelector(".fechaInput");
     var dateBox2 = document.getElementById(dateBoxID2).querySelector(".fechaInput");
 
+    var fechaAntigua = document.getElementById(dateBoxID1).value;
+    var fechaNueva = document.getElementById(dateBoxID2).value;
+
     var comprobarFechas = function () {
-        if (fecha1 == null || fecha2 == null) {
+        if (fechaAntigua == null || fechaNueva == null) {
             return true;
         }
-        if (fecha1 > fecha2) {
+        if (fechaAntigua > fechaNueva) {
             return false;
         }
         return true;
     };
 
-    dateBox1.addEventListener('click', function () {
-        fecha1 = dateBox1.value;
+    dateBox1.addEventListener('input', () => {
+        fechaAntigua = dateBox1.value;
         if (comprobarFechas()) {
             return;
         } else {
@@ -130,8 +135,8 @@ function setIntervaloFechas(dateBoxID1, dateBoxID2, mensaje) {
         }
 
     });
-    dateBox2.addEventListener('click', function () {
-        fecha2 = dateBox2.value;
+    dateBox2.addEventListener('input', () => {
+        fechaNueva = dateBox2.value;
         if (comprobarFechas()) {
             return;
         } else {

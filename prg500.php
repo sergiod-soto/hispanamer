@@ -46,17 +46,9 @@ if ($method === "GET") {
         fecha: "25/04/2025",
         nombre: "prg500",
 
+        // crear los overlays necesarios
         overlays: [
-            BoxOverlay::crear(
-                "o1",
-                "over1",
-                "overlay1"
-            ),
-            BoxOverlay::crear(
-                "o2",
-                "over2",
-                "overlay2"
-            )
+           
         ],
         scriptsCabecera: [
             //"js/prg500/Desplegable1.js",
@@ -732,15 +724,6 @@ if ($method === "GET") {
             "",
             0,
             1
-        ),
-        Button::crear(
-            "aaaaaaawsssas",
-            "",
-            "-test-",
-            "",
-            "showOverlay('o1');",
-            0,
-            5
         )
     ]);
     /* #endregion */
