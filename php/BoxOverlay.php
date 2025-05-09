@@ -10,8 +10,6 @@ require_once "Programa.php";
 */
 class BoxOverlay extends Elemento
 {
-    public static $contador = 0;
-
     static function crearBoxOverlays($overlays)
     {
         return "
@@ -32,15 +30,11 @@ class BoxOverlay extends Elemento
                     </div>
                 ";
 
-
-
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
             $id,
             $clase,
-            $html,
-            55965 + $this->contador++,
-            52898
+            $html
         );
     }
 

@@ -40,15 +40,13 @@ class DateBox extends Elemento
        patron de diseño para crear un boton con modo creado, el cual con el propio boton
        y evitar dependencia circular
    */
-    public static function crear($id, string $clase, $placeHolder, $fila, $columna)
+    public static function crear($id, string $clase, $placeHolder)
     {
         // Crea el dateBox
         $dateBox = new self(
             $id,
             $clase,
-            $placeHolder,
-            $fila,
-            $columna
+            $placeHolder
         );
 
         return $dateBox;

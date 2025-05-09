@@ -10,8 +10,8 @@ class Imagen extends Elemento
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
         }
-
-        $html = "<img id=\"$id\" class=\"$clase\" $imagen->value>";
+        //echo ($imagen);
+        $html = "<img id=\"$id\" class=\"$clase\" src=$imagen->value>";
 
         // Llamamos al constructor de la clase Elemento
         parent::__construct(
@@ -24,13 +24,13 @@ class Imagen extends Elemento
     /*
         patron de diseño para crear una imagen
     */
-    public static function crear($id, string $clase, $imagen)
+    public static function crear($id, string $clase, $image)
     {
         // Crea la imagen
         $imagen = new self(
             $id,
             $clase,
-            $imagen
+            $image
         );
 
         return $imagen;

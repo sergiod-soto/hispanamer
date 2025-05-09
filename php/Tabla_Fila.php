@@ -20,9 +20,7 @@ class Tabla_Fila extends Elemento
         parent::__construct(
             $id,
             $clase,
-            "",
-            0,
-            0
+            ""
         );
 
         $this->columnas = $columnas;

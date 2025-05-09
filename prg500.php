@@ -55,7 +55,7 @@ if ($method === "GET") {
         ],
 
         scriptsBody: [
-            "js/prg500/prg500.js",
+            //"js/prg500/prg500.js",
             //"js/prg500/TablaIzq.js",
             //"js/prg500/TablaDer.js"
         ],
@@ -63,7 +63,7 @@ if ($method === "GET") {
         sonidos: [],
 
         css: [
-            "css/prg500/prg500.css",
+            //"css/prg500/prg500.css",
             //"css/prg500/TablaIzq.css"
         ],
     );
@@ -88,21 +88,16 @@ if ($method === "GET") {
     /* #region base */
 
     $base = Seccion::crear(
-        "",
+        "base",
         "",
         false
     );
 
     $base->add(
         [
-
-
-            $cuerpo = Seccion::crear(
-                "cuerpo_id",
-                "",
-                true
-            ),
-            PiePagina::getPiePagina(2, 0),
+            Cabecera::createCabecera("nombre", "version", "", []),
+            Imagen::crear("","", iconoFlechaAtras),
+            PiePagina::createPiePagina(),
         ]
     );
     /* #endregion */

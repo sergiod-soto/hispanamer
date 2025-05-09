@@ -14,9 +14,7 @@ class Tabla_Celda extends Elemento
         parent::__construct(
             $id,
             $clase,
-            "",
-            0,
-            0
+            ""
         );
         $this->contenido = $elemento;
     }

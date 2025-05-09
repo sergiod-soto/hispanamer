@@ -7,14 +7,13 @@
 class PiePagina
 {
 
-    public static function getPiePagina($fila, $columna)
+    public static function createPiePagina()
     {
         $piePagina = Seccion::crear
         (
             "seccion_calc",
             "",
-            $fila,
-            $columna
+            true
         );
 
         $piePagina->add(
@@ -22,14 +21,12 @@ class PiePagina
                 $piePagina1 = Seccion::crear(
                     "seccionCalculadora",
                     "",
-                    0,
-                    0
+                    true
                 ),
                 $piePagina2 = Seccion::crear(
-                    "",
+                    "aaa",
                     "seccionNombre",
-                    0,
-                    1
+                    true
                 )
             ]
         );
@@ -40,23 +37,17 @@ class PiePagina
                     "calculadoraInput",
                     "",
                     "",
-                    "Calculadora",
-                    0,
-                    0
+                    "Calculadora"
                 ),
                 Texto::crear(
                     "separadorCalculadora",
                     "",
-                    " = ",
-                    0,
-                    1
+                    " = "
                 ),
                 Texto::crear(
                     "calculadoraOutput",
                     "",
-                    "",
-                    0,
-                    2
+                    ""
                 )
             ]
         );
@@ -65,9 +56,7 @@ class PiePagina
             Texto::crear(
                 "piePaginaCosa",
                 "",
-                "(C)HISPANAMER S.A.  COMPAÑIA HISPANOAMERICANA DE PINTURAS S.A.",
-                0,
-                0
+                "(C)HISPANAMER S.A.  COMPAÑIA HISPANOAMERICANA DE PINTURAS S.A."
             )
         ]);
 
