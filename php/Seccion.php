@@ -13,37 +13,33 @@ use Dom\Element;
 class Seccion extends Elemento
 {
     public $elementos;
+    public $horizontal;
 
-
-    public function __construct($id, $clase, int $fila, int $columna)
+    public function __construct($id, $clase, $horizontal)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
         }
 
-        $html = "";
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            "",
         );
+        $this->horizontal = $horizontal;
         $this->elementos = [];
     }
 
     /*  
-        patron de diseño para crear una seccion con modo creado, el cual con el propio boton
-        y evitar dependencia circular
+        patron de diseño para crear una seccion
     */
-    public static function crear($id, string $clase, $fila, $columna)
+    public static function crear($id, string $clase, $horizontal)
     {
         // Crea la seccion
         $seccion = new self(
             $id,
             $clase,
-            $fila,
-            $columna
+            $horizontal
         );
 
         return $seccion;
@@ -52,35 +48,10 @@ class Seccion extends Elemento
     /**
      * Anhade un Elemento a la Seccion
      * @param Elemento[]|Elemento $elementos
-     * @param int $fila
-     * @param int $columna
      */
     function add($elementos)
     {
-
-
-        if (count($elementos) == 0) {
-            throw new Exception("Se ha intentado anhadir un elemento, pero no se ha encontrado ninguno");
-        }
-
-
-
-        // echo $elementos;
-        // echo("<br>");
-        // echo count($elementos);
-        // echo("<br>");
-        // var_dump($elementos[0]);
-        // echo("<br>");
-
-
-
-
-        for ($i = 0; $i < count($elementos); $i++) {
-            $elemento = $elementos[$i];
-            $fila = $elementos[$i]->fila;
-            $columna = $elementos[$i]->columna;
-            $this->elementos[$fila][$columna] = $elemento;
-        }
+        $this->elementos = $elementos;
     }
 
 
@@ -91,79 +62,17 @@ class Seccion extends Elemento
     */
     function renderizar()
     {
-        $elementos = $this->elementos;
-        $elementosReturn = [];
+        $direccion = $this->horizontal === true ? 'row' : 'column';
+        $html = "<div id=\"$this->id\" class=\"$this->clase\" style=\"display: flex; flex-direction: $direccion>";
 
-        $maxIKey = 0;
-        foreach (array_keys($elementos) as $iKey) {
-            if ($iKey > $maxIKey) {
-                $maxIKey = $iKey;
-            }
+        foreach ($this->elementos as $elemento) {
+            $html .= "<div id=\"div_$elemento->id\">" . $elemento->renderizar() . "</div>";
         }
 
-        $maxJKey = 0;
-        foreach ($elementos as $fila) {
-            foreach (array_keys($fila) as $jKey) {
-                if ($jKey > $maxJKey) {
-                    $maxJKey = $jKey;
-                }
-            }
-        }
+        $html .= "</div>";
 
-        $maxIKey++;
-        $maxJKey++;
-
-        $iIte = 0;
-        $jIte = 0;
-
-        for ($i = 0; $i < $maxIKey; $i++) {
-            $jIte = 0;
-            if (array_key_exists($i, $elementos)) {                     // existe fila
-                for ($j = 0; $j < $maxJKey; $j++) {
-                    if (array_key_exists($j, $elementos[$i])) {         // existe columna/celda
-                        if ($elementos[$i][$j] != null) {
-                            $elementosReturn[$iIte][$jIte] = $elementos[$i][$j];    // inserto el elemento
-                            $jIte++;
-                        }
-                    }
-                }
-                $iIte++;
-            }
-        }
-
-        /*
-            tras compactar la matriz, la renderizo
-        */
-        $elementos = $elementosReturn;
-        $htmlReturn = "";
-
-        if (count($elementos) < 1) {
-            return $htmlReturn;
-        }
-        if (count($elementos) == 1) {                // NO se ponen <div>s
-            $htmlReturn .= "<div id='$this->id' class=\"$this->clase\" >";  //encapsulo la fila
-            foreach ($elementos[0] as $item) {
-                $htmlReturn .= $item->renderizar();
-            }
-            $htmlReturn .= "</div>";  //encapsulo la fila
-            return $htmlReturn;
-        }
-        $htmlReturn .= "<div id='$this->id' class=\"$this->clase\">";  //encapsulo la fila
-        foreach ($elementos as $fila) {
-
-            // Pongo <div>s a cada fila
-
-            $htmlReturn .= "<div id=\"" . Elemento::getNewId() . "\" class=\"$this->clase\">";  //encapsulo la fila
-
-            foreach ($fila as $item) {
-                $htmlReturn .= $item->renderizar();
-            }
-            $htmlReturn .= "</div>"; // fin fila
-        }
-        $htmlReturn .= "</div>";  //encapsulo la fila
-        return $htmlReturn;
+        return $html;
     }
-
 
 
     /*

@@ -57,8 +57,6 @@ function hideOverlay() {
 const aux = (e) => {
     overlay = document.getElementById("overlayBaseID");
 
-
-
     dentro = false;
     document.querySelectorAll(".overlay-content").forEach(function (content) {
         if (e.target === content) {
@@ -72,16 +70,5 @@ const aux = (e) => {
 
 
 
-
-
-
-
 // Ocultar al hacer clic fuera del contenido
 window.addEventListener('click', aux);
-
-
-
-
-
-
-
