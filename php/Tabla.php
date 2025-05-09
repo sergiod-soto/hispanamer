@@ -22,7 +22,7 @@ class Tabla extends Elemento
     // variable para el id de las filas de la tabla
     public static $idFila = 0;
 
-    public function __construct($id, string $clase, array $cabecera, array $datos, int $fila, int $columna)
+    public function __construct($id, string $clase, array $cabecera, array $datos)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -32,9 +32,7 @@ class Tabla extends Elemento
         parent::__construct(
             $id,
             $clase,
-            "",
-            $fila,
-            $columna
+            ""
         );
 
         $this->cabecera = $cabecera;
@@ -44,7 +42,7 @@ class Tabla extends Elemento
     /*
         patron de diseño para crear una tabla
     */
-    public static function crear($id, string $clase, array $cabecera, array $datos, $fila, $columna)
+    public static function crear($id, string $clase, array $cabecera, array $datos)
     {
         //////////////////////////////////////////////////////////////////////
         //
@@ -126,9 +124,7 @@ class Tabla extends Elemento
             $id,
             $clase,
             $cabecera,
-            $datos,
-            0,
-            0
+            $datos
         );
 
         $tabla->filas = $filas;

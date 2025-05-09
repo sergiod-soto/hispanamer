@@ -5,7 +5,7 @@
 */
 class TimeBox extends Elemento
 {
-    public function __construct($id, string $clase, int $fila, int $columna)
+    public function __construct($id, string $clase)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -41,9 +41,7 @@ class TimeBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            $html
         );
     }
 
@@ -51,14 +49,12 @@ class TimeBox extends Elemento
         patron de diseño para crear un timeBox con modo creado, el cual con el propio boton
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $fila, $columna)
+    public static function crear($id, string $clase)
     {
         // Crea el botón
         $boton = new self(
             $id,
-            $clase,
-            $fila,
-            $columna
+            $clase
         );
 
         return $boton;

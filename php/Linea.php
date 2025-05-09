@@ -5,7 +5,7 @@
 */
 class Linea extends Elemento implements IRenderizable
 {
-    public function __construct($id, string $clase, $fila, $columna)
+    public function __construct($id, string $clase)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -15,20 +15,16 @@ class Linea extends Elemento implements IRenderizable
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            $html
         );
     }
 
-    public static function crear($id, string $clase, int $fila, int $columna)
+    public static function crear($id, string $clase)
     {
         // Crea el texto
         $texto = new self(
             $id,
-            $clase,
-            $fila,
-            $columna
+            $clase
         );
 
         return $texto;

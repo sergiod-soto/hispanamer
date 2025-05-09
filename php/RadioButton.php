@@ -9,7 +9,7 @@ enum PosicionTexto: string
 class RadioButton extends Elemento
 {
     public $contador = 0;
-    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase, int $fila, int $columna)
+    function __construct($id, $labels, $name, $values, $default, $posicionTexto, $clase)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -70,9 +70,7 @@ class RadioButton extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            $html
         );
     }
 
@@ -80,7 +78,7 @@ class RadioButton extends Elemento
         patron de diseño para crear un radioButton con modo creado, el cual con el propio radioButton
         y evitar dependencia circular
     */
-    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase, $fila, $columna)
+    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase)
     {
         // Crea el botón
         $radioButton = new self(
@@ -90,9 +88,7 @@ class RadioButton extends Elemento
             $values,
             $default,
             $posicionTexto->value,
-            $clase,
-            $fila,
-            $columna
+            $clase
         );
 
         return $radioButton;

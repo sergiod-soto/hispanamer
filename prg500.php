@@ -81,15 +81,18 @@ if ($method === "GET") {
 
 
 
+
+
+
+
+    /* #region base */
+
     $base = Seccion::crear(
         "",
         "",
         false
     );
 
-
-
-    /* #region base */
     $base->add(
         [
 

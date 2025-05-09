@@ -5,7 +5,7 @@
 */
 class Texto extends Elemento implements IRenderizable
 {
-    public function __construct($id, string $clase, string $text, $fila, $columna)
+    public function __construct($id, string $clase, string $text)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -15,9 +15,7 @@ class Texto extends Elemento implements IRenderizable
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            $html
         );
     }
 
@@ -27,9 +25,7 @@ class Texto extends Elemento implements IRenderizable
         $texto = new self(
             $id,
             $clase,
-            $text,
-            $fila,
-            $columna
+            $text
         );
 
         return $texto;

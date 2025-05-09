@@ -9,7 +9,7 @@ class TextBox extends Elemento
 
     public $texto;
 
-    public function __construct($id, string $clase, $text, $placeHolder, $fila, $columna)
+    public function __construct($id, string $clase, $text, $placeHolder)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -25,25 +25,21 @@ class TextBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            $html
         );
     }
 
     /*
         patron de diseño para crear un TextBox
     */
-    public static function crear($id, string $clase, $text, string $placeHolder, int $fila, int $columna)
+    public static function crear($id, string $clase, $text, string $placeHolder)
     {
         // Crea el botón
         $textBox = new self(
             $id,
             $clase,
             $text,
-            $placeHolder,
-            $fila,
-            $columna
+            $placeHolder
         );
 
         return $textBox;

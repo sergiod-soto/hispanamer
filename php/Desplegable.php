@@ -31,7 +31,7 @@ class Desplegable extends Elemento
             </div>
             ";
 
-        parent::__construct("", $clase, $html, Desplegable::$contador, 9999);
+        parent::__construct("", $clase, $html);
     }
     public static function crear(string $clase, $etiquetas, $funciones)
     {

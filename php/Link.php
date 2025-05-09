@@ -15,7 +15,7 @@ enum Target: string
 
 class Link extends Elemento
 {
-    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $texto, int $fila, int $columna)
+    public function __construct($id, string $clase, $url, Target $target, $elementoInterno, $texto)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -45,13 +45,11 @@ class Link extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            $html
         );
 
     }
-    public static function crear($id, string $clase, $url, $target, $elementoInterno, $texto, $fila, $columna)
+    public static function crear($id, string $clase, $url, $target, $elementoInterno, $texto)
     {
         // Crea el Link
         $link = new self(
@@ -60,9 +58,7 @@ class Link extends Elemento
             $url,
             $target,
             $elementoInterno,
-            $texto,
-            $fila,
-            $columna
+            $texto
         );
 
         return $link;

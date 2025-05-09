@@ -12,7 +12,7 @@ class PasswordBox extends Elemento
 
     private $iconoOjo = "../multimedia/iconos/ojo.png";
 
-    public function __construct($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPW, int $fila, int $columna)
+    public function __construct($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPW)
     {
         if ($id == null || $id == "") {
             $id = Elemento::getNewId();
@@ -34,9 +34,7 @@ class PasswordBox extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $html,
-            $fila,
-            $columna
+            $html
         );
     }
 
@@ -44,7 +42,7 @@ class PasswordBox extends Elemento
         patron de diseño para crear un TextBox con modo creado, el cual con el propio TextBox
         y evitar dependencia circular
     */
-    public static function crear($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPw, $fila, $columna)
+    public static function crear($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPw)
     {
         // Crea el botón
         $boton = new self(
@@ -53,9 +51,7 @@ class PasswordBox extends Elemento
             $placeholder,
             $minLength,
             $maxLength,
-            $tipoPw,
-            $fila,
-            $columna
+            $tipoPw
         );
 
         return $boton;

@@ -36,9 +36,7 @@ class PopUp extends Elemento
         parent::__construct(
             $id,
             $clase,
-            $html,
-            0,
-            0
+            $html
         );
     }
 
