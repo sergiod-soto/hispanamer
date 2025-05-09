@@ -4,7 +4,7 @@
  * variables
  * 
  */
-tiempoEspera = 300 // ms
+tiempoEspera = 300 // ms durante los cuales no se puede quitar
 /**
  * 
  * 
