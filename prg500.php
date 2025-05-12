@@ -96,7 +96,7 @@ if ($method === "GET") {
     $base->add(
         [
             Cabecera::createCabecera("nombre", "version", "", []),
-            Imagen::crear("","", iconoFlechaAtras),
+            Imagen::crear("papapapasasas","", iconoFlechaAtras),
             PiePagina::createPiePagina(),
         ]
     );
