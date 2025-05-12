@@ -89,17 +89,63 @@ if ($method === "GET") {
 
     $base = Seccion::crear(
         "base",
-        "",
-        false
+        "noflex",
+        true
     );
 
     $base->add(
         [
-            Cabecera::createCabecera("nombre", "version", "", []),
-            Imagen::crear("papapapasasas","", iconoFlechaAtras),
+            Cabecera::createCabecera("Facturas de contado", "{\$nombre}", "0.0.1.20250512", "2025", []),
+            $seccionIzq = Seccion::crear("", "", true),
+            $seccionDer = Seccion::crear("", "", true),
             PiePagina::createPiePagina(),
         ]
     );
+
+
+    /* #region seccionIzq */
+    $seccionIzq->add([
+        $seccionIzq1 = Seccion::crear("", "", false),
+        $seccionIzq2 = Seccion::crear("", "", true),
+        $seccionIzq3 = Seccion::crear("", "", true)
+    ]);
+
+    /* #region seccionIzq1 */
+    $seccionIzq1->add([
+        $seccionIzq11 = Seccion::crear("", "", true),
+        $seccionIzq12 = Seccion::crear("", "", true),
+        $seccionIzq13 = Seccion::crear("", "", true),
+    ]);
+
+    $seccionIzq11->add([
+        Texto::crear("", "", ""),
+        TextBox::crear("", "", "", ""),
+        DateBox::crear("", "", "Desde"),
+        DateBox::crear("", "", "Hasta")
+    ]);
+    /* #endregion */
+
+    /* #region seccionIzq2 */
+    $seccionIzq2->add([
+
+    ]);
+    /* #endregion */
+
+    /* #region seccionIzq3 */
+    $seccionIzq3->add([
+
+    ]);
+    /* #endregion */
+
+    /* #endregion */
+
+
+
+
+    /* #region seccionDer */
+    $seccionDer->add([]);
+    /* #endregion */
+
     /* #endregion */
 
 

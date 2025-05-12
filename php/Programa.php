@@ -81,6 +81,7 @@ class Programa implements IRenderizable
             "css/NoteBox.css",
             "css/PasswordBox.css",
             "css/Popup.css",
+            "css/Seccion.css",
             "css/Tabla.css",
             //
             "css/prefabricados/Cabecera.css",

@@ -1,6 +1,8 @@
-#cuerpo_id {
-    display: flex;
+#base {
+    display: block;
 }
+
+
 
 #seccionIzq {
     width: 50%;
