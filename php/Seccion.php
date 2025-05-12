@@ -63,7 +63,7 @@ class Seccion extends Elemento
     function renderizar()
     {
         $direccion = $this->horizontal === true ? 'row' : 'column';
-        $html = "<div id=\"$this->id\" class=\"flex $this->clase\" style=\"flex-direction: $direccion\">";
+        $html = "<div id=\"$this->id\" class=\"$this->clase\" style=\"display: flex; flex-direction: $direccion\">";
 
         foreach ($this->elementos as $elemento) {
             $html .= "<div id=\"div_$elemento->id\">" . $elemento->renderizar() . "</div>";

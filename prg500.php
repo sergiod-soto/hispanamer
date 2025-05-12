@@ -89,8 +89,8 @@ if ($method === "GET") {
 
     $base = Seccion::crear(
         "base",
-        "noflex",
-        true
+        "",
+        false
     );
 
     $base->add(
@@ -118,7 +118,7 @@ if ($method === "GET") {
     ]);
 
     $seccionIzq11->add([
-        Texto::crear("", "", ""),
+        Texto::crear("", "", "Cliente:"),
         TextBox::crear("", "", "", ""),
         DateBox::crear("", "", "Desde"),
         DateBox::crear("", "", "Hasta")
