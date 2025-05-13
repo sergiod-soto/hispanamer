@@ -63,8 +63,8 @@ if ($method === "GET") {
         sonidos: [],
 
         css: [
-            //"css/prg500/prg500.css",
-            //"css/prg500/TablaIzq.css"
+            "css/prg500/prg500.css",
+            "css/prg500/TablaIzq.css"
         ],
     );
 
@@ -103,7 +103,7 @@ if ($method === "GET") {
 
     $cuerpo->add([
         $seccionIzq = Seccion::crear("seccionIzq", "", false),
-        $seccionDer = Seccion::crear("", "", false),
+        $seccionDer = Seccion::crear("seccionDer", "", false),
     ]);
 
     /* #region seccionIzq */
@@ -190,15 +190,15 @@ if ($method === "GET") {
     /* #region seccionDer1 */
     $seccionDer1->add([
         $seccionDer11 = Seccion::crear("", "", false),
-        $seccionDer12 = Seccion::crear("", "", false)
+        $seccionDer12 = Seccion::crear("seccionDer12", "", false)
     ]);
 
     /* #region seccionDer11 */
     $seccionDer11->add([
         $seccionDer11a = Seccion::crear("", "", false),
         $seccionDer11b = Seccion::crear("", "", true),
-        $seccionDer11c = Seccion::crear("", "", true),
-        $seccionDer11d = Seccion::crear("", "", true)
+        $seccionDer11c = Seccion::crear("", "", false),
+        $seccionDer11d = Seccion::crear("", "", false)
     ]);
 
     $seccionDer11a->add([
@@ -222,30 +222,138 @@ if ($method === "GET") {
         SelectBox::crear("", "", "", ["1"], ["No registrado"], 0)
     ]);
 
+
+    $seccionDer11b->add([
+        $seccionDer11b1 = Seccion::crear("", "", true)
+    ]);
+
+    $seccionDer11b1->add([
+        Texto::crear("", "", "Nº Factura:"),
+        Texto::crear("", "", "NaN"),
+        DateBox::crear("", "", "Fecha")
+    ]);
+
+    $seccionDer11c->add([
+        $seccionDer11c1 = Seccion::crear("", "", true),
+        $seccionDer11c2 = Seccion::crear("", "", true),
+        $seccionDer11c3 = Seccion::crear("", "", true),
+        $seccionDer11c4 = Seccion::crear("", "", true)
+    ]);
+
+    $seccionDer11c1->add([
+        Texto::crear("", "", "Cliente:"),
+        Texto::crear("", "", "")
+    ]);
+
+    $seccionDer11c2->add([
+        Texto::crear("", "", "Nº pedido de cliente:"),
+        Texto::crear("", "", "")
+    ]);
+
+    $seccionDer11c3->add([
+        Texto::crear("", "", "Depósito de salida:"),
+        SelectBox::crear("", "", "", [
+            "1"
+        ], [
+            "muchas opciones"
+        ], 0)
+    ]);
+
+    $seccionDer11c4->add([
+        Texto::crear("", "", "Notificación e-mail:"),
+        RadioButton::crear(
+            "",
+            "",
+            ["Pendiente", "Notificado", "NO Modificar"],
+            ["0", "1", "2"],
+            "notificacion_www",
+            0,
+            PosicionTexto::IZQUIERDA
+        )
+    ]);
+
     /* #endregion */
 
     /* #region seccionDer12 */
-    $seccionDer12->add([]);
+    $seccionDer12->add([
+        $seccionDer12a = Seccion::crear("", "", true),
+        $seccionDer12b = Seccion::crear("", "", true),
+        $seccionDer12c = Seccion::crear("", "", false),
+        $seccionDer12d = Seccion::crear("", "", true),
+    ]);
+
+    $seccionDer12a->add([
+        Texto::crear("", "", "Dirección postal:"),
+        TextBox::crear("", "", "", "Otra dirección postal")
+    ]);
+
+    $seccionDer12b->add([
+        Texto::crear("", "", "¿vacio?"),
+    ]);
+
+    $seccionDer12c->add([
+        $seccionDer12c1 = Seccion::crear("", "", true),
+        $seccionDer12c2 = Seccion::crear("", "", true)
+    ]);
+    $seccionDer12c1->add([
+        Texto::crear("", "", "Crédito:"),
+        Texto::crear("", "", "0"),
+        Texto::crear("", "", "Riesgo:"),
+        Texto::crear("", "", "0"),
+        Texto::crear("", "", "Dtos li, ge, ppp:"),
+        Texto::crear("", "", "0"),
+        Texto::crear("", "", "0"),
+        Texto::crear("", "", "0"),
+    ]);
+    $seccionDer12c2->add([
+        Texto::crear("", "", "Tarifa:"),
+        Texto::crear("", "", "0"),
+        Texto::crear("", "", "Pago:"),
+        Texto::crear("", "", "0"),
+    ]);
+
+    $seccionDer12d->add([
+        $seccionDer12d1 = Seccion::crear("", "", false),
+        $seccionDer12d2 = Seccion::crear("", "", false)
+    ]);
+    $seccionDer12d1->add([
+        Texto::crear("", "", "Notas comerciales, precios:"),
+        Texto::crear("", "", "¿vacio?")
+    ]);
+
+    $seccionDer12d2->add([
+        Texto::crear("", "", "Condiciones especiales:"),
+        Texto::crear("", "", "¿vacio?")
+    ]);
+
 
     /* #endregion */
 
-
     /* #endregion */
-
 
     /* #region seccionDer2 */
-    $seccionDer2->add([]);
+    $seccionDer2->add([
+        $seccionDer2a = Seccion::crear("", "", true),
+        $seccionDer2b = Seccion::crear("", "", true)
+    ]);
 
+    $seccionDer2a->add([
+        Button::crear("", "", iconoNuevo, "Nueva línea", ""),
+        Button::crear("", "", iconoEliminar, "Baja línea", ""),
+        Button::crear("", "", iconoInterrogacion, "Opciones de fabricación, fechas", ""),
+    ]);
     /* #endregion */
 
     /* #region seccionDer3 */
-    $seccionDer3->add([]);
+    $seccionDer3->add([
 
+    ]);
     /* #endregion */
 
     /* #region seccionDer4 */
-    $seccionDer4->add([]);
+    $seccionDer4->add([
 
+    ]);
     /* #endregion */
 
     /* #endregion */

@@ -74,11 +74,18 @@ class RadioButton extends Elemento
         );
     }
 
-    /*
-        patron de diseño para crear un radioButton con modo creado, el cual con el propio radioButton
-        y evitar dependencia circular
-    */
-    public static function crear($id, $labels, $name, $values, $default, $posicionTexto, string $clase)
+    /**
+     * Summary of crear
+     * @param string $id id del elemento
+     * @param string $clase clase del elemento
+     * @param array $labels array con las etiquetas que se mostraran
+     * @param array $values array con los valores que apareceran cuando se ejecute 'elemento.value'
+     * @param string $name nombre del form
+     * @param int $default opcion marcada por defecto
+     * @param PosicionTexto $posicionTexto izquierda/derecha
+     * @return RadioButton
+     */
+    public static function crear(string $id, string $clase, array $labels, array $values, string $name, int $default, PosicionTexto $posicionTexto)
     {
         // Crea el botón
         $radioButton = new self(

@@ -32,6 +32,7 @@ define("iconoFlechaAdelante", "<img src= \"/multimedia/iconos/adelante.png\" alt
 define("iconoFlechaAtras", "<img src= \"/multimedia/iconos/atras.png\" alt=\"Atras\" width=\"32\" height=\"32\">");
 define("iconoGuardar", "<img src= \"/multimedia/iconos/guardar.png\" alt=\"Guardar\" width=\"32\" height=\"32\">");
 define("iconoImpresora", "<img src= \"/multimedia/iconos/impresora.png\" alt=\"Imprimir\" width=\"32\" height=\"32\">");
+define("iconoInterrogacion", "<img src= \"/multimedia/iconos/interrogacion.png\" alt=\"Interrogacion\" width=\"32\" height=\"32\">");
 define("iconoLupa", "<img src= \"/multimedia/iconos/lupa.png\" alt=\"Lupa\" width=\"32\" height=\"32\">");
 define("iconoNuevo", "<img src= \"/multimedia/iconos/nuevo.png\" alt=\"Nuevo\" width=\"32\" height=\"32\">");
 define("iconoQR", "<img src= \"/multimedia/iconos/qr.png\" alt=\"QR\" width=\"32\" height=\"32\">");
