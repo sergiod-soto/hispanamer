@@ -46,6 +46,10 @@ class PopUp extends Elemento
    */
     public static function crear($id, string $clase, $text, $estado)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+        
         // Crea el popup
         $popup = new self(
             $id,

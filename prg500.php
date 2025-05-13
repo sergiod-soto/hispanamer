@@ -1,6 +1,6 @@
 <?php
 
-
+use Dom\Text;
 
 include_once "php/Includes.php";
 
@@ -96,12 +96,15 @@ if ($method === "GET") {
     $base->add(
         [
             Cabecera::createCabecera("Facturas de contado", "{\$nombre}", "0.0.1.20250512", "2025", []),
-            $seccionIzq = Seccion::crear("", "", true),
-            $seccionDer = Seccion::crear("", "", true),
+            $cuerpo = Seccion::crear("", "", true),
             PiePagina::createPiePagina(),
         ]
     );
 
+    $cuerpo->add([
+        $seccionIzq = Seccion::crear("seccionIzq", "", false),
+        $seccionDer = Seccion::crear("", "", false),
+    ]);
 
     /* #region seccionIzq */
     $seccionIzq->add([
@@ -123,17 +126,51 @@ if ($method === "GET") {
         DateBox::crear("", "", "Desde"),
         DateBox::crear("", "", "Hasta")
     ]);
+
+    $seccionIzq12->add([
+        Texto::crear("", "", "Nº Factura:"),
+        TextBox::crear("", "", "", "")
+    ]);
+
+    $seccionIzq13->add([
+        Texto::crear("", "", "Tipo de actualización"),
+        SelectBox::crear("", "", "tipoActualizacion", [
+            "0",
+            "1",
+            "2",
+            "3"
+        ], [
+            "Facturas del día",
+            "Tintométrico pendientes",
+            "Tintométrico JATMIX  pendientes",
+            "Tintométrico AQUAMIX pendientes"
+        ], 0)
+    ]);
     /* #endregion */
 
-    /* #region seccionIzq2 */
+    /* #region seccionIzq2 (tabla) */
     $seccionIzq2->add([
-
+        $tablaIzq = Tabla::crear("", "", [
+            "Factura",
+            "Fecha",
+            "Cliente",
+            "Nombre",
+            "Kilos",
+            "Base",
+            "Asiento"
+        ], [
+            ["0", "1", "2", "3", "4", "5", "6"]
+        ])
     ]);
+
     /* #endregion */
 
     /* #region seccionIzq3 */
     $seccionIzq3->add([
-
+        Texto::crear("", "", "Kilos:"),
+        Texto::crear("", "", ""),
+        Texto::crear("", "", "Valor:"),
+        Texto::crear("", "", "")
     ]);
     /* #endregion */
 
@@ -143,7 +180,74 @@ if ($method === "GET") {
 
 
     /* #region seccionDer */
-    $seccionDer->add([]);
+    $seccionDer->add([
+        $seccionDer1 = Seccion::crear("", "", true),
+        $seccionDer2 = Seccion::crear("", "", true),
+        $seccionDer3 = Seccion::crear("", "", true),
+        $seccionDer4 = Seccion::crear("", "", true)
+    ]);
+
+    /* #region seccionDer1 */
+    $seccionDer1->add([
+        $seccionDer11 = Seccion::crear("", "", false),
+        $seccionDer12 = Seccion::crear("", "", false)
+    ]);
+
+    /* #region seccionDer11 */
+    $seccionDer11->add([
+        $seccionDer11a = Seccion::crear("", "", false),
+        $seccionDer11b = Seccion::crear("", "", true),
+        $seccionDer11c = Seccion::crear("", "", true),
+        $seccionDer11d = Seccion::crear("", "", true)
+    ]);
+
+    $seccionDer11a->add([
+        $seccionDer11a1 = Seccion::crear("", "", true),
+        $seccionDer11a2 = Seccion::crear("", "", true),
+        $seccionDer11a3 = Seccion::crear("", "", true)
+    ]);
+
+    $seccionDer11a1->add([
+        Texto::crear("", "", "Alta:"),
+        Texto::crear("", "", "")
+    ]);
+
+    $seccionDer11a2->add([
+        Texto::crear("", "", "Última actualización:"),
+        Texto::crear("", "", "")
+    ]);
+
+    $seccionDer11a3->add([
+        Texto::crear("", "", "Agente de venta:"),
+        SelectBox::crear("", "", "", ["1"], ["No registrado"], 0)
+    ]);
+
+    /* #endregion */
+
+    /* #region seccionDer12 */
+    $seccionDer12->add([]);
+
+    /* #endregion */
+
+
+    /* #endregion */
+
+
+    /* #region seccionDer2 */
+    $seccionDer2->add([]);
+
+    /* #endregion */
+
+    /* #region seccionDer3 */
+    $seccionDer3->add([]);
+
+    /* #endregion */
+
+    /* #region seccionDer4 */
+    $seccionDer4->add([]);
+
+    /* #endregion */
+
     /* #endregion */
 
     /* #endregion */

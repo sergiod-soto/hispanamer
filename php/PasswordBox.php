@@ -44,6 +44,10 @@ class PasswordBox extends Elemento
     */
     public static function crear($id, string $clase, $placeholder, $minLength, $maxLength, $tipoPw)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+        
         // Crea el botón
         $boton = new self(
             $id,

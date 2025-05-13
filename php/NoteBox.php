@@ -33,6 +33,10 @@ class NoteBox extends Elemento
        */
     public static function crear($id, string $clase, $text, $placeholder, $titulo)
     {
+        if ($id == null || $id == "") {
+            $id = Elemento::getNewId();
+        }
+        
         // Crea el noteBox
         $noteBox = new self(
             $id,
