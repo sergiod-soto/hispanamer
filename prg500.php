@@ -387,7 +387,8 @@ if ($method === "GET") {
         TextBox::crear("", "", "", "KLU"),
         TextBox::crear("", "", "", "PVP"),
         TextBox::crear("", "", "", "Dto li"),
-        TextBox::crear("", "", "", "Descripción")
+        TextBox::crear("", "", "", "Descripción"),
+        Button::crear("", "", iconoGuardar, "Guardar", "")
     ]);
     /* #endregion */
 
