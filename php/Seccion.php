@@ -33,7 +33,7 @@ class Seccion extends Elemento
     /*  
         patron de diseño para crear una seccion
     */
-    public static function crear($id, string $clase, $horizontal)
+    public static function crear($id, string $clase, bool $horizontal)
     {
         // Crea la seccion
         $seccion = new self(

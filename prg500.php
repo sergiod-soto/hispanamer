@@ -55,16 +55,16 @@ if ($method === "GET") {
         ],
 
         scriptsBody: [
-            //"js/prg500/prg500.js",
+            "js/prg500/prg500.js",
             //"js/prg500/TablaIzq.js",
-            //"js/prg500/TablaDer.js"
+            "js/prg500/TablaDer.js"
         ],
 
         sonidos: [],
 
         css: [
             "css/prg500/prg500.css",
-            "css/prg500/TablaIzq.css"
+            //"css/prg500/TablaIzq.css"
         ],
     );
 
@@ -142,8 +142,8 @@ if ($method === "GET") {
     $seccionIzq11->add([
         Texto::crear("", "", "Cliente:"),
         TextBox::crear("", "", "", ""),
-        DateBox::crear("", "", "Desde"),
-        DateBox::crear("", "", "Hasta")
+        DateBox::crear("db1", "", "Desde"),
+        DateBox::crear("db2", "", "Hasta")
     ]);
 
     $seccionIzq12->add([
@@ -202,7 +202,7 @@ if ($method === "GET") {
     $seccionDer->add([
         $seccionDer1 = Seccion::crear("", "", true),
         $seccionDer2 = Seccion::crear("", "", false),
-        $seccionDer3 = Seccion::crear("", "", true)
+        $seccionDer3 = Seccion::crear("", "", false)
     ]);
 
     /* #region seccionDer1 */
@@ -363,7 +363,7 @@ if ($method === "GET") {
     ]);
 
     $seccionDer2b->add([
-        Tabla::crear("", "", [
+        Tabla::crear("tablaDer", "", [
             "Albarán",
             "Código",
             "Descripción",
@@ -398,12 +398,51 @@ if ($method === "GET") {
     ]);
 
     $seccionDer3a->add([
+        $seccionDer3a1 = Seccion::crear("", "", true),
+        $seccionDer3a2 = Seccion::crear("", "", false)
+    ]);
+
+    $seccionDer3a1->add([
         Texto::crear("", "", "VACIO")
     ]);
 
+    $seccionDer3a2->add([
+        Texto::crear("", "", "Notas de la Factura:"),
+        Texto::crear("", "", "VACIO"),
+    ]);
+
     $seccionDer3b->add([
-        $seccionDer3b1 = Seccion::crear("", "", true),
+        $seccionDer3b1 = Seccion::crear("", "", false),
         $seccionDer3b2 = Seccion::crear("", "", true)
+    ]);
+
+    $seccionDer3b1->add([
+        $seccionDer3b1a = Seccion::crear("", "", true),
+        $seccionDer3b1b = Seccion::crear("", "", true)
+    ]);
+
+    $seccionDer3b1a->add([
+        Texto::crear("", "", "Kilos KLU"),
+        Texto::crear("", "", "Kilos Reales"),
+        Texto::crear("", "", "Valor Bruto"),
+        Texto::crear("", "", "Dto General (%)"),
+        Texto::crear("", "", "Dto ppp (%)"),
+        Texto::crear("", "", "Base"),
+        Texto::crear("", "", "IVA: 0.00"),
+        Texto::crear("", "", "RE: 0.00"),
+        Texto::crear("", "", "Total Valor €")
+    ]);
+
+    $seccionDer3b1b->add([
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00"),
+        Texto::crear("", "", "0.00")
     ]);
 
     /* #endregion */
