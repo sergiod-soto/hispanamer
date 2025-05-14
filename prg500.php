@@ -95,6 +95,25 @@ if ($method === "GET") {
 
     $base->add(
         [
+            Desplegable::crear("", [
+                "Ficha cliente",
+                "Consulta existencias",
+                "Movimientos artículo",
+                "Pedidos pendientes de servir",
+                "Últimos envíos",
+                "Precios clientes",
+                "Fabricación",
+                "Costes"
+            ], [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]),
             Cabecera::createCabecera("Facturas de contado", "{\$nombre}", "0.0.1.20250512", "2025", []),
             $cuerpo = Seccion::crear("", "", true),
             PiePagina::createPiePagina(),
@@ -182,9 +201,8 @@ if ($method === "GET") {
     /* #region seccionDer */
     $seccionDer->add([
         $seccionDer1 = Seccion::crear("", "", true),
-        $seccionDer2 = Seccion::crear("", "", true),
-        $seccionDer3 = Seccion::crear("", "", true),
-        $seccionDer4 = Seccion::crear("", "", true)
+        $seccionDer2 = Seccion::crear("", "", false),
+        $seccionDer3 = Seccion::crear("", "", true)
     ]);
 
     /* #region seccionDer1 */
@@ -334,7 +352,8 @@ if ($method === "GET") {
     /* #region seccionDer2 */
     $seccionDer2->add([
         $seccionDer2a = Seccion::crear("", "", true),
-        $seccionDer2b = Seccion::crear("", "", true)
+        $seccionDer2b = Seccion::crear("", "", true),
+        $seccionDer2c = Seccion::crear("", "", true),
     ]);
 
     $seccionDer2a->add([
@@ -342,18 +361,51 @@ if ($method === "GET") {
         Button::crear("", "", iconoEliminar, "Baja línea", ""),
         Button::crear("", "", iconoInterrogacion, "Opciones de fabricación, fechas", ""),
     ]);
+
+    $seccionDer2b->add([
+        Tabla::crear("", "", [
+            "Albarán",
+            "Código",
+            "Descripción",
+            "Cantidad",
+            "Total KLU",
+            "PVP",
+            "Dto li",
+            "€ bruto",
+            "Lote"
+        ], [
+            ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        ])
+    ]);
+
+    $seccionDer2c->add([
+        TextBox::crear("", "", "", "LI"),
+        TextBox::crear("", "", "", "Referencia"),
+        TextBox::crear("", "", "", "Cantidad"),
+        TextBox::crear("", "", "", "Capacidad"),
+        TextBox::crear("", "", "", "KLU"),
+        TextBox::crear("", "", "", "PVP"),
+        TextBox::crear("", "", "", "Dto li"),
+        TextBox::crear("", "", "", "Descripción")
+    ]);
     /* #endregion */
 
     /* #region seccionDer3 */
     $seccionDer3->add([
-
+        $seccionDer3a = Seccion::crear("", "", true),
+        $seccionDer3b = Seccion::crear("", "", true)
     ]);
-    /* #endregion */
 
-    /* #region seccionDer4 */
-    $seccionDer4->add([
-
+    $seccionDer3a->add([
+        Texto::crear("", "", "VACIO")
     ]);
+
+    $seccionDer3b->add([
+        $seccionDer3b1 = Seccion::crear("", "", true),
+        $seccionDer3b2 = Seccion::crear("", "", true)
+    ]);
+
     /* #endregion */
 
     /* #endregion */
