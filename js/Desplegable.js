@@ -11,6 +11,11 @@ function mostrarMenu(menuID, event) {
     });
 }
 
+function cerrarMenu(menuID) {
+    let menu = document.getElementById(menuID);
+    menu.style.display = "none";
+}
+
 
 
 

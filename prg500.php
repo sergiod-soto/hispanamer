@@ -1,9 +1,5 @@
 <?php
-
-use Dom\Text;
-
 include_once "php/Includes.php";
-
 
 
 $method = $_SERVER["REQUEST_METHOD"];
@@ -57,7 +53,8 @@ if ($method === "GET") {
         scriptsBody: [
             "js/prg500/prg500.js",
             //"js/prg500/TablaIzq.js",
-            "js/prg500/TablaDer.js"
+            "js/prg500/TablaDer.js",
+            "js/prg500/Desplegable.js"
         ],
 
         sonidos: [],
@@ -105,6 +102,7 @@ if ($method === "GET") {
                 "Fabricación",
                 "Costes"
             ], [
+                "functionFichaCliente()",
                 "",
                 "",
                 "",
@@ -112,7 +110,6 @@ if ($method === "GET") {
                 "",
                 "",
                 "",
-                ""
             ]),
             Cabecera::createCabecera("Facturas de contado", "{\$nombre}", "0.0.1.20250512", "2025", []),
             $cuerpo = Seccion::crear("", "", true),
@@ -169,7 +166,7 @@ if ($method === "GET") {
 
     /* #region seccionIzq2 (tabla) */
     $seccionIzq2->add([
-        $tablaIzq = Tabla::crear("", "", [
+        $tablaIzq = Tabla::crear("tablaIzq", "", [
             "Factura",
             "Fecha",
             "Cliente",

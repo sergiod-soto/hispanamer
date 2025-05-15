@@ -13,11 +13,12 @@ class Desplegable extends Elemento
         if (count($etiquetas) != count($funciones)) {
             throw new Exception(
                 "Longitud etiquetas (" . count($etiquetas) .
-                    ") != longitud funciones(" . count($funciones) . ")"
+                ") != longitud funciones(" . count($funciones) . ")"
             );
         }
         $htmlLi = "";
         for ($i = 0; $i < count($etiquetas); $i++) {
+            echo ($funciones[$i]);
             $htmlLi .= "<li onclick=\"$funciones[$i]\">$etiquetas[$i]</li>";
         }
 
