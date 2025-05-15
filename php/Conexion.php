@@ -50,8 +50,6 @@ class Conexion
                 ";
             exit();
         }
-
-
     }
 
     public function consulta($consulta)
@@ -64,10 +62,10 @@ class Conexion
 
 
             while ($row = $result->fetch_assoc()) {
-                $r[] = array_values($row);  // Guarda toda la fila en el array
+                $matriz[] = array_values($row);  // Guarda toda la fila en el array
             }
             $this->conn->close();
-            return $r;
+            return $matriz;
         } catch (Exception $e) {
             echo "               
                     <!DOCTYPE html>
@@ -78,7 +76,7 @@ class Conexion
                         </head>
 
                         <body>
-                            <h1>Error fatal haciendo consulta a la base de datos</h1>
+                            <h1>Error fatal consultando la base de datos</h1>
                             <p>$e</p>
                         </body>
                     </html>
